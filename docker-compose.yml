@@ -39,6 +39,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      - default
 
   pygeoapi:
     image: geopython/pygeoapi:latest
@@ -46,27 +48,34 @@ services:
     expose:
       - "80"
     environment:
-      PYGEOAPI_CONFIG: ${PYGEOAPI_CONFIG}
-      PYGEOAPI_OPENAPI: ${PYGEOAPI_OPENAPI}
+      PYGEOAPI_CONFIG: docker-config.yml
+      PYGEOAPI_OPENAPI: example-openapi.yml
     env_file:
       - .env     # path to your .env file
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
     restart: on-failure
+    networks:
+      - default
 
-  # postgis:
-  #   build: ./postgis/
-  #   environment:
-  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  #     POSTGRES_DB: ${POSTGRES_DB}
-  #   env_file:
-  #     - .env     # path to your .env file
-  #   expose:
-  #      - 5432
-  #   ports:
-  #     - "5432:5432"
-  #   container_name: postgis
+  postgis:
+    build: ./postgis/
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    env_file:
+      - .env     # path to your .env file
+    expose:
+       - 5432
+    ports:
+      - "5432:5432"
+    container_name: postgis
+    volumes:
+       - ./postgis/data:/var/lib/postgresql/data
+    networks:
+      - default
+      - bridge1
 
-
-# volumes:
-
+networks:
+  default:
+  bridge1:

@@ -41,6 +41,8 @@ Connect to DB:
 psql -h localhost -U [USERNAME] -W
 ```
 
+Donwload Shapefile from [here](https://www.dgterritorio.gov.pt/download/agt/).
+
 Insert data:
 
 ```

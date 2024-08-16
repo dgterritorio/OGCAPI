@@ -165,6 +165,31 @@ resources:
               table: crus_31_julho2024
               search_path: [geostore, public]
               geom_field: geom
+            - type: tile
+              name: MVT-proxy
+              data: http://pg_tileserv:7800/public.crus_31_julho2024/{z}/{x}/{y}.pbf
+            #   options:
+            #     zoom:
+            #         min: 0
+            #         max: 15
+              schemes:
+                - WebMercatorQuad
+              format:
+                    name: pbf
+                    mimetype: application/vnd.mapbox-vector-tile
+            # - type: tile
+            #   name: MVT-proxy
+            #   data: http://localhost:3000/ne_50m_admin_0_countries/{z}/{x}/{y}
+            #     options:
+            #       zoom:
+            #         min: 0
+            #         max: 15
+            #     schemes:
+            #       - WebMercatorQuad
+            #   format:
+            #    name: pbf
+            #    mimetype: application/vnd.mapbox-vector-tile
+
 
     lakes:
         type: collection

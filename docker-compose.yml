@@ -55,6 +55,8 @@ services:
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
     restart: on-failure
+    links:
+      - pg_tileserv
     networks:
       - default
 
@@ -73,7 +75,6 @@ services:
       - 7800:7800
     networks:
       - default
-      - bridge1
 
   postgis:
     build: ./postgis/

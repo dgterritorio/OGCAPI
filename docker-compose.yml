@@ -58,6 +58,28 @@ services:
     networks:
       - default
 
+  pg_tileserv:
+    image: pramsey/pg_tileserv:latest-alpine-3.12
+    build:
+      context: ./pg_tileserv
+      dockerfile: Dockerfile.alpine
+      args:
+        VERSION: latest-alpine-3.12
+
+    container_name: pg_tileserv
+
+    env_file:
+      - .env
+
+    depends_on:
+      - postgis
+
+    ports:
+      - 7800:7800
+    networks:
+      - default
+      - bridge1
+
   postgis:
     build: ./postgis/
     environment:

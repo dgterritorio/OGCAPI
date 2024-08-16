@@ -25,12 +25,13 @@ docker compose up -d
 
 This compositions read secrets from an environment file on this folder: ```.env```.
 
-Create this file with the following format, replacing "SOMEPASSWORD" by reasonable values.
+Create this file with the following format, replacing "SOMEPASSWORD" by a reasonable value.
 
 ```
 POSTGRES_PASSWORD="SOMEPASSWORD"
-POSTGRES_DB="SOMEPASSWORD"
-POSTGRES_USER="SOMEPASSWORD"
+POSTGRES_DB="geodb"
+POSTGRES_USER="postgres"
+DATABASE_URL=postgresql://postgres:SOMEPASSWORD@postgis/geodb
 ```
 
 ## Setup DB

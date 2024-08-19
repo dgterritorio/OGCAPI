@@ -56,23 +56,19 @@ services:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
     restart: on-failure
     links:
-      - pg_tileserv
+      - tiles
     networks:
       - default
 
-  pg_tileserv:
-    image: pramsey/pg_tileserv:latest
+  tiles:
+    image: ghcr.io/maplibre/martin
     restart: on-failure
-    container_name: pg_tileserv
-
+    ports:
+      - "3000:3000"
     env_file:
       - .env
-
     depends_on:
       - postgis
-
-    ports:
-      - 7800:7800
     networks:
       - default
 

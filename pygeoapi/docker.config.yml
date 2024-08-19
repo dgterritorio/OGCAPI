@@ -160,7 +160,6 @@ resources:
                     host: postgis
                     dbname: geodb
                     user: ${POSTGRES_USER}
-                    password: ${POSTGRES_PASSWORD}
               id_field: objectid
               table: crus_31_julho2024
               search_path: [geostore, public]

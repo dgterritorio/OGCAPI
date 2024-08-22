@@ -166,7 +166,7 @@ resources:
               geom_field: geom
             - type: tile
               name: MVT-proxy
-              data: http://pg_tileserv:7800/public.crus_31_julho2024/{z}/{x}/{y}.pbf
+              data: http://tiles:3000/crus_31_julho2024/{z}/{x}/{y}?f=mvt
               options:
                 zoom:
                     min: 0

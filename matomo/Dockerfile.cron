@@ -1,0 +1,14 @@
+FROM python:3
+
+RUN apt-get update; \
+    apt-get -y --no-install-recommends install cron \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*;
+
+COPY ./refresh_logs.sh /scripts/refresh_logs.sh
+
+RUN chmod +x /scripts/*.sh
+    
+RUN crontab -l | { cat; echo "* * * * * bash /scripts/refresh_logs.sh"; } | crontab -
+    
+CMD cron && tail -f /dev/null

@@ -36,6 +36,7 @@ services:
       - pygeoapi
     volumes:
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - apache_log:/usr/local/apache2/logs
     ports:
       - "80:80"
       - "443:443"
@@ -90,6 +91,58 @@ services:
     networks:
       - default
       - bridge1
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: mariadb
+    command: --max-allowed-packet=64MB
+    restart: always
+    volumes:
+      - maria:/var/lib/mysql:Z
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MARIADB_AUTO_UPGRADE=1
+      - MARIADB_DISABLE_UPGRADE_BACKUP=1
+    env_file:
+      - .env
+    networks:
+      - default
+
+  matomo:
+    build:
+      context: ./matomo/
+      dockerfile: Dockerfile.main
+    container_name: matomo
+    volumes:
+      - matomo:/var/www/html:z
+      - apache_log:/apache:ro
+    environment:
+      - MATOMO_DATABASE_HOST=mariadb
+    env_file:
+      - .env
+    ports:
+      - 8081:80
+    networks:
+      - default
+
+  python_matomo:
+    build:
+      context: ./matomo/
+      dockerfile: Dockerfile.cron
+    container_name: matomo_python
+    volumes:
+        - matomo:/var/www/html:z
+        - apache_log:/apache:ro
+    depends_on:
+      - matomo
+  
+
+
+
+volumes:
+  maria:
+  matomo:
+  apache_log:
 
 networks:
   default:

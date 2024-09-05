@@ -29,9 +29,9 @@
 
 server:
     bind:
-        host: 0.0.0.0
+        host: 0.0.0.0:80
         port: 80
-    url: http://localhost
+    url: http://localhost:80/
     mimetype: application/json; charset=UTF-8
     encoding: utf-8
     gzip: false
@@ -41,7 +41,7 @@ server:
         - fr-CA
     cors: true
     pretty_print: true
-    limit: 100
+    limit: 1000
     map:
         url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
@@ -143,8 +143,10 @@ resources:
               search_path: [geostore, public]
               geom_field: geom
             - type: tile
-              name: MVT-proxy
-              data: http://tiles:3000/crus_31_julho2024/{z}/{x}/{y}?f=mvt
+              name: MVT-tippecanoe
+              data: /data/tiles/  # local directory tree
+            #   name: MVT-proxy
+            #   data: http://tiles:3000/crus_31_julho2024/{z}/{x}/{y}?f=mvt
               options:
                 zoom:
                     min: 0

@@ -69,6 +69,35 @@ ogr2ogr -a_srs "EPSG:3763" -t_srs "EPSG:4326" -f "PostgreSQL" PG:"dbname='geodb'
 -nlt PROMOTE_TO_MULTI -nln crus_31_julho2024 -overwrite
 ```
 
+<<<<<<< HEAD
+=======
+## Serving tiles from file
+
+Generate MBTiles (but first, uncomment [this line](docker-compose.yml#+77) on docker compose):
+
+```
+docker compose exec tiles \
+martin-cp  --output-file /data/crus_31_julho2024.mbtiles \
+           --mbtiles-type normalized     \
+           "--bbox=-9.52657060387,36.838268541,-6.3890876937,42.280468655"      \
+           --min-zoom 0                  \
+           --max-zoom 10                \
+           --source crus_31_julho2024          \
+           --save-config /data/config.yaml   \
+           postgresql://postgres@postgis:5432/geodb
+```
+
+Remove the containers, uncomment line 77 and start the composition again.
+
+## Serving tiles from static dir
+
+```
+docker run -it --rm -v $(pwd)/data:/data emotionalcities/tippecanoe \
+tippecanoe -r1 -pk -pf --output-to-directory=/data/tiles/ --force --maximum-zoom=14 \
+--extend-zooms-if-still-dropping --no-tile-compression /data/crus_31_julho2024.geojson
+```
+
+>>>>>>> 9775ce8 (- proxied matomo through apache)
 ## Setup Matomo
 
 Go to [http:localhost:8081](http:localhost:8081) and follow the wizard. Confirm everything until you initialized the DB. 

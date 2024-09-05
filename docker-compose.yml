@@ -55,6 +55,7 @@ services:
       - .env     # path to your .env file
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
+      - ./data:/data
     restart: on-failure
     links:
       - tiles

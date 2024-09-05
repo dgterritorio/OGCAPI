@@ -36,6 +36,8 @@ services:
       - pygeoapi
     volumes:
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
+      - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       - apache_log:/usr/local/apache2/logs
     ports:
       - "80:80"

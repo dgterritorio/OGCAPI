@@ -114,6 +114,11 @@ Confirm all the next steps until you arrive to the end of the wizard (login scre
 
 The stats from the logs are refreshed every minute. So wait a minute before logging in.
 
+When the containers are running, run this one-time configuration command:
+
+```
+docker compose exec matomo bash -c 'echo "proxy_uri_header = 1" >> /var/www/html/config/config.ini.php'
+```
 
 ## License
 

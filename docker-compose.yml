@@ -36,8 +36,8 @@ services:
       - pygeoapi
     volumes:
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
-      - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
-      - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
+      # - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
+      # - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       - apache_log:/usr/local/apache2/logs
     ports:
       - "80:80"
@@ -116,10 +116,11 @@ services:
       context: ./matomo/
       dockerfile: Dockerfile.main
     container_name: matomo
+    ports:
+      - 8081:80
     volumes:
       - matomo:/var/www/html:z
       - apache_log:/apache:ro
-      # - ./matomo/config.ini.php:/var/www/html/config/config.ini.php:rw
     environment:
       - MATOMO_DATABASE_HOST=mariadb
     env_file:

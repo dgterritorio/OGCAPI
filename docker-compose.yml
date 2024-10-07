@@ -91,6 +91,7 @@ services:
     container_name: postgis
     volumes:
        - ./postgis/data:/var/lib/postgresql/data
+       - ./postgis/scripts:/tmp/
     networks:
       - default
       - bridge1

@@ -69,6 +69,13 @@ ogr2ogr -a_srs "EPSG:3763" -t_srs "EPSG:4326" -f "PostgreSQL" PG:"dbname='geodb'
 -nlt PROMOTE_TO_MULTI -nln crus_31_julho2024 -overwrite
 ```
 
+Create materialised view:
+
+```
+docker compose exec postgis  psql -U postgres -d geodb -f /tmp/create-views.sql
+```
+
+
 ## Serving tiles from file
 
 Generate MBTiles (but first, uncomment [this line](docker-compose.yml#+77) on docker compose):

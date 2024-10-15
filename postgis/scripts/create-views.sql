@@ -9,7 +9,7 @@ BEGIN
 FOR temprow IN
         SELECT distinct municipio FROM crus_31_julho2024
     LOOP
-        EXECUTE format ('CREATE MATERIALIZED VIEW IF NOT EXISTS "v%s" AS'
+        EXECUTE format ('CREATE MATERIALIZED VIEW IF NOT EXISTS "v_%s" AS'
         ' select * from crus_31_julho2024 where municipio LIKE %L WITH DATA', 
         lower(replace(temprow.municipio, ' ', '')), temprow.municipio);
     END LOOP;

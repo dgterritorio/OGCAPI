@@ -7,10 +7,22 @@ then
     exit
 fi
 
-# Load CRUS
-poetry run python3 ./upload_tables.py --host postgis  --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table crus --input /data/CRUS+_31_julho2024.shp --config /pygeoapi/docker.config.yml
 
-# Load CRUS based views
-poetry run python3 ./create_views.py --host postgis --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table crus --column Municipio --config /pygeoapi/docker.config.yml
+if [ -n "$POSTGRES_PASSWORD" ]; then
+    # Load CRUS
+    poetry run python3 ./upload_tables.py --host postgis  --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table crus --input /data/CRUS+_31_julho2024.shp --config /pygeoapi/docker.config.yml
+
+    # Load CRUS based views
+    poetry run python3 ./create_views.py --host postgis --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table crus --column Municipio --config /pygeoapi/docker.config.yml
+
+else
+    # Load CRUS
+    poetry run python3 ./upload_tables.py --host postgis  --user $POSTGRES_USER --table crus --input /data/CRUS+_31_julho2024.shp --config /pygeoapi/docker.config.yml
+
+    # Load CRUS based views
+    poetry run python3 ./create_views.py --host postgis --user $POSTGRES_USER --table crus --column Municipio --config /pygeoapi/docker.config.yml
+
+fi
+
 
 exit 0

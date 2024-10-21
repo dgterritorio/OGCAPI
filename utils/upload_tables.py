@@ -1,9 +1,9 @@
 import geopandas as gpd
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 import argparse
 import sys
 import yaml
-from utils import load_template, update_pygeoapi_config, drop_table_if_exists
+from utils import load_template, update_pygeoapi_config
 
 # Command-line arguments parser
 parser = argparse.ArgumentParser(description='Upload a shapefile/geopackage to PostgreSQL and generate a YAML entry.')
@@ -34,6 +34,12 @@ yml_template = load_template(args.template)
 
 # Import shapefile or geopackage to PostgreSQL
 try:
+    # Create SQLAlchemy engine for database connection
+    if PASSWORD is not None:
+        engine = create_engine(f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}')
+    else:
+        engine = create_engine(f'postgresql://{USER}@{HOST}:{PORT}/{DATABASE}')
+        
     # Load the input file using GeoPandas
     if INPUT_FILE.endswith('.shp'):
         gdf = gpd.read_file(INPUT_FILE)

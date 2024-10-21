@@ -1,9 +1,9 @@
 import geopandas as gpd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import argparse
 import sys
 import yaml
-from utils import load_template, update_pygeoapi_config
+from utils import load_template, update_pygeoapi_config, drop_table_if_exists
 
 # Command-line arguments parser
 parser = argparse.ArgumentParser(description='Upload a shapefile/geopackage to PostgreSQL and generate a YAML entry.')
@@ -34,12 +34,6 @@ yml_template = load_template(args.template)
 
 # Import shapefile or geopackage to PostgreSQL
 try:
-    # Create SQLAlchemy engine for database connection
-    if PASSWORD is not None:
-        engine = create_engine(f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}')
-    else:
-        engine = create_engine(f'postgresql://{USER}@{HOST}:{PORT}/{DATABASE}')
-        
     # Load the input file using GeoPandas
     if INPUT_FILE.endswith('.shp'):
         gdf = gpd.read_file(INPUT_FILE)
@@ -54,8 +48,16 @@ try:
         print(f"Converting CRS from {gdf.crs} to EPSG:4326.")
         gdf = gdf.to_crs(epsg=4326)
 
-    # Write GeoDataFrame to PostgreSQL with specified primary key
-    gdf.to_postgis(TABLE, engine, if_exists='replace', index=True, index_label=PRIMARY_KEY)
+    drop_table_if_exists(DATABASE, USER, PASSWORD, HOST, PORT, TABLE)
+
+    # Create SQLAlchemy engine for database connection
+    if PASSWORD is not None:
+        engine = create_engine(f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}')
+    else:
+        engine = create_engine(f'postgresql://{USER}@{HOST}:{PORT}/{DATABASE}')
+
+    print(f"Write GeoDataFrame to PostgreSQL with specified primary key.")
+    gdf.to_postgis(TABLE, engine, if_exists='fail', index=True, index_label=PRIMARY_KEY)
     print(f"Table '{TABLE}' created successfully in the database from the file '{INPUT_FILE}'.")
 except Exception as e:
     print("Error: Unable to import the input file to the database", file=sys.stderr)

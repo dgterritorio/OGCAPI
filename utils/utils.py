@@ -1,6 +1,7 @@
 import yaml
 import re
 import sys
+import psycopg2
 from unidecode import unidecode
 
 def sanitize_name(name):
@@ -58,5 +59,21 @@ def update_pygeoapi_config(config_path, new_entries):
         print(f"YAML configuration has been updated in '{config_path}'")
     except Exception as e:
         print(f"Error: Unable to update YAML configuration in '{config_path}'", file=sys.stderr)
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+def drop_table_if_exists(database, user, password, host, port, table_name):
+    try:
+        conn = psycopg2.connect(
+            dbname=database, user=user, password=password, host=host, port=port
+        )
+        cursor = conn.cursor()
+        cursor.execute(f"DROP TABLE IF EXISTS {table_name} CASCADE;")
+        conn.commit()
+        print(f"Table '{table_name}' dropped successfully if it existed.")
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        print(f"Error: Unable to drop table '{table_name}'", file=sys.stderr)
         print(e, file=sys.stderr)
         sys.exit(1)

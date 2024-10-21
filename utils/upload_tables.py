@@ -65,7 +65,8 @@ except Exception as e:
 # Create a single YAML configuration entry
 yml_entry = yml_template.copy()
 yml_entry_str = yaml.dump(yml_entry)
-yml_entry_str = yml_entry_str.replace('my_table_name', TABLE.lower())
+yml_entry_str = yml_entry_str.replace('my_table_name_upper', TABLE.upper())
+yml_entry_str = yml_entry_str.replace('my_table_name_lower', TABLE.lower())
 yml_entry = yaml.safe_load(yml_entry_str)
 
 # Add a resource key for easy identification

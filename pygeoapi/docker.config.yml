@@ -1,160 +1,113 @@
-# =================================================================
-#
-# Authors: Tom Kralidis <tomkralidis@gmail.com>
-#
-# Copyright (c) 2020 Tom Kralidis
-#
-# Permission is hereby granted, free of charge, to any person
-# obtaining a copy of this software and associated documentation
-# files (the "Software"), to deal in the Software without
-# restriction, including without limitation the rights to use,
-# copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the
-# Software is furnished to do so, subject to the following
-# conditions:
-#
-# The above copyright notice and this permission notice shall be
-# included in all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-# OTHER DEALINGS IN THE SOFTWARE.
-#
-# =================================================================
-
 server:
-    bind:
-        host: 0.0.0.0:80
-        port: 80
-    url: http://localhost:80/
-    # url: https://ogcapi.byteroad.net/
-    mimetype: application/json; charset=UTF-8
-    encoding: utf-8
-    gzip: false
-    languages:
-        # First language is the default language
-        - en-US
-        - fr-CA
-    cors: true
-    pretty_print: true
-    limit: 1000
-    map:
-        url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    
+  bind:
+    host: 0.0.0.0:80
+    port: 80
+  url: http://localhost:80/
+  mimetype: application/json; charset=UTF-8
+  encoding: utf-8
+  gzip: false
+  languages:
+  - en-US
+  - fr-CA
+  cors: true
+  pretty_print: true
+  limit: 1000
+  map:
+    url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap
+      contributors</a>'
 logging:
-    level: DEBUG
-    logfile: /tmp/pygeoapi.log
-
+  level: DEBUG
+  logfile: /tmp/pygeoapi.log
 metadata:
-    identification:
-        title:
-            en: pygeoapi default instance
-            fr: instance par défaut de pygeoapi
-        description:
-            en: pygeoapi provides an API to geospatial data
-            fr: pygeoapi fournit une API aux données géospatiales
-        keywords:
-            en:
-                - geospatial
-                - data
-                - api
-            fr:
-                - géospatiale
-                - données
-                - api
-        keywords_type: theme
-        terms_of_service: https://creativecommons.org/licenses/by/4.0/
-        url: https://example.org
-    license:
-        name: CC-BY 4.0 license
-        url: https://creativecommons.org/licenses/by/4.0/
-    provider:
-        name: Organization Name
-        url: https://pygeoapi.io
-    contact:
-        name: Lastname, Firstname
-        position: Position Title
-        address: Mailing Address
-        city: City
-        stateorprovince: Administrative Area
-        postalcode: Zip or Postal Code
-        country: Country
-        phone: +xx-xxx-xxx-xxxx
-        fax: +xx-xxx-xxx-xxxx
-        email: you@example.org
-        url: Contact URL
-        hours: Mo-Fr 08:00-17:00
-        instructions: During hours of service. Off on weekends.
-        role: pointOfContact
-
+  identification:
+    title:
+      en: pygeoapi default instance
+      fr: instance par défaut de pygeoapi
+    description:
+      en: pygeoapi provides an API to geospatial data
+      fr: pygeoapi fournit une API aux données géospatiales
+    keywords:
+      en:
+      - geospatial
+      - data
+      - api
+      fr:
+      - géospatiale
+      - données
+      - api
+    keywords_type: theme
+    terms_of_service: https://creativecommons.org/licenses/by/4.0/
+    url: https://example.org
+  license:
+    name: CC-BY 4.0 license
+    url: https://creativecommons.org/licenses/by/4.0/
+  provider:
+    name: Organization Name
+    url: https://pygeoapi.io
+  contact:
+    name: Lastname, Firstname
+    position: Position Title
+    address: Mailing Address
+    city: City
+    stateorprovince: Administrative Area
+    postalcode: Zip or Postal Code
+    country: Country
+    phone: +xx-xxx-xxx-xxxx
+    fax: +xx-xxx-xxx-xxxx
+    email: you@example.org
+    url: Contact URL
+    hours: Mo-Fr 08:00-17:00
+    instructions: During hours of service. Off on weekends.
+    role: pointOfContact
 resources:
-    crus:
-        type: collection
-        title: CRUS
-        description: Carta do Regime de Uso do Solo - Portugal Continental
-        keywords:
-            - Uso do Solo
-            - Portugaç
-        links:
-            - type: text/csv
-              rel: canonical
-              title: data
-              href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/517c5023-04cc-47a4-99f7-bb32814dd62f
-              hreflang: en-US
-        extents:
-            spatial:
-                bbox: [-9.52657060387, 36.838268541, -6.3890876937, 42.280468655]
-                crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-            temporal:
-                begin: 2000-10-30T18:24:39Z
-                end: 2007-10-30T08:57:29Z
-        providers:
-            - type: feature
-              name: PostgreSQL
-              data:
-                    host: postgis
-                    dbname: geodb
-                    user: ${POSTGRES_USER}
-            #   options:
-            #     # Maximum time to wait while connecting, in seconds.
-            #     connect_timeout: 100
-            #     # Number of *milliseconds* that transmitted data may remain
-            #     # unacknowledged before a connection is forcibly closed.
-            #     tcp_user_timeout: 10000
-            #     # Whether client-side TCP keepalives are used. 1 = use keepalives,
-            #     # 0 = don't use keepalives.
-            #     keepalives: 1
-            #     # Number of seconds of inactivity after which TCP should send a
-            #     # keepalive message to the server.
-            #     keepalives_idle: 5
-            #     # Number of TCP keepalives that can be lost before the client's
-            #     # connection to the server is considered dead.
-            #     keepalives_count: 5
-            #     # Number of seconds after which a TCP keepalive message that is not
-            #     # acknowledged by the server should be retransmitted.
-            #     keepalives_interval: 5                    
-              id_field: objectid
-              table: crus_31_julho2024
-              search_path: [geostore, public]
-              geom_field: geom
-            - type: tile
-            #   name: MVT-tippecanoe
-            #   data: /data/tiles/  # local directory tree
-              name: MVT-proxy
-              data: http://tiles:3000/crus_31_julho2024/{z}/{x}/{y}?f=mvt
-              options:
-                zoom:
-                    min: 0
-                    max: 15
-                schemes:
-                - WebMercatorQuad
-              format:
-                    name: pbf
-                    mimetype: application/vnd.mapbox-vector-tile
-
+  crus:
+    description: Carta do Regime de Uso do Solo
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Portugaç
+    - CRUS
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/517c5023-04cc-47a4-99f7-bb32814dd62f
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      table: crus
+      type: feature
+    - data: http://tiles:3000/crus/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CRUS
+    type: collection

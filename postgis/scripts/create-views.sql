@@ -11,7 +11,13 @@ FOR temprow IN
     LOOP
         EXECUTE format ('CREATE MATERIALIZED VIEW IF NOT EXISTS "v_%s" AS'
         ' select * from crus_31_julho2024 where municipio LIKE %L WITH DATA', 
-        lower(replace(temprow.municipio, ' ', '')), temprow.municipio);
+            replace(trim(regexp_replace(translate(
+                lower(replace(temprow.municipio, ' ', '')),
+                'áàâãäåāăąèééêëēĕėęěìíîïìĩīĭḩóôõöōŏőùúûüũūŭůäàáâãåæçćĉčöòóôõøüùúûßéèêëýñîìíïş',
+                'aaaaaaaaaeeeeeeeeeeiiiiiiiihooooooouuuuuuuuaaaaaaeccccoooooouuuuseeeeyniiiis'
+            ), '[^a-z0-9\-]+', ' ', 'g')),' ', '-')
+        , temprow.municipio);
+
     END LOOP;
 END
 $$ LANGUAGE plpgsql;

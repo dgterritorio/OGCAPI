@@ -12,7 +12,7 @@ FOR temprow IN
         EXECUTE format ('CREATE MATERIALIZED VIEW IF NOT EXISTS "v_%s" AS'
         ' select * from crus_31_julho2024 where municipio LIKE %L WITH DATA', 
             replace(trim(regexp_replace(translate(
-                lower(replace(temprow.municipio, ' ', '')),
+                lower(replace(replace(temprow.municipio, ' ', ''),'-','')),
                 'áàâãäåāăąèééêëēĕėęěìíîïìĩīĭḩóôõöōŏőùúûüũūŭůäàáâãåæçćĉčöòóôõøüùúûßéèêëýñîìíïş',
                 'aaaaaaaaaeeeeeeeeeeiiiiiiiihooooooouuuuuuuuaaaaaaeccccoooooouuuuseeeeyniiiis'
             ), '[^a-z0-9\-]+', ' ', 'g')),' ', '-')

@@ -7,7 +7,7 @@ from utils import sanitize_name, load_template, update_pygeoapi_config
 parser = argparse.ArgumentParser(description='Generate SQL views and PyGeoAPI YAML configuration for distinct values.')
 parser.add_argument('--database', default='geodb', help='Name of the PostgreSQL database')
 parser.add_argument('--user', required=True, help='PostgreSQL username')
-parser.add_argument('--password', required=True, help='PostgreSQL password')
+parser.add_argument('--password', required=False, help='PostgreSQL password')
 parser.add_argument('--host', default='localhost', help='PostgreSQL host, default is localhost')
 parser.add_argument('--port', default='5432', help='PostgreSQL port, default is 5432')
 parser.add_argument('--table', required=True, help='Table name to create views from')

@@ -55,7 +55,7 @@ try:
         gdf = gdf.to_crs(epsg=4326)
 
     # Write GeoDataFrame to PostgreSQL with specified primary key
-    gdf.to_postgis(TABLE, engine, if_exists='replace', index=True, index_label=PRIMARY_KEY)
+    gdf.to_postgis(TABLE, engine, if_exists='replace', index=True, index_label=PRIMARY_KEY, chunksize=20000)
     print(f"Table '{TABLE}' created successfully in the database from the file '{INPUT_FILE}'.")
 except Exception as e:
     print("Error: Unable to import the input file to the database", file=sys.stderr)

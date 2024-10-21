@@ -80,6 +80,7 @@ for distinct_value_tuple in distinct_values:
     # Create yml configuration entry
     yml_entry = yml_template.copy()
     yml_entry_str = yaml.dump(yml_entry)
+    yml_entry_str = yml_entry_str.replace('table_original', TABLE.upper())
     yml_entry_str = yml_entry_str.replace('column_original', distinct_value)
     yml_entry_str = yml_entry_str.replace('column_clean', sanitized_value)
     yml_entry_str = yml_entry_str.replace('view_name', view_name)

@@ -1,5 +1,5 @@
 type: collection
-title: my_table_name
+title: my_table_name_upper
 description: Carta do Regime de Uso do Solo
 keywords:
     - Uso do Solo
@@ -44,14 +44,14 @@ providers:
     #     # acknowledged by the server should be retransmitted.
     #     keepalives_interval: 5                    
       id_field: objectid
-      table: my_table_name
+      table: my_table_name_lower
       search_path: [geostore, public]
       geom_field: geometry
     - type: tile
     #   name: MVT-tippecanoe
     #   data: /data/tiles/  # local directory tree
       name: MVT-proxy
-      data: http://tiles:3000/my_table_name/{z}/{x}/{y}?f=mvt
+      data: http://tiles:3000/my_table_name_lower/{z}/{x}/{y}?f=mvt
       options:
         zoom:
             min: 0

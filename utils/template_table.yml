@@ -1,0 +1,63 @@
+type: collection
+title: my_table_name
+description: Carta do Regime de Uso do Solo
+keywords:
+    - Uso do Solo
+    - Portugaç
+    - CRUS
+links:
+    - type: text/csv
+      rel: canonical
+      title: data
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/517c5023-04cc-47a4-99f7-bb32814dd62f
+      hreflang: en-US
+extents:
+    spatial:
+        bbox: [-9.52657060387, 36.838268541, -6.3890876937, 42.280468655]
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+providers:
+    - type: feature
+      name: PostgreSQL
+      data:
+            host: postgis
+            dbname: geodb
+            user: ${POSTGRES_USER}
+    #   options:
+    #     # Maximum time to wait while connecting, in seconds.
+    #     connect_timeout: 100
+    #     # Number of *milliseconds* that transmitted data may remain
+    #     # unacknowledged before a connection is forcibly closed.
+    #     tcp_user_timeout: 10000
+    #     # Whether client-side TCP keepalives are used. 1 = use keepalives,
+    #     # 0 = don't use keepalives.
+    #     keepalives: 1
+    #     # Number of seconds of inactivity after which TCP should send a
+    #     # keepalive message to the server.
+    #     keepalives_idle: 5
+    #     # Number of TCP keepalives that can be lost before the client's
+    #     # connection to the server is considered dead.
+    #     keepalives_count: 5
+    #     # Number of seconds after which a TCP keepalive message that is not
+    #     # acknowledged by the server should be retransmitted.
+    #     keepalives_interval: 5                    
+      id_field: objectid
+      table: my_table_name
+      search_path: [geostore, public]
+      geom_field: geometry
+    - type: tile
+    #   name: MVT-tippecanoe
+    #   data: /data/tiles/  # local directory tree
+      name: MVT-proxy
+      data: http://tiles:3000/my_table_name/{z}/{x}/{y}?f=mvt
+      options:
+        zoom:
+            min: 0
+            max: 15
+        schemes:
+        - WebMercatorQuad
+      format:
+            name: pbf
+            mimetype: application/vnd.mapbox-vector-tile

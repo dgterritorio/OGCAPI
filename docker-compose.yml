@@ -36,8 +36,8 @@ services:
       - pygeoapi
     volumes:
       - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf
-      - /etc/letsencrypt/archive/ogcapi.byteroad.net/fullchain.pem:/usr/local/apache2/conf/emotional/fullchain1.pem"
-      - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey.pem:/usr/local/apache2/conf/emotional/privkey1.pem"
+      - /etc/letsencrypt/archive/ogcapi.byteroad.net/fullchain1.pem:/usr/local/apache2/conf/emotional/fullchain1.pem"
+      - /etc/letsencrypt/archive/ogcapi.byteroad.net/privkey1.pem:/usr/local/apache2/conf/emotional/privkey1.pem"
       # - /etc/cert/ogcapi_chain.cer:/usr/local/apache2/conf/ogcapi/fullchain.pem
       # - /etc/cert/ogcapi_privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       # - /etc/cert/logs_chain.cer:/usr/local/apache2/conf/matomo/fullchain.pem

@@ -11,7 +11,7 @@ server:
   - fr-CA
   cors: true
   pretty_print: true
-  limit: 1000
+  limit: 500
   map:
     url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap

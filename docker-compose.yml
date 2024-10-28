@@ -40,9 +40,9 @@ services:
       # - /etc/cert/ogcapi_privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       # - /etc/cert/logs_chain.cer:/usr/local/apache2/conf/matomo/fullchain.pem
       # - /etc/cert/logs_privkey.pem:/usr/local/apache2/conf/matomo/privkey.pem
-      - /etc/cert/logs_privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
-      - /etc/cert/logs.jks:/usr/local/apache2/conf/ogcapi/keystore.jks    
-      - /etc/cert/logs_chain.cer:/usr/local/apache2/conf/ogcapi/chain.cer
+      - /etc/cert/ogcapi_privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
+      - /etc/cert/ogcapi.jks:/usr/local/apache2/conf/ogcapi/keystore.jks    
+      - /etc/cert/ogcapi_chain.cer:/usr/local/apache2/conf/ogcapi/chain.cer
       - /etc/cert/logs_privkey.pem:/usr/local/apache2/conf/matomo/privkey.pem
       - /etc/cert/logs.jks:/usr/local/apache2/conf/matomo/keystore.jks    
       - /etc/cert/logs_chain.cer:/usr/local/apache2/conf/matomo/chain.cer

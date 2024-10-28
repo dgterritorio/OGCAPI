@@ -77,6 +77,26 @@ for distinct_value_tuple in distinct_values:
         conn.rollback()
         continue
 
+    # Calculate the bounding box for the view
+    try:
+        cursor.execute(
+            f"""
+            SELECT ST_Extent(geometry) FROM {view_name};
+            """
+        )
+        bbox_result = cursor.fetchone()[0]
+        if bbox_result is None:
+            print(f"Warning: No geometry found for view '{view_name}', skipping bounding box.")
+            bbox = [-180.0, -90.0, 180.0, 90.0]  # Default bbox in case of missing geometries
+        else:
+            bbox = [float(coord) for coord in bbox_result.replace('BOX(', '').replace(')', '').replace(',', ' ').split()]
+    except Exception as e:
+        print(f"Error: Unable to calculate bounding box for view '{view_name}'", file=sys.stderr)
+        print(e, file=sys.stderr)
+        conn.rollback()
+        continue
+
+
     # Create yml configuration entry
     yml_entry = yml_template.copy()
     yml_entry_str = yaml.dump(yml_entry)
@@ -84,6 +104,7 @@ for distinct_value_tuple in distinct_values:
     yml_entry_str = yml_entry_str.replace('column_original', distinct_value)
     yml_entry_str = yml_entry_str.replace('column_clean', sanitized_value)
     yml_entry_str = yml_entry_str.replace('view_name', view_name)
+    yml_entry_str = yml_entry_str.replace('view_bbox', f'{bbox}')
     yml_entry = yaml.safe_load(yml_entry_str)
 
     # Add a resource key for easy identification

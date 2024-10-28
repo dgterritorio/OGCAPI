@@ -36,10 +36,10 @@ services:
       - pygeoapi
     volumes:
       - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf      
-      - /etc/cert/ogcapi_chain.cer:/usr/local/apache2/conf/ogcapi/fullchain.pem
-      - /etc/cert/ogcapi_privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
-      - /etc/cert/logs_chain.cer:/usr/local/apache2/conf/matomo/fullchain.pem
-      - /etc/cert/logs_privkey.pem:/usr/local/apache2/conf/matomo/privkey.pem
+      # - /etc/cert/ogcapi_chain.cer:/usr/local/apache2/conf/ogcapi/fullchain.pem
+      # - /etc/cert/ogcapi_privkey.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
+      # - /etc/cert/logs_chain.cer:/usr/local/apache2/conf/matomo/fullchain.pem
+      # - /etc/cert/logs_privkey.pem:/usr/local/apache2/conf/matomo/privkey.pem
       # - /etc/cert/ogcapi_privkey4.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       # - /etc/cert/ogcapi.jks:/usr/local/apache2/conf/ogcapi/keystore.jks    
       # - /etc/cert/ogcapi_chain.cer:/usr/local/apache2/conf/ogcapi/chain.cer

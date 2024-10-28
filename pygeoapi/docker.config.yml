@@ -2,7 +2,8 @@ server:
   bind:
     host: 0.0.0.0:80
     port: 80
-  url: https://ogcapi.dgterritorio.gov.pt/
+  # url: https://ogcapi.dgterritorio.gov.pt/
+  url: https://ogcapi.byteroad.net/
   mimetype: application/json; charset=UTF-8
   encoding: utf-8
   gzip: false

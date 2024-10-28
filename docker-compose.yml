@@ -159,6 +159,8 @@ services:
       context: ./matomo/
       dockerfile: Dockerfile.cron
     container_name: matomo_python
+    env_file:
+      - .env
     volumes:
         - matomo:/var/www/html:z
         - apache_log:/apache:ro

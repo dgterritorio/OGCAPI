@@ -1,14 +1,24 @@
 FROM python:3
 
-RUN apt-get update; \
-    apt-get -y --no-install-recommends install cron \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update; \
+    apt-get -y --no-install-recommends install cron php \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*;
 
+RUN export USER_MATOMO=none
+RUN export PASSWORD_MATOMO=none
+
 COPY ./refresh_logs.sh /scripts/refresh_logs.sh
+COPY ./entrypoint.sh /scripts/entrypoint.sh
 
 RUN chmod +x /scripts/*.sh
-    
-RUN crontab -l | { cat; echo "* * * * * bash /scripts/refresh_logs.sh"; } | crontab -
-    
-CMD cron && tail -f /dev/null
+
+COPY ./cronjob /etc/cron.d/cronjob
+
+RUN chmod 0744 /etc/cron.d/cronjob
+
+RUN crontab /etc/cron.d/cronjob
+
+RUN touch /var/log/cron.log
+
+CMD /scripts/entrypoint.sh

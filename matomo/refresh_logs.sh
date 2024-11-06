@@ -6,37 +6,52 @@ INPUT_FILE="/apache/access_log.log"
 NUM_ROWS="1000"
 DESTINATION_FILE="/tmp/temp.log"
 
-# File to store last read line
+# File to store the last line read
 LAST_LINE_FILE=".lastline_$(basename "$INPUT_FILE")"
 
-# Check of last line already exists
+# Check if the LAST_LINE_FILE exists, otherwise start from 1
 if [ -f "$LAST_LINE_FILE" ]; then
     LAST_LINE=$(cat "$LAST_LINE_FILE")
 else
     LAST_LINE=1
 fi
 
-# Calculate last row
+# Calculate the ending line
 END_LINE=$((LAST_LINE + NUM_ROWS - 1))
 
-# Number of lines in INPUT file
+# Get the total number of lines in INPUT_FILE
 TOTAL_LINES=$(wc -l < "$INPUT_FILE")
 
 # Check if there are new lines to read
 if [ "$TOTAL_LINES" -lt "$LAST_LINE" ]; then
-    echo "There are no new lines to read."
+    echo "No new lines to read."
+
+    # If DEBUG is set, print execution paths and variable values
+    if [ "$DEBUG" = "1" ]; then
+        echo "Debug Information:"
+        echo "INPUT_FILE: $INPUT_FILE"
+        echo "NUM_ROWS: $NUM_ROWS"
+        echo "DESTINATION_FILE: $DESTINATION_FILE"
+        echo "LAST_LINE_FILE: $LAST_LINE_FILE"
+        echo "LAST_LINE: $LAST_LINE"
+        echo "END_LINE: $END_LINE"
+        echo "TOTAL_LINES: $TOTAL_LINES"
+        echo "Current Directory: $(pwd)"
+        echo "Script Path: $(realpath "$0")"
+    fi
+
     exit 0
 fi
 
-# If END_LINE is greater of end line, select last line of the file
+# If END_LINE exceeds TOTAL_LINES, set it to TOTAL_LINES
 if [ "$TOTAL_LINES" -lt "$END_LINE" ]; then
     END_LINE="$TOTAL_LINES"
 fi
 
-# Extract the set to ingest
+# Extract lines from LAST_LINE to END_LINE
 sed -n "${LAST_LINE},${END_LINE}p" "$INPUT_FILE" > "$DESTINATION_FILE"
 
-# Update LAST_LINE for the next run
+# Update LAST_LINE for the next execution
 LAST_LINE=$((END_LINE + 1))
 echo "$LAST_LINE" > "$LAST_LINE_FILE"
 

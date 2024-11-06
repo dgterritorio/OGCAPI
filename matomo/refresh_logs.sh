@@ -5,6 +5,7 @@ echo "*** Start import with following username"
 INPUT_FILE="/apache/access_log.log"
 NUM_ROWS="1000"
 DESTINATION_FILE="/tmp/temp.log"
+DEBUG="1"
 
 # File to store the last line read
 LAST_LINE_FILE=".lastline_$(basename "$INPUT_FILE")"

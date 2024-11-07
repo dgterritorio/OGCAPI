@@ -109,7 +109,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CRUS
+    title: CRUS Portugal Continental 
     type: collection
   crus_abrantes:
     description: Carta do Regime de Uso do Solo - ABRANTES

@@ -34,7 +34,7 @@ services:
     container_name: httpd
     depends_on:
       - pygeoapi
-    volumes:
+    volumes:   
       - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf      
       - /etc/cert/2ogcapi.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
       - /etc/cert/ogcapi_privkey4.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
@@ -60,6 +60,8 @@ services:
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./data:/data
+      - ./pygeoapi/templates:/templates # jinja templates
+      - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
     restart: on-failure
     links:
       - tiles

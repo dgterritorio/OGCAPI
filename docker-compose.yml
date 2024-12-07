@@ -84,7 +84,6 @@ services:
       - postgis
     networks:
       - default
-    restart: on-failure
 
   postgis:
     build: ./postgis/

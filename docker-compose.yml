@@ -46,6 +46,7 @@ services:
       - "443:443"
     networks:
       - default
+    restart: on-failure
 
   pygeoapi:
     image: geopython/pygeoapi:latest
@@ -83,6 +84,7 @@ services:
       - postgis
     networks:
       - default
+    restart: on-failure
 
   postgis:
     build: ./postgis/
@@ -94,8 +96,8 @@ services:
       - .env     # path to your .env file
     expose:
        - 5432
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     container_name: postgis
     volumes:
        - ./postgis/data:/var/lib/postgresql/data
@@ -103,6 +105,7 @@ services:
     networks:
       - default
       - bridge1
+    restart: on-failure
 
   db_and_api_init:
     build: ./utils/
@@ -149,6 +152,7 @@ services:
       - .env
     networks:
       - default
+    restart: on-failure
 
   python_matomo:
     build:
@@ -162,10 +166,8 @@ services:
         - apache_log:/apache:ro
     depends_on:
       - matomo
+    restart: on-failure
   
-
-
-
 volumes:
   maria:
   matomo:

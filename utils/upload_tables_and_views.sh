@@ -18,6 +18,9 @@ if [ -n "$POSTGRES_PASSWORD" ]; then
     echo "Uploading COS table"
     # Load COS
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --input /data/cos2018v2.shp --config /pygeoapi/docker.config.yml --template template_cos.yml
+    # Load CAOP
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table caop --input /data/Cont_Mun_CAOP2023.shp --config /pygeoapi/docker.config.yml --template template_caop.yml
+    # TODO: Load CAOP based views...
 else
     echo "Uploading CRUS table"
     # Load CRUS
@@ -28,6 +31,10 @@ else
     echo "Uploading COS table"
     # Load COS
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --table cos --input /data/cos2018v2.shp --config /pygeoapi/docker.config.yml --template template_cos.yml
+    echo "Uploading CAOP table"
+    # Load CAOP
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --table caop --input /data/Cont_Mun_CAOP2023.shp --config /pygeoapi/docker.config.yml --template template_caop.yml
+    # TODO: Load CAOP based views...
 fi
 
 

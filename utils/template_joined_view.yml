@@ -1,0 +1,45 @@
+type: collection
+title: table_original column_original
+description: Carta de Uso e Ocupação do Solo (COS) - column_original
+keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - column_original
+links:
+    - type: text/csv
+      rel: canonical
+      title: data
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+extents:
+    spatial:
+        bbox: view_bbox
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+providers:
+    - type: feature
+      name: PostgreSQL
+      data:
+            host: postgis
+            dbname: geodb
+            user: ${POSTGRES_USER}
+      id_field: objectid
+      table: view_name
+      search_path: [geostore, public]
+      geom_field: geometry
+    - type: tile
+      name: MVT-proxy
+      data: http://tiles:3000/view_name/{z}/{x}/{y}?f=mvt
+      options:
+        zoom:
+            min: 0
+            max: 15
+        schemes:
+        - WebMercatorQuad
+      format:
+            name: pbf
+            mimetype: application/vnd.mapbox-vector-tile

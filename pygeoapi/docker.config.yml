@@ -14096,7 +14096,7 @@ resources:
         host: postgis
         user: ${POSTGRES_USER}
       geom_field: geometry
-      id_field: fid
+      id_field: objectid
       name: PostgreSQL
       search_path:
       - geostore

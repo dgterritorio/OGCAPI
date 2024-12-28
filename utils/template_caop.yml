@@ -25,7 +25,7 @@ providers:
             host: postgis
             dbname: geodb
             user: ${POSTGRES_USER}
-      id_field: fid
+      id_field: objectid
       table: my_table_name_lower
       search_path: [geostore, public]
       geom_field: geometry

@@ -39,7 +39,7 @@ services:
       - apache_log:/usr/local/apache2/logs
     ports:
       - "80:80"
-      - "443:443"
+      # - "443:443"
     networks:
       - default
     restart: on-failure
@@ -59,6 +59,7 @@ services:
       - ./data:/data
       - ./pygeoapi/templates:/templates # jinja templates
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
+      - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css       
     restart: on-failure
     links:
       - tiles
@@ -131,37 +132,37 @@ services:
     networks:
       - default
 
-  matomo:
-    build:
-      context: ./matomo/
-      dockerfile: Dockerfile.main
-    container_name: matomo
-    ports:
-      - 8081:80
-    volumes:
-      - matomo:/var/www/html:z
-      - apache_log:/apache:ro
-    environment:
-      - MATOMO_DATABASE_HOST=mariadb
-    env_file:
-      - .env
-    networks:
-      - default
-    restart: on-failure
+  # matomo:
+  #   build:
+  #     context: ./matomo/
+  #     dockerfile: Dockerfile.main
+  #   container_name: matomo
+  #   ports:
+  #     - 8081:80
+  #   volumes:
+  #     - matomo:/var/www/html:z
+  #     - apache_log:/apache:ro
+  #   environment:
+  #     - MATOMO_DATABASE_HOST=mariadb
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - default
+  #   restart: on-failure
 
-  python_matomo:
-    build:
-      context: ./matomo/
-      dockerfile: Dockerfile.cron
-    container_name: matomo_python
-    env_file:
-      - .env
-    volumes:
-        - matomo:/var/www/html:z
-        - apache_log:/apache:ro
-    depends_on:
-      - matomo
-    restart: on-failure
+  # python_matomo:
+  #   build:
+  #     context: ./matomo/
+  #     dockerfile: Dockerfile.cron
+  #   container_name: matomo_python
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #       - matomo:/var/www/html:z
+  #       - apache_log:/apache:ro
+  #   depends_on:
+  #     - matomo
+  #   restart: on-failure
   
   ghc_web:
     image: geopython/geohealthcheck:latest

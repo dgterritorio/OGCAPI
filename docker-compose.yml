@@ -63,6 +63,7 @@ services:
       - ./data:/data
       - ./pygeoapi/templates:/templates # jinja templates
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
+      - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
     restart: on-failure
     links:
       - tiles

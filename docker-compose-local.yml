@@ -32,8 +32,8 @@ services:
   apache-httpd:
     image: httpd:2.4
     container_name: httpd
-    depends_on:
-      - pygeoapi
+    # depends_on:
+    #   - pygeoapi
     volumes:   
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf      
       - apache_log:/usr/local/apache2/logs
@@ -115,58 +115,85 @@ services:
     networks:
       - default
 
-  # mariadb:
-  #   image: mariadb:10.11
-  #   container_name: mariadb
-  #   command: --max-allowed-packet=64MB
-  #   restart: always
-  #   volumes:
-  #     - maria:/var/lib/mysql:Z
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=
-  #     - MARIADB_AUTO_UPGRADE=1
-  #     - MARIADB_DISABLE_UPGRADE_BACKUP=1
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - default
+  mariadb:
+    image: mariadb:10.11
+    container_name: mariadb
+    command: --max-allowed-packet=64MB
+    restart: always
+    volumes:
+      - maria:/var/lib/mysql:Z
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MARIADB_AUTO_UPGRADE=1
+      - MARIADB_DISABLE_UPGRADE_BACKUP=1
+    env_file:
+      - .env
+    networks:
+      - default
 
-  # matomo:
-  #   build:
-  #     context: ./matomo/
-  #     dockerfile: Dockerfile.main
-  #   container_name: matomo
-  #   ports:
-  #     - 8081:80
-  #   volumes:
-  #     - matomo:/var/www/html:z
-  #     - apache_log:/apache:ro
-  #   environment:
-  #     - MATOMO_DATABASE_HOST=mariadb
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - default
-  #   restart: on-failure
+  matomo:
+    build:
+      context: ./matomo/
+      dockerfile: Dockerfile.main
+    container_name: matomo
+    ports:
+      - 8081:80
+    volumes:
+      - matomo:/var/www/html:z
+      - apache_log:/apache:ro
+    environment:
+      - MATOMO_DATABASE_HOST=mariadb
+    env_file:
+      - .env
+    networks:
+      - default
+    restart: on-failure
 
-  # python_matomo:
-  #   build:
-  #     context: ./matomo/
-  #     dockerfile: Dockerfile.cron
-  #   container_name: matomo_python
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #       - matomo:/var/www/html:z
-  #       - apache_log:/apache:ro
-  #   depends_on:
-  #     - matomo
-  #   restart: on-failure
+  python_matomo:
+    build:
+      context: ./matomo/
+      dockerfile: Dockerfile.cron
+    container_name: matomo_python
+    env_file:
+      - .env
+    volumes:
+        - matomo:/var/www/html:z
+        - apache_log:/apache:ro
+    depends_on:
+      - matomo
+    restart: on-failure
   
+  ghc_web:
+    image: geopython/geohealthcheck:latest
+    container_name: ghc_web
+    restart: on-failure
+    expose:
+       - 80
+    # ports:
+    #   - 8083:80
+    env_file:
+      - .env
+    volumes:
+      - ./ghc_sqlitedb:/GeoHealthCheck/DB
+    networks:
+      - default
+
+  ghc_runner:
+    image: geopython/geohealthcheck:latest
+    container_name: ghc_runner
+    restart: on-failure
+    env_file:
+      - .env
+    entrypoint:
+      - /run-runner.sh
+    volumes:
+      - ghc_sqlitedb:/GeoHealthCheck/DB
+
 volumes:
   maria:
   matomo:
   apache_log:
+  ghc_sqlitedb:
 
 networks:
   default:

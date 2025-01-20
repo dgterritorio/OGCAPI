@@ -166,11 +166,38 @@ services:
     depends_on:
       - matomo
     restart: on-failure
-  
+
+  ghc_web:
+    image: geopython/geohealthcheck:latest
+    container_name: ghc_web
+    restart: on-failure
+    expose:
+       - 80
+    # ports:
+    #   - 8083:80
+    env_file:
+      - .env
+    volumes:
+      - ./ghc_sqlitedb:/GeoHealthCheck/DB
+    networks:
+      - default
+
+  ghc_runner:
+    image: geopython/geohealthcheck:latest
+    container_name: ghc_runner
+    restart: on-failure
+    env_file:
+      - .env
+    entrypoint:
+      - /run-runner.sh
+    volumes:
+      - ghc_sqlitedb:/GeoHealthCheck/DB
+
 volumes:
   maria:
   matomo:
   apache_log:
+  ghc_sqlitedb:
 
 networks:
   default:

@@ -182,7 +182,7 @@ resources:
     title: COS Portugal Continental
     type: collection
   caop:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2023
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
     extents:
       spatial:
         bbox:
@@ -195,8 +195,9 @@ resources:
         begin: 2000-10-30 18:24:39+00:00
         end: 2007-10-30 08:57:29+00:00
     keywords:
-    - Limites Admnistrativos
+    - Limites Administrativos
     - Portugal Continental
+    - Municipios
     - CAOP
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
@@ -216,7 +217,7 @@ resources:
         host: postgis
         user: ${POSTGRES_USER}
       geom_field: geometry
-      id_field: objectid
+      id_field: fid
       name: PostgreSQL
       search_path:
       - geostore
@@ -236,7 +237,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2023 (Continente)
+    title: CAOP2024 Municípios
     type: collection
   crus_abrantes:
     description: Carta do Regime de Uso do Solo - ABRANTES
@@ -16480,65 +16481,6 @@ resources:
       type: tile
     title: COS Albergaria-a-Velha
     type: collection
-  cos_moncao:
-    description: Carta de Uso e Ocupação do Solo (COS) - Monção
-    extents:
-      spatial:
-        bbox:
-        - -8.545561118622068
-        - 41.966728503936956
-        - -8.293188479147595
-        - 42.090090931550215
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Monção
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_moncao
-      type: feature
-    - data: http://tiles:3000/v_cos_moncao/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Monção
-    type: collection
   cos_esposende:
     description: Carta de Uso e Ocupação do Solo (COS) - Esposende
     extents:
@@ -16597,6 +16539,65 @@ resources:
           min: 0
       type: tile
     title: COS Esposende
+    type: collection
+  cos_moncao:
+    description: Carta de Uso e Ocupação do Solo (COS) - Monção
+    extents:
+      spatial:
+        bbox:
+        - -8.545561118622068
+        - 41.966728503936956
+        - -8.293188479147595
+        - 42.090090931550215
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Monção
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_moncao
+      type: feature
+    - data: http://tiles:3000/v_cos_moncao/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Monção
     type: collection
   cos_manteigas:
     description: Carta de Uso e Ocupação do Solo (COS) - Manteigas
@@ -17424,15 +17425,15 @@ resources:
       type: tile
     title: COS Cantanhede
     type: collection
-  cos_constancia:
-    description: Carta de Uso e Ocupação do Solo (COS) - Constância
+  cos_redondo:
+    description: Carta de Uso e Ocupação do Solo (COS) - Redondo
     extents:
       spatial:
         bbox:
-        - -8.342201241877548
-        - 39.345563116628185
-        - -8.244808504084258
-        - 39.50226545080548
+        - -7.714071987171749
+        - 38.476022462364455
+        - -7.505837961447377
+        - 38.75363751647768
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -17442,7 +17443,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - Constância
+    - Redondo
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -17467,9 +17468,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_constancia
+      table: v_cos_redondo
       type: feature
-    - data: http://tiles:3000/v_cos_constancia/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_redondo/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -17481,7 +17482,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Constância
+    title: COS Redondo
     type: collection
   cos_vila_franca_de_xira:
     description: Carta de Uso e Ocupação do Solo (COS) - Vila Franca de Xira
@@ -17542,15 +17543,15 @@ resources:
       type: tile
     title: COS Vila Franca de Xira
     type: collection
-  cos_redondo:
-    description: Carta de Uso e Ocupação do Solo (COS) - Redondo
+  cos_constancia:
+    description: Carta de Uso e Ocupação do Solo (COS) - Constância
     extents:
       spatial:
         bbox:
-        - -7.714071987171749
-        - 38.476022462364455
-        - -7.505837961447377
-        - 38.75363751647768
+        - -8.342201241877548
+        - 39.345563116628185
+        - -8.244808504084258
+        - 39.50226545080548
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -17560,7 +17561,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - Redondo
+    - Constância
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -17585,9 +17586,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_redondo
+      table: v_cos_constancia
       type: feature
-    - data: http://tiles:3000/v_cos_redondo/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_constancia/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -17599,7 +17600,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Redondo
+    title: COS Constância
     type: collection
   cos_entroncamento:
     description: Carta de Uso e Ocupação do Solo (COS) - Entroncamento
@@ -17837,65 +17838,6 @@ resources:
       type: tile
     title: COS Mourão
     type: collection
-  cos_melgaco:
-    description: Carta de Uso e Ocupação do Solo (COS) - Melgaço
-    extents:
-      spatial:
-        bbox:
-        - -8.340764003229525
-        - 41.93746712638314
-        - -8.087419560718981
-        - 42.15191890946182
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Melgaço
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_melgaco
-      type: feature
-    - data: http://tiles:3000/v_cos_melgaco/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Melgaço
-    type: collection
   cos_sesimbra:
     description: Carta de Uso e Ocupação do Solo (COS) - Sesimbra
     extents:
@@ -18013,6 +17955,65 @@ resources:
           min: 0
       type: tile
     title: COS Castanheira de Pêra
+    type: collection
+  cos_melgaco:
+    description: Carta de Uso e Ocupação do Solo (COS) - Melgaço
+    extents:
+      spatial:
+        bbox:
+        - -8.340764003229525
+        - 41.93746712638314
+        - -8.087419560718981
+        - 42.15191890946182
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Melgaço
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_melgaco
+      type: feature
+    - data: http://tiles:3000/v_cos_melgaco/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Melgaço
     type: collection
   cos_torres_novas:
     description: Carta de Uso e Ocupação do Solo (COS) - Torres Novas
@@ -18132,65 +18133,6 @@ resources:
       type: tile
     title: COS Vila Viçosa
     type: collection
-  cos_nelas:
-    description: Carta de Uso e Ocupação do Solo (COS) - Nelas
-    extents:
-      spatial:
-        bbox:
-        - -7.94315574208834
-        - 40.45772958553007
-        - -7.751549788995947
-        - 40.587740599604274
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Nelas
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_nelas
-      type: feature
-    - data: http://tiles:3000/v_cos_nelas/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Nelas
-    type: collection
   cos_castelo_branco:
     description: Carta de Uso e Ocupação do Solo (COS) - Castelo Branco
     extents:
@@ -18249,6 +18191,65 @@ resources:
           min: 0
       type: tile
     title: COS Castelo Branco
+    type: collection
+  cos_nelas:
+    description: Carta de Uso e Ocupação do Solo (COS) - Nelas
+    extents:
+      spatial:
+        bbox:
+        - -7.94315574208834
+        - 40.45772958553007
+        - -7.751549788995947
+        - 40.587740599604274
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Nelas
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_nelas
+      type: feature
+    - data: http://tiles:3000/v_cos_nelas/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Nelas
     type: collection
   cos_figueira_da_foz:
     description: Carta de Uso e Ocupação do Solo (COS) - Figueira da Foz
@@ -18781,65 +18782,6 @@ resources:
       type: tile
     title: COS Vinhais
     type: collection
-  cos_cartaxo:
-    description: Carta de Uso e Ocupação do Solo (COS) - Cartaxo
-    extents:
-      spatial:
-        bbox:
-        - -8.911152747981474
-        - 39.06152838986712
-        - -8.704197481541861
-        - 39.20997672089446
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Cartaxo
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_cartaxo
-      type: feature
-    - data: http://tiles:3000/v_cos_cartaxo/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Cartaxo
-    type: collection
   cos_odemira:
     description: Carta de Uso e Ocupação do Solo (COS) - Odemira
     extents:
@@ -18898,6 +18840,65 @@ resources:
           min: 0
       type: tile
     title: COS Odemira
+    type: collection
+  cos_cartaxo:
+    description: Carta de Uso e Ocupação do Solo (COS) - Cartaxo
+    extents:
+      spatial:
+        bbox:
+        - -8.911152747981474
+        - 39.06152838986712
+        - -8.704197481541861
+        - 39.20997672089446
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Cartaxo
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_cartaxo
+      type: feature
+    - data: http://tiles:3000/v_cos_cartaxo/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Cartaxo
     type: collection
   cos_campo_maior:
     description: Carta de Uso e Ocupação do Solo (COS) - Campo Maior
@@ -19548,65 +19549,6 @@ resources:
       type: tile
     title: COS Macedo de Cavaleiros
     type: collection
-  cos_figueira_de_castelo_rodrigo:
-    description: Carta de Uso e Ocupação do Solo (COS) - Figueira de Castelo Rodrigo
-    extents:
-      spatial:
-        bbox:
-        - -7.12198211038059
-        - 40.75206139143081
-        - -6.802337741916215
-        - 41.03575429478555
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Figueira de Castelo Rodrigo
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_figueira_de_castelo_rodrigo
-      type: feature
-    - data: http://tiles:3000/v_cos_figueira_de_castelo_rodrigo/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Figueira de Castelo Rodrigo
-    type: collection
   cos_alcoutim:
     description: Carta de Uso e Ocupação do Solo (COS) - Alcoutim
     extents:
@@ -19665,6 +19607,65 @@ resources:
           min: 0
       type: tile
     title: COS Alcoutim
+    type: collection
+  cos_figueira_de_castelo_rodrigo:
+    description: Carta de Uso e Ocupação do Solo (COS) - Figueira de Castelo Rodrigo
+    extents:
+      spatial:
+        bbox:
+        - -7.12198211038059
+        - 40.75206139143081
+        - -6.802337741916215
+        - 41.03575429478555
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Figueira de Castelo Rodrigo
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_figueira_de_castelo_rodrigo
+      type: feature
+    - data: http://tiles:3000/v_cos_figueira_de_castelo_rodrigo/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Figueira de Castelo Rodrigo
     type: collection
   cos_sardoal:
     description: Carta de Uso e Ocupação do Solo (COS) - Sardoal
@@ -20197,65 +20198,6 @@ resources:
       type: tile
     title: COS Seixal
     type: collection
-  cos_tondela:
-    description: Carta de Uso e Ocupação do Solo (COS) - Tondela
-    extents:
-      spatial:
-        bbox:
-        - -8.306261201059264
-        - 40.453834519038246
-        - -7.960713104449348
-        - 40.63979142749059
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Tondela
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_tondela
-      type: feature
-    - data: http://tiles:3000/v_cos_tondela/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Tondela
-    type: collection
   cos_lourinha:
     description: Carta de Uso e Ocupação do Solo (COS) - Lourinhã
     extents:
@@ -20314,6 +20256,65 @@ resources:
           min: 0
       type: tile
     title: COS Lourinhã
+    type: collection
+  cos_tondela:
+    description: Carta de Uso e Ocupação do Solo (COS) - Tondela
+    extents:
+      spatial:
+        bbox:
+        - -8.306261201059264
+        - 40.453834519038246
+        - -7.960713104449348
+        - 40.63979142749059
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Tondela
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_tondela
+      type: feature
+    - data: http://tiles:3000/v_cos_tondela/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Tondela
     type: collection
   cos_barrancos:
     description: Carta de Uso e Ocupação do Solo (COS) - Barrancos
@@ -22380,65 +22381,6 @@ resources:
       type: tile
     title: COS Mêda
     type: collection
-  cos_sines:
-    description: Carta de Uso e Ocupação do Solo (COS) - Sines
-    extents:
-      spatial:
-        bbox:
-        - -8.88672718883553
-        - 37.809776729171574
-        - -8.681689158702468
-        - 38.02945453576765
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Sines
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_sines
-      type: feature
-    - data: http://tiles:3000/v_cos_sines/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Sines
-    type: collection
   cos_portel:
     description: Carta de Uso e Ocupação do Solo (COS) - Portel
     extents:
@@ -22497,6 +22439,65 @@ resources:
           min: 0
       type: tile
     title: COS Portel
+    type: collection
+  cos_sines:
+    description: Carta de Uso e Ocupação do Solo (COS) - Sines
+    extents:
+      spatial:
+        bbox:
+        - -8.88672718883553
+        - 37.809776729171574
+        - -8.681689158702468
+        - 38.02945453576765
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Sines
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_sines
+      type: feature
+    - data: http://tiles:3000/v_cos_sines/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Sines
     type: collection
   cos_mesao_frio:
     description: Carta de Uso e Ocupação do Solo (COS) - Mesão Frio
@@ -23147,65 +23148,6 @@ resources:
       type: tile
     title: COS Santo Tirso
     type: collection
-  cos_vouzela:
-    description: Carta de Uso e Ocupação do Solo (COS) - Vouzela
-    extents:
-      spatial:
-        bbox:
-        - -8.271640648796664
-        - 40.601715676323856
-        - -8.010235095850462
-        - 40.74977276222407
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Vouzela
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_vouzela
-      type: feature
-    - data: http://tiles:3000/v_cos_vouzela/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Vouzela
-    type: collection
   cos_vila_pouca_de_aguiar:
     description: Carta de Uso e Ocupação do Solo (COS) - Vila Pouca de Aguiar
     extents:
@@ -23324,15 +23266,15 @@ resources:
       type: tile
     title: COS Arcos de Valdevez
     type: collection
-  cos_sao_joao_da_pesqueira:
-    description: Carta de Uso e Ocupação do Solo (COS) - São João da Pesqueira
+  cos_vouzela:
+    description: Carta de Uso e Ocupação do Solo (COS) - Vouzela
     extents:
       spatial:
         bbox:
-        - -7.553379304890488
-        - 41.002204824597584
-        - -7.305763260029141
-        - 41.21377016495476
+        - -8.271640648796664
+        - 40.601715676323856
+        - -8.010235095850462
+        - 40.74977276222407
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -23342,7 +23284,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - São João da Pesqueira
+    - Vouzela
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -23367,9 +23309,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_sao_joao_da_pesqueira
+      table: v_cos_vouzela
       type: feature
-    - data: http://tiles:3000/v_cos_sao_joao_da_pesqueira/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_vouzela/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -23381,7 +23323,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS São João da Pesqueira
+    title: COS Vouzela
     type: collection
   cos_sao_bras_de_alportel:
     description: Carta de Uso e Ocupação do Solo (COS) - São Brás de Alportel
@@ -23441,6 +23383,65 @@ resources:
           min: 0
       type: tile
     title: COS São Brás de Alportel
+    type: collection
+  cos_sao_joao_da_pesqueira:
+    description: Carta de Uso e Ocupação do Solo (COS) - São João da Pesqueira
+    extents:
+      spatial:
+        bbox:
+        - -7.553379304890488
+        - 41.002204824597584
+        - -7.305763260029141
+        - 41.21377016495476
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - São João da Pesqueira
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_sao_joao_da_pesqueira
+      type: feature
+    - data: http://tiles:3000/v_cos_sao_joao_da_pesqueira/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS São João da Pesqueira
     type: collection
   cos_alcanena:
     description: Carta de Uso e Ocupação do Solo (COS) - Alcanena
@@ -23560,65 +23561,6 @@ resources:
       type: tile
     title: COS Ponte de Lima
     type: collection
-  cos_matosinhos:
-    description: Carta de Uso e Ocupação do Solo (COS) - Matosinhos
-    extents:
-      spatial:
-        bbox:
-        - -8.72753841685472
-        - 41.17163340052957
-        - -8.596419363315169
-        - 41.27190503504259
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Matosinhos
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_matosinhos
-      type: feature
-    - data: http://tiles:3000/v_cos_matosinhos/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Matosinhos
-    type: collection
   cos_lousada:
     description: Carta de Uso e Ocupação do Solo (COS) - Lousada
     extents:
@@ -23677,6 +23619,65 @@ resources:
           min: 0
       type: tile
     title: COS Lousada
+    type: collection
+  cos_matosinhos:
+    description: Carta de Uso e Ocupação do Solo (COS) - Matosinhos
+    extents:
+      spatial:
+        bbox:
+        - -8.72753841685472
+        - 41.17163340052957
+        - -8.596419363315169
+        - 41.27190503504259
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Matosinhos
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_matosinhos
+      type: feature
+    - data: http://tiles:3000/v_cos_matosinhos/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Matosinhos
     type: collection
   cos_viseu:
     description: Carta de Uso e Ocupação do Solo (COS) - Viseu
@@ -23796,65 +23797,6 @@ resources:
       type: tile
     title: COS Carregal do Sal
     type: collection
-  cos_sabrosa:
-    description: Carta de Uso e Ocupação do Solo (COS) - Sabrosa
-    extents:
-      spatial:
-        bbox:
-        - -7.656275977012635
-        - 41.15739564958989
-        - -7.531698627018551
-        - 41.408909406933475
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Sabrosa
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_sabrosa
-      type: feature
-    - data: http://tiles:3000/v_cos_sabrosa/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Sabrosa
-    type: collection
   cos_santiago_do_cacem:
     description: Carta de Uso e Ocupação do Solo (COS) - Santiago do Cacém
     extents:
@@ -23913,6 +23855,65 @@ resources:
           min: 0
       type: tile
     title: COS Santiago do Cacém
+    type: collection
+  cos_sabrosa:
+    description: Carta de Uso e Ocupação do Solo (COS) - Sabrosa
+    extents:
+      spatial:
+        bbox:
+        - -7.656275977012635
+        - 41.15739564958989
+        - -7.531698627018551
+        - 41.408909406933475
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Sabrosa
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_sabrosa
+      type: feature
+    - data: http://tiles:3000/v_cos_sabrosa/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Sabrosa
     type: collection
   cos_serta:
     description: Carta de Uso e Ocupação do Solo (COS) - Sertã
@@ -23973,15 +23974,15 @@ resources:
       type: tile
     title: COS Sertã
     type: collection
-  cos_moita:
-    description: Carta de Uso e Ocupação do Solo (COS) - Moita
+  cos_oliveira_do_hospital:
+    description: Carta de Uso e Ocupação do Solo (COS) - Oliveira do Hospital
     extents:
       spatial:
         bbox:
-        - -9.049366890401323
-        - 38.601937081996915
-        - -8.946775374439008
-        - 38.68933375990756
+        - -7.980535104308282
+        - 40.26186997582843
+        - -7.764506460661722
+        - 40.496050889222474
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -23991,7 +23992,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - Moita
+    - Oliveira do Hospital
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -24016,9 +24017,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_moita
+      table: v_cos_oliveira_do_hospital
       type: feature
-    - data: http://tiles:3000/v_cos_moita/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_oliveira_do_hospital/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -24030,7 +24031,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Moita
+    title: COS Oliveira do Hospital
     type: collection
   cos_pedrogao_grande:
     description: Carta de Uso e Ocupação do Solo (COS) - Pedrógão Grande
@@ -24091,65 +24092,6 @@ resources:
       type: tile
     title: COS Pedrógão Grande
     type: collection
-  cos_oliveira_do_hospital:
-    description: Carta de Uso e Ocupação do Solo (COS) - Oliveira do Hospital
-    extents:
-      spatial:
-        bbox:
-        - -7.980535104308282
-        - 40.26186997582843
-        - -7.764506460661722
-        - 40.496050889222474
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Oliveira do Hospital
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_oliveira_do_hospital
-      type: feature
-    - data: http://tiles:3000/v_cos_oliveira_do_hospital/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Oliveira do Hospital
-    type: collection
   cos_amares:
     description: Carta de Uso e Ocupação do Solo (COS) - Amares
     extents:
@@ -24208,6 +24150,65 @@ resources:
           min: 0
       type: tile
     title: COS Amares
+    type: collection
+  cos_moita:
+    description: Carta de Uso e Ocupação do Solo (COS) - Moita
+    extents:
+      spatial:
+        bbox:
+        - -9.049366890401323
+        - 38.601937081996915
+        - -8.946775374439008
+        - 38.68933375990756
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Moita
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_moita
+      type: feature
+    - data: http://tiles:3000/v_cos_moita/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Moita
     type: collection
   cos_amadora:
     description: Carta de Uso e Ocupação do Solo (COS) - Amadora
@@ -24445,65 +24446,6 @@ resources:
       type: tile
     title: COS Gavião
     type: collection
-  cos_cascais:
-    description: Carta de Uso e Ocupação do Solo (COS) - Cascais
-    extents:
-      spatial:
-        bbox:
-        - -9.478904271013114
-        - 38.67755788009558
-        - -9.3141741747967
-        - 38.76803237625682
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Cascais
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_cascais
-      type: feature
-    - data: http://tiles:3000/v_cos_cascais/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Cascais
-    type: collection
   cos_condeixa_a_nova:
     description: Carta de Uso e Ocupação do Solo (COS) - Condeixa-a-Nova
     extents:
@@ -24562,6 +24504,65 @@ resources:
           min: 0
       type: tile
     title: COS Condeixa-a-Nova
+    type: collection
+  cos_cascais:
+    description: Carta de Uso e Ocupação do Solo (COS) - Cascais
+    extents:
+      spatial:
+        bbox:
+        - -9.478904271013114
+        - 38.67755788009558
+        - -9.3141741747967
+        - 38.76803237625682
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Cascais
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_cascais
+      type: feature
+    - data: http://tiles:3000/v_cos_cascais/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Cascais
     type: collection
   cos_evora:
     description: Carta de Uso e Ocupação do Solo (COS) - Évora
@@ -25094,65 +25095,6 @@ resources:
       type: tile
     title: COS Monchique
     type: collection
-  cos_porto:
-    description: Carta de Uso e Ocupação do Solo (COS) - Porto
-    extents:
-      spatial:
-        bbox:
-        - -8.689312845306041
-        - 41.139839199347264
-        - -8.554938470513921
-        - 41.18460820350013
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Porto
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_porto
-      type: feature
-    - data: http://tiles:3000/v_cos_porto/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Porto
-    type: collection
   cos_marinha_grande:
     description: Carta de Uso e Ocupação do Solo (COS) - Marinha Grande
     extents:
@@ -25211,6 +25153,65 @@ resources:
           min: 0
       type: tile
     title: COS Marinha Grande
+    type: collection
+  cos_porto:
+    description: Carta de Uso e Ocupação do Solo (COS) - Porto
+    extents:
+      spatial:
+        bbox:
+        - -8.689312845306041
+        - 41.139839199347264
+        - -8.554938470513921
+        - 41.18460820350013
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Porto
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_porto
+      type: feature
+    - data: http://tiles:3000/v_cos_porto/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Porto
     type: collection
   cos_alpiarca:
     description: Carta de Uso e Ocupação do Solo (COS) - Alpiarça
@@ -27395,65 +27396,6 @@ resources:
       type: tile
     title: COS Ribeira de Pena
     type: collection
-  cos_vila_real:
-    description: Carta de Uso e Ocupação do Solo (COS) - Vila Real
-    extents:
-      spatial:
-        bbox:
-        - -7.918152265138684
-        - 41.186521544304306
-        - -7.607235884526931
-        - 41.41593708042056
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Vila Real
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_vila_real
-      type: feature
-    - data: http://tiles:3000/v_cos_vila_real/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Vila Real
-    type: collection
   cos_lisboa:
     description: Carta de Uso e Ocupação do Solo (COS) - Lisboa
     extents:
@@ -27571,6 +27513,65 @@ resources:
           min: 0
       type: tile
     title: COS Vila Nova de Poiares
+    type: collection
+  cos_vila_real:
+    description: Carta de Uso e Ocupação do Solo (COS) - Vila Real
+    extents:
+      spatial:
+        bbox:
+        - -7.918152265138684
+        - 41.186521544304306
+        - -7.607235884526931
+        - 41.41593708042056
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Vila Real
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_vila_real
+      type: feature
+    - data: http://tiles:3000/v_cos_vila_real/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Vila Real
     type: collection
   cos_caminha:
     description: Carta de Uso e Ocupação do Solo (COS) - Caminha
@@ -28221,65 +28222,6 @@ resources:
       type: tile
     title: COS Fundão
     type: collection
-  cos_alandroal:
-    description: Carta de Uso e Ocupação do Solo (COS) - Alandroal
-    extents:
-      spatial:
-        bbox:
-        - -7.559959453589038
-        - 38.4361060989806
-        - -7.206292336388067
-        - 38.772582301093905
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Alandroal
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_alandroal
-      type: feature
-    - data: http://tiles:3000/v_cos_alandroal/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Alandroal
-    type: collection
   cos_barcelos:
     description: Carta de Uso e Ocupação do Solo (COS) - Barcelos
     extents:
@@ -28338,6 +28280,65 @@ resources:
           min: 0
       type: tile
     title: COS Barcelos
+    type: collection
+  cos_alandroal:
+    description: Carta de Uso e Ocupação do Solo (COS) - Alandroal
+    extents:
+      spatial:
+        bbox:
+        - -7.559959453589038
+        - 38.4361060989806
+        - -7.206292336388067
+        - 38.772582301093905
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Alandroal
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_alandroal
+      type: feature
+    - data: http://tiles:3000/v_cos_alandroal/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Alandroal
     type: collection
   cos_castro_verde:
     description: Carta de Uso e Ocupação do Solo (COS) - Castro Verde
@@ -28398,65 +28399,6 @@ resources:
       type: tile
     title: COS Castro Verde
     type: collection
-  cos_sao_pedro_do_sul:
-    description: Carta de Uso e Ocupação do Solo (COS) - São Pedro do Sul
-    extents:
-      spatial:
-        bbox:
-        - -8.249634115931814
-        - 40.729332713661165
-        - -7.931449933604521
-        - 40.93612881870297
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - São Pedro do Sul
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_sao_pedro_do_sul
-      type: feature
-    - data: http://tiles:3000/v_cos_sao_pedro_do_sul/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS São Pedro do Sul
-    type: collection
   cos_amarante:
     description: Carta de Uso e Ocupação do Solo (COS) - Amarante
     extents:
@@ -28515,6 +28457,65 @@ resources:
           min: 0
       type: tile
     title: COS Amarante
+    type: collection
+  cos_sao_pedro_do_sul:
+    description: Carta de Uso e Ocupação do Solo (COS) - São Pedro do Sul
+    extents:
+      spatial:
+        bbox:
+        - -8.249634115931814
+        - 40.729332713661165
+        - -7.931449933604521
+        - 40.93612881870297
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - São Pedro do Sul
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_sao_pedro_do_sul
+      type: feature
+    - data: http://tiles:3000/v_cos_sao_pedro_do_sul/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS São Pedro do Sul
     type: collection
   cos_soure:
     description: Carta de Uso e Ocupação do Solo (COS) - Soure
@@ -28575,65 +28576,6 @@ resources:
       type: tile
     title: COS Soure
     type: collection
-  cos_alcochete:
-    description: Carta de Uso e Ocupação do Solo (COS) - Alcochete
-    extents:
-      spatial:
-        bbox:
-        - -9.017958720893574
-        - 38.673439448635634
-        - -8.812796755965525
-        - 38.761548138374096
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Alcochete
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_alcochete
-      type: feature
-    - data: http://tiles:3000/v_cos_alcochete/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Alcochete
-    type: collection
   cos_abrantes:
     description: Carta de Uso e Ocupação do Solo (COS) - Abrantes
     extents:
@@ -28692,6 +28634,65 @@ resources:
           min: 0
       type: tile
     title: COS Abrantes
+    type: collection
+  cos_alcochete:
+    description: Carta de Uso e Ocupação do Solo (COS) - Alcochete
+    extents:
+      spatial:
+        bbox:
+        - -9.017958720893574
+        - 38.673439448635634
+        - -8.812796755965525
+        - 38.761548138374096
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Alcochete
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_alcochete
+      type: feature
+    - data: http://tiles:3000/v_cos_alcochete/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Alcochete
     type: collection
   cos_lamego:
     description: Carta de Uso e Ocupação do Solo (COS) - Lamego
@@ -28870,65 +28871,6 @@ resources:
       type: tile
     title: COS Cabeceiras de Basto
     type: collection
-  cos_vila_real_de_santo_antonio:
-    description: Carta de Uso e Ocupação do Solo (COS) - Vila Real de Santo António
-    extents:
-      spatial:
-        bbox:
-        - -7.572614943752384
-        - 37.14923326981205
-        - -7.405077566657712
-        - 37.25506942439807
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Vila Real de Santo António
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_vila_real_de_santo_antonio
-      type: feature
-    - data: http://tiles:3000/v_cos_vila_real_de_santo_antonio/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Vila Real de Santo António
-    type: collection
   cos_miranda_do_corvo:
     description: Carta de Uso e Ocupação do Solo (COS) - Miranda do Corvo
     extents:
@@ -28987,6 +28929,65 @@ resources:
           min: 0
       type: tile
     title: COS Miranda do Corvo
+    type: collection
+  cos_vila_real_de_santo_antonio:
+    description: Carta de Uso e Ocupação do Solo (COS) - Vila Real de Santo António
+    extents:
+      spatial:
+        bbox:
+        - -7.572614943752384
+        - 37.14923326981205
+        - -7.405077566657712
+        - 37.25506942439807
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Vila Real de Santo António
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_vila_real_de_santo_antonio
+      type: feature
+    - data: http://tiles:3000/v_cos_vila_real_de_santo_antonio/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Vila Real de Santo António
     type: collection
   cos_santa_comba_dao:
     description: Carta de Uso e Ocupação do Solo (COS) - Santa Comba Dão
@@ -29578,65 +29579,6 @@ resources:
       type: tile
     title: COS Vale de Cambra
     type: collection
-  cos_gondomar:
-    description: Carta de Uso e Ocupação do Solo (COS) - Gondomar
-    extents:
-      spatial:
-        bbox:
-        - -8.580766992498814
-        - 41.01239010246797
-        - -8.374543598149774
-        - 41.203196204074445
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Gondomar
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_gondomar
-      type: feature
-    - data: http://tiles:3000/v_cos_gondomar/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Gondomar
-    type: collection
   cos_lagos:
     description: Carta de Uso e Ocupação do Solo (COS) - Lagos
     extents:
@@ -29696,15 +29638,15 @@ resources:
       type: tile
     title: COS Lagos
     type: collection
-  cos_paredes_de_coura:
-    description: Carta de Uso e Ocupação do Solo (COS) - Paredes de Coura
+  cos_gondomar:
+    description: Carta de Uso e Ocupação do Solo (COS) - Gondomar
     extents:
       spatial:
         bbox:
-        - -8.668990756283483
-        - 41.8489180057316
-        - -8.489440995137741
-        - 41.979125928713565
+        - -8.580766992498814
+        - 41.01239010246797
+        - -8.374543598149774
+        - 41.203196204074445
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -29714,7 +29656,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - Paredes de Coura
+    - Gondomar
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -29739,9 +29681,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_paredes_de_coura
+      table: v_cos_gondomar
       type: feature
-    - data: http://tiles:3000/v_cos_paredes_de_coura/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_gondomar/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -29753,17 +29695,17 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Paredes de Coura
+    title: COS Gondomar
     type: collection
-  cos_barreiro:
-    description: Carta de Uso e Ocupação do Solo (COS) - Barreiro
+  cos_portimao:
+    description: Carta de Uso e Ocupação do Solo (COS) - Portimão
     extents:
       spatial:
         bbox:
-        - -9.092223045210696
-        - 38.58015398065684
-        - -9.009427310548757
-        - 38.68746117365149
+        - -8.680500857433943
+        - 37.11498076819785
+        - -8.48566696284418
+        - 37.26929229487138
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -29773,7 +29715,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - Barreiro
+    - Portimão
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -29798,9 +29740,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_barreiro
+      table: v_cos_portimao
       type: feature
-    - data: http://tiles:3000/v_cos_barreiro/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_portimao/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -29812,7 +29754,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Barreiro
+    title: COS Portimão
     type: collection
   cos_elvas:
     description: Carta de Uso e Ocupação do Solo (COS) - Elvas
@@ -29873,15 +29815,15 @@ resources:
       type: tile
     title: COS Elvas
     type: collection
-  cos_portimao:
-    description: Carta de Uso e Ocupação do Solo (COS) - Portimão
+  cos_barreiro:
+    description: Carta de Uso e Ocupação do Solo (COS) - Barreiro
     extents:
       spatial:
         bbox:
-        - -8.680500857433943
-        - 37.11498076819785
-        - -8.48566696284418
-        - 37.26929229487138
+        - -9.092223045210696
+        - 38.58015398065684
+        - -9.009427310548757
+        - 38.68746117365149
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -29891,7 +29833,7 @@ resources:
     - Ocupação do Solo
     - PortugaL
     - COS
-    - Portimão
+    - Barreiro
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
       hreflang: en-US
@@ -29916,9 +29858,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_portimao
+      table: v_cos_barreiro
       type: feature
-    - data: http://tiles:3000/v_cos_portimao/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/v_cos_barreiro/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -29930,7 +29872,66 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portimão
+    title: COS Barreiro
+    type: collection
+  cos_paredes_de_coura:
+    description: Carta de Uso e Ocupação do Solo (COS) - Paredes de Coura
+    extents:
+      spatial:
+        bbox:
+        - -8.668990756283483
+        - 41.8489180057316
+        - -8.489440995137741
+        - 41.979125928713565
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Paredes de Coura
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_paredes_de_coura
+      type: feature
+    - data: http://tiles:3000/v_cos_paredes_de_coura/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Paredes de Coura
     type: collection
   cos_obidos:
     description: Carta de Uso e Ocupação do Solo (COS) - Óbidos
@@ -30286,65 +30287,6 @@ resources:
       type: tile
     title: COS Tavira
     type: collection
-  cos_mondim_de_basto:
-    description: Carta de Uso e Ocupação do Solo (COS) - Mondim de Basto
-    extents:
-      spatial:
-        bbox:
-        - -7.980743296862363
-        - 41.31805387535587
-        - -7.793939161555158
-        - 41.49169133476701
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Mondim de Basto
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_mondim_de_basto
-      type: feature
-    - data: http://tiles:3000/v_cos_mondim_de_basto/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Mondim de Basto
-    type: collection
   cos_grandola:
     description: Carta de Uso e Ocupação do Solo (COS) - Grândola
     extents:
@@ -30403,6 +30345,65 @@ resources:
           min: 0
       type: tile
     title: COS Grândola
+    type: collection
+  cos_mondim_de_basto:
+    description: Carta de Uso e Ocupação do Solo (COS) - Mondim de Basto
+    extents:
+      spatial:
+        bbox:
+        - -7.980743296862363
+        - 41.31805387535587
+        - -7.793939161555158
+        - 41.49169133476701
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Mondim de Basto
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_mondim_de_basto
+      type: feature
+    - data: http://tiles:3000/v_cos_mondim_de_basto/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Mondim de Basto
     type: collection
   cos_salvaterra_de_magos:
     description: Carta de Uso e Ocupação do Solo (COS) - Salvaterra de Magos
@@ -30994,65 +30995,6 @@ resources:
       type: tile
     title: COS Vila Nova de Foz Côa
     type: collection
-  cos_almada:
-    description: Carta de Uso e Ocupação do Solo (COS) - Almada
-    extents:
-      spatial:
-        bbox:
-        - -9.257536605940079
-        - 38.563088536850415
-        - -9.133832036280241
-        - 38.6872182434234
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Almada
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_almada
-      type: feature
-    - data: http://tiles:3000/v_cos_almada/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Almada
-    type: collection
   cos_sobral_de_monte_agraco:
     description: Carta de Uso e Ocupação do Solo (COS) - Sobral de Monte Agraço
     extents:
@@ -31111,6 +31053,65 @@ resources:
           min: 0
       type: tile
     title: COS Sobral de Monte Agraço
+    type: collection
+  cos_almada:
+    description: Carta de Uso e Ocupação do Solo (COS) - Almada
+    extents:
+      spatial:
+        bbox:
+        - -9.257536605940079
+        - 38.563088536850415
+        - -9.133832036280241
+        - 38.6872182434234
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Almada
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_almada
+      type: feature
+    - data: http://tiles:3000/v_cos_almada/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Almada
     type: collection
   cos_rio_maior:
     description: Carta de Uso e Ocupação do Solo (COS) - Rio Maior
@@ -32351,65 +32352,6 @@ resources:
       type: tile
     title: COS Batalha
     type: collection
-  cos_monforte:
-    description: Carta de Uso e Ocupação do Solo (COS) - Monforte
-    extents:
-      spatial:
-        bbox:
-        - -7.562361695204953
-        - 38.877002928632706
-        - -7.302160603524713
-        - 39.182450850070566
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - Monforte
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: v_cos_monforte
-      type: feature
-    - data: http://tiles:3000/v_cos_monforte/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS Monforte
-    type: collection
   cos_aguiar_da_beira:
     description: Carta de Uso e Ocupação do Solo (COS) - Aguiar da Beira
     extents:
@@ -32468,6 +32410,65 @@ resources:
           min: 0
       type: tile
     title: COS Aguiar da Beira
+    type: collection
+  cos_monforte:
+    description: Carta de Uso e Ocupação do Solo (COS) - Monforte
+    extents:
+      spatial:
+        bbox:
+        - -7.562361695204953
+        - 38.877002928632706
+        - -7.302160603524713
+        - 39.182450850070566
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - Monforte
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: v_cos_monforte
+      type: feature
+    - data: http://tiles:3000/v_cos_monforte/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS Monforte
     type: collection
   cos_oeiras:
     description: Carta de Uso e Ocupação do Solo (COS) - Oeiras
@@ -32763,4 +32764,424 @@ resources:
           min: 0
       type: tile
     title: COS Ferreira do Alentejo
+    type: collection
+  cadastro:
+    description: Parcelas Cadastrais
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - prédio
+    - conservação cadastral
+    - INSPIRECORE
+    - DL_72_2023
+    - Cadastro Oficial
+    - HVD
+    - cadastro
+    - cadastro predial
+    - carta cadastral
+    - prédios cadastrados
+    - cadastro predial atualizado
+    - Base de Dados Nacional de Cadastro Predial
+    - BDNCP
+    - Direção-geral do Território
+    - DGT
+    - Geoespaciais
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/73282c48-7f23-435c-ba41-592a96470080
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: id
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: cadastro
+      type: feature
+    - data: http://tiles:3000/cadastro/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: Cadastro Predial (Continente)
+    type: collection
+  freguesias:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Freguesias
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - Freguesias
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: fid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: freguesias
+      type: feature
+    - data: http://tiles:3000/freguesias/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Freguesias
+    type: collection
+  admin:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Áreas
+      administrativas
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Limites Admnistrativos
+    - Portugal Continental
+    - Áreas administrativas
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: fid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: admin
+      type: feature
+    - data: http://tiles:3000/admin/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Áreas administrativas
+    type: collection
+  nuts1:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSI
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - NUTSI
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: fid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: nuts1
+      type: feature
+    - data: http://tiles:3000/nuts1/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 NUTSI
+    type: collection
+  nuts2:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSII
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - NUTSII
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: fid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: nuts2
+      type: feature
+    - data: http://tiles:3000/nuts2/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 NUTSII
+    type: collection
+  nuts3:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSIII
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - NUTSIII
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: fid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: nuts3
+      type: feature
+    - data: http://tiles:3000/nuts3/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 NUTSIII
+    type: collection
+  trocos:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Troços
+      administrativos
+    extents:
+      spatial:
+        bbox:
+        - -9.52657060387
+        - 36.838268541
+        - -6.3890876937
+        - 42.280468655
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - Limites Admnistrativos
+    - Portugal Continental
+    - Troços administrativos
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: fid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: trocos
+      type: feature
+    - data: http://tiles:3000/trocos/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Troços
     type: collection

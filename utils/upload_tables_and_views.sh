@@ -18,11 +18,12 @@ if [ -n "$POSTGRES_PASSWORD" ]; then
     echo "Uploading COS table"
     # Load COS
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --input /data/cos2018v2.shp --config /pygeoapi/docker.config.yml --template template_cos.yml
-    # Load CAOP
-    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table caop --input /data/Cont_Mun_CAOP2023.shp --config /pygeoapi/docker.config.yml --template template_caop.yml
+    echo "Uploading CAOP municipios"
+    # Load CAOP - municipios
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table caop --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
     echo "Uploading COS childs views"
     # Load COS based views
-    poetry run python3 ./create_joined_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER  --password $POSTGRES_PASSWORD --table1 cos --table2 caop --column Municipio --config /pygeoapi/docker.config.yml
+    poetry run python3 ./create_joined_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER  --password $POSTGRES_PASSWORD --table1 cos --table2 caop --column municipio --config /pygeoapi/docker.config.yml
     echo "Uploading cadastro table"
     # Load cadastro
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key id --table cadastro --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
@@ -36,15 +37,37 @@ else
     echo "Uploading COS table"
     # Load COS
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --table cos --input /data/cos2018v2.shp --config /pygeoapi/docker.config.yml --template template_cos.yml
-    echo "Uploading CAOP table"
-    # Load CAOP
-    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --table caop --input /data/Cont_Mun_CAOP2023.shp --config /pygeoapi/docker.config.yml --template template_caop.yml
+    echo "Uploading CAOP municipios"
+    # Load CAOP - municipios
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table caop --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
     echo "Uploading COS childs views"
     # Load COS based views
-    poetry run python3 ./create_joined_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER  --table1 cos --table2 caop --column Municipio --config /pygeoapi/docker.config.yml
+    poetry run python3 ./create_joined_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER  --table1 cos --table2 caop --column municipio --config /pygeoapi/docker.config.yml
     echo "Uploading cadastro table"
     # Load cadastro
     poetry run python3 ./upload_tables.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cadastro --primary_key id --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
+    echo "Uploading CAOP freguesias"
+    # Load CAOP - freguesias
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table freguesias --input /data/cont_freguesias.gpkg --config /pygeoapi/docker.config.yml --template template_freguesias.yml
+    echo "Uploading CAOP areas administrativas"
+    # Load CAOP - areas administrativas
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table admin --input /data/cont_areas_administrativas.gpkg --config /pygeoapi/docker.config.yml --template template_admin.yml
+    echo "Uploading CAOP nuts1"
+    # Load CAOP - nuts1
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table nuts1 --input /data/cont_nuts1.gpkg --config /pygeoapi/docker.config.yml --template template_nuts1.yml
+    echo "Uploading CAOP nuts2"
+    # Load CAOP - nuts2
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table nuts2 --input /data/cont_nuts2.gpkg --config /pygeoapi/docker.config.yml --template template_nuts2.yml
+    echo "Uploading CAOP nuts3"
+    # Load CAOP - nuts3
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table nuts3 --input /data/cont_nuts3.gpkg --config /pygeoapi/docker.config.yml --template template_nuts3.yml
+    echo "Uploading CAOP trocos"
+    # Load CAOP - trocos
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table trocos --input /data/cont_trocos.gpkg --config /pygeoapi/docker.config.yml --template template_trocos.yml
+
+
+
+
 fi
 
 

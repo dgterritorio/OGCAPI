@@ -1,9 +1,10 @@
 type: collection
-title: CAOP2023 (Continente)
-description:  Carta Administrativa Oficial de Portugal, Continente, 2023 
+title: CAOP2024 NUTSI
+description:  Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSI 
 keywords:
-    - Limites Admnistrativos
+    - Limites Administrativos
     - Portugal Continental
+    - NUTSI
     - CAOP
 links:
     - type: text/csv
@@ -25,7 +26,7 @@ providers:
             host: postgis
             dbname: geodb
             user: ${POSTGRES_USER}
-      id_field: objectid
+      id_field: fid
       table: my_table_name_lower
       search_path: [geostore, public]
       geom_field: geometry

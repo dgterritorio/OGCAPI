@@ -23,6 +23,9 @@ if [ -n "$POSTGRES_PASSWORD" ]; then
     echo "Uploading COS childs views"
     # Load COS based views
     poetry run python3 ./create_joined_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER  --password $POSTGRES_PASSWORD --table1 cos --table2 caop --column Municipio --config /pygeoapi/docker.config.yml
+    echo "Uploading cadastro table"
+    # Load cadastro
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key id --table cadastro --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
 else
     echo "Uploading CRUS table"
     # Load CRUS
@@ -39,7 +42,9 @@ else
     echo "Uploading COS childs views"
     # Load COS based views
     poetry run python3 ./create_joined_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER  --table1 cos --table2 caop --column Municipio --config /pygeoapi/docker.config.yml
-
+    echo "Uploading cadastro table"
+    # Load cadastro
+    poetry run python3 ./upload_tables.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cadastro --primary_key id --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
 fi
 
 

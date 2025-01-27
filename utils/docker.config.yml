@@ -3,7 +3,7 @@ server:
     host: 0.0.0.0:80
     port: 80
   url: https://ogcapi.dgterritorio.gov.pt/
-  #url: http://localhost:80/ #TODO: change this later 
+  # url: http://localhost:80/ #TODO: change this later 
   mimetype: application/json; charset=UTF-8
   encoding: utf-8
   gzip: false

@@ -51,3 +51,8 @@ docker run -v /home/byteroad/git/ogcapi-simple/data:/tmp/data \
 ghcr.io/osgeo/gdal:ubuntu-full-3.8.4  \
 ogr2ogr  \
   -f 'GPKG' /tmp/data/cont_trocos.gpkg   PG:"dbname='caop' host='192.168.10.102' port='5432' user='ogc_api' password=$POSTGRES_PASS"   "caop2024.cont_trocos"
+
+docker run -v /home/byteroad/git/ogcapi-simple/data:/tmp/data \
+ghcr.io/osgeo/gdal:ubuntu-full-3.8.4  \
+ogr2ogr  \
+  -f 'GPKG' /tmp/data/cont_distritos.gpkg   PG:"dbname='caop' host='192.168.10.102' port='5432' user='ogc_api' password=$POSTGRES_PASS"   "caop2024.cont_distritos"

@@ -40,7 +40,9 @@ services:
       - /etc/cert/ogcapi_privkey4.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       - /etc/cert/2logs.pem:/usr/local/apache2/conf/matomo/fullchain.pem  
       - /etc/cert/logs_privkey4.pem:/usr/local/apache2/conf/matomo/privkey.pem
-      - apache_log:/usr/local/apache2/logs
+      - /etc/cert/1ghc.pem:/usr/local/apache2/conf/health/fullchain.pem  
+      - /etc/cert/ghc_privkey1.pem:/usr/local/apache2/conf/health/privkey.pem
+      - ./apache-httpd/logs:/usr/local/apache2/logs
     ports:
       - "80:80"
       - "443:443"
@@ -126,7 +128,7 @@ services:
     command: --max-allowed-packet=64MB
     restart: always
     volumes:
-      - maria:/var/lib/mysql:Z
+      - ./matomo/data/maria:/var/lib/mysql:Z
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MARIADB_AUTO_UPGRADE=1
@@ -144,8 +146,8 @@ services:
     ports:
       - 8081:80
     volumes:
-      - matomo:/var/www/html:z
-      - apache_log:/apache:ro
+      - ./matomo/data/matomo:/var/www/html:z
+      - ./apache-httpd/logs:/apache:ro
     environment:
       - MATOMO_DATABASE_HOST=mariadb
     env_file:
@@ -162,8 +164,8 @@ services:
     env_file:
       - .env
     volumes:
-        - matomo:/var/www/html:z
-        - apache_log:/apache:ro
+        - ./matomo/data/matomo:/var/www/html:z
+        - ./apache-httpd/logs:/apache:ro
     depends_on:
       - matomo
     restart: on-failure
@@ -179,7 +181,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./ghc_sqlitedb:/GeoHealthCheck/DB
+      - ghc_sqlitedb:/GeoHealthCheck/DB
     networks:
       - default
 
@@ -195,9 +197,6 @@ services:
       - ghc_sqlitedb:/GeoHealthCheck/DB
 
 volumes:
-  maria:
-  matomo:
-  apache_log:
   ghc_sqlitedb:
 
 networks:

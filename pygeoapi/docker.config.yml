@@ -68,11 +68,26 @@ metadata:
 resources:
   ortos-rgb:
       type: collection
-      title: ORTOS RGB
-      description: Ortos Mosaic RGB, 2023.
+      title: OrtoSat 30 cm - Portugal Continental - 2023 (Cor Verdadeira)
+      description: "A cobertura OrtoSat2023 é uma cobertura de ortoimagens obtidas a partir de imagens de satélite de muito grande resolução espacial adquirida durante o ano de 2023 sobre o território de Portugal continental. A cobertura é composta por um mosaico equalizado e ininterrupto de imagens de satélite ortorretificadas com uma resolução espacial de 30 cm. As imagens utilizadas na produção do mosaico foram obtidas da constelação de satélites Pleiades-Neo (3 & 4) durante o período de abril a outubro de 2023. Disponibilização em cor verdadeira: RGB: Vermelho, Verde e Azul."
       keywords:
-      - centro
-      - ortos
+        - Cor verdadeira
+        - Imagem de Satélite   
+        - Deteção Remota   
+        - Cartografia Oficial   
+        - "2023"   
+        - infoMapAccessService   
+        - SMOS   
+        - Ortoimagens   
+        - OrtoSat2023   
+        - Ortoimagem   
+        - Orto   
+        - Ortofoto   
+        - Ortofotos   
+        - Ortofotomapa   
+        - Ortofotomapas   
+        - OrtoSat   
+        - DGT   
       links:
       - type: text/html
         rel: canonical
@@ -82,10 +97,10 @@ resources:
       extents:
           spatial:
               bbox:
-                  - -9.52657060387
-                  - 36.838268541
-                  - -6.3890876937
-                  - 42.280468655
+                  - -9.5670
+                  - 36.777
+                  - -6.1630
+                  - 42.1510
           crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
           begin: null
@@ -105,11 +120,26 @@ resources:
               mimetype: image/png
   ortos-irg:
       type: collection
-      title: ORTOS IRG
-      description: Ortos Mosaic IRG, 2023.
+      title: OrtoSat 30 cm - Portugal Continental - 2023 (Falsa Cor)
+      description: "A cobertura OrtoSat2023 é uma cobertura de ortoimagens obtidas a partir de imagens de satélite de muito grande resolução espacial adquirida durante o ano de 2023 sobre o território de Portugal continental. A cobertura é composta por um mosaico equalizado e ininterrupto de imagens de satélite ortorretificadas com uma resolução espacial de 30 cm. As imagens utilizadas na produção do mosaico foram obtidas da constelação de satélites Pleiades-Neo (3 & 4) durante o período de abril a outubro de 2023. Disponibilização em false cor: RGB: Infravermelho Próximo, Vermelho e Verde."
       keywords:
-      - centro
-      - ortos
+        - Falsa cor
+        - Imagem de Satélite   
+        - Deteção Remota   
+        - Cartografia Oficial   
+        - "2023"   
+        - infoMapAccessService   
+        - SMOS   
+        - Ortoimagens   
+        - OrtoSat2023   
+        - Ortoimagem   
+        - Orto   
+        - Ortofoto   
+        - Ortofotos   
+        - Ortofotomapa   
+        - Ortofotomapas   
+        - OrtoSat   
+        - DGT
       links:
       - type: text/html
         rel: canonical
@@ -119,10 +149,10 @@ resources:
       extents:
           spatial:
               bbox:
-                  - -9.52657060387
-                  - 36.838268541
-                  - -6.3890876937
-                  - 42.280468655
+                  - -9.5670
+                  - 36.777
+                  - -6.1630
+                  - 42.1510
           crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
           begin: null

@@ -11,7 +11,10 @@ server:
   - en-US
   cors: true
   pretty_print: true
-  limit: 500
+  limits:
+    default_items: 100
+    max_items: 5000
+    on_exceed: throttle
   map:
     url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap
@@ -67,109 +70,123 @@ metadata:
     role: pointOfContact
 resources:
   ortos-rgb:
-      type: collection
-      title: OrtoSat 30 cm - Portugal Continental - 2023 (Cor Verdadeira)
-      description: "A cobertura OrtoSat2023 é uma cobertura de ortoimagens obtidas a partir de imagens de satélite de muito grande resolução espacial adquirida durante o ano de 2023 sobre o território de Portugal continental. A cobertura é composta por um mosaico equalizado e ininterrupto de imagens de satélite ortorretificadas com uma resolução espacial de 30 cm. As imagens utilizadas na produção do mosaico foram obtidas da constelação de satélites Pleiades-Neo (3 & 4) durante o período de abril a outubro de 2023. Disponibilização em cor verdadeira: RGB: Vermelho, Verde e Azul."
-      keywords:
-        - Cor verdadeira
-        - Imagem de Satélite   
-        - Deteção Remota   
-        - Cartografia Oficial   
-        - "2023"   
-        - infoMapAccessService   
-        - SMOS   
-        - Ortoimagens   
-        - OrtoSat2023   
-        - Ortoimagem   
-        - Orto   
-        - Ortofoto   
-        - Ortofotos   
-        - Ortofotomapa   
-        - Ortofotomapas   
-        - OrtoSat   
-        - DGT   
-      links:
-      - type: text/html
-        rel: canonical
-        title: information
-        href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b2a1ca02-779b-4189-b895-85d10fff610f
-        hreflang: en-US
-      extents:
-          spatial:
-              bbox:
-                  - -9.5670
-                  - 36.777
-                  - -6.1630
-                  - 42.1510
-          crs: http://www.opengis.net/def/crs/EPSG/0/4326
-      temporal:
-          begin: null
-          end: null
-      providers:
-        - type: map
-          name: MapScript
-          data: /data/orto_index_all.shp
-          options:
-              type: MS_LAYER_RASTER
-              projection: 3763
-              tileindex: True
-              debug: MS_DEBUGLEVEL_VVV
-              layer: sample
-          format:
-              name: png
-              mimetype: image/png
+    type: collection
+    title: OrtoSat 30 cm - Portugal Continental - 2023 (Cor Verdadeira)
+    description: 'A cobertura OrtoSat2023 é uma cobertura de ortoimagens obtidas a
+      partir de imagens de satélite de muito grande resolução espacial adquirida durante
+      o ano de 2023 sobre o território de Portugal continental. A cobertura é composta
+      por um mosaico equalizado e ininterrupto de imagens de satélite ortorretificadas
+      com uma resolução espacial de 30 cm. As imagens utilizadas na produção do mosaico
+      foram obtidas da constelação de satélites Pleiades-Neo (3 & 4) durante o período
+      de abril a outubro de 2023. Disponibilização em cor verdadeira: RGB: Vermelho,
+      Verde e Azul.'
+    keywords:
+    - Cor verdadeira
+    - Imagem de Satélite
+    - Deteção Remota
+    - Cartografia Oficial
+    - '2023'
+    - infoMapAccessService
+    - SMOS
+    - Ortoimagens
+    - OrtoSat2023
+    - Ortoimagem
+    - Orto
+    - Ortofoto
+    - Ortofotos
+    - Ortofotomapa
+    - Ortofotomapas
+    - OrtoSat
+    - DGT
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b2a1ca02-779b-4189-b895-85d10fff610f
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -9.567
+        - 36.777
+        - -6.163
+        - 42.151
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: null
+      end: null
+    providers:
+    - type: map
+      name: MapScript
+      data: /data/orto_index_all.shp
+      options:
+        type: MS_LAYER_RASTER
+        projection: 3763
+        tileindex: true
+        debug: MS_DEBUGLEVEL_VVV
+        layer: sample
+      format:
+        name: png
+        mimetype: image/png
   ortos-irg:
-      type: collection
-      title: OrtoSat 30 cm - Portugal Continental - 2023 (Falsa Cor)
-      description: "A cobertura OrtoSat2023 é uma cobertura de ortoimagens obtidas a partir de imagens de satélite de muito grande resolução espacial adquirida durante o ano de 2023 sobre o território de Portugal continental. A cobertura é composta por um mosaico equalizado e ininterrupto de imagens de satélite ortorretificadas com uma resolução espacial de 30 cm. As imagens utilizadas na produção do mosaico foram obtidas da constelação de satélites Pleiades-Neo (3 & 4) durante o período de abril a outubro de 2023. Disponibilização em false cor: RGB: Infravermelho Próximo, Vermelho e Verde."
-      keywords:
-        - Falsa cor
-        - Imagem de Satélite   
-        - Deteção Remota   
-        - Cartografia Oficial   
-        - "2023"   
-        - infoMapAccessService   
-        - SMOS   
-        - Ortoimagens   
-        - OrtoSat2023   
-        - Ortoimagem   
-        - Orto   
-        - Ortofoto   
-        - Ortofotos   
-        - Ortofotomapa   
-        - Ortofotomapas   
-        - OrtoSat   
-        - DGT
-      links:
-      - type: text/html
-        rel: canonical
-        title: information
-        href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b2a1ca02-779b-4189-b895-85d10fff610f
-        hreflang: en-US
-      extents:
-          spatial:
-              bbox:
-                  - -9.5670
-                  - 36.777
-                  - -6.1630
-                  - 42.1510
-          crs: http://www.opengis.net/def/crs/EPSG/0/4326
-      temporal:
-          begin: null
-          end: null
-      providers:
-        - type: map
-          name: MapScript
-          data: /data/orto_index_IRG.shp
-          options:
-              type: MS_LAYER_RASTER
-              projection: 3763
-              tileindex: True
-              debug: MS_DEBUGLEVEL_VVV
-              layer: sample
-          format:
-              name: png
-              mimetype: image/png
+    type: collection
+    title: OrtoSat 30 cm - Portugal Continental - 2023 (Falsa Cor)
+    description: 'A cobertura OrtoSat2023 é uma cobertura de ortoimagens obtidas a
+      partir de imagens de satélite de muito grande resolução espacial adquirida durante
+      o ano de 2023 sobre o território de Portugal continental. A cobertura é composta
+      por um mosaico equalizado e ininterrupto de imagens de satélite ortorretificadas
+      com uma resolução espacial de 30 cm. As imagens utilizadas na produção do mosaico
+      foram obtidas da constelação de satélites Pleiades-Neo (3 & 4) durante o período
+      de abril a outubro de 2023. Disponibilização em false cor: RGB: Infravermelho
+      Próximo, Vermelho e Verde.'
+    keywords:
+    - Falsa cor
+    - Imagem de Satélite
+    - Deteção Remota
+    - Cartografia Oficial
+    - '2023'
+    - infoMapAccessService
+    - SMOS
+    - Ortoimagens
+    - OrtoSat2023
+    - Ortoimagem
+    - Orto
+    - Ortofoto
+    - Ortofotos
+    - Ortofotomapa
+    - Ortofotomapas
+    - OrtoSat
+    - DGT
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b2a1ca02-779b-4189-b895-85d10fff610f
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -9.567
+        - 36.777
+        - -6.163
+        - 42.151
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: null
+      end: null
+    providers:
+    - type: map
+      name: MapScript
+      data: /data/orto_index_IRG.shp
+      options:
+        type: MS_LAYER_RASTER
+        projection: 3763
+        tileindex: true
+        debug: MS_DEBUGLEVEL_VVV
+        layer: sample
+      format:
+        name: png
+        mimetype: image/png
   crus:
     description: Carta do Regime de Uso do Solo
     extents:

@@ -61,6 +61,7 @@ services:
       # Variabili per abilitare e configurare il caching di GDAL per VSICURL
       - CPL_VSIL_CURL_CACHE=/tmp/vsicurl_cache
       - CPL_VSIL_CURL_CACHE_SIZE=1000000000  # 1GB di cache (modifica se necessario)
+    restart: on-failure
 
   pygeoapi:
     image: geopython/pygeoapi:latest

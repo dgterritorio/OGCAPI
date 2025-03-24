@@ -118,9 +118,9 @@ resources:
     providers:
     - type: map
       name: WMSFacade
-      data: http://mapserver:80/cgi-bin/mapserv.fcgi?map=/var/www/mapserver/mapfile.map
+      data: https://ortos.dgterritorio.gov.pt/wms/ortosat2023
       options:
-        layer: ortosat23_cog_mosaic_rgb
+        layer: ortoSat2023-CorVerdadeira
         style: default
         version: 1.3.0
       format:
@@ -175,9 +175,9 @@ resources:
     providers:
     - type: map
       name: WMSFacade
-      data: http://mapserver:80/cgi-bin/mapserv.fcgi?map=/var/www/mapserver/mapfile.map
+      data: https://ortos.dgterritorio.gov.pt/wms/ortosat2023
       options:
-        layer: ortosat23_cog_mosaic_irg
+        layer: ortoSat2023-FalsaCor
         style: default
         version: 1.3.0
       format:
@@ -297,76 +297,6 @@ resources:
           min: 0
       type: tile
     title: COS Portugal Continental
-    type: collection
-  cadastro:
-    description: Parcelas Cadastrais
-    extents:
-      spatial:
-        bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - prédio
-    - conservação cadastral
-    - INSPIRECORE
-    - DL_72_2023
-    - Cadastro Oficial
-    - HVD
-    - cadastro
-    - cadastro predial
-    - carta cadastral
-    - prédios cadastrados
-    - cadastro predial atualizado
-    - Base de Dados Nacional de Cadastro Predial
-    - BDNCP
-    - Direção-geral do Território
-    - DGT
-    - Geoespaciais
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/73282c48-7f23-435c-ba41-592a96470080
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: id
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: cadastro
-      type: feature
-    - data: http://tiles:3000/cadastro/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: Cadastro Predial (Continente)
     type: collection
   crus_abrantes:
     description: Carta do Regime de Uso do Solo - ABRANTES
@@ -16549,7 +16479,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Abrantes
+    title: COS Abrantes
     type: collection
   cos_aguiar_da_beira:
     description: Carta de Uso e Ocupação do Solo (COS) Aguiar da Beira - 2018
@@ -16608,7 +16538,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Aguiar da Beira
+    title: COS Aguiar da Beira
     type: collection
   cos_alandroal:
     description: Carta de Uso e Ocupação do Solo (COS) Alandroal - 2018
@@ -16667,7 +16597,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alandroal
+    title: COS Alandroal
     type: collection
   cos_albergaria_a_velha:
     description: Carta de Uso e Ocupação do Solo (COS) Albergaria-a-Velha - 2018
@@ -16726,7 +16656,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Albergaria-a-Velha
+    title: COS Albergaria-a-Velha
     type: collection
   cos_albufeira:
     description: Carta de Uso e Ocupação do Solo (COS) Albufeira - 2018
@@ -16785,7 +16715,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Albufeira
+    title: COS Albufeira
     type: collection
   cos_alcanena:
     description: Carta de Uso e Ocupação do Solo (COS) Alcanena - 2018
@@ -16844,7 +16774,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alcanena
+    title: COS Alcanena
     type: collection
   cos_alcobaca:
     description: Carta de Uso e Ocupação do Solo (COS) Alcobaça - 2018
@@ -16903,7 +16833,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alcobaça
+    title: COS Alcobaça
     type: collection
   cos_alcochete:
     description: Carta de Uso e Ocupação do Solo (COS) Alcochete - 2018
@@ -16962,7 +16892,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alcochete
+    title: COS Alcochete
     type: collection
   cos_alcoutim:
     description: Carta de Uso e Ocupação do Solo (COS) Alcoutim - 2018
@@ -17021,7 +16951,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alcoutim
+    title: COS Alcoutim
     type: collection
   cos_alcacer_do_sal:
     description: Carta de Uso e Ocupação do Solo (COS) Alcácer do Sal - 2018
@@ -17080,7 +17010,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alcácer do Sal
+    title: COS Alcácer do Sal
     type: collection
   cos_alenquer:
     description: Carta de Uso e Ocupação do Solo (COS) Alenquer - 2018
@@ -17139,7 +17069,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alenquer
+    title: COS Alenquer
     type: collection
   cos_alfandega_da_fe:
     description: Carta de Uso e Ocupação do Solo (COS) Alfândega da Fé - 2018
@@ -17198,7 +17128,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alfândega da Fé
+    title: COS Alfândega da Fé
     type: collection
   cos_alijo:
     description: Carta de Uso e Ocupação do Solo (COS) Alijó - 2018
@@ -17257,7 +17187,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alijó
+    title: COS Alijó
     type: collection
   cos_aljezur:
     description: Carta de Uso e Ocupação do Solo (COS) Aljezur - 2018
@@ -17316,7 +17246,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Aljezur
+    title: COS Aljezur
     type: collection
   cos_aljustrel:
     description: Carta de Uso e Ocupação do Solo (COS) Aljustrel - 2018
@@ -17375,7 +17305,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Aljustrel
+    title: COS Aljustrel
     type: collection
   cos_almada:
     description: Carta de Uso e Ocupação do Solo (COS) Almada - 2018
@@ -17434,7 +17364,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Almada
+    title: COS Almada
     type: collection
   cos_almeida:
     description: Carta de Uso e Ocupação do Solo (COS) Almeida - 2018
@@ -17493,7 +17423,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Almeida
+    title: COS Almeida
     type: collection
   cos_almeirim:
     description: Carta de Uso e Ocupação do Solo (COS) Almeirim - 2018
@@ -17552,7 +17482,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Almeirim
+    title: COS Almeirim
     type: collection
   cos_almodovar:
     description: Carta de Uso e Ocupação do Solo (COS) Almodôvar - 2018
@@ -17611,7 +17541,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Almodôvar
+    title: COS Almodôvar
     type: collection
   cos_alpiarca:
     description: Carta de Uso e Ocupação do Solo (COS) Alpiarça - 2018
@@ -17670,7 +17600,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alpiarça
+    title: COS Alpiarça
     type: collection
   cos_alter_do_chao:
     description: Carta de Uso e Ocupação do Solo (COS) Alter do Chão - 2018
@@ -17729,7 +17659,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alter do Chão
+    title: COS Alter do Chão
     type: collection
   cos_alvaiazere:
     description: Carta de Uso e Ocupação do Solo (COS) Alvaiázere - 2018
@@ -17788,7 +17718,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alvaiázere
+    title: COS Alvaiázere
     type: collection
   cos_alvito:
     description: Carta de Uso e Ocupação do Solo (COS) Alvito - 2018
@@ -17847,7 +17777,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Alvito
+    title: COS Alvito
     type: collection
   cos_amadora:
     description: Carta de Uso e Ocupação do Solo (COS) Amadora - 2018
@@ -17906,7 +17836,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Amadora
+    title: COS Amadora
     type: collection
   cos_amarante:
     description: Carta de Uso e Ocupação do Solo (COS) Amarante - 2018
@@ -17965,7 +17895,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Amarante
+    title: COS Amarante
     type: collection
   cos_amares:
     description: Carta de Uso e Ocupação do Solo (COS) Amares - 2018
@@ -18024,7 +17954,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Amares
+    title: COS Amares
     type: collection
   cos_anadia:
     description: Carta de Uso e Ocupação do Solo (COS) Anadia - 2018
@@ -18083,7 +18013,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Anadia
+    title: COS Anadia
     type: collection
   cos_ansiao:
     description: Carta de Uso e Ocupação do Solo (COS) Ansião - 2018
@@ -18142,7 +18072,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ansião
+    title: COS Ansião
     type: collection
   cos_arcos_de_valdevez:
     description: Carta de Uso e Ocupação do Solo (COS) Arcos de Valdevez - 2018
@@ -18201,7 +18131,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Arcos de Valdevez
+    title: COS Arcos de Valdevez
     type: collection
   cos_arganil:
     description: Carta de Uso e Ocupação do Solo (COS) Arganil - 2018
@@ -18260,7 +18190,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Arganil
+    title: COS Arganil
     type: collection
   cos_armamar:
     description: Carta de Uso e Ocupação do Solo (COS) Armamar - 2018
@@ -18319,7 +18249,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Armamar
+    title: COS Armamar
     type: collection
   cos_arouca:
     description: Carta de Uso e Ocupação do Solo (COS) Arouca - 2018
@@ -18378,7 +18308,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Arouca
+    title: COS Arouca
     type: collection
   cos_arraiolos:
     description: Carta de Uso e Ocupação do Solo (COS) Arraiolos - 2018
@@ -18437,7 +18367,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Arraiolos
+    title: COS Arraiolos
     type: collection
   cos_arronches:
     description: Carta de Uso e Ocupação do Solo (COS) Arronches - 2018
@@ -18496,7 +18426,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Arronches
+    title: COS Arronches
     type: collection
   cos_arruda_dos_vinhos:
     description: Carta de Uso e Ocupação do Solo (COS) Arruda dos Vinhos - 2018
@@ -18555,7 +18485,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Arruda dos Vinhos
+    title: COS Arruda dos Vinhos
     type: collection
   cos_aveiro:
     description: Carta de Uso e Ocupação do Solo (COS) Aveiro - 2018
@@ -18614,7 +18544,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Aveiro
+    title: COS Aveiro
     type: collection
   cos_avis:
     description: Carta de Uso e Ocupação do Solo (COS) Avis - 2018
@@ -18673,7 +18603,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Avis
+    title: COS Avis
     type: collection
   cos_azambuja:
     description: Carta de Uso e Ocupação do Solo (COS) Azambuja - 2018
@@ -18732,7 +18662,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Azambuja
+    title: COS Azambuja
     type: collection
   cos_baiao:
     description: Carta de Uso e Ocupação do Solo (COS) Baião - 2018
@@ -18791,7 +18721,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Baião
+    title: COS Baião
     type: collection
   cos_barcelos:
     description: Carta de Uso e Ocupação do Solo (COS) Barcelos - 2018
@@ -18850,7 +18780,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Barcelos
+    title: COS Barcelos
     type: collection
   cos_barrancos:
     description: Carta de Uso e Ocupação do Solo (COS) Barrancos - 2018
@@ -18909,7 +18839,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Barrancos
+    title: COS Barrancos
     type: collection
   cos_barreiro:
     description: Carta de Uso e Ocupação do Solo (COS) Barreiro - 2018
@@ -18968,7 +18898,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Barreiro
+    title: COS Barreiro
     type: collection
   cos_batalha:
     description: Carta de Uso e Ocupação do Solo (COS) Batalha - 2018
@@ -19027,7 +18957,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Batalha
+    title: COS Batalha
     type: collection
   cos_beja:
     description: Carta de Uso e Ocupação do Solo (COS) Beja - 2018
@@ -19086,7 +19016,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Beja
+    title: COS Beja
     type: collection
   cos_belmonte:
     description: Carta de Uso e Ocupação do Solo (COS) Belmonte - 2018
@@ -19145,7 +19075,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Belmonte
+    title: COS Belmonte
     type: collection
   cos_benavente:
     description: Carta de Uso e Ocupação do Solo (COS) Benavente - 2018
@@ -19204,7 +19134,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Benavente
+    title: COS Benavente
     type: collection
   cos_bombarral:
     description: Carta de Uso e Ocupação do Solo (COS) Bombarral - 2018
@@ -19263,7 +19193,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Bombarral
+    title: COS Bombarral
     type: collection
   cos_borba:
     description: Carta de Uso e Ocupação do Solo (COS) Borba - 2018
@@ -19322,7 +19252,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Borba
+    title: COS Borba
     type: collection
   cos_boticas:
     description: Carta de Uso e Ocupação do Solo (COS) Boticas - 2018
@@ -19381,7 +19311,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Boticas
+    title: COS Boticas
     type: collection
   cos_braga:
     description: Carta de Uso e Ocupação do Solo (COS) Braga - 2018
@@ -19440,7 +19370,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Braga
+    title: COS Braga
     type: collection
   cos_braganca:
     description: Carta de Uso e Ocupação do Solo (COS) Bragança - 2018
@@ -19499,7 +19429,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Bragança
+    title: COS Bragança
     type: collection
   cos_cabeceiras_de_basto:
     description: Carta de Uso e Ocupação do Solo (COS) Cabeceiras de Basto - 2018
@@ -19558,7 +19488,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cabeceiras de Basto
+    title: COS Cabeceiras de Basto
     type: collection
   cos_cadaval:
     description: Carta de Uso e Ocupação do Solo (COS) Cadaval - 2018
@@ -19617,7 +19547,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cadaval
+    title: COS Cadaval
     type: collection
   cos_caldas_da_rainha:
     description: Carta de Uso e Ocupação do Solo (COS) Caldas da Rainha - 2018
@@ -19676,7 +19606,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Caldas da Rainha
+    title: COS Caldas da Rainha
     type: collection
   cos_caminha:
     description: Carta de Uso e Ocupação do Solo (COS) Caminha - 2018
@@ -19735,7 +19665,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Caminha
+    title: COS Caminha
     type: collection
   cos_campo_maior:
     description: Carta de Uso e Ocupação do Solo (COS) Campo Maior - 2018
@@ -19794,7 +19724,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Campo Maior
+    title: COS Campo Maior
     type: collection
   cos_cantanhede:
     description: Carta de Uso e Ocupação do Solo (COS) Cantanhede - 2018
@@ -19853,7 +19783,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cantanhede
+    title: COS Cantanhede
     type: collection
   cos_carrazeda_de_ansiaes:
     description: Carta de Uso e Ocupação do Solo (COS) Carrazeda de Ansiães - 2018
@@ -19912,7 +19842,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Carrazeda de Ansiães
+    title: COS Carrazeda de Ansiães
     type: collection
   cos_carregal_do_sal:
     description: Carta de Uso e Ocupação do Solo (COS) Carregal do Sal - 2018
@@ -19971,7 +19901,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Carregal do Sal
+    title: COS Carregal do Sal
     type: collection
   cos_cartaxo:
     description: Carta de Uso e Ocupação do Solo (COS) Cartaxo - 2018
@@ -20030,7 +19960,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cartaxo
+    title: COS Cartaxo
     type: collection
   cos_cascais:
     description: Carta de Uso e Ocupação do Solo (COS) Cascais - 2018
@@ -20089,7 +20019,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cascais
+    title: COS Cascais
     type: collection
   cos_castanheira_de_pera:
     description: Carta de Uso e Ocupação do Solo (COS) Castanheira de Pêra - 2018
@@ -20148,7 +20078,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castanheira de Pêra
+    title: COS Castanheira de Pêra
     type: collection
   cos_castelo_branco:
     description: Carta de Uso e Ocupação do Solo (COS) Castelo Branco - 2018
@@ -20207,7 +20137,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castelo Branco
+    title: COS Castelo Branco
     type: collection
   cos_castelo_de_paiva:
     description: Carta de Uso e Ocupação do Solo (COS) Castelo de Paiva - 2018
@@ -20266,7 +20196,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castelo de Paiva
+    title: COS Castelo de Paiva
     type: collection
   cos_castelo_de_vide:
     description: Carta de Uso e Ocupação do Solo (COS) Castelo de Vide - 2018
@@ -20325,7 +20255,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castelo de Vide
+    title: COS Castelo de Vide
     type: collection
   cos_castro_daire:
     description: Carta de Uso e Ocupação do Solo (COS) Castro Daire - 2018
@@ -20384,7 +20314,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castro Daire
+    title: COS Castro Daire
     type: collection
   cos_castro_marim:
     description: Carta de Uso e Ocupação do Solo (COS) Castro Marim - 2018
@@ -20443,7 +20373,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castro Marim
+    title: COS Castro Marim
     type: collection
   cos_castro_verde:
     description: Carta de Uso e Ocupação do Solo (COS) Castro Verde - 2018
@@ -20502,7 +20432,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Castro Verde
+    title: COS Castro Verde
     type: collection
   cos_celorico_da_beira:
     description: Carta de Uso e Ocupação do Solo (COS) Celorico da Beira - 2018
@@ -20561,7 +20491,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Celorico da Beira
+    title: COS Celorico da Beira
     type: collection
   cos_celorico_de_basto:
     description: Carta de Uso e Ocupação do Solo (COS) Celorico de Basto - 2018
@@ -20620,7 +20550,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Celorico de Basto
+    title: COS Celorico de Basto
     type: collection
   cos_chamusca:
     description: Carta de Uso e Ocupação do Solo (COS) Chamusca - 2018
@@ -20679,7 +20609,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Chamusca
+    title: COS Chamusca
     type: collection
   cos_chaves:
     description: Carta de Uso e Ocupação do Solo (COS) Chaves - 2018
@@ -20738,7 +20668,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Chaves
+    title: COS Chaves
     type: collection
   cos_cinfaes:
     description: Carta de Uso e Ocupação do Solo (COS) Cinfães - 2018
@@ -20797,7 +20727,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cinfães
+    title: COS Cinfães
     type: collection
   cos_coimbra:
     description: Carta de Uso e Ocupação do Solo (COS) Coimbra - 2018
@@ -20856,7 +20786,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Coimbra
+    title: COS Coimbra
     type: collection
   cos_condeixa_a_nova:
     description: Carta de Uso e Ocupação do Solo (COS) Condeixa-a-Nova - 2018
@@ -20915,7 +20845,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Condeixa-a-Nova
+    title: COS Condeixa-a-Nova
     type: collection
   cos_constancia:
     description: Carta de Uso e Ocupação do Solo (COS) Constância - 2018
@@ -20974,7 +20904,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Constância
+    title: COS Constância
     type: collection
   cos_coruche:
     description: Carta de Uso e Ocupação do Solo (COS) Coruche - 2018
@@ -21033,7 +20963,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Coruche
+    title: COS Coruche
     type: collection
   cos_covilha:
     description: Carta de Uso e Ocupação do Solo (COS) Covilhã - 2018
@@ -21092,7 +21022,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Covilhã
+    title: COS Covilhã
     type: collection
   cos_crato:
     description: Carta de Uso e Ocupação do Solo (COS) Crato - 2018
@@ -21151,7 +21081,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Crato
+    title: COS Crato
     type: collection
   cos_cuba:
     description: Carta de Uso e Ocupação do Solo (COS) Cuba - 2018
@@ -21210,7 +21140,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Cuba
+    title: COS Cuba
     type: collection
   cos_elvas:
     description: Carta de Uso e Ocupação do Solo (COS) Elvas - 2018
@@ -21269,7 +21199,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Elvas
+    title: COS Elvas
     type: collection
   cos_entroncamento:
     description: Carta de Uso e Ocupação do Solo (COS) Entroncamento - 2018
@@ -21328,7 +21258,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Entroncamento
+    title: COS Entroncamento
     type: collection
   cos_espinho:
     description: Carta de Uso e Ocupação do Solo (COS) Espinho - 2018
@@ -21387,7 +21317,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Espinho
+    title: COS Espinho
     type: collection
   cos_esposende:
     description: Carta de Uso e Ocupação do Solo (COS) Esposende - 2018
@@ -21446,7 +21376,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Esposende
+    title: COS Esposende
     type: collection
   cos_estarreja:
     description: Carta de Uso e Ocupação do Solo (COS) Estarreja - 2018
@@ -21505,7 +21435,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Estarreja
+    title: COS Estarreja
     type: collection
   cos_estremoz:
     description: Carta de Uso e Ocupação do Solo (COS) Estremoz - 2018
@@ -21564,7 +21494,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Estremoz
+    title: COS Estremoz
     type: collection
   cos_fafe:
     description: Carta de Uso e Ocupação do Solo (COS) Fafe - 2018
@@ -21623,7 +21553,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Fafe
+    title: COS Fafe
     type: collection
   cos_faro:
     description: Carta de Uso e Ocupação do Solo (COS) Faro - 2018
@@ -21682,7 +21612,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Faro
+    title: COS Faro
     type: collection
   cos_felgueiras:
     description: Carta de Uso e Ocupação do Solo (COS) Felgueiras - 2018
@@ -21741,7 +21671,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Felgueiras
+    title: COS Felgueiras
     type: collection
   cos_ferreira_do_alentejo:
     description: Carta de Uso e Ocupação do Solo (COS) Ferreira do Alentejo - 2018
@@ -21800,7 +21730,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ferreira do Alentejo
+    title: COS Ferreira do Alentejo
     type: collection
   cos_ferreira_do_zezere:
     description: Carta de Uso e Ocupação do Solo (COS) Ferreira do Zêzere - 2018
@@ -21859,7 +21789,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ferreira do Zêzere
+    title: COS Ferreira do Zêzere
     type: collection
   cos_figueira_da_foz:
     description: Carta de Uso e Ocupação do Solo (COS) Figueira da Foz - 2018
@@ -21918,7 +21848,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Figueira da Foz
+    title: COS Figueira da Foz
     type: collection
   cos_figueira_de_castelo_rodrigo:
     description: Carta de Uso e Ocupação do Solo (COS) Figueira de Castelo Rodrigo
@@ -21978,7 +21908,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Figueira de Castelo Rodrigo
+    title: COS Figueira de Castelo Rodrigo
     type: collection
   cos_figueiro_dos_vinhos:
     description: Carta de Uso e Ocupação do Solo (COS) Figueiró dos Vinhos - 2018
@@ -22037,7 +21967,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Figueiró dos Vinhos
+    title: COS Figueiró dos Vinhos
     type: collection
   cos_fornos_de_algodres:
     description: Carta de Uso e Ocupação do Solo (COS) Fornos de Algodres - 2018
@@ -22096,7 +22026,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Fornos de Algodres
+    title: COS Fornos de Algodres
     type: collection
   cos_freixo_de_espada_a_cinta:
     description: Carta de Uso e Ocupação do Solo (COS) Freixo de Espada à Cinta -
@@ -22156,7 +22086,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Freixo de Espada à Cinta
+    title: COS Freixo de Espada à Cinta
     type: collection
   cos_fronteira:
     description: Carta de Uso e Ocupação do Solo (COS) Fronteira - 2018
@@ -22215,7 +22145,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Fronteira
+    title: COS Fronteira
     type: collection
   cos_fundao:
     description: Carta de Uso e Ocupação do Solo (COS) Fundão - 2018
@@ -22274,7 +22204,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Fundão
+    title: COS Fundão
     type: collection
   cos_gaviao:
     description: Carta de Uso e Ocupação do Solo (COS) Gavião - 2018
@@ -22333,7 +22263,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Gavião
+    title: COS Gavião
     type: collection
   cos_golega:
     description: Carta de Uso e Ocupação do Solo (COS) Golegã - 2018
@@ -22392,7 +22322,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Golegã
+    title: COS Golegã
     type: collection
   cos_gondomar:
     description: Carta de Uso e Ocupação do Solo (COS) Gondomar - 2018
@@ -22451,7 +22381,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Gondomar
+    title: COS Gondomar
     type: collection
   cos_gouveia:
     description: Carta de Uso e Ocupação do Solo (COS) Gouveia - 2018
@@ -22510,7 +22440,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Gouveia
+    title: COS Gouveia
     type: collection
   cos_grandola:
     description: Carta de Uso e Ocupação do Solo (COS) Grândola - 2018
@@ -22569,7 +22499,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Grândola
+    title: COS Grândola
     type: collection
   cos_guarda:
     description: Carta de Uso e Ocupação do Solo (COS) Guarda - 2018
@@ -22628,7 +22558,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Guarda
+    title: COS Guarda
     type: collection
   cos_guimaraes:
     description: Carta de Uso e Ocupação do Solo (COS) Guimarães - 2018
@@ -22687,7 +22617,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Guimarães
+    title: COS Guimarães
     type: collection
   cos_gois:
     description: Carta de Uso e Ocupação do Solo (COS) Góis - 2018
@@ -22746,7 +22676,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Góis
+    title: COS Góis
     type: collection
   cos_idanha_a_nova:
     description: Carta de Uso e Ocupação do Solo (COS) Idanha-a-Nova - 2018
@@ -22805,7 +22735,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Idanha-a-Nova
+    title: COS Idanha-a-Nova
     type: collection
   cos_lagoa:
     description: Carta de Uso e Ocupação do Solo (COS) Lagoa - 2018
@@ -22864,7 +22794,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lagoa
+    title: COS Lagoa
     type: collection
   cos_lagos:
     description: Carta de Uso e Ocupação do Solo (COS) Lagos - 2018
@@ -22923,7 +22853,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lagos
+    title: COS Lagos
     type: collection
   cos_lamego:
     description: Carta de Uso e Ocupação do Solo (COS) Lamego - 2018
@@ -22982,7 +22912,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lamego
+    title: COS Lamego
     type: collection
   cos_leiria:
     description: Carta de Uso e Ocupação do Solo (COS) Leiria - 2018
@@ -23041,7 +22971,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Leiria
+    title: COS Leiria
     type: collection
   cos_lisboa:
     description: Carta de Uso e Ocupação do Solo (COS) Lisboa - 2018
@@ -23100,7 +23030,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lisboa
+    title: COS Lisboa
     type: collection
   cos_loule:
     description: Carta de Uso e Ocupação do Solo (COS) Loulé - 2018
@@ -23159,7 +23089,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Loulé
+    title: COS Loulé
     type: collection
   cos_loures:
     description: Carta de Uso e Ocupação do Solo (COS) Loures - 2018
@@ -23218,7 +23148,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Loures
+    title: COS Loures
     type: collection
   cos_lourinha:
     description: Carta de Uso e Ocupação do Solo (COS) Lourinhã - 2018
@@ -23277,7 +23207,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lourinhã
+    title: COS Lourinhã
     type: collection
   cos_lousada:
     description: Carta de Uso e Ocupação do Solo (COS) Lousada - 2018
@@ -23336,7 +23266,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lousada
+    title: COS Lousada
     type: collection
   cos_lousa:
     description: Carta de Uso e Ocupação do Solo (COS) Lousã - 2018
@@ -23395,7 +23325,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Lousã
+    title: COS Lousã
     type: collection
   cos_macedo_de_cavaleiros:
     description: Carta de Uso e Ocupação do Solo (COS) Macedo de Cavaleiros - 2018
@@ -23454,7 +23384,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Macedo de Cavaleiros
+    title: COS Macedo de Cavaleiros
     type: collection
   cos_mafra:
     description: Carta de Uso e Ocupação do Solo (COS) Mafra - 2018
@@ -23513,7 +23443,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mafra
+    title: COS Mafra
     type: collection
   cos_maia:
     description: Carta de Uso e Ocupação do Solo (COS) Maia - 2018
@@ -23572,7 +23502,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Maia
+    title: COS Maia
     type: collection
   cos_mangualde:
     description: Carta de Uso e Ocupação do Solo (COS) Mangualde - 2018
@@ -23631,7 +23561,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mangualde
+    title: COS Mangualde
     type: collection
   cos_manteigas:
     description: Carta de Uso e Ocupação do Solo (COS) Manteigas - 2018
@@ -23690,7 +23620,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Manteigas
+    title: COS Manteigas
     type: collection
   cos_marco_de_canaveses:
     description: Carta de Uso e Ocupação do Solo (COS) Marco de Canaveses - 2018
@@ -23749,7 +23679,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Marco de Canaveses
+    title: COS Marco de Canaveses
     type: collection
   cos_marinha_grande:
     description: Carta de Uso e Ocupação do Solo (COS) Marinha Grande - 2018
@@ -23808,7 +23738,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Marinha Grande
+    title: COS Marinha Grande
     type: collection
   cos_marvao:
     description: Carta de Uso e Ocupação do Solo (COS) Marvão - 2018
@@ -23867,7 +23797,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Marvão
+    title: COS Marvão
     type: collection
   cos_matosinhos:
     description: Carta de Uso e Ocupação do Solo (COS) Matosinhos - 2018
@@ -23926,7 +23856,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Matosinhos
+    title: COS Matosinhos
     type: collection
   cos_macao:
     description: Carta de Uso e Ocupação do Solo (COS) Mação - 2018
@@ -23985,7 +23915,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mação
+    title: COS Mação
     type: collection
   cos_mealhada:
     description: Carta de Uso e Ocupação do Solo (COS) Mealhada - 2018
@@ -24044,7 +23974,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mealhada
+    title: COS Mealhada
     type: collection
   cos_melgaco:
     description: Carta de Uso e Ocupação do Solo (COS) Melgaço - 2018
@@ -24103,7 +24033,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Melgaço
+    title: COS Melgaço
     type: collection
   cos_mesao_frio:
     description: Carta de Uso e Ocupação do Solo (COS) Mesão Frio - 2018
@@ -24162,7 +24092,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mesão Frio
+    title: COS Mesão Frio
     type: collection
   cos_mira:
     description: Carta de Uso e Ocupação do Solo (COS) Mira - 2018
@@ -24221,7 +24151,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mira
+    title: COS Mira
     type: collection
   cos_miranda_do_corvo:
     description: Carta de Uso e Ocupação do Solo (COS) Miranda do Corvo - 2018
@@ -24280,7 +24210,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Miranda do Corvo
+    title: COS Miranda do Corvo
     type: collection
   cos_miranda_do_douro:
     description: Carta de Uso e Ocupação do Solo (COS) Miranda do Douro - 2018
@@ -24339,7 +24269,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Miranda do Douro
+    title: COS Miranda do Douro
     type: collection
   cos_mirandela:
     description: Carta de Uso e Ocupação do Solo (COS) Mirandela - 2018
@@ -24398,7 +24328,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mirandela
+    title: COS Mirandela
     type: collection
   cos_mogadouro:
     description: Carta de Uso e Ocupação do Solo (COS) Mogadouro - 2018
@@ -24457,7 +24387,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mogadouro
+    title: COS Mogadouro
     type: collection
   cos_moimenta_da_beira:
     description: Carta de Uso e Ocupação do Solo (COS) Moimenta da Beira - 2018
@@ -24516,7 +24446,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Moimenta da Beira
+    title: COS Moimenta da Beira
     type: collection
   cos_moita:
     description: Carta de Uso e Ocupação do Solo (COS) Moita - 2018
@@ -24575,7 +24505,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Moita
+    title: COS Moita
     type: collection
   cos_monchique:
     description: Carta de Uso e Ocupação do Solo (COS) Monchique - 2018
@@ -24634,7 +24564,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Monchique
+    title: COS Monchique
     type: collection
   cos_mondim_de_basto:
     description: Carta de Uso e Ocupação do Solo (COS) Mondim de Basto - 2018
@@ -24693,7 +24623,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mondim de Basto
+    title: COS Mondim de Basto
     type: collection
   cos_monforte:
     description: Carta de Uso e Ocupação do Solo (COS) Monforte - 2018
@@ -24752,7 +24682,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Monforte
+    title: COS Monforte
     type: collection
   cos_montalegre:
     description: Carta de Uso e Ocupação do Solo (COS) Montalegre - 2018
@@ -24811,7 +24741,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Montalegre
+    title: COS Montalegre
     type: collection
   cos_montemor_o_novo:
     description: Carta de Uso e Ocupação do Solo (COS) Montemor-o-Novo - 2018
@@ -24870,7 +24800,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Montemor-o-Novo
+    title: COS Montemor-o-Novo
     type: collection
   cos_montemor_o_velho:
     description: Carta de Uso e Ocupação do Solo (COS) Montemor-o-Velho - 2018
@@ -24929,7 +24859,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Montemor-o-Velho
+    title: COS Montemor-o-Velho
     type: collection
   cos_montijo:
     description: Carta de Uso e Ocupação do Solo (COS) Montijo - 2018
@@ -24988,7 +24918,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Montijo
+    title: COS Montijo
     type: collection
   cos_moncao:
     description: Carta de Uso e Ocupação do Solo (COS) Monção - 2018
@@ -25047,7 +24977,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Monção
+    title: COS Monção
     type: collection
   cos_mora:
     description: Carta de Uso e Ocupação do Solo (COS) Mora - 2018
@@ -25106,7 +25036,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mora
+    title: COS Mora
     type: collection
   cos_mortagua:
     description: Carta de Uso e Ocupação do Solo (COS) Mortágua - 2018
@@ -25165,7 +25095,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mortágua
+    title: COS Mortágua
     type: collection
   cos_moura:
     description: Carta de Uso e Ocupação do Solo (COS) Moura - 2018
@@ -25224,7 +25154,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Moura
+    title: COS Moura
     type: collection
   cos_mourao:
     description: Carta de Uso e Ocupação do Solo (COS) Mourão - 2018
@@ -25283,7 +25213,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mourão
+    title: COS Mourão
     type: collection
   cos_murtosa:
     description: Carta de Uso e Ocupação do Solo (COS) Murtosa - 2018
@@ -25342,7 +25272,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Murtosa
+    title: COS Murtosa
     type: collection
   cos_murca:
     description: Carta de Uso e Ocupação do Solo (COS) Murça - 2018
@@ -25401,7 +25331,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Murça
+    title: COS Murça
     type: collection
   cos_mertola:
     description: Carta de Uso e Ocupação do Solo (COS) Mértola - 2018
@@ -25460,7 +25390,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mértola
+    title: COS Mértola
     type: collection
   cos_meda:
     description: Carta de Uso e Ocupação do Solo (COS) Mêda - 2018
@@ -25519,7 +25449,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Mêda
+    title: COS Mêda
     type: collection
   cos_nazare:
     description: Carta de Uso e Ocupação do Solo (COS) Nazaré - 2018
@@ -25578,7 +25508,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Nazaré
+    title: COS Nazaré
     type: collection
   cos_nelas:
     description: Carta de Uso e Ocupação do Solo (COS) Nelas - 2018
@@ -25637,7 +25567,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Nelas
+    title: COS Nelas
     type: collection
   cos_nisa:
     description: Carta de Uso e Ocupação do Solo (COS) Nisa - 2018
@@ -25696,7 +25626,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Nisa
+    title: COS Nisa
     type: collection
   cos_odemira:
     description: Carta de Uso e Ocupação do Solo (COS) Odemira - 2018
@@ -25755,7 +25685,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Odemira
+    title: COS Odemira
     type: collection
   cos_odivelas:
     description: Carta de Uso e Ocupação do Solo (COS) Odivelas - 2018
@@ -25814,7 +25744,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Odivelas
+    title: COS Odivelas
     type: collection
   cos_oeiras:
     description: Carta de Uso e Ocupação do Solo (COS) Oeiras - 2018
@@ -25873,7 +25803,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Oeiras
+    title: COS Oeiras
     type: collection
   cos_oleiros:
     description: Carta de Uso e Ocupação do Solo (COS) Oleiros - 2018
@@ -25932,7 +25862,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Oleiros
+    title: COS Oleiros
     type: collection
   cos_olhao:
     description: Carta de Uso e Ocupação do Solo (COS) Olhão - 2018
@@ -25991,7 +25921,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Olhão
+    title: COS Olhão
     type: collection
   cos_oliveira_de_azemeis:
     description: Carta de Uso e Ocupação do Solo (COS) Oliveira de Azeméis - 2018
@@ -26050,7 +25980,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Oliveira de Azeméis
+    title: COS Oliveira de Azeméis
     type: collection
   cos_oliveira_de_frades:
     description: Carta de Uso e Ocupação do Solo (COS) Oliveira de Frades - 2018
@@ -26109,7 +26039,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Oliveira de Frades
+    title: COS Oliveira de Frades
     type: collection
   cos_oliveira_do_bairro:
     description: Carta de Uso e Ocupação do Solo (COS) Oliveira do Bairro - 2018
@@ -26168,7 +26098,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Oliveira do Bairro
+    title: COS Oliveira do Bairro
     type: collection
   cos_oliveira_do_hospital:
     description: Carta de Uso e Ocupação do Solo (COS) Oliveira do Hospital - 2018
@@ -26227,7 +26157,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Oliveira do Hospital
+    title: COS Oliveira do Hospital
     type: collection
   cos_ourique:
     description: Carta de Uso e Ocupação do Solo (COS) Ourique - 2018
@@ -26286,7 +26216,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ourique
+    title: COS Ourique
     type: collection
   cos_ourem:
     description: Carta de Uso e Ocupação do Solo (COS) Ourém - 2018
@@ -26345,7 +26275,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ourém
+    title: COS Ourém
     type: collection
   cos_ovar:
     description: Carta de Uso e Ocupação do Solo (COS) Ovar - 2018
@@ -26404,7 +26334,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ovar
+    title: COS Ovar
     type: collection
   cos_palmela:
     description: Carta de Uso e Ocupação do Solo (COS) Palmela - 2018
@@ -26463,7 +26393,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Palmela
+    title: COS Palmela
     type: collection
   cos_pampilhosa_da_serra:
     description: Carta de Uso e Ocupação do Solo (COS) Pampilhosa da Serra - 2018
@@ -26522,7 +26452,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Pampilhosa da Serra
+    title: COS Pampilhosa da Serra
     type: collection
   cos_paredes:
     description: Carta de Uso e Ocupação do Solo (COS) Paredes - 2018
@@ -26581,7 +26511,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Paredes
+    title: COS Paredes
     type: collection
   cos_paredes_de_coura:
     description: Carta de Uso e Ocupação do Solo (COS) Paredes de Coura - 2018
@@ -26640,7 +26570,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Paredes de Coura
+    title: COS Paredes de Coura
     type: collection
   cos_pacos_de_ferreira:
     description: Carta de Uso e Ocupação do Solo (COS) Paços de Ferreira - 2018
@@ -26699,7 +26629,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Paços de Ferreira
+    title: COS Paços de Ferreira
     type: collection
   cos_pedrogao_grande:
     description: Carta de Uso e Ocupação do Solo (COS) Pedrógão Grande - 2018
@@ -26758,7 +26688,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Pedrógão Grande
+    title: COS Pedrógão Grande
     type: collection
   cos_penacova:
     description: Carta de Uso e Ocupação do Solo (COS) Penacova - 2018
@@ -26817,7 +26747,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Penacova
+    title: COS Penacova
     type: collection
   cos_penafiel:
     description: Carta de Uso e Ocupação do Solo (COS) Penafiel - 2018
@@ -26876,7 +26806,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Penafiel
+    title: COS Penafiel
     type: collection
   cos_penalva_do_castelo:
     description: Carta de Uso e Ocupação do Solo (COS) Penalva do Castelo - 2018
@@ -26935,7 +26865,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Penalva do Castelo
+    title: COS Penalva do Castelo
     type: collection
   cos_penamacor:
     description: Carta de Uso e Ocupação do Solo (COS) Penamacor - 2018
@@ -26994,7 +26924,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Penamacor
+    title: COS Penamacor
     type: collection
   cos_penedono:
     description: Carta de Uso e Ocupação do Solo (COS) Penedono - 2018
@@ -27053,7 +26983,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Penedono
+    title: COS Penedono
     type: collection
   cos_penela:
     description: Carta de Uso e Ocupação do Solo (COS) Penela - 2018
@@ -27112,7 +27042,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Penela
+    title: COS Penela
     type: collection
   cos_peniche:
     description: Carta de Uso e Ocupação do Solo (COS) Peniche - 2018
@@ -27171,7 +27101,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Peniche
+    title: COS Peniche
     type: collection
   cos_peso_da_regua:
     description: Carta de Uso e Ocupação do Solo (COS) Peso da Régua - 2018
@@ -27230,7 +27160,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Peso da Régua
+    title: COS Peso da Régua
     type: collection
   cos_pinhel:
     description: Carta de Uso e Ocupação do Solo (COS) Pinhel - 2018
@@ -27289,7 +27219,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Pinhel
+    title: COS Pinhel
     type: collection
   cos_pombal:
     description: Carta de Uso e Ocupação do Solo (COS) Pombal - 2018
@@ -27348,7 +27278,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Pombal
+    title: COS Pombal
     type: collection
   cos_ponte_da_barca:
     description: Carta de Uso e Ocupação do Solo (COS) Ponte da Barca - 2018
@@ -27407,7 +27337,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ponte da Barca
+    title: COS Ponte da Barca
     type: collection
   cos_ponte_de_lima:
     description: Carta de Uso e Ocupação do Solo (COS) Ponte de Lima - 2018
@@ -27466,7 +27396,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ponte de Lima
+    title: COS Ponte de Lima
     type: collection
   cos_ponte_de_sor:
     description: Carta de Uso e Ocupação do Solo (COS) Ponte de Sor - 2018
@@ -27525,7 +27455,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ponte de Sor
+    title: COS Ponte de Sor
     type: collection
   cos_portalegre:
     description: Carta de Uso e Ocupação do Solo (COS) Portalegre - 2018
@@ -27584,7 +27514,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Portalegre
+    title: COS Portalegre
     type: collection
   cos_portel:
     description: Carta de Uso e Ocupação do Solo (COS) Portel - 2018
@@ -27643,7 +27573,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Portel
+    title: COS Portel
     type: collection
   cos_portimao:
     description: Carta de Uso e Ocupação do Solo (COS) Portimão - 2018
@@ -27702,7 +27632,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Portimão
+    title: COS Portimão
     type: collection
   cos_porto:
     description: Carta de Uso e Ocupação do Solo (COS) Porto - 2018
@@ -27761,7 +27691,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Porto
+    title: COS Porto
     type: collection
   cos_porto_de_mos:
     description: Carta de Uso e Ocupação do Solo (COS) Porto de Mós - 2018
@@ -27820,7 +27750,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Porto de Mós
+    title: COS Porto de Mós
     type: collection
   cos_proenca_a_nova:
     description: Carta de Uso e Ocupação do Solo (COS) Proença-a-Nova - 2018
@@ -27879,7 +27809,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Proença-a-Nova
+    title: COS Proença-a-Nova
     type: collection
   cos_povoa_de_lanhoso:
     description: Carta de Uso e Ocupação do Solo (COS) Póvoa de Lanhoso - 2018
@@ -27938,7 +27868,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Póvoa de Lanhoso
+    title: COS Póvoa de Lanhoso
     type: collection
   cos_povoa_de_varzim:
     description: Carta de Uso e Ocupação do Solo (COS) Póvoa de Varzim - 2018
@@ -27997,7 +27927,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Póvoa de Varzim
+    title: COS Póvoa de Varzim
     type: collection
   cos_redondo:
     description: Carta de Uso e Ocupação do Solo (COS) Redondo - 2018
@@ -28056,7 +27986,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Redondo
+    title: COS Redondo
     type: collection
   cos_reguengos_de_monsaraz:
     description: Carta de Uso e Ocupação do Solo (COS) Reguengos de Monsaraz - 2018
@@ -28115,7 +28045,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Reguengos de Monsaraz
+    title: COS Reguengos de Monsaraz
     type: collection
   cos_resende:
     description: Carta de Uso e Ocupação do Solo (COS) Resende - 2018
@@ -28174,7 +28104,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Resende
+    title: COS Resende
     type: collection
   cos_ribeira_de_pena:
     description: Carta de Uso e Ocupação do Solo (COS) Ribeira de Pena - 2018
@@ -28233,7 +28163,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ribeira de Pena
+    title: COS Ribeira de Pena
     type: collection
   cos_rio_maior:
     description: Carta de Uso e Ocupação do Solo (COS) Rio Maior - 2018
@@ -28292,7 +28222,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Rio Maior
+    title: COS Rio Maior
     type: collection
   cos_sabrosa:
     description: Carta de Uso e Ocupação do Solo (COS) Sabrosa - 2018
@@ -28351,7 +28281,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sabrosa
+    title: COS Sabrosa
     type: collection
   cos_sabugal:
     description: Carta de Uso e Ocupação do Solo (COS) Sabugal - 2018
@@ -28410,7 +28340,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sabugal
+    title: COS Sabugal
     type: collection
   cos_salvaterra_de_magos:
     description: Carta de Uso e Ocupação do Solo (COS) Salvaterra de Magos - 2018
@@ -28469,7 +28399,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Salvaterra de Magos
+    title: COS Salvaterra de Magos
     type: collection
   cos_santa_comba_dao:
     description: Carta de Uso e Ocupação do Solo (COS) Santa Comba Dão - 2018
@@ -28528,7 +28458,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Santa Comba Dão
+    title: COS Santa Comba Dão
     type: collection
   cos_santa_maria_da_feira:
     description: Carta de Uso e Ocupação do Solo (COS) Santa Maria da Feira - 2018
@@ -28587,7 +28517,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Santa Maria da Feira
+    title: COS Santa Maria da Feira
     type: collection
   cos_santa_marta_de_penaguiao:
     description: Carta de Uso e Ocupação do Solo (COS) Santa Marta de Penaguião -
@@ -28647,7 +28577,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Santa Marta de Penaguião
+    title: COS Santa Marta de Penaguião
     type: collection
   cos_santarem:
     description: Carta de Uso e Ocupação do Solo (COS) Santarém - 2018
@@ -28706,7 +28636,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Santarém
+    title: COS Santarém
     type: collection
   cos_santiago_do_cacem:
     description: Carta de Uso e Ocupação do Solo (COS) Santiago do Cacém - 2018
@@ -28765,7 +28695,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Santiago do Cacém
+    title: COS Santiago do Cacém
     type: collection
   cos_santo_tirso:
     description: Carta de Uso e Ocupação do Solo (COS) Santo Tirso - 2018
@@ -28824,7 +28754,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Santo Tirso
+    title: COS Santo Tirso
     type: collection
   cos_sardoal:
     description: Carta de Uso e Ocupação do Solo (COS) Sardoal - 2018
@@ -28883,7 +28813,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sardoal
+    title: COS Sardoal
     type: collection
   cos_seia:
     description: Carta de Uso e Ocupação do Solo (COS) Seia - 2018
@@ -28942,7 +28872,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Seia
+    title: COS Seia
     type: collection
   cos_seixal:
     description: Carta de Uso e Ocupação do Solo (COS) Seixal - 2018
@@ -29001,7 +28931,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Seixal
+    title: COS Seixal
     type: collection
   cos_sernancelhe:
     description: Carta de Uso e Ocupação do Solo (COS) Sernancelhe - 2018
@@ -29060,7 +28990,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sernancelhe
+    title: COS Sernancelhe
     type: collection
   cos_serpa:
     description: Carta de Uso e Ocupação do Solo (COS) Serpa - 2018
@@ -29119,7 +29049,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Serpa
+    title: COS Serpa
     type: collection
   cos_serta:
     description: Carta de Uso e Ocupação do Solo (COS) Sertã - 2018
@@ -29178,7 +29108,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sertã
+    title: COS Sertã
     type: collection
   cos_sesimbra:
     description: Carta de Uso e Ocupação do Solo (COS) Sesimbra - 2018
@@ -29237,7 +29167,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sesimbra
+    title: COS Sesimbra
     type: collection
   cos_setubal:
     description: Carta de Uso e Ocupação do Solo (COS) Setúbal - 2018
@@ -29296,7 +29226,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Setúbal
+    title: COS Setúbal
     type: collection
   cos_sever_do_vouga:
     description: Carta de Uso e Ocupação do Solo (COS) Sever do Vouga - 2018
@@ -29355,7 +29285,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sever do Vouga
+    title: COS Sever do Vouga
     type: collection
   cos_silves:
     description: Carta de Uso e Ocupação do Solo (COS) Silves - 2018
@@ -29414,7 +29344,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Silves
+    title: COS Silves
     type: collection
   cos_sines:
     description: Carta de Uso e Ocupação do Solo (COS) Sines - 2018
@@ -29473,7 +29403,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sines
+    title: COS Sines
     type: collection
   cos_sintra:
     description: Carta de Uso e Ocupação do Solo (COS) Sintra - 2018
@@ -29532,7 +29462,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sintra
+    title: COS Sintra
     type: collection
   cos_sobral_de_monte_agraco:
     description: Carta de Uso e Ocupação do Solo (COS) Sobral de Monte Agraço - 2018
@@ -29591,7 +29521,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sobral de Monte Agraço
+    title: COS Sobral de Monte Agraço
     type: collection
   cos_soure:
     description: Carta de Uso e Ocupação do Solo (COS) Soure - 2018
@@ -29650,7 +29580,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Soure
+    title: COS Soure
     type: collection
   cos_sousel:
     description: Carta de Uso e Ocupação do Solo (COS) Sousel - 2018
@@ -29709,7 +29639,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sousel
+    title: COS Sousel
     type: collection
   cos_satao:
     description: Carta de Uso e Ocupação do Solo (COS) Sátão - 2018
@@ -29768,7 +29698,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Sátão
+    title: COS Sátão
     type: collection
   cos_sao_bras_de_alportel:
     description: Carta de Uso e Ocupação do Solo (COS) São Brás de Alportel - 2018
@@ -29827,7 +29757,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental São Brás de Alportel
+    title: COS São Brás de Alportel
     type: collection
   cos_sao_joao_da_madeira:
     description: Carta de Uso e Ocupação do Solo (COS) São João da Madeira - 2018
@@ -29886,7 +29816,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental São João da Madeira
+    title: COS São João da Madeira
     type: collection
   cos_sao_joao_da_pesqueira:
     description: Carta de Uso e Ocupação do Solo (COS) São João da Pesqueira - 2018
@@ -29945,7 +29875,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental São João da Pesqueira
+    title: COS São João da Pesqueira
     type: collection
   cos_sao_pedro_do_sul:
     description: Carta de Uso e Ocupação do Solo (COS) São Pedro do Sul - 2018
@@ -30004,7 +29934,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental São Pedro do Sul
+    title: COS São Pedro do Sul
     type: collection
   cos_tabuaco:
     description: Carta de Uso e Ocupação do Solo (COS) Tabuaço - 2018
@@ -30063,7 +29993,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Tabuaço
+    title: COS Tabuaço
     type: collection
   cos_tarouca:
     description: Carta de Uso e Ocupação do Solo (COS) Tarouca - 2018
@@ -30122,7 +30052,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Tarouca
+    title: COS Tarouca
     type: collection
   cos_tavira:
     description: Carta de Uso e Ocupação do Solo (COS) Tavira - 2018
@@ -30181,7 +30111,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Tavira
+    title: COS Tavira
     type: collection
   cos_terras_de_bouro:
     description: Carta de Uso e Ocupação do Solo (COS) Terras de Bouro - 2018
@@ -30240,7 +30170,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Terras de Bouro
+    title: COS Terras de Bouro
     type: collection
   cos_tomar:
     description: Carta de Uso e Ocupação do Solo (COS) Tomar - 2018
@@ -30299,7 +30229,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Tomar
+    title: COS Tomar
     type: collection
   cos_tondela:
     description: Carta de Uso e Ocupação do Solo (COS) Tondela - 2018
@@ -30358,7 +30288,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Tondela
+    title: COS Tondela
     type: collection
   cos_torre_de_moncorvo:
     description: Carta de Uso e Ocupação do Solo (COS) Torre de Moncorvo - 2018
@@ -30417,7 +30347,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Torre de Moncorvo
+    title: COS Torre de Moncorvo
     type: collection
   cos_torres_novas:
     description: Carta de Uso e Ocupação do Solo (COS) Torres Novas - 2018
@@ -30476,7 +30406,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Torres Novas
+    title: COS Torres Novas
     type: collection
   cos_torres_vedras:
     description: Carta de Uso e Ocupação do Solo (COS) Torres Vedras - 2018
@@ -30535,7 +30465,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Torres Vedras
+    title: COS Torres Vedras
     type: collection
   cos_trancoso:
     description: Carta de Uso e Ocupação do Solo (COS) Trancoso - 2018
@@ -30594,7 +30524,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Trancoso
+    title: COS Trancoso
     type: collection
   cos_trofa:
     description: Carta de Uso e Ocupação do Solo (COS) Trofa - 2018
@@ -30653,7 +30583,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Trofa
+    title: COS Trofa
     type: collection
   cos_tabua:
     description: Carta de Uso e Ocupação do Solo (COS) Tábua - 2018
@@ -30712,7 +30642,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Tábua
+    title: COS Tábua
     type: collection
   cos_vagos:
     description: Carta de Uso e Ocupação do Solo (COS) Vagos - 2018
@@ -30771,7 +30701,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vagos
+    title: COS Vagos
     type: collection
   cos_vale_de_cambra:
     description: Carta de Uso e Ocupação do Solo (COS) Vale de Cambra - 2018
@@ -30830,7 +30760,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vale de Cambra
+    title: COS Vale de Cambra
     type: collection
   cos_valenca:
     description: Carta de Uso e Ocupação do Solo (COS) Valença - 2018
@@ -30889,7 +30819,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Valença
+    title: COS Valença
     type: collection
   cos_valongo:
     description: Carta de Uso e Ocupação do Solo (COS) Valongo - 2018
@@ -30948,7 +30878,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Valongo
+    title: COS Valongo
     type: collection
   cos_valpacos:
     description: Carta de Uso e Ocupação do Solo (COS) Valpaços - 2018
@@ -31007,7 +30937,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Valpaços
+    title: COS Valpaços
     type: collection
   cos_vendas_novas:
     description: Carta de Uso e Ocupação do Solo (COS) Vendas Novas - 2018
@@ -31066,7 +30996,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vendas Novas
+    title: COS Vendas Novas
     type: collection
   cos_viana_do_alentejo:
     description: Carta de Uso e Ocupação do Solo (COS) Viana do Alentejo - 2018
@@ -31125,7 +31055,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Viana do Alentejo
+    title: COS Viana do Alentejo
     type: collection
   cos_viana_do_castelo:
     description: Carta de Uso e Ocupação do Solo (COS) Viana do Castelo - 2018
@@ -31184,7 +31114,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Viana do Castelo
+    title: COS Viana do Castelo
     type: collection
   cos_vidigueira:
     description: Carta de Uso e Ocupação do Solo (COS) Vidigueira - 2018
@@ -31243,7 +31173,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vidigueira
+    title: COS Vidigueira
     type: collection
   cos_vieira_do_minho:
     description: Carta de Uso e Ocupação do Solo (COS) Vieira do Minho - 2018
@@ -31302,7 +31232,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vieira do Minho
+    title: COS Vieira do Minho
     type: collection
   cos_vila_flor:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Flor - 2018
@@ -31361,7 +31291,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Flor
+    title: COS Vila Flor
     type: collection
   cos_vila_franca_de_xira:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Franca de Xira - 2018
@@ -31420,7 +31350,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Franca de Xira
+    title: COS Vila Franca de Xira
     type: collection
   cos_vila_nova_da_barquinha:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova da Barquinha - 2018
@@ -31479,7 +31409,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova da Barquinha
+    title: COS Vila Nova da Barquinha
     type: collection
   cos_vila_nova_de_cerveira:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova de Cerveira - 2018
@@ -31538,7 +31468,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova de Cerveira
+    title: COS Vila Nova de Cerveira
     type: collection
   cos_vila_nova_de_famalicao:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova de Famalicão - 2018
@@ -31597,7 +31527,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova de Famalicão
+    title: COS Vila Nova de Famalicão
     type: collection
   cos_vila_nova_de_foz_coa:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova de Foz Côa - 2018
@@ -31656,7 +31586,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova de Foz Côa
+    title: COS Vila Nova de Foz Côa
     type: collection
   cos_vila_nova_de_gaia:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova de Gaia - 2018
@@ -31715,7 +31645,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova de Gaia
+    title: COS Vila Nova de Gaia
     type: collection
   cos_vila_nova_de_paiva:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova de Paiva - 2018
@@ -31774,7 +31704,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova de Paiva
+    title: COS Vila Nova de Paiva
     type: collection
   cos_vila_nova_de_poiares:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Nova de Poiares - 2018
@@ -31833,7 +31763,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Nova de Poiares
+    title: COS Vila Nova de Poiares
     type: collection
   cos_vila_pouca_de_aguiar:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Pouca de Aguiar - 2018
@@ -31892,7 +31822,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Pouca de Aguiar
+    title: COS Vila Pouca de Aguiar
     type: collection
   cos_vila_real:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Real - 2018
@@ -31951,7 +31881,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Real
+    title: COS Vila Real
     type: collection
   cos_vila_real_de_santo_antonio:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Real de Santo António
@@ -32011,7 +31941,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Real de Santo António
+    title: COS Vila Real de Santo António
     type: collection
   cos_vila_velha_de_rodao:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Velha de Ródão - 2018
@@ -32070,7 +32000,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Velha de Ródão
+    title: COS Vila Velha de Ródão
     type: collection
   cos_vila_verde:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Verde - 2018
@@ -32129,7 +32059,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Verde
+    title: COS Vila Verde
     type: collection
   cos_vila_vicosa:
     description: Carta de Uso e Ocupação do Solo (COS) Vila Viçosa - 2018
@@ -32188,7 +32118,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila Viçosa
+    title: COS Vila Viçosa
     type: collection
   cos_vila_de_rei:
     description: Carta de Uso e Ocupação do Solo (COS) Vila de Rei - 2018
@@ -32247,7 +32177,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila de Rei
+    title: COS Vila de Rei
     type: collection
   cos_vila_do_bispo:
     description: Carta de Uso e Ocupação do Solo (COS) Vila do Bispo - 2018
@@ -32306,7 +32236,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila do Bispo
+    title: COS Vila do Bispo
     type: collection
   cos_vila_do_conde:
     description: Carta de Uso e Ocupação do Solo (COS) Vila do Conde - 2018
@@ -32365,7 +32295,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vila do Conde
+    title: COS Vila do Conde
     type: collection
   cos_vimioso:
     description: Carta de Uso e Ocupação do Solo (COS) Vimioso - 2018
@@ -32424,7 +32354,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vimioso
+    title: COS Vimioso
     type: collection
   cos_vinhais:
     description: Carta de Uso e Ocupação do Solo (COS) Vinhais - 2018
@@ -32483,7 +32413,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vinhais
+    title: COS Vinhais
     type: collection
   cos_viseu:
     description: Carta de Uso e Ocupação do Solo (COS) Viseu - 2018
@@ -32542,7 +32472,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Viseu
+    title: COS Viseu
     type: collection
   cos_vizela:
     description: Carta de Uso e Ocupação do Solo (COS) Vizela - 2018
@@ -32601,7 +32531,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vizela
+    title: COS Vizela
     type: collection
   cos_vouzela:
     description: Carta de Uso e Ocupação do Solo (COS) Vouzela - 2018
@@ -32660,7 +32590,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Vouzela
+    title: COS Vouzela
     type: collection
   cos_agueda:
     description: Carta de Uso e Ocupação do Solo (COS) Águeda - 2018
@@ -32719,7 +32649,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Águeda
+    title: COS Águeda
     type: collection
   cos_evora:
     description: Carta de Uso e Ocupação do Solo (COS) Évora - 2018
@@ -32778,7 +32708,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Évora
+    title: COS Évora
     type: collection
   cos_ilhavo:
     description: Carta de Uso e Ocupação do Solo (COS) Ílhavo - 2018
@@ -32837,7 +32767,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Ílhavo
+    title: COS Ílhavo
     type: collection
   cos_obidos:
     description: Carta de Uso e Ocupação do Solo (COS) Óbidos - 2018
@@ -32896,17 +32826,17 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: COS Portugal Continental Óbidos
+    title: COS Óbidos
     type: collection
   caop:
     description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -32956,15 +32886,85 @@ resources:
       type: tile
     title: CAOP2024 Municípios
     type: collection
+  cadastro:
+    description: Parcelas Cadastrais
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - prédio
+    - conservação cadastral
+    - INSPIRECORE
+    - DL_72_2023
+    - Cadastro Oficial
+    - HVD
+    - cadastro
+    - cadastro predial
+    - carta cadastral
+    - prédios cadastrados
+    - cadastro predial atualizado
+    - Base de Dados Nacional de Cadastro Predial
+    - BDNCP
+    - Direção-geral do Território
+    - DGT
+    - Geoespaciais
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/73282c48-7f23-435c-ba41-592a96470080
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: id
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: cadastro
+      type: feature
+    - data: http://tiles:3000/cadastro/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: Cadastro Predial (Continente)
+    type: collection
   freguesias:
     description: Carta Administrativa Oficial de Portugal, Continente, 2024. Freguesias
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -33020,10 +33020,10 @@ resources:
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -33078,10 +33078,10 @@ resources:
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -33136,10 +33136,10 @@ resources:
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -33194,10 +33194,10 @@ resources:
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -33253,10 +33253,10 @@ resources:
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00
@@ -33311,10 +33311,10 @@ resources:
     extents:
       spatial:
         bbox:
-        - -9.52657060387
-        - 36.838268541
-        - -6.3890876937
-        - 42.280468655
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30 18:24:39+00:00

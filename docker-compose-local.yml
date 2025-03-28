@@ -73,12 +73,30 @@ services:
   tiles:
     image: ghcr.io/maplibre/martin
     restart: on-failure
-    ports:
-      - "3000:3000"
-    env_file:
-      - .env
+    environment:
+      - DATABASE_URL=${LOCAL_DATABASE_URL}
     depends_on:
       - postgis
+    networks:
+      - default
+
+  tiles_caop:
+    image: ghcr.io/maplibre/martin
+    restart: on-failure
+    environment:
+      - DATABASE_URL=${REMOTE_CAOP_URL}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - default
+
+  tiles_inspire:
+    image: ghcr.io/maplibre/martin
+    restart: on-failure
+    environment:
+      - DATABASE_URL=${REMOTE_INSPIRE_URL}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - default
 
@@ -98,6 +116,42 @@ services:
     volumes:
        - ./postgis/data:/var/lib/postgresql/data
        - ./postgis/scripts:/tmp/
+    networks:
+      - default
+      - bridge1
+    restart: on-failure
+
+  postgis_caop:
+    build:
+      context: ./postgis/
+      dockerfile: Dockerfile.remote
+    environment:
+      POSTGRES_PASSWORD: ${REMOTE_CAOP_PASSWORD}
+      POSTGRES_DB: ${REMOTE_CAOP_DB}
+      POSTGRES_HOST_AUTH_METHOD: trust
+    env_file:
+      - .env     # path to your .env file
+    ports:
+      - "5433:5432"
+    container_name: postgis_caop
+    networks:
+      - default
+      - bridge1
+    restart: on-failure
+
+  postgis_inspire:
+    build:
+      context: ./postgis/
+      dockerfile: Dockerfile.remote
+    environment:
+      POSTGRES_PASSWORD: ${REMOTE_INSPIRE_PASSWORD}
+      POSTGRES_DB: ${REMOTE_INSPIRE_DB}
+      POSTGRES_HOST_AUTH_METHOD: trust
+    env_file:
+      - .env     # path to your .env file
+    ports:
+      - "5434:5432"
+    container_name: postgis_inspire
     networks:
       - default
       - bridge1

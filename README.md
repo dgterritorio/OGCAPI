@@ -25,13 +25,26 @@ docker compose up -d
 
 This compositions read secrets from an environment file on this folder: ```.env```.
 
-Create this file with the following format, replacing "SOMEPASSWORD" by a reasonable value.
+Create this file with the following format, replacing "POSTGRES_PASSWORD=postgres" by a reasonable value.
 
 ```
-POSTGRES_PASSWORD="SOMEPASSWORD"
+HOST_URL=http://localhost
 POSTGRES_DB="geodb"
 POSTGRES_USER="postgres"
-DATABASE_URL=postgresql://postgres:SOMEPASSWORD@postgis/geodb
+POSTGRES_PASSWORD="postgres"
+LOCAL_DATABASE_URL=postgresql://postgres:postgres@postgis:5432/geodb
+REMOTE_CAOP_HOST="caop.host.db"
+REMOTE_CAOP_PORT="5433"
+REMOTE_CAOP_DB="dgt_local"
+REMOTE_CAOP_USER="caop_user"
+REMOTE_CAOP_PASSWORD="caop_password"
+REMOTE_CAOP_URL=postgresql://caop_user:caop_password@caop.host.db:5433/dgt_local
+REMOTE_INSPIRE_HOST="inspire.host.db"
+REMOTE_INSPIRE_PORT="5434"
+REMOTE_INSPIRE_DB="dgt_local"
+REMOTE_INSPIRE_USER="inspire_user"
+REMOTE_INSPIRE_PASSWORD="inspire_password"
+REMOTE_INSPIRE_URL=postgresql://inspire_user:inspire_password@inspire.host.db:5434/dgt_local
 ```
 
 For Matomo we need also:

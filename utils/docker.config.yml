@@ -175,488 +175,8 @@ resources:
       format:
         name: png
         mimetype: image/png
-  caop:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Administrativos
-    - Portugal Continental
-    - Municipios
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-      geom_field: geometria
-      id_field: dtmn
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_municipios
-      type: feature
-    - data: http://tiles_caop:3000/caop2024.cont_municipios/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 Municípios
-    type: collection
-  freguesias:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Freguesias
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Administrativos
-    - Portugal Continental
-    - Freguesias
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-      geom_field: geometria
-      id_field: dtmnfr
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_freguesias
-      type: feature
-    - data: http://tiles_caop:3000/caop2024.cont_freguesias/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 Freguesias
-    type: collection
-  admin:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Áreas
-      administrativas
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Admnistrativos
-    - Portugal Continental
-    - Áreas administrativas
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-        password: ${REMOTE_CAOP_PASSWORD}
-      geom_field: geometria
-      id_field: id
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_areas_administrativas
-      type: feature
-    - data: http://tiles_caop:3000/caop2024.cont_areas_administrativas/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 Áreas administrativas
-    type: collection
-  nuts1:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSI
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Administrativos
-    - Portugal Continental
-    - NUTSI
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-        password: ${REMOTE_CAOP_PASSWORD}
-      geom_field: geometria
-      id_field: codigo
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_nuts1
-      type: feature
-    - data: http://tiles_caop:3000/caop2024.cont_nuts1/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 NUTSI
-    type: collection
-  nuts2:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSII
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Administrativos
-    - Portugal Continental
-    - NUTSII
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-        password: ${REMOTE_CAOP_PASSWORD}
-      geom_field: geometria
-      id_field: codigo
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_nuts2
-      type: feature
-    - data: http://tiles_caop:3000/caop2024.cont_nuts2/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 NUTSII
-    type: collection
-  nuts3:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSIII
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Administrativos
-    - Portugal Continental
-    - NUTSIII
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-        password: ${REMOTE_CAOP_PASSWORD}
-      geom_field: geometria
-      id_field: codigo
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_nuts3
-      type: feature
-    - data: http://tiles_caop:3000/nuts3/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 NUTSIII
-    type: collection
-  trocos:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Troços
-      administrativos
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Admnistrativos
-    - Portugal Continental
-    - Troços administrativos
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-        password: ${REMOTE_CAOP_PASSWORD}
-      geom_field: geometria
-      id_field: identificator
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_trocos
-      type: feature
-    - data: http://tiles_caop:3000/trocos/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 Troços
-    type: collection
-  distritos:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Distritos
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30 18:24:39+00:00
-        end: 2007-10-30 08:57:29+00:00
-    keywords:
-    - Limites Admnistrativos
-    - Portugal Continental
-    - Distritos
-    - CAOP
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: ${REMOTE_CAOP_DB}
-        host: ${REMOTE_CAOP_HOST}
-        port: ${REMOTE_CAOP_PORT}
-        user: ${REMOTE_CAOP_USER}
-        password: ${REMOTE_CAOP_PASSWORD}
-      geom_field: geometria
-      id_field: dt
-      name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: caop2024.cont_distritos
-      type: feature
-    - data: http://tiles_caop:3000/distritos/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: CAOP2024 Distritos
-    type: collection
-  # cadastro:
-  #   description: Parcelas Cadastrais
+  # caop:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
   #   extents:
   #     spatial:
   #       bbox:
@@ -669,24 +189,12 @@ resources:
   #       begin: 2000-10-30 18:24:39+00:00
   #       end: 2007-10-30 08:57:29+00:00
   #   keywords:
-  #   - prédio
-  #   - conservação cadastral
-  #   - INSPIRECORE
-  #   - DL_72_2023
-  #   - Cadastro Oficial
-  #   - HVD
-  #   - cadastro
-  #   - cadastro predial
-  #   - carta cadastral
-  #   - prédios cadastrados
-  #   - cadastro predial atualizado
-  #   - Base de Dados Nacional de Cadastro Predial
-  #   - BDNCP
-  #   - Direção-geral do Território
-  #   - DGT
-  #   - Geoespaciais
+  #   - Limites Administrativos
+  #   - Portugal Continental
+  #   - Municipios
+  #   - CAOP
   #   links:
-  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/73282c48-7f23-435c-ba41-592a96470080
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
   #     hreflang: en-US
   #     rel: canonical
   #     title: data
@@ -699,21 +207,20 @@ resources:
   #     - http://www.opengis.net/def/crs/EPSG/0/4258
   #     - http://www.opengis.net/def/crs/EPSG/0/3763
   #     data:
-  #       dbname: ${REMOTE_INSPIRE_DB}
-  #       host: ${REMOTE_INSPIRE_HOST}
-  #       port: ${REMOTE_INSPIRE_PORT}
-  #       user: ${REMOTE_INSPIRE_USER}
-  #       password: ${REMOTE_INSPIRE_PASSWORD}
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
   #     geom_field: geometria
-  #     id_field: id
+  #     id_field: dtmn
   #     name: PostgreSQL
   #     search_path:
   #     - caop2024
   #     - public
   #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-  #     table: cadastro
+  #     table: cont_municipios
   #     type: feature
-  #   - data: http://tiles_inspire:3000/cadastro/{z}/{x}/{y}?f=mvt
+  #   - data: http://tiles_caop:3000/cont_municipios/{z}/{x}/{y}?f=mvt
   #     format:
   #       mimetype: application/vnd.mapbox-vector-tile
   #       name: pbf
@@ -725,5 +232,498 @@ resources:
   #         max: 15
   #         min: 0
   #     type: tile
-  #   title: Cadastro Predial (Continente)
+  #   title: CAOP2024 Municípios
   #   type: collection
+  # freguesias:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. Freguesias
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Administrativos
+  #   - Portugal Continental
+  #   - Freguesias
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #     geom_field: geometria
+  #     id_field: dtmnfr
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_freguesias
+  #     type: feature
+  #   - data: http://tiles_caop:3000/cont_freguesias/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 Freguesias
+  #   type: collection
+  # admin:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. Áreas
+  #     administrativas
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Admnistrativos
+  #   - Portugal Continental
+  #   - Áreas administrativas
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #       password: ${REMOTE_CAOP_PASSWORD}
+  #     geom_field: geometria
+  #     id_field: id
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_areas_administrativas
+  #     type: feature
+  #   - data: http://tiles_caop:3000/cont_areas_administrativas/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 Áreas administrativas
+  #   type: collection
+  # nuts1:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSI
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Administrativos
+  #   - Portugal Continental
+  #   - NUTSI
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #       password: ${REMOTE_CAOP_PASSWORD}
+  #     geom_field: geometria
+  #     id_field: codigo
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_nuts1
+  #     type: feature
+  #   - data: http://tiles_caop:3000/cont_nuts1/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 NUTSI
+  #   type: collection
+  # nuts2:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSII
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Administrativos
+  #   - Portugal Continental
+  #   - NUTSII
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #       password: ${REMOTE_CAOP_PASSWORD}
+  #     geom_field: geometria
+  #     id_field: codigo
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_nuts2
+  #     type: feature
+  #   - data: http://tiles_caop:3000/cont_nuts2/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 NUTSII
+  #   type: collection
+  # nuts3:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSIII
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Administrativos
+  #   - Portugal Continental
+  #   - NUTSIII
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #       password: ${REMOTE_CAOP_PASSWORD}
+  #     geom_field: geometria
+  #     id_field: codigo
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_nuts3
+  #     type: feature
+  #   - data: http://tiles_caop:3000/nuts3/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 NUTSIII
+  #   type: collection
+  # trocos:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. Troços
+  #     administrativos
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Admnistrativos
+  #   - Portugal Continental
+  #   - Troços administrativos
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #       password: ${REMOTE_CAOP_PASSWORD}
+  #     geom_field: geometria
+  #     id_field: identificator
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_trocos
+  #     type: feature
+  #   - data: http://tiles_caop:3000/trocos/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 Troços
+  #   type: collection
+  # distritos:
+  #   description: Carta Administrativa Oficial de Portugal, Continente, 2024. Distritos
+  #   extents:
+  #     spatial:
+  #       bbox:
+  #       - -9.51
+  #       - 36.96
+  #       - -6.19
+  #       - 42.15
+  #       crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     temporal:
+  #       begin: 2000-10-30 18:24:39+00:00
+  #       end: 2007-10-30 08:57:29+00:00
+  #   keywords:
+  #   - Limites Admnistrativos
+  #   - Portugal Continental
+  #   - Distritos
+  #   - CAOP
+  #   links:
+  #   - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+  #     hreflang: en-US
+  #     rel: canonical
+  #     title: data
+  #     type: text/csv
+  #   providers:
+  #   - crs:
+  #     - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     - http://www.opengis.net/def/crs/EPSG/0/4326
+  #     - http://www.opengis.net/def/crs/EPSG/0/3857
+  #     - http://www.opengis.net/def/crs/EPSG/0/4258
+  #     - http://www.opengis.net/def/crs/EPSG/0/3763
+  #     data:
+  #       dbname: ${REMOTE_CAOP_DB}
+  #       host: ${REMOTE_CAOP_HOST}
+  #       port: ${REMOTE_CAOP_PORT}
+  #       user: ${REMOTE_CAOP_USER}
+  #       password: ${REMOTE_CAOP_PASSWORD}
+  #     geom_field: geometria
+  #     id_field: dt
+  #     name: PostgreSQL
+  #     search_path:
+  #     - caop2024
+  #     - public
+  #     storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  #     table: cont_distritos
+  #     type: feature
+  #   - data: http://tiles_caop:3000/distritos/{z}/{x}/{y}?f=mvt
+  #     format:
+  #       mimetype: application/vnd.mapbox-vector-tile
+  #       name: pbf
+  #     name: MVT-proxy
+  #     options:
+  #       schemes:
+  #       - WebMercatorQuad
+  #       zoom:
+  #         max: 15
+  #         min: 0
+  #     type: tile
+  #   title: CAOP2024 Distritos
+  #   type: collection
+  cadastro:
+    description: Parcelas Cadastrais
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30 18:24:39+00:00
+        end: 2007-10-30 08:57:29+00:00
+    keywords:
+    - prédio
+    - conservação cadastral
+    - INSPIRECORE
+    - DL_72_2023
+    - Cadastro Oficial
+    - HVD
+    - cadastro
+    - cadastro predial
+    - carta cadastral
+    - prédios cadastrados
+    - cadastro predial atualizado
+    - Base de Dados Nacional de Cadastro Predial
+    - BDNCP
+    - Direção-geral do Território
+    - DGT
+    - Geoespaciais
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/73282c48-7f23-435c-ba41-592a96470080
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_INSPIRE_DB}
+        host: ${REMOTE_INSPIRE_HOST}
+        port: ${REMOTE_INSPIRE_PORT}
+        user: ${REMOTE_INSPIRE_USER}
+        password: ${REMOTE_INSPIRE_PASSWORD}
+      geom_field: geometry
+      id_field: id
+      name: PostgreSQL
+      search_path:
+      - inspire
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: mv_cadastralparcel_4326
+      type: feature
+    - data: http://tiles_inspire:3000/mv_cadastralparcel_4326/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: Cadastro Predial (Continente)
+    type: collection

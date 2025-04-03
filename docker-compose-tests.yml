@@ -30,16 +30,18 @@
 services:
 
   apache-httpd:
-    image: httpd:2.4
+    build: ./apache-httpd/
     container_name: httpd
     depends_on:
       - pygeoapi
     volumes:   
-      - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf      
-      - apache_log:/usr/local/apache2/logs
+      - ./apache-httpd/httpd-ssl-test.conf:/usr/local/apache2/conf/httpd.conf      
+      - /etc/certs/tests_fullchain1.pem:/usr/local/apache2/conf/tests/fullchain1.pem  
+      - /etc/certs/tests_privkey1.pem:/usr/local/apache2/conf/tests/privkey1.pem
+      - ./apache-httpd/logs:/usr/local/apache2/logs
     ports:
       - "80:80"
-      # - "443:443"
+      - "443:443"
     networks:
       - default
     restart: on-failure
@@ -59,7 +61,7 @@ services:
       - ./data:/data
       - ./pygeoapi/templates:/templates # jinja templates
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
-      - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon       
+      - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
     restart: on-failure
     links:
       - tiles
@@ -108,44 +110,12 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
     env_file:
       - .env     # path to your .env file
+    expose:
+       - 5432
     container_name: postgis
     volumes:
        - ./postgis/data:/var/lib/postgresql/data
        - ./postgis/scripts:/tmp/
-    networks:
-      - default
-      - bridge1
-    restart: on-failure
-
-  postgis_caop:
-    build:
-      context: ./postgis/
-      dockerfile: Dockerfile.remote
-    environment:
-      POSTGRES_PASSWORD: ${REMOTE_CAOP_PASSWORD}
-      POSTGRES_DB: ${REMOTE_CAOP_DB}
-      POSTGRES_HOST_AUTH_METHOD: trust
-    env_file:
-      - .env     # path to your .env file
-    container_name: postgis_caop
-    networks:
-      - default
-      - bridge1
-    restart: on-failure
-
-  postgis_inspire:
-    build:
-      context: ./postgis/
-      dockerfile: Dockerfile.remote
-    environment:
-      POSTGRES_PASSWORD: ${REMOTE_INSPIRE_PASSWORD}
-      POSTGRES_DB: ${REMOTE_INSPIRE_DB}
-      POSTGRES_HOST_AUTH_METHOD: trust
-    ports:
-      - 5432:5432
-    env_file:
-      - .env     # path to your .env file
-    container_name: postgis_inspire
     networks:
       - default
       - bridge1
@@ -163,99 +133,6 @@ services:
       - postgis
     networks:
       - default
-
-  # mariadb:
-  #   image: mariadb:10.11
-  #   container_name: mariadb
-  #   command: --max-allowed-packet=64MB
-  #   restart: always
-  #   volumes:
-  #     - maria:/var/lib/mysql:Z
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=
-  #     - MARIADB_AUTO_UPGRADE=1
-  #     - MARIADB_DISABLE_UPGRADE_BACKUP=1
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - default
-
-  mapserver:
-    build: ./mapserver
-    container_name: mapserver
-    expose:
-      - "80"
-    volumes:
-      - ./data:/data
-    environment:
-      # Variabili per abilitare e configurare il caching di GDAL per VSICURL
-      - CPL_VSIL_CURL_CACHE=/tmp/vsicurl_cache
-      - CPL_VSIL_CURL_CACHE_SIZE=1000000000  # 1GB di cache (modifica se necessario)
-
-
-  # matomo:
-  #   build:
-  #     context: ./matomo/
-  #     dockerfile: Dockerfile.main
-  #   container_name: matomo
-  #   ports:
-  #     - 8081:80
-  #   volumes:
-  #     - matomo:/var/www/html:z
-  #     - apache_log:/apache:ro
-  #   environment:
-  #     - MATOMO_DATABASE_HOST=mariadb
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - default
-  #   restart: on-failure
-
-  # python_matomo:
-  #   build:
-  #     context: ./matomo/
-  #     dockerfile: Dockerfile.cron
-  #   container_name: matomo_python
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #       - matomo:/var/www/html:z
-  #       - apache_log:/apache:ro
-  #   depends_on:
-  #     - matomo
-  #   restart: on-failure
-  
-  # ghc_web:
-  #   image: geopython/geohealthcheck:latest
-  #   container_name: ghc_web
-  #   restart: on-failure
-  #   expose:
-  #      - 80
-  #   # ports:
-  #   #   - 8083:80
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ./ghc_sqlitedb:/GeoHealthCheck/DB
-  #   networks:
-  #     - default
-
-  # ghc_runner:
-  #   image: geopython/geohealthcheck:latest
-  #   container_name: ghc_runner
-  #   restart: on-failure
-  #   env_file:
-  #     - .env
-  #   entrypoint:
-  #     - /run-runner.sh
-  #   volumes:
-  #     - ghc_sqlitedb:/GeoHealthCheck/DB
-
-volumes:
-  # maria:
-  # matomo:
-  apache_log:
-  # ghc_sqlitedb:
 
 networks:
   default:

@@ -1,4 +1,4 @@
--- User and schema setup
+-- User and schema setup for CAOP
 CREATE USER caop_user LOGIN PASSWORD 'caop_password' NOINHERIT;
 
 CREATE SCHEMA IF NOT EXISTS caop2024 AUTHORIZATION caop_user;
@@ -6,6 +6,7 @@ CREATE SCHEMA IF NOT EXISTS caop2024 AUTHORIZATION caop_user;
 GRANT ALL PRIVILEGES ON SCHEMA caop2024 TO caop_user;
 
 GRANT USAGE, CREATE ON SCHEMA public TO caop_user;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO caop_user;
 
 ALTER DEFAULT PRIVILEGES FOR ROLE caop_user GRANT ALL ON TABLES TO caop_user;
 ALTER DEFAULT PRIVILEGES FOR ROLE caop_user GRANT ALL ON SEQUENCES TO caop_user;
@@ -13,7 +14,27 @@ ALTER DEFAULT PRIVILEGES FOR ROLE caop_user GRANT ALL ON SEQUENCES TO caop_user;
 GRANT SELECT ON public.spatial_ref_sys TO caop_user;
 GRANT SELECT, INSERT, DELETE ON public.geometry_columns TO caop_user;
 
-ALTER USER caop_user SET search_path TO caop2024, public;
+ALTER USER caop_user SET search_path TO caop2024;
+
+
+-- User and schema setup for INSPIRE
+CREATE USER inspire_user LOGIN PASSWORD 'inspire_password' NOINHERIT;
+
+CREATE SCHEMA IF NOT EXISTS inspire AUTHORIZATION inspire_user;
+
+GRANT ALL PRIVILEGES ON SCHEMA inspire TO inspire_user;
+
+GRANT USAGE, CREATE ON SCHEMA public TO inspire_user;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO inspire_user;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE inspire_user GRANT ALL ON TABLES TO inspire_user;
+ALTER DEFAULT PRIVILEGES FOR ROLE inspire_user GRANT ALL ON SEQUENCES TO inspire_user;
+
+GRANT SELECT ON public.spatial_ref_sys TO inspire_user;
+GRANT SELECT, INSERT, DELETE ON public.geometry_columns TO inspire_user;
+
+ALTER USER inspire_user SET search_path TO inspire;
+
 
 -- Tables and indexes
 
@@ -147,3 +168,23 @@ CREATE TABLE caop2024.cont_trocos (
 ALTER TABLE caop2024.cont_trocos OWNER TO caop_user;
 CREATE UNIQUE INDEX cont_trocos_identificador_idx ON caop2024.cont_trocos (identificador);
 CREATE INDEX cont_trocos_geometria_idx ON caop2024.cont_trocos USING gist (geometria);
+
+
+CREATE TABLE inspire.mv_cadastralparcel_4326 (
+    geometry                   geometry,
+    inspireid                  text,
+    label                      character varying,
+    nationalcadastralreference character varying,
+    areavalue                  double precision,
+    validfrom                  timestamp with time zone,
+    validto                    timestamp with time zone,
+    beginlifespanversion       timestamp with time zone,
+    endlifespanversion         timestamp with time zone,
+    administrativeunit         character varying,
+    id                         integer,
+    CONSTRAINT idx_id_mv_cp4326 UNIQUE (id),
+    CONSTRAINT idx_ncr_mv_cp4326 UNIQUE (nationalcadastralreference)
+);
+ALTER TABLE inspire.mv_cadastralparcel_4326 OWNER TO inspire_user;
+-- Indexes
+CREATE INDEX idx_geom_mv_cp4326 ON inspire.mv_cadastralparcel_4326 USING gist (geometry);

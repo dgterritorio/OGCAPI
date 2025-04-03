@@ -14,7 +14,7 @@ parser.add_argument('--host', default='localhost', help='PostgreSQL host, defaul
 parser.add_argument('--port', default='5432', help='PostgreSQL port, default is 5432')
 parser.add_argument('--table', default='crus', help='Table name to create from the shapefile/geopackage')
 parser.add_argument('--primary_key', default='objectid', help='Column name to use as the primary key for the new table')
-parser.add_argument('--input', default='../data/CRUS+_31_julho2024.shp', help='Path to the shapefile or geopackage file to import')
+parser.add_argument('--input', default='../data/CRUS+_31_mar_2025.shp', help='Path to the shapefile or geopackage file to import')
 parser.add_argument('--template', default='template_table.yml', help='Path to YAML template file, default is template.yml')
 parser.add_argument('--config', default='./docker.config.yml', help='Path to the pygeoapi configuration file to update')
 args = parser.parse_args()

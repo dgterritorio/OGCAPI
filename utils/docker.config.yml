@@ -704,12 +704,11 @@ resources:
         port: ${REMOTE_INSPIRE_PORT}
         user: ${REMOTE_INSPIRE_USER}
         password: ${REMOTE_INSPIRE_PASSWORD}
+        search_path: 
+          - inspire
       geom_field: geometry
       id_field: id
       name: PostgreSQL
-      search_path:
-      - inspire
-      - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       table: mv_cadastralparcel_4326
       type: feature

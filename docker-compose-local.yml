@@ -101,7 +101,9 @@ services:
       - default
 
   postgis:
-    build: ./postgis/
+    build:
+      context: ./postgis/
+      dockerfile: Dockerfile
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
@@ -120,7 +122,7 @@ services:
   postgis_caop:
     build:
       context: ./postgis/
-      dockerfile: Dockerfile.remote
+      dockerfile: Dockerfile.remote #This is initialized with CAOP empty tables
     environment:
       POSTGRES_PASSWORD: ${REMOTE_CAOP_PASSWORD}
       POSTGRES_DB: ${REMOTE_CAOP_DB}
@@ -136,7 +138,7 @@ services:
   postgis_inspire:
     build:
       context: ./postgis/
-      dockerfile: Dockerfile.remote
+      dockerfile: Dockerfile.remote #This is initialized with CAOP empty tables
     environment:
       POSTGRES_PASSWORD: ${REMOTE_INSPIRE_PASSWORD}
       POSTGRES_DB: ${REMOTE_INSPIRE_DB}

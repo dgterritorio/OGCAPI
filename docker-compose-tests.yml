@@ -95,6 +95,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
+      - DEFAULT_SRID=4326
+      - CACHE_SIZE=1024
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -107,6 +109,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
+      - DEFAULT_SRID=4326
+      - CACHE_SIZE=1024
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

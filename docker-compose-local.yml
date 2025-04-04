@@ -77,6 +77,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
+      - DEFAULT_SRID=4326
+      - CACHE_SIZE=1024
     depends_on:
       - postgis
     networks:

@@ -64,7 +64,8 @@ for distinct_value_tuple in distinct_values:
     try:
         cursor.execute(
             f"""
-            CREATE OR REPLACE VIEW {view_name} AS
+            DROP MATERIALIZED VIEW IF EXISTS {view_name};
+            CREATE MATERIALIZED VIEW {view_name} AS
             SELECT * FROM {TABLE} WHERE \"{COLUMN}\" = %s;
             """,
             (distinct_value,)
@@ -76,6 +77,42 @@ for distinct_value_tuple in distinct_values:
         print(e, file=sys.stderr)
         conn.rollback()
         continue
+
+    # Create index on the geometry of the MV
+    try:
+        cursor.execute(
+            f"""
+            DROP INDEX IF EXISTS sidx_{view_name}_geom;
+            CREATE INDEX sidx_{view_name}_geom
+            ON {view_name}
+            USING gist
+            (geometry);
+            """
+        )
+        conn.commit()
+        print(f"Geom index sidx_'{view_name}'_geom created successfully.")
+    except Exception as e:
+        print(f"Error: Unable to create geom index for '{view_name}'", file=sys.stderr)
+        print(e, file=sys.stderr)
+        conn.rollback()
+        continue
+
+    # Create unique index on the  MV
+    # try:
+    #     cursor.execute(
+    #         f"""
+    #         DROP INDEX IF EXISTS idx_{view_name}_id;
+    #         CREATE UNIQUE INDEX idx_{view_name}_id
+    #         on {view_name} (id);
+    #         """
+    #     )
+    #     conn.commit()
+    #     print(f"Unique index on '{view_name}' created successfully.")
+    # except Exception as e:
+    #     print(f"Error: Unable to create unique index for '{view_name}'", file=sys.stderr)
+    #     print(e, file=sys.stderr)
+    #     conn.rollback()
+    #     continue
 
     # Calculate the bounding box for the view
     try:

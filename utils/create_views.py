@@ -98,21 +98,21 @@ for distinct_value_tuple in distinct_values:
         continue
 
     # Create unique index on the  MV
-    # try:
-    #     cursor.execute(
-    #         f"""
-    #         DROP INDEX IF EXISTS idx_{view_name}_id;
-    #         CREATE UNIQUE INDEX idx_{view_name}_id
-    #         on {view_name} (id);
-    #         """
-    #     )
-    #     conn.commit()
-    #     print(f"Unique index on '{view_name}' created successfully.")
-    # except Exception as e:
-    #     print(f"Error: Unable to create unique index for '{view_name}'", file=sys.stderr)
-    #     print(e, file=sys.stderr)
-    #     conn.rollback()
-    #     continue
+    try:
+        cursor.execute(
+            f"""
+            DROP INDEX IF EXISTS idx_{view_name}_objectid;
+            CREATE UNIQUE INDEX idx_{view_name}_objectid
+            on {view_name} (objectid);
+            """
+        )
+        conn.commit()
+        print(f"Unique index on '{view_name}' created successfully.")
+    except Exception as e:
+        print(f"Error: Unable to create unique index for '{view_name}'", file=sys.stderr)
+        print(e, file=sys.stderr)
+        conn.rollback()
+        continue
 
     # Calculate the bounding box for the view
     try:

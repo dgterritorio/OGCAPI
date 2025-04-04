@@ -81,6 +81,8 @@ services:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
       - DEFAULT_SRID=4326
       - CACHE_SIZE=1024
+    env_file:
+      - .env
     depends_on:
       - postgis
     networks:

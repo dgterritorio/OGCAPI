@@ -111,6 +111,7 @@ services:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
       - DEFAULT_SRID=4326
       - CACHE_SIZE=1024
+      - AUTO_BOUNDS=calc
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

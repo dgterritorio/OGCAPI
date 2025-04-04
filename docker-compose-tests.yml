@@ -65,6 +65,8 @@ services:
     restart: on-failure
     links:
       - tiles
+      - tiles_caop
+      - tiles_inspire
     networks:
       - default
     depends_on:

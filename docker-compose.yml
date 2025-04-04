@@ -79,8 +79,8 @@ services:
   tiles:
     image: ghcr.io/maplibre/martin
     restart: on-failure
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
     env_file:
       - .env
     depends_on:

@@ -2,12 +2,8 @@ server:
   bind:
     host: 0.0.0.0:80
     port: 80
-<<<<<<< HEAD
   url: ${HOST_URL}
-=======
-  url: http://ogcapi.dgterritorio.gov.pt/
   # url: http://localhost:80/ #TODO: change this later 
->>>>>>> fbae420 (- added docker compose for tests server)
   mimetype: application/json; charset=UTF-8
   encoding: utf-8
   gzip: false

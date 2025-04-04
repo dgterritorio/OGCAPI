@@ -50,19 +50,6 @@ services:
       - default
     restart: on-failure
 
-  # mapserver:
-  #   build: ./mapserver
-  #   container_name: mapserver
-  #   expose:
-  #     - "80"
-  #   volumes:
-  #     - ./data:/data
-  #   environment:
-  #     # Variabili per abilitare e configurare il caching di GDAL per VSICURL
-  #     - CPL_VSIL_CURL_CACHE=/tmp/vsicurl_cache
-  #     - CPL_VSIL_CURL_CACHE_SIZE=1000000000  # 1GB di cache (modifica se necessario)
-  #   restart: on-failure
-  
   pygeoapi:
     image: geopython/pygeoapi:latest
     container_name: pygeoapi
@@ -100,6 +87,8 @@ services:
       - postgis
     networks:
       - default
+    healthcheck:
+      test: ["NONE"]
 
   postgis:
     build: ./postgis/

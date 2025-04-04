@@ -81,6 +81,8 @@ services:
       - postgis
     networks:
       - default
+    healthcheck:
+      test: ["NONE"]
 
   tiles_caop:
     image: ghcr.io/maplibre/martin
@@ -91,6 +93,8 @@ services:
       - "host.docker.internal:host-gateway"
     networks:
       - default
+    healthcheck:
+      test: ["NONE"]
 
   tiles_inspire:
     image: ghcr.io/maplibre/martin
@@ -101,6 +105,8 @@ services:
       - "host.docker.internal:host-gateway"
     networks:
       - default
+    healthcheck:
+      test: ["NONE"]
 
   postgis:
     build: ./postgis/

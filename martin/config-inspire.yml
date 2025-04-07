@@ -1,31 +1,30 @@
-cache_size_mb: 1024
-keep_alive: 100
+cache_size_mb: 2048
+keep_alive: 200
 postgres:
   default_srid: 4326
   auto_bounds: calc
-  pool_size: 50
+  pool_size: 100
   auto_publish: true
   tables:
-    mv_cadastralparcel_4326:
-      schema: inspire       
-      table: mv_cadastralparcel_4326
-      srid: 4326            
+    cadastralparcel:
+      schema: inspire
+      table: cadastralparcel
+      srid: 3763
       geometry_column: geometry
-      bounds:               
-      - -9.499050804036969  
-      - 36.99350227610016   
-      - -6.419221510790907  
-      - 41.46712859139252   
-      geometry_type: GEOMETRY
-      properties:           
+      bounds:
+      - -9.46634566736395
+      - 36.98881734282202
+      - -6.415610521311827
+      - 41.46419677467848
+      geometry_type: MULTIPOLYGON
+      properties:
         administrativeunit: varchar
-        areavalue: float8   
+        areavalue: float8
         beginlifespanversion: timestamptz
         endlifespanversion: timestamptz
-        id: int4            
-        inspireid: text     
-        label: varchar      
+        id: int4
+        inspireid: text
+        label: varchar
         nationalcadastralreference: varchar
         validfrom: timestamptz
-        validto: timestamptz 
-  functions: {}              
+        validto: timestamptz

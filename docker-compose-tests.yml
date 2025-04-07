@@ -81,7 +81,7 @@ services:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
       # - RUST_LOG=debug
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     env_file:
       - .env
     depends_on:
@@ -98,7 +98,7 @@ services:
       - DATABASE_URL=${REMOTE_CAOP_URL}
       # - RUST_LOG=debug
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -113,7 +113,7 @@ services:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
       # - RUST_LOG=debug
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     # command: --config /config.yml
     # volumes:
     #   - ./martin/config-inspire.yml:/config.yml

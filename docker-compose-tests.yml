@@ -111,9 +111,10 @@ services:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
       - RUST_LOG=debug
       - WATCH_MODE=true
-    command: --config /config.yml
-    volumes:
-      - ./martin/config-inspire.yml:/config.yml
+    command: --auto-bounds calc --cache-size 1024 --keep-alive 100 --pool-size 50 --default_srid 4326 --save-config /tm/config.yml
+    # command: --config /config.yml
+    # volumes:
+    #   - ./martin/config-inspire.yml:/config.yml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

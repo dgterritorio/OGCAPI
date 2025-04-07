@@ -65,7 +65,7 @@ services:
       - ./data:/data
       - ./pygeoapi/templates:/templates # jinja templates
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
-      - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
+      # - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
     restart: on-failure
     links:
       - tiles
@@ -84,7 +84,7 @@ services:
     environment:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     depends_on:
       - postgis
     networks:
@@ -98,7 +98,7 @@ services:
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -112,7 +112,7 @@ services:
     environment:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 50 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

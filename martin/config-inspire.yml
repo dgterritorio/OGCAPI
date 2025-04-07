@@ -1,3 +1,4 @@
+connection_string: ${DATABASE_URL}
 cache_size_mb: 2048
 keep_alive: 200
 web_ui: disable

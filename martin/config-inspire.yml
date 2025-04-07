@@ -1,26 +1,31 @@
-# Connection keep alive timeout [default: 75]
-keep_alive: 75
-# Number of web server workers
-worker_processes: 8
-# Amount of memory (in MB) to use for caching tiles [default: 512, 0 to disable]
 cache_size_mb: 1024
-watch: true
-
+keep_alive: 100
 postgres:
-  connection_string: '{$REMOTE_INSPIRE_URL}'
   default_srid: 4326
-  pool_size: 20
-  max_feature_count: null # either a positive integer, or null=unlimited (default)
   auto_bounds: calc
-  # Enable automatic discovery of tables and functions.
-  # You may set this to `false` to disable.
-  auto_publish:
-    # Optionally limit to just these schemas
-    from_schemas:
-      - inspire
-
-
-
-
-
-
+  pool_size: 50
+  auto_publish: true
+  tables:
+    mv_cadastralparcel_4326:
+      schema: inspire       
+      table: mv_cadastralparcel_4326
+      srid: 4326            
+      geometry_column: geometry
+      bounds:               
+      - -9.499050804036969  
+      - 36.99350227610016   
+      - -6.419221510790907  
+      - 41.46712859139252   
+      geometry_type: GEOMETRY
+      properties:           
+        administrativeunit: varchar
+        areavalue: float8   
+        beginlifespanversion: timestamptz
+        endlifespanversion: timestamptz
+        id: int4            
+        inspireid: text     
+        label: varchar      
+        nationalcadastralreference: varchar
+        validfrom: timestamptz
+        validto: timestamptz 
+  functions: {}              

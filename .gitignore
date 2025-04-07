@@ -1,4 +1,5 @@
 .env
+.env.bak
 .pyc
 poetry.lock
 pg_tileserv.env

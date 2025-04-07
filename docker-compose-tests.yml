@@ -79,8 +79,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
-      - DEFAULT_SRID=4326
-      - CACHE_SIZE=1024
+      - RUST_LOG=debug
+      - WATCH_MODE=true
     env_file:
       - .env
     depends_on:
@@ -95,8 +95,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
-      - DEFAULT_SRID=4326
-      - CACHE_SIZE=1024
+      - RUST_LOG=debug
+      - WATCH_MODE=true
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -109,9 +109,11 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
-      - DEFAULT_SRID=4326
-      - CACHE_SIZE=1024
-      - AUTO_BOUNDS=calc
+      - RUST_LOG=debug
+      - WATCH_MODE=true
+    command: --config /config.yaml
+    volumes:
+      - ./martin/config-inspire.yaml:/config.yaml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

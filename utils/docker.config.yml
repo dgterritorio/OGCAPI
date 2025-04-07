@@ -1,68 +1,72 @@
 server:
   bind:
-    host: 0.0.0.0:80
+    host: 0.0.0.0
     port: 80
   url: ${HOST_URL}
-  # url: http://localhost:80/ #TODO: change this later 
   mimetype: application/json; charset=UTF-8
   encoding: utf-8
   gzip: false
   languages:
+  - pt-PT
   - en-US
-  - fr-CA
   cors: true
   pretty_print: true
   limits:
-    default_items: 500
-    max_items: 1000
+    default_items: 100
+    max_items: 5000
     on_exceed: throttle
   map:
     url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap
       contributors</a>'
+  templates:
+    path: /templates
+    static: /pygeoapi/pygeoapi/static
 logging:
   level: DEBUG
   logfile: /tmp/pygeoapi.log
 metadata:
   identification:
     title:
-      en: pygeoapi default instance
-      fr: instance par défaut de pygeoapi
+      pt: Serviço OGC API da DGT
+      en: OGC API Service from DGT
     description:
-      en: pygeoapi provides an API to geospatial data
-      fr: pygeoapi fournit une API aux données géospatiales
+      pt: Plataforma de publicação de dados abertos da DGT em OGC API
+      en: Plattform for publishing Open Data from DGT in OGC API
     keywords:
-      en:
-      - geospatial
-      - data
+      pt:
+      - DGT
+      - dados abertos
+      - OGC API
       - api
-      fr:
-      - géospatiale
-      - données
+      en:
+      - DGT
+      - OPEN DATA
+      - OGC API
       - api
     keywords_type: theme
     terms_of_service: https://creativecommons.org/licenses/by/4.0/
-    url: https://example.org
+    url: https://ogcapi.dgterritorio.gov.pt/
   license:
     name: CC-BY 4.0 license
     url: https://creativecommons.org/licenses/by/4.0/
   provider:
-    name: Organization Name
-    url: https://pygeoapi.io
+    name: Direção-Geral do Território
+    url: https://www.dgterritorio.gov.pt/
   contact:
-    name: Lastname, Firstname
-    position: Position Title
-    address: Mailing Address
-    city: City
+    name: DGT
+    position: DGT
+    address: Rua Artilharia Um, 107
+    city: Lisboa
     stateorprovince: Administrative Area
-    postalcode: Zip or Postal Code
-    country: Country
-    phone: +xx-xxx-xxx-xxxx
-    fax: +xx-xxx-xxx-xxxx
-    email: you@example.org
-    url: Contact URL
-    hours: Mo-Fr 08:00-17:00
-    instructions: During hours of service. Off on weekends.
+    postalcode: 1099-052
+    country: Portugal
+    phone: (+351) 21 381 96 00
+    fax: (+351) 21 381 96 00
+    email: igeografica@dgterritorio.pt
+    url: https://www.dgterritorio.gov.pt/
+    hours: Seg-Sext 08:00-17:00
+    instructions: Durante as horas de serviço.
     role: pointOfContact
 resources:
   ortos-rgb:

@@ -111,7 +111,7 @@ services:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
       - RUST_LOG=debug
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 1024 --keep-alive 100 --pool-size 50 --default-srid 4326 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --default-srid 4326 --save-config /tmp/config.yml
     # command: --config /config.yml
     # volumes:
     #   - ./martin/config-inspire.yml:/config.yml

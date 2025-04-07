@@ -83,6 +83,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     depends_on:
       - postgis
     networks:
@@ -95,6 +97,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -107,6 +111,8 @@ services:
     restart: on-failure
     environment:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 100 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

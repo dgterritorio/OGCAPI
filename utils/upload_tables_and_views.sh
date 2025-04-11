@@ -25,13 +25,13 @@ if [ -n "$POSTGRES_PASSWORD" ]; then
     # poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key id --table cadastro --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
     echo "Uploading CAOP municipios"
     # Load CAOP - municipios
-    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table caop --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table municipios --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
     echo "Uploading CAOP freguesias"
     # Load CAOP - freguesias
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table freguesias --input /data/cont_freguesias.gpkg --config /pygeoapi/docker.config.yml --template template_freguesias.yml
     echo "Uploading CAOP areas administrativas"
     # Load CAOP - areas administrativas
-    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table admin --input /data/cont_areas_administrativas.gpkg --config /pygeoapi/docker.config.yml --template template_admin.yml
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table area_administrativa --input /data/cont_areas_administrativas.gpkg --config /pygeoapi/docker.config.yml --template template_admin.yml
     echo "Uploading CAOP nuts1"
     # Load CAOP - nuts1
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table nuts1 --input /data/cont_nuts1.gpkg --config /pygeoapi/docker.config.yml --template template_nuts1.yml
@@ -64,13 +64,13 @@ else
     # poetry run python3 ./upload_tables.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cadastro --primary_key id --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
     echo "Uploading CAOP municipios"
     # Load CAOP - municipios
-    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table caop --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table municipios --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
     echo "Uploading CAOP freguesias"
     # Load CAOP - freguesias
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table freguesias --input /data/cont_freguesias.gpkg --config /pygeoapi/docker.config.yml --template template_freguesias.yml
     echo "Uploading CAOP areas administrativas"
     # Load CAOP - areas administrativas
-    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table admin --input /data/cont_areas_administrativas.gpkg --config /pygeoapi/docker.config.yml --template template_admin.yml
+    poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table area_administrativa --input /data/cont_areas_administrativas.gpkg --config /pygeoapi/docker.config.yml --template template_admin.yml
     echo "Uploading CAOP nuts1"
     # Load CAOP - nuts1
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table nuts1 --input /data/cont_nuts1.gpkg --config /pygeoapi/docker.config.yml --template template_nuts1.yml

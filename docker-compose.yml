@@ -48,7 +48,7 @@ services:
       - "443:443"
     networks:
       - default
-    restart: on-failure
+    restart: always
 
   pygeoapi:
     image: geopython/pygeoapi:latest
@@ -66,7 +66,7 @@ services:
       - ./pygeoapi/templates:/templates # jinja templates
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
       # - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
-    restart: on-failure
+    restart: always
     links:
       - tiles
       - tiles_caop
@@ -80,7 +80,7 @@ services:
 
   tiles:
     image: ghcr.io/maplibre/martin
-    restart: on-failure
+    restart: always
     environment:
       - DATABASE_URL=${LOCAL_DATABASE_URL}
       - WATCH_MODE=true
@@ -94,7 +94,7 @@ services:
 
   tiles_caop:
     image: ghcr.io/maplibre/martin
-    restart: on-failure
+    restart: always
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
       - WATCH_MODE=true
@@ -108,7 +108,7 @@ services:
 
   tiles_inspire:
     image: ghcr.io/maplibre/martin
-    restart: on-failure
+    restart: always
     environment:
       - DATABASE_URL=${REMOTE_INSPIRE_URL}
       - WATCH_MODE=true
@@ -135,7 +135,7 @@ services:
     networks:
       - default
       - bridge1
-    restart: on-failure
+    restart: always
 
   db_and_api_init:
     build: ./utils/
@@ -182,7 +182,7 @@ services:
       - .env
     networks:
       - default
-    restart: on-failure
+    restart: always
 
   python_matomo:
     build:
@@ -196,7 +196,7 @@ services:
         - ./apache-httpd/logs:/apache:ro
     depends_on:
       - matomo
-    restart: on-failure
+    restart: always
 
   ghc_web:
     image: geopython/geohealthcheck:latest

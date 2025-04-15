@@ -8,7 +8,7 @@ server:
   gzip: false
   languages:
   - pt-PT
-  - en-US
+  # - en-US
   cors: true
   pretty_print: true
   limits:

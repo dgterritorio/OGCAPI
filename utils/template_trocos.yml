@@ -1,0 +1,51 @@
+type: collection
+title: CAOP2024 Troços
+description:  Carta Administrativa Oficial de Portugal, Continente, 2024. Troços administrativos 
+keywords:
+    - Limites Admnistrativos
+    - Portugal Continental
+    - Troços administrativos
+    - CAOP
+links:
+    - type: text/csv
+      rel: canonical
+      title: data
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+extents:
+    spatial:
+        bbox: [-9.51, 36.96, -6.19, 42.15]
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+providers:
+    - type: feature
+      name: PostgreSQL
+      data:
+            host: postgis
+            dbname: geodb
+            user: ${POSTGRES_USER}
+      id_field: fid
+      table: my_table_name_lower
+      search_path: [geostore, public]
+      geom_field: geometry
+      crs:
+          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          - http://www.opengis.net/def/crs/EPSG/0/4326
+          - http://www.opengis.net/def/crs/EPSG/0/3857
+          - http://www.opengis.net/def/crs/EPSG/0/4258
+          - http://www.opengis.net/def/crs/EPSG/0/3763
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    - type: tile
+      name: MVT-proxy
+      data: http://tiles:3000/my_table_name_lower/{z}/{x}/{y}?f=mvt
+      options:
+        zoom:
+            min: 0
+            max: 15
+        schemes:
+        - WebMercatorQuad
+      format:
+            name: pbf
+            mimetype: application/vnd.mapbox-vector-tile

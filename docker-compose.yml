@@ -1,0 +1,233 @@
+# =================================================================
+#
+# Authors: doublebyte1 <jo@byteroad.net>>
+#
+# Copyright (c) 2024 doublebyte
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without
+# restriction, including without limitation the rights to use,
+# copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following
+# conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+# =================================================================
+version: "3.0" # For docker compose viz
+
+services:
+
+  apache-httpd:
+    build: ./apache-httpd/
+    container_name: httpd
+    depends_on:
+      - pygeoapi
+    volumes:   
+      - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf      
+      - /etc/cert/2ogcapi.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
+      - /etc/cert/ogcapi_privkey4.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
+      - /etc/cert/2logs.pem:/usr/local/apache2/conf/matomo/fullchain.pem  
+      - /etc/cert/logs_privkey4.pem:/usr/local/apache2/conf/matomo/privkey.pem
+      - /etc/cert/1ghc.pem:/usr/local/apache2/conf/health/fullchain.pem  
+      - /etc/cert/ghc_privkey1.pem:/usr/local/apache2/conf/health/privkey.pem
+      - ./apache-httpd/logs:/usr/local/apache2/logs
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - default
+    restart: always
+
+  pygeoapi:
+    image: geopython/pygeoapi:latest
+    container_name: pygeoapi
+    expose:
+      - "80"
+    environment:
+      PYGEOAPI_CONFIG: docker-config.yml
+      PYGEOAPI_OPENAPI: example-openapi.yml
+    env_file:
+      - .env     # path to your .env file
+    volumes:
+      - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
+      - ./data:/data
+      - ./pygeoapi/templates:/templates # jinja templates
+      - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
+      # - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
+    restart: always
+    links:
+      - tiles
+      - tiles_caop
+      - tiles_inspire
+    networks:
+      - default
+    depends_on:
+      db_and_api_init:
+        condition: service_completed_successfully
+        restart: true
+
+  tiles:
+    image: ghcr.io/maplibre/martin
+    restart: always
+    environment:
+      - DATABASE_URL=${LOCAL_DATABASE_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    depends_on:
+      - postgis
+    networks:
+      - default
+    healthcheck:
+      test: ["NONE"]
+
+  tiles_caop:
+    image: ghcr.io/maplibre/martin
+    restart: always
+    environment:
+      - DATABASE_URL=${REMOTE_CAOP_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - default
+    healthcheck:
+      test: ["NONE"]
+
+  tiles_inspire:
+    image: ghcr.io/maplibre/martin
+    restart: always
+    environment:
+      - DATABASE_URL=${REMOTE_INSPIRE_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 50 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - default
+    healthcheck:
+      test: ["NONE"]
+
+  postgis:
+    build: ./postgis/
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_HOST_AUTH_METHOD: trust
+    env_file:
+      - .env     # path to your .env file
+    container_name: postgis
+    volumes:
+       - ./postgis/data:/var/lib/postgresql/data
+       - ./postgis/scripts:/tmp/
+    networks:
+      - default
+      - bridge1
+    restart: always
+
+  db_and_api_init:
+    build: ./utils/
+    container_name: db_and_api_init
+    env_file:
+      - .env     # path to your .env file
+    volumes:
+      - ./pygeoapi/docker.config.yml:/pygeoapi/docker.config.yml
+      - ./data:/data
+    depends_on:
+      - postgis
+    networks:
+      - default
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: mariadb
+    command: --max-allowed-packet=64MB
+    restart: always
+    volumes:
+      - ./matomo/data/maria:/var/lib/mysql:Z
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MARIADB_AUTO_UPGRADE=1
+      - MARIADB_DISABLE_UPGRADE_BACKUP=1
+    env_file:
+      - .env
+    networks:
+      - default
+
+  matomo:
+    build:
+      context: ./matomo/
+      dockerfile: Dockerfile.main
+    container_name: matomo
+    ports:
+      - 8081:80
+    volumes:
+      - ./matomo/data/matomo:/var/www/html:z
+      - ./apache-httpd/logs:/apache:ro
+    environment:
+      - MATOMO_DATABASE_HOST=mariadb
+    env_file:
+      - .env
+    networks:
+      - default
+    restart: always
+
+  python_matomo:
+    build:
+      context: ./matomo/
+      dockerfile: Dockerfile.cron
+    container_name: matomo_python
+    env_file:
+      - .env
+    volumes:
+        - ./matomo/data/matomo:/var/www/html:z
+        - ./apache-httpd/logs:/apache:ro
+    depends_on:
+      - matomo
+    restart: always
+
+  ghc_web:
+    image: geopython/geohealthcheck:latest
+    container_name: ghc_web
+    restart: on-failure
+    expose:
+       - 80
+    # ports:
+    #   - 8083:80
+    env_file:
+      - .env
+    volumes:
+      - ghc_sqlitedb:/GeoHealthCheck/DB
+    networks:
+      - default
+
+  ghc_runner:
+    image: geopython/geohealthcheck:latest
+    container_name: ghc_runner
+    restart: on-failure
+    env_file:
+      - .env
+    entrypoint:
+      - /run-runner.sh
+    volumes:
+      - ghc_sqlitedb:/GeoHealthCheck/DB
+
+volumes:
+  ghc_sqlitedb:
+
+networks:
+  default:
+  bridge1:

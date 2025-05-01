@@ -1,0 +1,13 @@
+.env
+.env.bak
+.pyc
+poetry.lock
+pg_tileserv.env
+postgis/data/*
+data/*
+leaflet.html
+database.ini
+__pycache__
+ghc-commands.txt
+ghc_sqlitedb/*
+utils/queries.txt

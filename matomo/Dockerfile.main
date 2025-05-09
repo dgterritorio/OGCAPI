@@ -9,4 +9,4 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 USER www-data
-RUN echo " proxy_uri_header = 1" >> /var/www/html/config/config.ini.php
+# RUN echo " proxy_uri_header = 1" >> /var/www/html/config/config.ini.php

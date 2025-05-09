@@ -119,8 +119,8 @@
           <span>{{ config['metadata']['contact']['country'] }}</span>
         </div>
         <div>
-          <b>{% trans %}Email{% endtrans %}</b><br/>
-          <span><a href="mailto:{{ config['metadata']['contact']['email'] }}">{{ config['metadata']['contact']['email'] }}</a></span><br/>
+          <!-- <b>{% trans %}Email{% endtrans %}</b><br/>
+          <span><a href="mailto:{{ config['metadata']['contact']['email'] }}">{{ config['metadata']['contact']['email'] }}</a></span><br/> -->
           {% if config['metadata']['contact']['phone'] %}
             <b>{% trans %}Telephone{% endtrans %}</b><br/>
             <span><a href="tel:{{ config['metadata']['contact']['phone'] }}">{{ config['metadata']['contact']['phone'] }}</a></span><br/>

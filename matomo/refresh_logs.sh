@@ -1,10 +1,11 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 echo "*** Start import with line-offset tracking ***"
 
 INPUT_FILE="/apache/access_log.log"
 NUM_ROWS=1000
+MAX_LINES=500000
 DESTINATION_FILE="/tmp/temp.log"
 LAST_LINE_FILE=".lastline_$(basename "$INPUT_FILE")"
 

@@ -4,6 +4,7 @@
 poetry.lock
 pg_tileserv.env
 postgis/data/*
+matomo/state/*
 data/*
 leaflet.html
 database.ini

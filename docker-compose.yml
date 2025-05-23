@@ -176,7 +176,7 @@ services:
       - 8081:80
     volumes:
       - ./matomo/data/matomo:/var/www/html:z
-      - ./apache-httpd/logs:/apache:ro
+      - ./apache-httpd/logs:/apache
     environment:
       - MATOMO_DATABASE_HOST=mariadb
     env_file:
@@ -194,7 +194,8 @@ services:
       - .env
     volumes:
         - ./matomo/data/matomo:/var/www/html:z
-        - ./apache-httpd/logs:/apache:ro
+        - ./apache-httpd/logs:/apache
+        - ./matomo/state:/state
     depends_on:
       - matomo
     restart: always

@@ -21,4 +21,8 @@ RUN crontab /etc/cron.d/cronjob
 
 RUN touch /var/log/cron.log
 
+RUN mkdir /state
+
+RUN chmod 0755 /state
+
 CMD /scripts/entrypoint.sh

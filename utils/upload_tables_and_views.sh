@@ -19,7 +19,7 @@ if [ -n "$POSTGRES_PASSWORD" ]; then
     # Load COS
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --input /data/COS2018v2_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_cos.yml
     # Load COS based views
-    poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --column Municipio --config /pygeoapi/docker.config.yml
+    poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --column Municipio --config /pygeoapi/docker.config.yml --template template_view_cos.yml
     # echo "Uploading cadastro table"
     # # Load cadastro
     # poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key id --table cadastro --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
@@ -58,7 +58,7 @@ else
     # Load COS
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --table cos --input /data/COS2018v2_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_cos.yml
     # Load COS based views
-    poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cos --column Municipio --config /pygeoapi/docker.config.yml
+    poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cos --column Municipio --config /pygeoapi/docker.config.yml     poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --column Municipio --config /pygeoapi/docker.config.yml --template template_view_cos.yml
     # echo "Uploading cadastro table"
     # # Load cadastro
     # poetry run python3 ./upload_tables.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cadastro --primary_key id --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml

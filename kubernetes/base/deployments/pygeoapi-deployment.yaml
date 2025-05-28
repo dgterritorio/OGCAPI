@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pygeoapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pygeoapi
+  template:
+    metadata:
+      labels:
+        app: pygeoapi
+    spec:
+      containers:
+      - name: pygeoapi
+        image: geopython/pygeoapi:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: PYGEOAPI_CONFIG
+          value: docker-config.yml
+        - name: PYGEOAPI_OPENAPI
+          value: example-openapi.yml
+        envFrom:
+        - configMapRef:
+            name: env-config
+        - secretRef:
+            name: db-secrets
+        volumeMounts:
+        - name: config
+          mountPath: ../pygeoapi/docker.config.yml
+          subPath: docker.config.yml
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: config
+        configMap:
+          name: pygeoapi-config
+      - name: data
+        hostPath:
+          path: /tmp/data  # Path in Minikube VM
+          type: Directory

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+data:
+  HOST_URL: "http://localhost"
+  POSTGRES_DB: "geodb"
+  POSTGRES_USER: "postgres"
+  REMOTE_CAOP_HOST: "caop.host.db"
+  REMOTE_CAOP_PORT: "5433"
+  REMOTE_CAOP_DB: "dgt_local"
+  REMOTE_CAOP_USER: "caop_user"
+  REMOTE_INSPIRE_HOST: "inspire.host.db"
+  REMOTE_INSPIRE_PORT: "5434"
+  REMOTE_INSPIRE_DB: "dgt_local"
+  REMOTE_INSPIRE_USER: "inspire_user"

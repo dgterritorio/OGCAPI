@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ogcapi-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /()(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: pygeoapi
+            port:
+              number: 80
+      - path: /tiles/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: tiles
+            port:
+              number: 3000
+      - path: /tiles-caop/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: tiles-caop
+            port:
+              number: 3000
+      - path: /tiles-inspire/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: tiles-inspire
+            port:
+              number: 3000

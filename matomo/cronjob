@@ -1,4 +1,0 @@
-SHELL=/bin/bash
-BASH_ENV=/container.env
-
-* * * * * bash /scripts/refresh_logs.sh >> /var/log/cron.log 2>&1

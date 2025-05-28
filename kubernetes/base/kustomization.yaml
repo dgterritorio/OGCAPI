@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - configmaps/env-configmap.yaml
+  - configmaps/postgis-init-configmap.yaml
+  - secrets/db-secrets.yaml
+  - persistentvolumeclaims/postgis-pvc.yaml
+  - persistentvolumeclaims/data-pvc.yaml
+  - deployments/postgis-deployment.yaml
+  - deployments/pygeoapi-deployment.yaml
+  - deployments/tiles-deployment.yaml
+  - deployments/tiles-caop-deployment.yaml
+  - deployments/tiles-inspire-deployment.yaml
+  - services/postgis-service.yaml
+  - services/pygeoapi-service.yaml
+  - services/tiles-service.yaml
+  - services/tiles-caop-service.yaml
+  - services/tiles-inspire-service.yaml
+  - jobs/db-init-job.yaml
+  - ingress/ogcapi-ingress.yaml
+
+labels:
+- pairs:
+    app: ogcapi
+    environment: base
+  includeSelectors: true
+  includeTemplates: true

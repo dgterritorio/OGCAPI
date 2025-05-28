@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-init
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: wait-for-db
+        image: busybox:1.35
+        command: ['sh', '-c', 'echo "Waiting for database..."; sleep 30']

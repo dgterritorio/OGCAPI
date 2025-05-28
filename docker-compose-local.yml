@@ -30,7 +30,7 @@
 services:
 
   apache-httpd:
-    image: httpd:2.4
+    build: ./apache-httpd/
     container_name: httpd
     depends_on:
       - pygeoapi

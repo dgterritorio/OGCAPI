@@ -8,8 +8,8 @@ set -eo pipefail
 # Configuration
 # ============================================================================
 readonly INPUT_FILE="/apache/access_log.log"
-readonly NUM_ROWS=1000
-readonly MAX_LINES=50000
+readonly NUM_ROWS=2000
+readonly MAX_LINES=10000
 readonly TEMP_FILE="/tmp/matomo_import_$$.log"
 readonly STATE_DIR="${STATE_DIR:-/state}"
 readonly TIMESTAMP_FILE="${STATE_DIR}/.last_timestamp"

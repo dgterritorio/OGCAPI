@@ -9,7 +9,7 @@ set -eo pipefail
 # ============================================================================
 readonly INPUT_FILE="/apache/access_log.log"
 readonly NUM_ROWS=1000
-readonly MAX_LINES=500000
+readonly MAX_LINES=50000
 readonly TEMP_FILE="/tmp/matomo_import_$$.log"
 readonly STATE_DIR="${STATE_DIR:-/state}"
 readonly TIMESTAMP_FILE="${STATE_DIR}/.last_timestamp"
@@ -123,10 +123,14 @@ else
         # Get timestamp
         current_ts=$(get_line_timestamp "$line")
         [ -z "$current_ts" ] && continue
-        
+
         # Convert to epoch
         current_epoch=$(timestamp_to_epoch "$current_ts")
         [ "$current_epoch" -eq 0 ] && continue
+
+        echo "Processing line: $line"
+        echo "current_ts='$current_ts', current_epoch='$current_epoch', LAST_EPOCH='$LAST_EPOCH'"
+
 
         # Check if newer
         if [ "$current_epoch" -gt $((LAST_EPOCH + 1)) ]; then

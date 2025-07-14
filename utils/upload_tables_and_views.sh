@@ -19,11 +19,11 @@ poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --
 echo "Uploading CRUS childs views"
 # Load CRUS based views
 poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER $PASSWORD_ARG --table crus --column Municipio --config /pygeoapi/docker.config.yml
-echo "Uploading COS table"
-# Load COS
-poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER $PASSWORD_ARG --table cos --input /data/COS2018v2_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_cos.yml
-# Load COS based views
-poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER $PASSWORD_ARG --table cos --column Municipio --config /pygeoapi/docker.config.yml --template template_view_cos.yml
+# echo "Uploading COS table"
+# # Load COS
+# poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER $PASSWORD_ARG --table cos --input /data/COS2018v2_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_cos.yml
+# # Load COS based views
+# poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER $PASSWORD_ARG --table cos --column Municipio --config /pygeoapi/docker.config.yml --template template_view_cos.yml
 # # Load cadastro
 echo "Uploading CAOP municipios"
 # Load CAOP - municipios

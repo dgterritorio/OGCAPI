@@ -43,6 +43,11 @@ services:
     networks:
       - default
     restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   pygeoapi:
     image: geopython/pygeoapi:latest
@@ -71,6 +76,11 @@ services:
       db_and_api_init:
         condition: service_completed_successfully
         restart: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   tiles:
     image: ghcr.io/maplibre/martin
@@ -85,6 +95,11 @@ services:
       - default
     healthcheck:
       test: ["NONE"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   tiles_caop:
     image: ghcr.io/maplibre/martin
@@ -99,6 +114,11 @@ services:
       - default
     healthcheck:
       test: ["NONE"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   tiles_inspire:
     image: ghcr.io/maplibre/martin
@@ -113,6 +133,11 @@ services:
       - default
     healthcheck:
       test: ["NONE"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   postgis:
     build:
@@ -133,6 +158,11 @@ services:
       - bridge1
     restart: on-failure
     command: ["postgres", "-c", "max_wal_size=2GB"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   postgis_caop:
     build:
@@ -150,7 +180,12 @@ services:
       - bridge1
     restart: on-failure
     command: ["postgres", "-c", "max_wal_size=2GB"]
-
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        
   postgis_inspire:
     build:
       context: ./postgis/
@@ -169,7 +204,12 @@ services:
       - bridge1
     restart: on-failure
     command: ["postgres", "-c", "max_wal_size=2GB"]
-  
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"  
+
   db_and_api_init:
     build: ./utils/
     container_name: db_and_api_init
@@ -198,6 +238,11 @@ services:
       - .env
     networks:
       - default
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   matomo:
     build:
@@ -216,6 +261,11 @@ services:
     networks:
       - default
     restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   python_matomo:
     build:
@@ -231,7 +281,12 @@ services:
     depends_on:
       - matomo
     restart: on-failure
-  
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+          
   # ghc_web:
   #   image: geopython/geohealthcheck:latest
   #   container_name: ghc_web

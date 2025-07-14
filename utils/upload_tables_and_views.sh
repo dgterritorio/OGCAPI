@@ -22,7 +22,6 @@ if [ -n "$POSTGRES_PASSWORD" ]; then
     poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --column Municipio --config /pygeoapi/docker.config.yml --template template_view_cos.yml
     # echo "Uploading cadastro table"
     # # Load cadastro
-    # poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key id --table cadastro --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
     echo "Uploading CAOP municipios"
     # Load CAOP - municipios
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --primary_key fid --table municipios --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml
@@ -61,7 +60,6 @@ else
     poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cos --column Municipio --config /pygeoapi/docker.config.yml     poetry run python3 ./create_views.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --password $POSTGRES_PASSWORD --table cos --column Municipio --config /pygeoapi/docker.config.yml --template template_view_cos.yml
     # echo "Uploading cadastro table"
     # # Load cadastro
-    # poetry run python3 ./upload_tables.py --host postgis --database $POSTGRES_DB --user $POSTGRES_USER --table cadastro --primary_key id --input /data/cadastralparcel.gpkg --config /pygeoapi/docker.config.yml --template template_cadastro.yml
     echo "Uploading CAOP municipios"
     # Load CAOP - municipios
     poetry run python3 ./upload_tables.py --host postgis  --database $POSTGRES_DB --user $POSTGRES_USER --primary_key fid --table municipios --input /data/cont_municipios.gpkg --config /pygeoapi/docker.config.yml --template template_municipios.yml

@@ -1,16 +1,17 @@
 type: collection
-title: COS
-description:  Carta de Uso e Ocupação do Solo (COS) - 2018 
+title: COS2023v1-S2
+description:  Carta de Uso e Ocupação do Solo (COS) 2023 - Série 2 (nova)
 keywords:
     - Uso do Solo
     - Ocupação do Solo
     - PortugaL
     - COS
+    - 2023
 links:
     - type: text/csv
       rel: canonical
       title: data
-      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
       hreflang: en-US
 extents:
     spatial:

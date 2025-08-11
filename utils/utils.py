@@ -1,8 +1,16 @@
 import yaml
 import re
 import sys
+import datetime
 import psycopg2
 from unidecode import unidecode
+
+def datetime_representer(dumper, data):
+    # Conversione in stringa ISO 8601 con T e Z
+    return dumper.represent_scalar(
+        'tag:yaml.org,2002:timestamp',
+        data.strftime('%Y-%m-%dT%H:%M:%SZ')
+    )
 
 def sanitize_name(name):
     # Remove accents and special characters, replace spaces with underscores, and convert to lowercase
@@ -51,6 +59,8 @@ def update_pygeoapi_config(config_path, new_entries):
             resources[resource_key] = entry
             # Remove the 'resource_key' field from the entry
             del resources[resource_key]['resource_key']
+
+        yaml.add_representer(datetime.datetime, datetime_representer)
 
         # Write updated configuration back to file
         with open(config_path, 'w') as yml_file:

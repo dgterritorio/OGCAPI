@@ -311,6 +311,183 @@ resources:
       type: tile
     title: CRUS Portugal Continental
     type: collection
+  cos2018v3:
+    description: Carta de Uso e Ocupação do Solo (COS) 2018 - Série 2 (nova)
+    extents:
+      spatial:
+        bbox:
+        - -9.68
+        - 36.77
+        - -6.17
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - '2018'
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: cos2018v3
+      type: feature
+    - data: http://tiles:3000/cos2018v3/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS2018v3-S2
+    type: collection
+  cos2023v1:
+    description: Carta de Uso e Ocupação do Solo (COS) 2023 - Série 2 (nova)
+    extents:
+      spatial:
+        bbox:
+        - -9.68
+        - 36.77
+        - -6.17
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - '2023'
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: cos2023v1
+      type: feature
+    - data: http://tiles:3000/cos2023v1/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS2023v1-S2
+    type: collection
+  caop:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: '2000-10-30T18:24:39Z'
+        end: '2007-10-30T08:57:29Z'
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - Municipios
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+      geom_field: geometria
+      id_field: dtmn
+      name: PostgreSQL
+      search_path:
+      - caop2024
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: cont_municipios
+      type: feature
+    - data: http://tiles_caop:3000/cont_municipios/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Municípios
+    type: collection
   crus_abrantes:
     description: Carta do Regime de Uso do Solo - ABRANTES
     extents:
@@ -16434,65 +16611,6 @@ resources:
           min: 0
       type: tile
     title: CRUS ÓBIDOS
-    type: collection
-  cos2018v3:
-    description: Carta de Uso e Ocupação do Solo (COS) 2018 - Série 2 (nova)
-    extents:
-      spatial:
-        bbox:
-        - -9.68
-        - 36.77
-        - -6.17
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30T18:24:39Z
-        end: 2007-10-30T08:57:29Z
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - '2018'
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: cos2018v3
-      type: feature
-    - data: http://tiles:3000/cos2018v3/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS2018v3-S2
     type: collection
   cos2018v3_abrantes:
     description: Carta de Uso e Ocupação do Solo (COS) 2018 - Série 2 (nova) - Abrantes
@@ -33266,65 +33384,6 @@ resources:
           min: 0
       type: tile
     title: COS2018V3 Óbidos
-    type: collection
-  cos2023v1:
-    description: Carta de Uso e Ocupação do Solo (COS) 2023 - Série 2 (nova)
-    extents:
-      spatial:
-        bbox:
-        - -9.68
-        - 36.77
-        - -6.17
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: 2000-10-30T18:24:39Z
-        end: 2007-10-30T08:57:29Z
-    keywords:
-    - Uso do Solo
-    - Ocupação do Solo
-    - PortugaL
-    - COS
-    - '2023'
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - crs:
-      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      - http://www.opengis.net/def/crs/EPSG/0/4326
-      - http://www.opengis.net/def/crs/EPSG/0/3857
-      - http://www.opengis.net/def/crs/EPSG/0/4258
-      - http://www.opengis.net/def/crs/EPSG/0/3763
-      data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
-      geom_field: geometry
-      id_field: objectid
-      name: PostgreSQL
-      search_path:
-      - geostore
-      - public
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: cos2023v1
-      type: feature
-    - data: http://tiles:3000/cos2023v1/{z}/{x}/{y}?f=mvt
-      format:
-        mimetype: application/vnd.mapbox-vector-tile
-        name: pbf
-      name: MVT-proxy
-      options:
-        schemes:
-        - WebMercatorQuad
-        zoom:
-          max: 15
-          min: 0
-      type: tile
-    title: COS2023v1-S2
     type: collection
   cos2023v1_abrantes:
     description: Carta de Uso e Ocupação do Solo (COS) 2023 - Série 2 (nova) - Abrantes

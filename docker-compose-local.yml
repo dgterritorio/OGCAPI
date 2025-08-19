@@ -223,69 +223,69 @@ services:
     networks:
       - default
 
-  mariadb:
-    image: mariadb:10.11
-    container_name: mariadb
-    command: --max-allowed-packet=64MB
-    restart: always
-    volumes:
-      - maria:/var/lib/mysql:Z
-    environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MARIADB_AUTO_UPGRADE=1
-      - MARIADB_DISABLE_UPGRADE_BACKUP=1
-    env_file:
-      - .env
-    networks:
-      - default
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # mariadb:
+  #   image: mariadb:10.11
+  #   container_name: mariadb
+  #   command: --max-allowed-packet=64MB
+  #   restart: always
+  #   volumes:
+  #     - maria:/var/lib/mysql:Z
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=
+  #     - MARIADB_AUTO_UPGRADE=1
+  #     - MARIADB_DISABLE_UPGRADE_BACKUP=1
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - default
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
 
-  matomo:
-    build:
-      context: ./matomo/
-      dockerfile: Dockerfile.main
-    container_name: matomo
-    ports:
-      - 8081:80
-    volumes:
-      - matomo:/var/www/html:z
-      - apache_log:/apache
-    environment:
-      - MATOMO_DATABASE_HOST=mariadb
-    env_file:
-      - .env
-    networks:
-      - default
-    restart: on-failure
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # matomo:
+  #   build:
+  #     context: ./matomo/
+  #     dockerfile: Dockerfile.main
+  #   container_name: matomo
+  #   ports:
+  #     - 8081:80
+  #   volumes:
+  #     - matomo:/var/www/html:z
+  #     - apache_log:/apache
+  #   environment:
+  #     - MATOMO_DATABASE_HOST=mariadb
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - default
+  #   restart: on-failure
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
 
-  python_matomo:
-    build:
-      context: ./matomo/
-      dockerfile: Dockerfile.cron
-    container_name: matomo_python
-    env_file:
-      - .env
-    volumes:
-        - matomo:/var/www/html:z
-        - apache_log:/apache
-        - ./matomo/state:/state
-    depends_on:
-      - matomo
-    restart: on-failure
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # python_matomo:
+  #   build:
+  #     context: ./matomo/
+  #     dockerfile: Dockerfile.cron
+  #   container_name: matomo_python
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #       - matomo:/var/www/html:z
+  #       - apache_log:/apache
+  #       - ./matomo/state:/state
+  #   depends_on:
+  #     - matomo
+  #   restart: on-failure
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
           
   # ghc_web:
   #   image: geopython/geohealthcheck:latest

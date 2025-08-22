@@ -408,12 +408,11 @@ resources:
         host: ${REMOTE_CAOP_HOST}
         port: ${REMOTE_CAOP_PORT}
         user: ${REMOTE_CAOP_USER}
+        search_path:
+          - "CAOP2024.1"
       geom_field: geometria
       id_field: dtmn
       name: PostgreSQL
-      search_path:
-      - caop2024
-      - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       table: cont_municipios
       type: feature

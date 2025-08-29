@@ -44,6 +44,8 @@ services:
       - /etc/cert/1ghc.pem:/usr/local/apache2/conf/health/fullchain.pem  
       - /etc/cert/ghc_privkey1.pem:/usr/local/apache2/conf/health/privkey.pem
       - ./apache-httpd/logs:/usr/local/apache2/logs
+    environment:
+      - HOST_URL=${HOST_URL}
     ports:
       - "80:80"
       - "443:443"

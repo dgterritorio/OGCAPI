@@ -473,7 +473,7 @@ resources:
       geom_field: geometria
       id_field: dtmnfr
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_freguesias
       type: feature
     - data: http://tiles_caop:3000/cont_freguesias/{z}/{x}/{y}?f=mvt
@@ -533,7 +533,7 @@ resources:
       geom_field: geometria
       id_field: id
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_areas_administrativas
       type: feature
     - data: http://tiles_caop:3000/cont_areas_administrativas/{z}/{x}/{y}?f=mvt
@@ -592,7 +592,7 @@ resources:
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts1
       type: feature
     - data: http://tiles_caop:3000/cont_nuts1/{z}/{x}/{y}?f=mvt
@@ -651,7 +651,7 @@ resources:
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts2
       type: feature
     - data: http://tiles_caop:3000/cont_nuts2/{z}/{x}/{y}?f=mvt
@@ -710,7 +710,7 @@ resources:
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts3
       type: feature
     - data: http://tiles_caop:3000/nuts3/{z}/{x}/{y}?f=mvt
@@ -770,7 +770,7 @@ resources:
       geom_field: geometria
       id_field: identificator
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_trocos
       type: feature
     - data: http://tiles_caop:3000/trocos/{z}/{x}/{y}?f=mvt
@@ -829,7 +829,7 @@ resources:
       geom_field: geometria
       id_field: dt
       name: PostgreSQL
-      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_distritos
       type: feature
     - data: http://tiles_caop:3000/distritos/{z}/{x}/{y}?f=mvt

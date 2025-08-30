@@ -768,7 +768,7 @@ resources:
         search_path:
           - "CAOP2024.1"
       geom_field: geometria
-      id_field: identificator
+      id_field: identificador
       name: PostgreSQL
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_trocos

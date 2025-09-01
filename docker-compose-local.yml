@@ -55,8 +55,9 @@ services:
     expose:
       - "80"
     environment:
-      PYGEOAPI_CONFIG: docker-config.yml
-      PYGEOAPI_OPENAPI: example-openapi.yml
+      - HOST_URL=${HOST_URL}
+      - PYGEOAPI_CONFIG=docker-config.yml
+      - PYGEOAPI_OPENAPI=example-openapi.yml
     env_file:
       - .env     # path to your .env file
     volumes:

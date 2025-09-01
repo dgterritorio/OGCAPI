@@ -1201,7 +1201,7 @@ resources:
       name: WMSFacade
       data: https://geo2.dgterritorio.gov.pt/wms/COSc2023
       options:
-        layer: COSc
+        layer: COSc2023
         style: default
         version: 1.3.0
       format:

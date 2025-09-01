@@ -947,3 +947,55 @@ resources:
       title_field: title
     title: Geoportal Point
     type: collection
+  cosc2018:
+    type: collection
+    title: Carta de Ocupação do Solo Conjuntural - 2018
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
+    keywords:
+      - Sentinel
+      - DGT
+      - Imagem de Satélite
+      - Deteção Remota
+      - Copernicus
+      - Sentinel-2
+      - 2018
+      - Carta de ocupação do solo
+      - Cartografia temática
+      - COSsim
+      - COSsim2018
+      - COSc
+      - COSc2018
+      - SMOS
+      - infoMapAccessService
+      - infoFeatureAccessService
+      - HVD
+      - Observação da Terra e do ambiente
+      - point
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/262dabc4-0217-44c1-8983-21f69d8670c7
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -10.1934
+        - 36.7643
+        - -5.70954
+        - 42.2796
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: "2018-01-01T00:00:00Z"
+      end: "2018-12-31T23:59:00Z"
+    providers:
+    - type: map
+      name: WMSFacade
+      data: https://geo2.dgterritorio.gov.pt/wms/COSc2018
+      options:
+        layer: COSc
+        style: default
+        version: 1.3.0
+      format:
+        name: png
+        mimetype: image/png

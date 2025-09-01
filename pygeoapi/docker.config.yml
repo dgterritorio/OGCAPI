@@ -1155,7 +1155,7 @@ resources:
       format:
         name: png
         mimetype: image/png
-  cosc2022:
+  cosc2023:
     type: collection
     title: Carta de Ocupação do Solo Conjuntural - 2023
     description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'

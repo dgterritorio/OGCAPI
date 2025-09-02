@@ -46,8 +46,6 @@ services:
       - ./apache-httpd/logs:/usr/local/apache2/logs
     environment:
       - HOST_URL=${HOST_URL}
-    env_file:
-      - .env     # path to your .env file
     ports:
       - "80:80"
       - "443:443"
@@ -67,10 +65,25 @@ services:
       - "80"
     environment:
       - HOST_URL=${HOST_URL}
-      - PYGEOAPI_CONFIG=docker-config.yml
+      - PYGEOAPI_CONFIG=local-config.yml
       - PYGEOAPI_OPENAPI=example-openapi.yml
-    env_file:
-      - .env     # path to your .env file
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - LOCAL_DATABASE_URL=${LOCAL_DATABASE_URL}
+      - REMOTE_CAOP_HOST=${REMOTE_CAOP_HOST}
+      - REMOTE_CAOP_PORT=${REMOTE_CAOP_PORT}
+      - REMOTE_CAOP_DB=${REMOTE_CAOP_DB}
+      - REMOTE_CAOP_USER=${REMOTE_CAOP_USER}
+      - REMOTE_CAOP_PASSWORD=${REMOTE_CAOP_PASSWORD}
+      - REMOTE_CAOP_URL=${REMOTE_CAOP_URL}
+      - REMOTE_INSPIRE_HOST=${REMOTE_INSPIRE_HOST}
+      - REMOTE_INSPIRE_PORT=${REMOTE_INSPIRE_PORT}
+      - REMOTE_INSPIRE_DB=${REMOTE_INSPIRE_DB}
+      - REMOTE_INSPIRE_USER=${REMOTE_INSPIRE_USER}
+      - REMOTE_INSPIRE_PASSWORD=${REMOTE_INSPIRE_PASSWORD}
+      - REMOTE_INSPIRE_URL=${REMOTE_INSPIRE_URL}
+
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./data:/data
@@ -154,11 +167,11 @@ services:
   postgis:
     build: ./postgis/
     environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_HOST_AUTH_METHOD: trust
-    env_file:
-      - .env     # path to your .env file
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - LOCAL_DATABASE_URL=${LOCAL_DATABASE_URL}
     container_name: postgis
     volumes:
        - ./postgis/data:/var/lib/postgresql/data
@@ -177,8 +190,6 @@ services:
   db_and_api_init:
     build: ./utils/
     container_name: db_and_api_init
-    env_file:
-      - .env     # path to your .env file
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/docker.config.yml
       - ./data:/data
@@ -198,8 +209,18 @@ services:
       - MYSQL_ROOT_PASSWORD=
       - MARIADB_AUTO_UPGRADE=1
       - MARIADB_DISABLE_UPGRADE_BACKUP=1
-    env_file:
-      - .env
+      
+      # MySQL / MariaDB (Matomo)
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_AUTO_UPGRADE=${MARIADB_AUTO_UPGRADE}
+      - MARIADB_INITDB_SKIP_TZINFO=${MARIADB_INITDB_SKIP_TZINFO}
+
+      # User accounts
+      - USER_MATOMO=${USER_MATOMO}
+      - PASSWORD_MATOMO=${PASSWORD_MATOMO}
     networks:
       - default
     logging:
@@ -219,9 +240,11 @@ services:
       - ./matomo/data/matomo:/var/www/html:z
       - ./apache-httpd/logs:/apache
     environment:
-      - MATOMO_DATABASE_HOST=mariadb
-    env_file:
-      - .env
+      - MATOMO_DATABASE_ADAPTER=${MATOMO_DATABASE_ADAPTER}
+      - MATOMO_DATABASE_TABLES_PREFIX=${MATOMO_DATABASE_TABLES_PREFIX}
+      - MATOMO_DATABASE_USERNAME=${MATOMO_DATABASE_USERNAME}
+      - MATOMO_DATABASE_PASSWORD=${MATOMO_DATABASE_PASSWORD}
+      - MATOMO_DATABASE_DBNAME=${MATOMO_DATABASE_DBNAME}
     networks:
       - default
     restart: always
@@ -236,8 +259,6 @@ services:
       context: ./matomo/
       dockerfile: Dockerfile.cron
     container_name: matomo_python
-    env_file:
-      - .env
     volumes:
         - ./matomo/data/matomo:/var/www/html:z
         - ./apache-httpd/logs:/apache
@@ -259,8 +280,6 @@ services:
        - 80
     # ports:
     #   - 8083:80
-    env_file:
-      - .env
     volumes:
       - ghc_sqlitedb:/GeoHealthCheck/DB
     networks:
@@ -275,8 +294,6 @@ services:
     image: geopython/geohealthcheck:latest
     container_name: ghc_runner
     restart: on-failure
-    env_file:
-      - .env
     entrypoint:
       - /run-runner.sh
     volumes:

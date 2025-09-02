@@ -34,6 +34,8 @@ services:
     container_name: httpd
     depends_on:
       - pygeoapi
+    env_file:
+      - .env     # path to your .env file
     volumes:   
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf      
       - apache_log:/usr/local/apache2/logs
@@ -54,8 +56,6 @@ services:
     container_name: pygeoapi
     expose:
       - "80"
-    environment:
-      - HOST_URL=${HOST_URL}
     env_file:
       - .env     # path to your .env file
     volumes:
@@ -189,18 +189,18 @@ services:
     build:
       context: ./postgis/
       dockerfile: Dockerfile.remote #This is initialized with CAOP empty tables
+    container_name: postgis_inspire
     environment:
       POSTGRES_PASSWORD: ${REMOTE_INSPIRE_PASSWORD}
       POSTGRES_DB: ${REMOTE_INSPIRE_DB}
       POSTGRES_HOST_AUTH_METHOD: trust
-    ports:
-      - 5432:5432
     env_file:
       - .env     # path to your .env file
-    container_name: postgis_inspire
     networks:
       - default
       - bridge1
+    ports:
+      - 5432:5432
     restart: on-failure
     command: ["postgres", "-c", "max_wal_size=2GB"]
     logging:

@@ -35,6 +35,8 @@ services:
     container_name: httpd
     depends_on:
       - pygeoapi
+    env_file:
+      - .env     # path to your .env file
     volumes:   
       - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf      
       - /etc/cert/2ogcapi.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
@@ -44,8 +46,6 @@ services:
       - /etc/cert/1ghc.pem:/usr/local/apache2/conf/health/fullchain.pem  
       - /etc/cert/ghc_privkey1.pem:/usr/local/apache2/conf/health/privkey.pem
       - ./apache-httpd/logs:/usr/local/apache2/logs
-    environment:
-      - HOST_URL=${HOST_URL}
     ports:
       - "80:80"
       - "443:443"
@@ -63,25 +63,8 @@ services:
     container_name: pygeoapi
     expose:
       - "80"
-    environment:
-      - HOST_URL=${HOST_URL}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - LOCAL_DATABASE_URL=${LOCAL_DATABASE_URL}
-      - REMOTE_CAOP_HOST=${REMOTE_CAOP_HOST}
-      - REMOTE_CAOP_PORT=${REMOTE_CAOP_PORT}
-      - REMOTE_CAOP_DB=${REMOTE_CAOP_DB}
-      - REMOTE_CAOP_USER=${REMOTE_CAOP_USER}
-      - REMOTE_CAOP_PASSWORD=${REMOTE_CAOP_PASSWORD}
-      - REMOTE_CAOP_URL=${REMOTE_CAOP_URL}
-      - REMOTE_INSPIRE_HOST=${REMOTE_INSPIRE_HOST}
-      - REMOTE_INSPIRE_PORT=${REMOTE_INSPIRE_PORT}
-      - REMOTE_INSPIRE_DB=${REMOTE_INSPIRE_DB}
-      - REMOTE_INSPIRE_USER=${REMOTE_INSPIRE_USER}
-      - REMOTE_INSPIRE_PASSWORD=${REMOTE_INSPIRE_PASSWORD}
-      - REMOTE_INSPIRE_URL=${REMOTE_INSPIRE_URL}
-
+    env_file:
+      - .env     # path to your .env file
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./data:/data
@@ -164,13 +147,11 @@ services:
 
   postgis:
     build: ./postgis/
+    container_name: postgis
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - LOCAL_DATABASE_URL=${LOCAL_DATABASE_URL}
-    container_name: postgis
+    env_file:
+      - .env     # path to your .env file
     volumes:
        - ./postgis/data:/var/lib/postgresql/data
        - ./postgis/scripts:/tmp/
@@ -201,24 +182,14 @@ services:
     container_name: mariadb
     command: --max-allowed-packet=64MB
     restart: always
-    volumes:
-      - ./matomo/data/maria:/var/lib/mysql:Z
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MARIADB_AUTO_UPGRADE=1
       - MARIADB_DISABLE_UPGRADE_BACKUP=1
-      
-      # MySQL / MariaDB (Matomo)
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
-      - MARIADB_AUTO_UPGRADE=${MARIADB_AUTO_UPGRADE}
-      - MARIADB_INITDB_SKIP_TZINFO=${MARIADB_INITDB_SKIP_TZINFO}
-
-      # User accounts
-      - USER_MATOMO=${USER_MATOMO}
-      - PASSWORD_MATOMO=${PASSWORD_MATOMO}
+    env_file:
+      - .env     # path to your .env file
+    volumes:
+      - ./matomo/data/maria:/var/lib/mysql:Z
     networks:
       - default
     logging:
@@ -234,15 +205,11 @@ services:
     container_name: matomo
     ports:
       - 8081:80
+    env_file:
+      - .env     # path to your .env file
     volumes:
       - ./matomo/data/matomo:/var/www/html:z
       - ./apache-httpd/logs:/apache
-    environment:
-      - MATOMO_DATABASE_ADAPTER=${MATOMO_DATABASE_ADAPTER}
-      - MATOMO_DATABASE_TABLES_PREFIX=${MATOMO_DATABASE_TABLES_PREFIX}
-      - MATOMO_DATABASE_USERNAME=${MATOMO_DATABASE_USERNAME}
-      - MATOMO_DATABASE_PASSWORD=${MATOMO_DATABASE_PASSWORD}
-      - MATOMO_DATABASE_DBNAME=${MATOMO_DATABASE_DBNAME}
     networks:
       - default
     restart: always
@@ -257,6 +224,8 @@ services:
       context: ./matomo/
       dockerfile: Dockerfile.cron
     container_name: matomo_python
+    env_file:
+      - .env     # path to your .env file
     volumes:
         - ./matomo/data/matomo:/var/www/html:z
         - ./apache-httpd/logs:/apache
@@ -278,6 +247,8 @@ services:
        - 80
     # ports:
     #   - 8083:80
+    env_file:
+      - .env     # path to your .env file
     volumes:
       - ghc_sqlitedb:/GeoHealthCheck/DB
     networks:
@@ -294,6 +265,8 @@ services:
     restart: on-failure
     entrypoint:
       - /run-runner.sh
+    env_file:
+      - .env     # path to your .env file
     volumes:
       - ghc_sqlitedb:/GeoHealthCheck/DB
     logging:

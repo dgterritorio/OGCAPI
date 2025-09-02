@@ -148,8 +148,6 @@ services:
   postgis:
     build: ./postgis/
     container_name: postgis
-    environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
     env_file:
       - .env     # path to your .env file
     volumes:
@@ -169,6 +167,8 @@ services:
   db_and_api_init:
     build: ./utils/
     container_name: db_and_api_init
+    env_file:
+      - .env     # path to your .env file
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/docker.config.yml
       - ./data:/data

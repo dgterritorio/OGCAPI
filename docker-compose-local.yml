@@ -142,10 +142,6 @@ services:
     build:
       context: ./postgis/
       dockerfile: Dockerfile
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_HOST_AUTH_METHOD: trust
     env_file:
       - .env     # path to your .env file
     container_name: postgis

@@ -63,6 +63,8 @@ MARIADB_AUTO_UPGRADE=1
 MARIADB_INITDB_SKIP_TZINFO=1
 ```
 
+To create an example .env file, with values for local testing, run `setup_env.sh`.
+
 ## Setup DB
 
 Connect to DB:

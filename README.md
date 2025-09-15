@@ -32,6 +32,7 @@ HOST_URL=http://localhost
 POSTGRES_DB="geodb"
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="postgres"
+POSTGRES_HOST_AUTH_METHOD=trust
 LOCAL_DATABASE_URL=postgresql://postgres:postgres@postgis:5432/geodb
 REMOTE_CAOP_HOST="caop.host.db"
 REMOTE_CAOP_PORT="5433"

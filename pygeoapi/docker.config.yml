@@ -847,9 +847,8 @@ resources:
     title: CAOP2024 Distritos
     type: collection
   snig:
-    description: O Sistema Nacional de Informação Geográfica é uma infraestrutura
-      colaborativa que permite partilhar, pesquisar e aceder a informação geográfica
-      através do Registo Nacional de Dados Geográficos.
+    description: OGC API que permite a descoberta e acesso a metadados registados
+      no Sistema Nacional de Informação Geográfica - SNIG.
     extents:
       spatial:
         bbox:
@@ -864,6 +863,7 @@ resources:
     keywords:
     - Metadados
     - Catálogo
+    - SNIG
     links:
     - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/home
       hreflang: en-US
@@ -877,7 +877,40 @@ resources:
       id_field: identifier
       time_field: datetime
       title_field: title
-    title: Registo Nacional de Dados Geográficos
+    title: SNIG
+    type: collection
+  point:
+    description: OGC API que permite a descoberta e acesso a metadados catalogados
+      para o Portal de Informação Territorial - PoInT.
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: null
+        end: null
+    keywords:
+    - Metadados
+    - Catálogo
+    - PoInT
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw-point?request=GetCapabilities&service=CSW
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - type: record
+      name: CSWFacade
+      data: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw-point?request=GetCapabilities&service=CSW
+      id_field: identifier
+      time_field: datetime
+      title_field: title
+    title: PoInT
     type: collection
   inspire:
     description: O Sistema Nacional de Informação Geográfica é uma infraestrutura
@@ -912,40 +945,6 @@ resources:
       time_field: datetime
       title_field: title
     title: Geoportal INSPIRE
-    type: collection
-  point:
-    description: O Sistema Nacional de Informação Geográfica é uma infraestrutura
-      colaborativa que permite partilhar, pesquisar e aceder a informação geográfica
-      através do Registo Nacional de Dados Geográficos.
-    extents:
-      spatial:
-        bbox:
-        - -9.51
-        - 36.96
-        - -6.19
-        - 42.15
-        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      temporal:
-        begin: null
-        end: null
-    keywords:
-    - Metadados
-    - Catálogo
-    - Point
-    links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/home
-      hreflang: en-US
-      rel: canonical
-      title: data
-      type: text/csv
-    providers:
-    - type: record
-      name: CSWFacade
-      data: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw-point?request=GetCapabilities&service=CSW
-      id_field: identifier
-      time_field: datetime
-      title_field: title
-    title: Geoportal Point
     type: collection
   cosc2018:
     type: collection

@@ -26,6 +26,7 @@ providers:
             host: postgis
             dbname: geodb
             user: ${POSTGRES_USER}
+            password: ${POSTGRES_PASSWORD}
       id_field: fid
       table: my_table_name_lower
       search_path: [geostore, public]

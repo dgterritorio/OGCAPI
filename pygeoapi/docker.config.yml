@@ -254,25 +254,27 @@ resources:
       type: tile
     title: Cadastro Predial (Continente)
     type: collection
-  crus:
-    description: Carta do Regime de Uso do Solo
+  cos2018v3:
+    description: Carta de Uso e Ocupação do Solo (COS) 2018 - Série 2 (nova)
     extents:
       spatial:
         bbox:
-        - -9.785164
-        - 36.962833
-        - -6.0
-        - 42.104653
+        - -9.68
+        - 36.77
+        - -6.17
+        - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
         begin: 2000-10-30T18:24:39Z
         end: 2007-10-30T08:57:29Z
     keywords:
     - Uso do Solo
-    - Portugal
-    - CRUS
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - '2018'
     links:
-    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/517c5023-04cc-47a4-99f7-bb32814dd62f
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
       hreflang: en-US
       rel: canonical
       title: data
@@ -295,9 +297,9 @@ resources:
       - geostore
       - public
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      table: crus
+      table: cos2018v3
       type: feature
-    - data: http://tiles:3000/crus/{z}/{x}/{y}?f=mvt
+    - data: http://tiles:3000/cos2018v3/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -309,5 +311,862 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CRUS Portugal Continental
+    title: COS2018v3-S2
     type: collection
+  cos2023v1:
+    description: Carta de Uso e Ocupação do Solo (COS) 2023 - Série 2 (nova)
+    extents:
+      spatial:
+        bbox:
+        - -9.68
+        - 36.77
+        - -6.17
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+    keywords:
+    - Uso do Solo
+    - Ocupação do Solo
+    - PortugaL
+    - COS
+    - '2023'
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e7d91649-71dd-4a3a-ae38-e680fc54be88
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: geodb
+        host: postgis
+        user: ${POSTGRES_USER}
+      geom_field: geometry
+      id_field: objectid
+      name: PostgreSQL
+      search_path:
+      - geostore
+      - public
+      storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      table: cos2023v1
+      type: feature
+    - data: http://tiles:3000/cos2023v1/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: COS2023v1-S2
+    type: collection
+  municipios:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: '2000-10-30T18:24:39Z'
+        end: '2007-10-30T08:57:29Z'
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - Municipios
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: dtmn
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_municipios
+      type: feature
+    - data: http://tiles_caop:3000/cont_municipios/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Municípios
+    type: collection
+  freguesias:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Freguesias
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - Freguesias
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: dtmnfr
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_freguesias
+      type: feature
+    - data: http://tiles_caop:3000/cont_freguesias/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Freguesias
+    type: collection
+  admin:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Áreas
+      administrativas
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Admnistrativos
+    - Portugal Continental
+    - Áreas administrativas
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: id
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_areas_administrativas
+      type: feature
+    - data: http://tiles_caop:3000/cont_areas_administrativas/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Áreas administrativas
+    type: collection
+  nuts1:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSI
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - NUTSI
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: codigo
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_nuts1
+      type: feature
+    - data: http://tiles_caop:3000/cont_nuts1/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 NUTSI
+    type: collection
+  nuts2:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSII
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - NUTSII
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: codigo
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_nuts2
+      type: feature
+    - data: http://tiles_caop:3000/cont_nuts2/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 NUTSII
+    type: collection
+  nuts3:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSIII
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Administrativos
+    - Portugal Continental
+    - NUTSIII
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: codigo
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_nuts3
+      type: feature
+    - data: http://tiles_caop:3000/nuts3/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 NUTSIII
+    type: collection
+  trocos:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Troços
+      administrativos
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Admnistrativos
+    - Portugal Continental
+    - Troços administrativos
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: identificador
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_trocos
+      type: feature
+    - data: http://tiles_caop:3000/trocos/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Troços
+    type: collection
+  distritos:
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Distritos
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: "2000-10-30T18:24:39Z"
+        end: "2007-10-30T08:57:29Z"
+    keywords:
+    - Limites Admnistrativos
+    - Portugal Continental
+    - Distritos
+    - CAOP
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/198497815bf647ecaa990c34c42e932e
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - crs:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+      - http://www.opengis.net/def/crs/EPSG/0/3857
+      - http://www.opengis.net/def/crs/EPSG/0/4258
+      - http://www.opengis.net/def/crs/EPSG/0/3763
+      data:
+        dbname: ${REMOTE_CAOP_DB}
+        host: ${REMOTE_CAOP_HOST}
+        port: ${REMOTE_CAOP_PORT}
+        user: ${REMOTE_CAOP_USER}
+        password: ${REMOTE_CAOP_PASSWORD}
+        search_path:
+          - "CAOP2024.1"
+      geom_field: geometria
+      id_field: dt
+      name: PostgreSQL
+      storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+      table: cont_distritos
+      type: feature
+    - data: http://tiles_caop:3000/distritos/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
+    title: CAOP2024 Distritos
+    type: collection
+  snig:
+    description: OGC API que permite a descoberta e acesso a metadados registados no Sistema Nacional de Informação Geográfica - SNIG.
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: null
+        end: null
+    keywords:
+    - Metadados
+    - Catálogo
+    - SNIG
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/home
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - type: record
+      name: CSWFacade
+      data: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw?request=GetCapabilities&service=CSW
+      id_field: identifier
+      time_field: datetime
+      title_field: title
+    title: SNIG
+    type: collection
+  point:
+    description: OGC API que permite a descoberta e acesso a metadados catalogados para o Portal de Informação Territorial - PoInT.
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: null
+        end: null
+    keywords:
+    - Metadados
+    - Catálogo
+    - PoInT
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/home
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - type: record
+      name: CSWFacade
+      data: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw-point?request=GetCapabilities&service=CSW
+      id_field: identifier
+      time_field: datetime
+      title_field: title
+    title: PoInT
+    type: collection
+  cosc2018:
+    type: collection
+    title: Carta de Ocupação do Solo Conjuntural - 2018
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
+    keywords:
+      - Sentinel
+      - DGT
+      - Imagem de Satélite
+      - Deteção Remota
+      - Copernicus
+      - Sentinel-2
+      - 2018
+      - Carta de ocupação do solo
+      - Cartografia temática
+      - COSsim
+      - COSsim2018
+      - COSc
+      - COSc2018
+      - SMOS
+      - infoMapAccessService
+      - infoFeatureAccessService
+      - HVD
+      - Observação da Terra e do ambiente
+      - point
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/262dabc4-0217-44c1-8983-21f69d8670c7
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -10.1934
+        - 36.7643
+        - -5.70954
+        - 42.2796
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: "2018-01-01T00:00:00Z"
+      end: "2018-12-31T23:59:00Z"
+    providers:
+    - type: map
+      name: WMSFacade
+      data: https://geo2.dgterritorio.gov.pt/wms/COSc2018
+      options:
+        layer: COSc
+        style: default
+        version: 1.3.0
+      format:
+        name: png
+        mimetype: image/png
+  cosc2020:
+    type: collection
+    title: Carta de Ocupação do Solo Conjuntural - 2020
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
+    keywords:
+      - Sentinel
+      - DGT
+      - Imagem de Satélite
+      - Deteção Remota
+      - Copernicus
+      - Sentinel-2
+      - 2020
+      - Carta de ocupação do solo
+      - Cartografia temática
+      - COSsim
+      - COSsim2020
+      - COSc
+      - COSc2020
+      - SMOS
+      - infoMapAccessService
+      - infoFeatureAccessService
+      - HVD
+      - Observação da Terra e do ambiente
+      - point
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/17b3bad7-ba7e-4ef5-8067-b6ac67473359
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -10.1934
+        - 36.7643
+        - -5.70954
+        - 42.2796
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: "2020-01-01T00:00:00Z"
+      end: "2020-12-31T23:59:00Z"
+    providers:
+    - type: map
+      name: WMSFacade
+      data: https://geo2.dgterritorio.gov.pt/wms/COSc2020
+      options:
+        layer: COSc
+        style: default
+        version: 1.3.0
+      format:
+        name: png
+        mimetype: image/png
+  cosc2021:
+    type: collection
+    title: Carta de Ocupação do Solo Conjuntural - 2021
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
+    keywords:
+      - Sentinel
+      - DGT
+      - Imagem de Satélite
+      - Deteção Remota
+      - Copernicus
+      - Sentinel-2
+      - 2021
+      - Carta de ocupação do solo
+      - Cartografia temática
+      - COSsim
+      - COSsim2021
+      - COSc
+      - COSc2021
+      - SMOS
+      - infoMapAccessService
+      - infoFeatureAccessService
+      - HVD
+      - Observação da Terra e do ambiente
+      - point
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/c9b955b4-eeb5-4686-ad90-3c6d5215961a
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -10.1934
+        - 36.7643
+        - -5.70954
+        - 42.2796
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: "2021-01-01T00:00:00Z"
+      end: "2021-12-31T23:59:00Z"
+    providers:
+    - type: map
+      name: WMSFacade
+      data: https://geo2.dgterritorio.gov.pt/wms/COSc2021
+      options:
+        layer: COSc
+        style: default
+        version: 1.3.0
+      format:
+        name: png
+        mimetype: image/png
+  cosc2022:
+    type: collection
+    title: Carta de Ocupação do Solo Conjuntural - 2022
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
+    keywords:
+      - Sentinel
+      - DGT
+      - Imagem de Satélite
+      - Deteção Remota
+      - Copernicus
+      - Sentinel-2
+      - 2022
+      - Carta de ocupação do solo
+      - Cartografia temática
+      - COSsim
+      - COSsim2022
+      - COSc
+      - COSc2022
+      - SMOS
+      - infoMapAccessService
+      - infoFeatureAccessService
+      - HVD
+      - Observação da Terra e do ambiente
+      - point
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/fefc5557-2cc6-4efd-aab8-761f45b46f3c
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -10.1934
+        - 36.7643
+        - -5.70954
+        - 42.2796
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: "2022-01-01T00:00:00Z"
+      end: "2022-12-31T23:59:00Z"
+    providers:
+    - type: map
+      name: WMSFacade
+      data: https://geo2.dgterritorio.gov.pt/wms/COSc2022
+      options:
+        layer: COSc
+        style: default
+        version: 1.3.0
+      format:
+        name: png
+        mimetype: image/png
+  cosc2023:
+    type: collection
+    title: Carta de Ocupação do Solo Conjuntural - 2023
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
+    keywords:
+      - Sentinel
+      - DGT
+      - Imagem de Satélite
+      - Deteção Remota
+      - Copernicus
+      - Sentinel-2
+      - 2023
+      - Carta de ocupação do solo
+      - Cartografia temática
+      - COSsim
+      - COSsim2023
+      - COSc
+      - COSc2023
+      - SMOS
+      - infoMapAccessService
+      - infoFeatureAccessService
+      - HVD
+      - Observação da Terra e do ambiente
+      - point
+    links:
+    - type: text/html
+      rel: canonical
+      title: information
+      href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/e9d25fc4-5a25-4c5e-9bce-d470f745d89e
+      hreflang: en-US
+    extents:
+      spatial:
+        bbox:
+        - -10.1934
+        - 36.7643
+        - -5.70954
+        - 42.2796
+      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+    temporal:
+      begin: "2023-01-01T00:00:00Z"
+      end: "2023-12-31T23:59:00Z"
+    providers:
+    - type: map
+      name: WMSFacade
+      data: https://geo2.dgterritorio.gov.pt/wms/COSc2023
+      options:
+        layer: COSc2023
+        style: default
+        version: 1.3.0
+      format:
+        name: png
+        mimetype: image/png

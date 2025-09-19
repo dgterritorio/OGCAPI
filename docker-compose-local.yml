@@ -34,6 +34,8 @@ services:
     container_name: httpd
     depends_on:
       - pygeoapi
+    env_file:
+      - .env     # path to your .env file
     volumes:   
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf      
       - apache_log:/usr/local/apache2/logs
@@ -54,9 +56,6 @@ services:
     container_name: pygeoapi
     expose:
       - "80"
-    environment:
-      PYGEOAPI_CONFIG: docker-config.yml
-      PYGEOAPI_OPENAPI: example-openapi.yml
     env_file:
       - .env     # path to your .env file
     volumes:
@@ -143,10 +142,6 @@ services:
     build:
       context: ./postgis/
       dockerfile: Dockerfile
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_HOST_AUTH_METHOD: trust
     env_file:
       - .env     # path to your .env file
     container_name: postgis
@@ -190,18 +185,18 @@ services:
     build:
       context: ./postgis/
       dockerfile: Dockerfile.remote #This is initialized with CAOP empty tables
+    container_name: postgis_inspire
     environment:
       POSTGRES_PASSWORD: ${REMOTE_INSPIRE_PASSWORD}
       POSTGRES_DB: ${REMOTE_INSPIRE_DB}
       POSTGRES_HOST_AUTH_METHOD: trust
-    ports:
-      - 5432:5432
     env_file:
       - .env     # path to your .env file
-    container_name: postgis_inspire
     networks:
       - default
       - bridge1
+    ports:
+      - 5432:5432
     restart: on-failure
     command: ["postgres", "-c", "max_wal_size=2GB"]
     logging:
@@ -223,69 +218,69 @@ services:
     networks:
       - default
 
-  mariadb:
-    image: mariadb:10.11
-    container_name: mariadb
-    command: --max-allowed-packet=64MB
-    restart: always
-    volumes:
-      - maria:/var/lib/mysql:Z
-    environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MARIADB_AUTO_UPGRADE=1
-      - MARIADB_DISABLE_UPGRADE_BACKUP=1
-    env_file:
-      - .env
-    networks:
-      - default
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # mariadb:
+  #   image: mariadb:10.11
+  #   container_name: mariadb
+  #   command: --max-allowed-packet=64MB
+  #   restart: always
+  #   volumes:
+  #     - maria:/var/lib/mysql:Z
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=
+  #     - MARIADB_AUTO_UPGRADE=1
+  #     - MARIADB_DISABLE_UPGRADE_BACKUP=1
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - default
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
 
-  matomo:
-    build:
-      context: ./matomo/
-      dockerfile: Dockerfile.main
-    container_name: matomo
-    ports:
-      - 8081:80
-    volumes:
-      - matomo:/var/www/html:z
-      - apache_log:/apache
-    environment:
-      - MATOMO_DATABASE_HOST=mariadb
-    env_file:
-      - .env
-    networks:
-      - default
-    restart: on-failure
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # matomo:
+  #   build:
+  #     context: ./matomo/
+  #     dockerfile: Dockerfile.main
+  #   container_name: matomo
+  #   ports:
+  #     - 8081:80
+  #   volumes:
+  #     - matomo:/var/www/html:z
+  #     - apache_log:/apache
+  #   environment:
+  #     - MATOMO_DATABASE_HOST=mariadb
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - default
+  #   restart: on-failure
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
 
-  python_matomo:
-    build:
-      context: ./matomo/
-      dockerfile: Dockerfile.cron
-    container_name: matomo_python
-    env_file:
-      - .env
-    volumes:
-        - matomo:/var/www/html:z
-        - apache_log:/apache
-        - ./matomo/state:/state
-    depends_on:
-      - matomo
-    restart: on-failure
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # python_matomo:
+  #   build:
+  #     context: ./matomo/
+  #     dockerfile: Dockerfile.cron
+  #   container_name: matomo_python
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #       - matomo:/var/www/html:z
+  #       - apache_log:/apache
+  #       - ./matomo/state:/state
+  #   depends_on:
+  #     - matomo
+  #   restart: on-failure
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
           
   # ghc_web:
   #   image: geopython/geohealthcheck:latest

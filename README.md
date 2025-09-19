@@ -32,6 +32,7 @@ HOST_URL=http://localhost
 POSTGRES_DB="geodb"
 POSTGRES_USER="postgres"
 POSTGRES_PASSWORD="postgres"
+POSTGRES_HOST_AUTH_METHOD=trust
 LOCAL_DATABASE_URL=postgresql://postgres:postgres@postgis:5432/geodb
 REMOTE_CAOP_HOST="caop.host.db"
 REMOTE_CAOP_PORT="5433"
@@ -62,6 +63,8 @@ MATOMO_DATABASE_DBNAME=matomo
 MARIADB_AUTO_UPGRADE=1
 MARIADB_INITDB_SKIP_TZINFO=1
 ```
+
+To create an example .env file, with values for local testing, run `setup_env.sh`.
 
 ## Setup DB
 

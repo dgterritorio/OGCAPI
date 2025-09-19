@@ -26,6 +26,7 @@ providers:
             host: postgis
             dbname: geodb
             user: ${POSTGRES_USER}
+            password: ${POSTGRES_PASSWORD}
     #   options:
     #     # Maximum time to wait while connecting, in seconds.
     #     connect_timeout: 100

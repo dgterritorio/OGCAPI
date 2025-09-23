@@ -373,7 +373,7 @@ resources:
     title: COS2023v1-S2
     type: collection
   municipios:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Municípios
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Municípios
     extents:
       spatial:
         bbox:
@@ -429,10 +429,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 Municípios
+    title: CAOP2024.1 Municípios
     type: collection
   freguesias:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Freguesias
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Freguesias
     extents:
       spatial:
         bbox:
@@ -488,10 +488,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 Freguesias
+    title: CAOP2024.1 Freguesias
     type: collection
   admin:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Áreas
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Áreas
       administrativas
     extents:
       spatial:
@@ -548,10 +548,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 Áreas administrativas
+    title: CAOP2024.1 Áreas administrativas
     type: collection
   nuts1:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSI
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSI
     extents:
       spatial:
         bbox:
@@ -607,10 +607,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 NUTSI
+    title: CAOP2024.1 NUTSI
     type: collection
   nuts2:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSII
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSII
     extents:
       spatial:
         bbox:
@@ -666,10 +666,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 NUTSII
+    title: CAOP2024.1 NUTSII
     type: collection
   nuts3:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. NUTSIII
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSIII
     extents:
       spatial:
         bbox:
@@ -725,10 +725,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 NUTSIII
+    title: CAOP2024.1 NUTSIII
     type: collection
   trocos:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Troços
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Troços
       administrativos
     extents:
       spatial:
@@ -785,10 +785,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 Troços
+    title: CAOP2024.1 Troços
     type: collection
   distritos:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024. Distritos
+    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Distritos
     extents:
       spatial:
         bbox:
@@ -844,7 +844,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024 Distritos
+    title: CAOP2024.1 Distritos
     type: collection
   snig:
     description: OGC API que permite a descoberta e acesso a metadados registados no Sistema Nacional de Informação Geográfica - SNIG.

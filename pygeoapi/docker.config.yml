@@ -111,7 +111,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: null
       end: null
@@ -168,7 +168,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: null
       end: null

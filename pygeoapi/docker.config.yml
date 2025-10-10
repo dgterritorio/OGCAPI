@@ -19,6 +19,7 @@ server:
     url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap
       contributors</a>'
+  admin: false
   templates:
     path: /templates
     static: /pygeoapi/pygeoapi/static
@@ -111,7 +112,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: null
       end: null
@@ -168,7 +169,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: null
       end: null
@@ -947,7 +948,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: "2018-01-01T00:00:00Z"
       end: "2018-12-31T23:59:00Z"
@@ -999,7 +1000,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: "2020-01-01T00:00:00Z"
       end: "2020-12-31T23:59:00Z"
@@ -1051,7 +1052,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: "2021-01-01T00:00:00Z"
       end: "2021-12-31T23:59:00Z"
@@ -1103,7 +1104,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: "2022-01-01T00:00:00Z"
       end: "2022-12-31T23:59:00Z"
@@ -1155,7 +1156,7 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
     temporal:
       begin: "2023-01-01T00:00:00Z"
       end: "2023-12-31T23:59:00Z"

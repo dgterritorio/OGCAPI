@@ -922,7 +922,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2018
+      - '2018'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -974,7 +974,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2020
+      - '2020'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -1026,7 +1026,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2021
+      - '2021'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -1078,7 +1078,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2022
+      - '2022'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -1130,7 +1130,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2023
+      - '2023'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim

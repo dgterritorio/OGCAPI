@@ -19,6 +19,7 @@ server:
     url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap
       contributors</a>'
+  admin: false
   templates:
     path: /templates
     static: /pygeoapi/pygeoapi/static
@@ -112,9 +113,9 @@ resources:
         - -5.70954
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: null
-      end: null
+      temporal:
+        begin: null
+        end: null
     providers:
     - type: map
       name: WMSFacade
@@ -169,9 +170,9 @@ resources:
         - -5.70954
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: null
-      end: null
+      temporal:
+        begin: null
+        end: null
     providers:
     - type: map
       name: WMSFacade
@@ -921,7 +922,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2018
+      - '2018'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -947,10 +948,10 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: "2018-01-01T00:00:00Z"
-      end: "2018-12-31T23:59:00Z"
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
+      temporal:
+        begin: "2018-01-01T00:00:00Z"
+        end: "2018-12-31T23:59:00Z"
     providers:
     - type: map
       name: WMSFacade
@@ -973,7 +974,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2020
+      - '2020'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -999,10 +1000,10 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: "2020-01-01T00:00:00Z"
-      end: "2020-12-31T23:59:00Z"
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
+      temporal:
+        begin: "2020-01-01T00:00:00Z"
+        end: "2020-12-31T23:59:00Z"
     providers:
     - type: map
       name: WMSFacade
@@ -1025,7 +1026,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2021
+      - '2021'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -1051,10 +1052,10 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: "2021-01-01T00:00:00Z"
-      end: "2021-12-31T23:59:00Z"
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
+      temporal:
+        begin: "2021-01-01T00:00:00Z"
+        end: "2021-12-31T23:59:00Z"
     providers:
     - type: map
       name: WMSFacade
@@ -1077,7 +1078,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2022
+      - '2022'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -1103,10 +1104,10 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: "2022-01-01T00:00:00Z"
-      end: "2022-12-31T23:59:00Z"
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
+      temporal:
+        begin: "2022-01-01T00:00:00Z"
+        end: "2022-12-31T23:59:00Z"
     providers:
     - type: map
       name: WMSFacade
@@ -1129,7 +1130,7 @@ resources:
       - Deteção Remota
       - Copernicus
       - Sentinel-2
-      - 2023
+      - '2023'
       - Carta de ocupação do solo
       - Cartografia temática
       - COSsim
@@ -1155,10 +1156,10 @@ resources:
         - 36.7643
         - -5.70954
         - 42.2796
-      crs: http://www.opengis.net/def/crs/EPSG/0/4326
-    temporal:
-      begin: "2023-01-01T00:00:00Z"
-      end: "2023-12-31T23:59:00Z"
+        crs: http://www.opengis.net/def/crs/EPSG/0/4326
+      temporal:
+        begin: "2023-01-01T00:00:00Z"
+        end: "2023-12-31T23:59:00Z"
     providers:
     - type: map
       name: WMSFacade

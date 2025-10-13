@@ -27,6 +27,7 @@ providers:
             dbname: geodb
             user: ${POSTGRES_USER}
             password: ${POSTGRES_PASSWORD}
+            search_path: [geostore, public]
     #   options:
     #     # Maximum time to wait while connecting, in seconds.
     #     connect_timeout: 100
@@ -47,7 +48,6 @@ providers:
     #     keepalives_interval: 5                    
       id_field: objectid
       table: view_name
-      search_path: [geostore, public]
       geom_field: geometry
       crs:
           - http://www.opengis.net/def/crs/OGC/1.3/CRS84

@@ -384,8 +384,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: '2000-10-30T18:24:39Z'
-        end: '2007-10-30T08:57:29Z'
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Administrativos
     - Portugal Continental
@@ -443,8 +443,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Administrativos
     - Portugal Continental
@@ -503,8 +503,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Admnistrativos
     - Portugal Continental
@@ -562,8 +562,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Administrativos
     - Portugal Continental
@@ -621,8 +621,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Administrativos
     - Portugal Continental
@@ -680,8 +680,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Administrativos
     - Portugal Continental
@@ -740,8 +740,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Admnistrativos
     - Portugal Continental
@@ -799,8 +799,8 @@ resources:
         - 42.15
         crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       temporal:
-        begin: "2000-10-30T18:24:39Z"
-        end: "2007-10-30T08:57:29Z"
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
     keywords:
     - Limites Admnistrativos
     - Portugal Continental
@@ -950,8 +950,8 @@ resources:
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
-        begin: "2018-01-01T00:00:00Z"
-        end: "2018-12-31T23:59:00Z"
+        begin: 2018-01-01T00:00:00Z
+        end: 2018-12-31T23:59:00Z
     providers:
     - type: map
       name: WMSFacade
@@ -1002,8 +1002,8 @@ resources:
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
-        begin: "2020-01-01T00:00:00Z"
-        end: "2020-12-31T23:59:00Z"
+        begin: 2020-01-01T00:00:00Z
+        end: 2020-12-31T23:59:00Z
     providers:
     - type: map
       name: WMSFacade
@@ -1054,8 +1054,8 @@ resources:
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
-        begin: "2021-01-01T00:00:00Z"
-        end: "2021-12-31T23:59:00Z"
+        begin: 2021-01-01T00:00:00Z
+        end: 2021-12-31T23:59:00Z
     providers:
     - type: map
       name: WMSFacade
@@ -1106,8 +1106,8 @@ resources:
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
-        begin: "2022-01-01T00:00:00Z"
-        end: "2022-12-31T23:59:00Z"
+        begin: 2022-01-01T00:00:00Z
+        end: 2022-12-31T23:59:00Z
     providers:
     - type: map
       name: WMSFacade
@@ -1158,8 +1158,8 @@ resources:
         - 42.2796
         crs: http://www.opengis.net/def/crs/EPSG/0/4326
       temporal:
-        begin: "2023-01-01T00:00:00Z"
-        end: "2023-12-31T23:59:00Z"
+        begin: 2023-01-01T00:00:00Z
+        end: 2023-12-31T23:59:00Z
     providers:
     - type: map
       name: WMSFacade

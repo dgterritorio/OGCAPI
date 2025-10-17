@@ -873,7 +873,7 @@ resources:
     providers:
     - type: record
       name: CSWFacade
-      data: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw?request=GetCapabilities&service=CSW
+      data: https://snig.dgterritorio.gov.pt/rndg/srv/por/csw-cdgs?request=GetCapabilities&service=CSW
       id_field: identifier
       time_field: datetime
       title_field: title

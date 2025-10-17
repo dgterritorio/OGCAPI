@@ -28,7 +28,7 @@ providers:
             dbname: geodb
             user: ${POSTGRES_USER}
             password: ${POSTGRES_PASSWORD}
-            search_path: [geostore, public]
+            search_path: [public]
       id_field: objectid
       table: my_table_name_lower
       geom_field: geometry

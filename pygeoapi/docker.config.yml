@@ -292,7 +292,6 @@ resources:
         host: postgis
         user: ${POSTGRES_USER}
         search_path:
-        - geostore
         - public
       geom_field: geometry
       id_field: objectid
@@ -351,7 +350,6 @@ resources:
         host: postgis
         user: ${POSTGRES_USER}
         search_path:
-        - geostore
         - public
       geom_field: geometry
       id_field: objectid

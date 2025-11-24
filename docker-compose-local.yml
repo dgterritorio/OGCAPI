@@ -39,6 +39,7 @@ services:
     volumes:   
       - ./apache-httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf      
       - apache_log:/usr/local/apache2/logs
+      - ./apache-httpd/robots.txt:/usr/local/apache2/htdocs/robots.txt
     ports:
       - "80:80"
       # - "443:443"

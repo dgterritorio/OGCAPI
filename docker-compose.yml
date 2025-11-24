@@ -38,7 +38,8 @@ services:
     env_file:
       - .env     # path to your .env file
     volumes:   
-      - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf      
+      - ./apache-httpd/httpd-ssl.conf:/usr/local/apache2/conf/httpd.conf
+      - ./apache-httpd/robots.txt:/usr/local/apache2/htdocs/robots.txt      
       - /etc/cert/2ogcapi.pem:/usr/local/apache2/conf/ogcapi/fullchain.pem
       - /etc/cert/ogcapi_privkey4.pem:/usr/local/apache2/conf/ogcapi/privkey.pem
       - /etc/cert/2logs.pem:/usr/local/apache2/conf/matomo/fullchain.pem  

@@ -64,60 +64,6 @@ MARIADB_AUTO_UPGRADE=1
 MARIADB_INITDB_SKIP_TZINFO=1
 ```
 
-To create an example .env file, with values for local testing, run `setup_env.sh`.
-
-## Setup DB
-
-Connect to DB:
-
-```
-psql -h localhost -U [USERNAME] -W
-```
-
-Donwload Shapefile from [here](https://www.dgterritorio.gov.pt/download/agt/).
-
-Insert data:
-
-```
-docker run --network=ogcapi-simple_bridge1 -v "${PWD}/data:/mnt" ghcr.io/osgeo/gdal:ubuntu-full-3.8.4 \
-ogr2ogr -a_srs "EPSG:3763" -t_srs "EPSG:4326" -f "PostgreSQL" PG:"dbname='geodb' user='postgres'
- host='postgis'" /mnt/CRUS+_31_mar_2025.shp -lco GEOMETRY_NAME=geom -lco FID=OBJECTID -lco precision=NO -lco SPATIAL_INDEX=GIST \
--nlt PROMOTE_TO_MULTI -nln crus -overwrite
-```
-
-Create materialised view:
-
-```
-docker compose exec postgis  psql -U postgres -d geodb -f /tmp/create-views.sql
-```
-
-
-## Serving tiles from file
-
-Generate MBTiles (but first, uncomment [this line](docker-compose.yml#+77) on docker compose):
-
-```
-docker compose exec tiles \
-martin-cp  --output-file /data/crus_31_julho2024.mbtiles \
-           --mbtiles-type normalized     \
-           "--bbox=-9.52657060387,36.838268541,-6.3890876937,42.280468655"      \
-           --min-zoom 0                  \
-           --max-zoom 10                \
-           --source crus_31_julho2024          \
-           --save-config /data/config.yaml   \
-           postgresql://postgres@postgis:5432/geodb
-```
-
-Remove the containers, uncomment line 77 and start the composition again.
-
-## Serving tiles from static dir
-
-```
-docker run -it --rm -v $(pwd)/data:/data emotionalcities/tippecanoe \
-tippecanoe -r1 -pk -pf --output-to-directory=/data/tiles/ --force --maximum-zoom=14 \
---extend-zooms-if-still-dropping --no-tile-compression /data/crus_31_julho2024.geojson
-```
-
 ## Setup Matomo
 
 Go to [http:localhost:8081](http:localhost:8081) and follow the wizard. Confirm everything until you initialized the DB. 

@@ -146,6 +146,25 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  tiles_scalargis:
+    image: ghcr.io/maplibre/martin
+    restart: always
+    environment:
+      - DATABASE_URL=${REMOTE_SCALARGIS_URL}
+      - WATCH_MODE=true
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 50 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - default
+    healthcheck:
+      test: ["NONE"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
   postgis:
     build: ./postgis/
     container_name: postgis
@@ -171,8 +190,7 @@ services:
     env_file:
       - .env     # path to your .env file
     volumes:
-      - ./pygeoapi/docker.config.yml:/pygeoapi/docker.config.yml
-      - ./data:/data
+      - ./data:/data # where *.SHP to upload are
     depends_on:
       - postgis
     networks:

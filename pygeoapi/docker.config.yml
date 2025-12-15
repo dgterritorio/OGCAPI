@@ -241,7 +241,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       table: mv_cadastralparcel_4326
       type: feature
-    - data: http://tiles_inspire:3000/mv_cadastralparcel_4326/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-inspire:3000/mv_cadastralparcel_4326/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -416,7 +416,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_municipios
       type: feature
-    - data: http://tiles_caop:3000/cont_municipios/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_municipios/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -475,7 +475,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_freguesias
       type: feature
-    - data: http://tiles_caop:3000/cont_freguesias/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_freguesias/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -535,7 +535,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_areas_administrativas
       type: feature
-    - data: http://tiles_caop:3000/cont_areas_administrativas/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_areas_administrativas/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -594,7 +594,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts1
       type: feature
-    - data: http://tiles_caop:3000/cont_nuts1/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_nuts1/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -653,7 +653,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts2
       type: feature
-    - data: http://tiles_caop:3000/cont_nuts2/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_nuts2/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -712,7 +712,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts3
       type: feature
-    - data: http://tiles_caop:3000/nuts3/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/nuts3/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -772,7 +772,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_trocos
       type: feature
-    - data: http://tiles_caop:3000/trocos/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/trocos/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -831,7 +831,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_distritos
       type: feature
-    - data: http://tiles_caop:3000/distritos/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/distritos/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -2901,7 +2901,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles_scalargis:3000/crus/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/crus/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0
@@ -2961,7 +2961,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles_scalargis:3000/ren_areas/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/ren_areas/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0
@@ -3021,7 +3021,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles_scalargis:3000/srup_reserva_agricola_nacional_v/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/srup_reserva_agricola_nacional_v/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0
@@ -3077,7 +3077,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles_scalargis:3000/srup_serv_areas_protegidas_v/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/srup_serv_areas_protegidas_v/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0

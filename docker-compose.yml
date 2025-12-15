@@ -108,7 +108,7 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  tiles_caop:
+  tiles-caop:
     image: ghcr.io/maplibre/martin
     restart: always
     environment:
@@ -127,7 +127,7 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  tiles_inspire:
+  tiles-inspire:
     image: ghcr.io/maplibre/martin
     restart: always
     environment:
@@ -146,7 +146,7 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  tiles_scalargis:
+  tiles-scalargis:
     image: ghcr.io/maplibre/martin
     restart: always
     environment:

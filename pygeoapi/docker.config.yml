@@ -3023,7 +3023,7 @@ resources:
           format:
                 name: pbf
                 mimetype: application/vnd.mapbox-vector-tile
-  srup_serv_areas_protegidas_v:
+  srup_areas_protegidas:
     type: collection
     title: SRUP - Áreas Protegidas
     description: Servidão e Restrição de Utilidade Pública (SRUP) - Áreas Protegidas, em vigor em Portugal Continental.

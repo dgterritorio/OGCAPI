@@ -2,6 +2,8 @@
 
 *Keep it simple*
 
+![architecture](./docker-compose.png)
+
 ## Quick Setup
 
 You will need `docker` and `docker-compose` installed in your system, in order to run this infrastructure. 

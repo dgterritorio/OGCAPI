@@ -2934,6 +2934,10 @@ resources:
         temporal:
             begin: 
             end: null
+    limits:
+      default_items: 50
+      max_items: 500
+      on_exceed: throttle
     providers:
         - type: feature
           name: PostgreSQL
@@ -2990,6 +2994,10 @@ resources:
         temporal:
             begin: 
             end: null
+    limits:
+      default_items: 50
+      max_items: 500
+      on_exceed: throttle
     providers:
         - type: feature
           name: PostgreSQL

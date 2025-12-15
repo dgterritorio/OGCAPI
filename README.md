@@ -88,6 +88,11 @@ When the containers are running, run this one-time configuration command:
 ```
 docker compose exec matomo bash -c 'echo "proxy_uri_header = 1" >> /var/www/html/config/config.ini.php'
 ```
+## Generate Diagram
+
+```bash
+docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz render --force --no-volumes -m image docker-compose.yml
+```
 
 ## Troubleshooting
 

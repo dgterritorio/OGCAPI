@@ -2890,7 +2890,7 @@ resources:
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path: 
                   - "mapaspt"
-          id_field: objectid
+          id_field: fid
           table: crus
           geom_field: geom
           crs:
@@ -2911,9 +2911,9 @@ resources:
           format:
                 name: pbf
                 mimetype: application/vnd.mapbox-vector-tile
-  srup_reserva_ecologica_nacional:
+  srup_ren_areal:
     type: collection
-    title: SRUP - Reserva Ecológica Nacional
+    title: SRUP - Reserva Ecológica Nacional - Áreas
     description: Servidão e Restrição de Utilidade Pública (SRUP) - Reserva Ecológica Nacional (REN), em vigor em Portugal Continental.
     keywords:
         - SRUP
@@ -2950,8 +2950,8 @@ resources:
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path: 
                   - "mapaspt"
-          id_field: ogc_fid
-          table: ren_areas
+          id_field: fid
+          table: srup_ren_areal
           geom_field: geom
           crs:
               - http://www.opengis.net/def/crs/OGC/1.3/CRS84
@@ -2961,7 +2961,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles-scalargis:3000/ren_areas/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/srup_ren_areal/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0
@@ -2971,7 +2971,67 @@ resources:
           format:
                 name: pbf
                 mimetype: application/vnd.mapbox-vector-tile
-  srup_reserva_agricola_nacional:
+  srup_ren_linear:
+    type: collection
+    title: SRUP - Reserva Ecológica Nacional - Linhas
+    description: Servidão e Restrição de Utilidade Pública (SRUP) - Reserva Ecológica Nacional (REN), em vigor em Portugal Continental.
+    keywords:
+        - SRUP
+        - REN
+        - Reserva Ecológica Nacional
+        - DGT
+        - Cartografia Oficial
+    links:
+        - type: text/csv
+          rel: canonical
+          title: data
+          href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/ad95b02a-fbd2-4b8e-89b6-f699a9ff3c0d
+          hreflang: en-US
+    extents:
+        spatial:
+            bbox: [-9.785164, 36.962833, -6.000000, 42.104653]
+            crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        temporal:
+            begin: 
+            end: null
+    limits:
+      default_items: 50
+      max_items: 500
+      on_exceed: throttle
+    providers:
+        - type: feature
+          name: PostgreSQL
+          storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+          data:
+                dbname: ${REMOTE_SCALARGIS_DB}
+                host: ${REMOTE_SCALARGIS_HOST}
+                port: ${REMOTE_SCALARGIS_PORT}
+                user: ${REMOTE_SCALARGIS_USER}
+                password: ${REMOTE_SCALARGIS_PASSWORD}
+                search_path: 
+                  - "mapaspt"
+          id_field: fid
+          table: srup_ren_linear
+          geom_field: geom
+          crs:
+              - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+              - http://www.opengis.net/def/crs/EPSG/0/4326
+              - http://www.opengis.net/def/crs/EPSG/0/3857
+              - http://www.opengis.net/def/crs/EPSG/0/4258
+              - http://www.opengis.net/def/crs/EPSG/0/3763
+        - type: tile
+          name: MVT-proxy
+          data: http://tiles-scalargis:3000/srup_ren_linear/{z}/{x}/{y}?f=mvt
+          options:
+            zoom:
+                min: 0
+                max: 15
+            schemes:
+            - WebMercatorQuad
+          format:
+                name: pbf
+                mimetype: application/vnd.mapbox-vector-tile
+  srup_ran:
     type: collection
     title: SRUP - Reserva Agrícola Nacional
     description: Servidão e Restrição de Utilidade Pública (SRUP) - Reserva Agrícola Nacional (RAN), em vigor em Portugal Continental.
@@ -3010,8 +3070,8 @@ resources:
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path: 
                   - "mapaspt"
-          id_field: ogc_fid
-          table: srup_reserva_agricola_nacional_v
+          id_field: fid
+          table: srup_ran
           geom_field: geom
           crs:
               - http://www.opengis.net/def/crs/OGC/1.3/CRS84
@@ -3021,7 +3081,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles-scalargis:3000/srup_reserva_agricola_nacional_v/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/srup_ran/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0
@@ -3066,8 +3126,8 @@ resources:
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path: 
                   - "mapaspt"
-          id_field: ogc_fid
-          table: srup_serv_areas_protegidas_v
+          id_field: fid
+          table: srup_areas_protegidas
           geom_field: geom
           crs:
               - http://www.opengis.net/def/crs/OGC/1.3/CRS84
@@ -3077,7 +3137,175 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles-scalargis:3000/srup_serv_areas_protegidas_v/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/srup_areas_protegidas/{z}/{x}/{y}?f=mvt
+          options:
+            zoom:
+                min: 0
+                max: 15
+            schemes:
+            - WebMercatorQuad
+          format:
+                name: pbf
+                mimetype: application/vnd.mapbox-vector-tile
+  srup_arvores_areal:
+    type: collection
+    title: SRUP - Árvores de Interesse Público - Áreas
+    description: Servidão e Restrição de Utilidade Pública (SRUP) - Árvores de Interesse Público, em vigor em Portugal Continental.
+    keywords:
+        - SRUP
+        - AIP
+        - Árvores de Interesse Público
+        - DGT
+        - Cartografia Oficial
+    links:
+        - type: text/csv
+          rel: canonical
+          title: data
+          href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/5f1fd08d-e404-4fa2-a4db-54632e57da31
+          hreflang: en-US
+    extents:
+        spatial:
+            bbox: [-9.785164, 36.962833, -6.000000, 42.104653]
+            crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        temporal:
+            begin: 
+            end: null
+    providers:
+        - type: feature
+          name: PostgreSQL
+          storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+          data:
+                dbname: ${REMOTE_SCALARGIS_DB}
+                host: ${REMOTE_SCALARGIS_HOST}
+                port: ${REMOTE_SCALARGIS_PORT}
+                user: ${REMOTE_SCALARGIS_USER}
+                password: ${REMOTE_SCALARGIS_PASSWORD}
+                search_path: 
+                  - "mapaspt"
+          id_field: fid
+          table: srup_arvores_areal
+          geom_field: geom
+          crs:
+              - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+              - http://www.opengis.net/def/crs/EPSG/0/4326
+              - http://www.opengis.net/def/crs/EPSG/0/3857
+              - http://www.opengis.net/def/crs/EPSG/0/4258
+              - http://www.opengis.net/def/crs/EPSG/0/3763
+        - type: tile
+          name: MVT-proxy
+          data: http://tiles-scalargis:3000/srup_arvores_areal/{z}/{x}/{y}?f=mvt
+          options:
+            zoom:
+                min: 0
+                max: 15
+            schemes:
+            - WebMercatorQuad
+          format:
+                name: pbf
+               mimetype: application/vnd.mapbox-vector-tile
+  srup_arvores_point:
+    type: collection
+    title: SRUP - Árvores de Interesse Público - Pontos
+    description: Servidão e Restrição de Utilidade Pública (SRUP) - Árvores de Interesse Público, em vigor em Portugal Continental.
+    keywords:
+        - SRUP
+        - AIP
+        - Árvores de Interesse Público
+        - DGT
+        - Cartografia Oficial
+    links:
+        - type: text/csv
+          rel: canonical
+          title: data
+          href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/5f1fd08d-e404-4fa2-a4db-54632e57da31
+          hreflang: en-US
+    extents:
+        spatial:
+            bbox: [-9.785164, 36.962833, -6.000000, 42.104653]
+            crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        temporal:
+            begin: 
+            end: null
+    providers:
+        - type: feature
+          name: PostgreSQL
+          storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+          data:
+                dbname: ${REMOTE_SCALARGIS_DB}
+                host: ${REMOTE_SCALARGIS_HOST}
+                port: ${REMOTE_SCALARGIS_PORT}
+                user: ${REMOTE_SCALARGIS_USER}
+                password: ${REMOTE_SCALARGIS_PASSWORD}
+                search_path: 
+                  - "mapaspt"
+          id_field: fid
+          table: srup_arvores_point
+          geom_field: geom
+          crs:
+              - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+              - http://www.opengis.net/def/crs/EPSG/0/4326
+              - http://www.opengis.net/def/crs/EPSG/0/3857
+              - http://www.opengis.net/def/crs/EPSG/0/4258
+              - http://www.opengis.net/def/crs/EPSG/0/3763
+        - type: tile
+          name: MVT-proxy
+          data: http://tiles-scalargis:3000/srup_arvores_point/{z}/{x}/{y}?f=mvt
+          options:
+            zoom:
+                min: 0
+                max: 15
+            schemes:
+            - WebMercatorQuad
+          format:
+                name: pbf
+                mimetype: application/vnd.mapbox-vector-tile
+  srup_marcos_geod:
+    type: collection
+    title: SRUP - Marcos Geodésicos
+    description: Servidão e Restrição de Utilidade Pública (SRUP) - Marcos Geodésicos, em vigor em Portugal Continental.
+    keywords:
+        - SRUP
+        - AIP
+        - Árvores de Interesse Público
+        - DGT
+        - Cartografia Oficial
+    links:
+        - type: text/csv
+          rel: canonical
+          title: data
+          href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/15447243-5307-4f25-908a-5d40eafcd862
+          hreflang: en-US
+    extents:
+        spatial:
+            bbox: [-9.785164, 36.962833, -6.000000, 42.104653]
+            crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        temporal:
+            begin: 
+            end: null
+    providers:
+        - type: feature
+          name: PostgreSQL
+          storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
+          data:
+                dbname: ${REMOTE_SCALARGIS_DB}
+                host: ${REMOTE_SCALARGIS_HOST}
+                port: ${REMOTE_SCALARGIS_PORT}
+                user: ${REMOTE_SCALARGIS_USER}
+                password: ${REMOTE_SCALARGIS_PASSWORD}
+                search_path: 
+                  - "mapaspt"
+          id_field: fid
+          table: srup_marcos_geod
+          geom_field: geom
+          crs:
+              - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+              - http://www.opengis.net/def/crs/EPSG/0/4326
+              - http://www.opengis.net/def/crs/EPSG/0/3857
+              - http://www.opengis.net/def/crs/EPSG/0/4258
+              - http://www.opengis.net/def/crs/EPSG/0/3763
+        - type: tile
+          name: MVT-proxy
+          data: http://tiles-scalargis:3000/srup_marcos_geod/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0

@@ -3202,7 +3202,7 @@ resources:
             - WebMercatorQuad
           format:
                 name: pbf
-               mimetype: application/vnd.mapbox-vector-tile
+                mimetype: application/vnd.mapbox-vector-tile
   srup_arvores_point:
     type: collection
     title: SRUP - Árvores de Interesse Público - Pontos

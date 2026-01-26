@@ -51,7 +51,9 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - default
+      default:
+        aliases:
+          - ogcapi.dgterritorio.gov.pt
     restart: always
     logging:
       driver: "json-file"

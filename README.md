@@ -96,20 +96,6 @@ docker compose exec matomo bash -c 'echo "proxy_uri_header = 1" >> /var/www/html
 docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz render --force --no-volumes -m image docker-compose.yml
 ```
 
-## Troubleshooting
-
-## GeoHealthCheck is able to run the probe
-
-If GHC cannot reach  to https://ogcapi.dgterritorio.gov.pt/, it is most likely a network problem, as all the containers are in the same composition.
-
-These steps would solve the problem:
-* Enter the ghc_web container: ```docker exec -it ghc_web bash```
-* Install ping (iputils-ping) and nano
-* Ping the apache container and get its internal IP address
-* Add this IP address on /etc/hosts and make it point ogcapi.dgterritorio.gov.pt
-* It should work now, no need for restart!
-
-
 ## License
 
 This project is released under an [MIT License](./LICENSE)

@@ -3070,6 +3070,13 @@ resources:
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path: 
                   - "mapaspt"
+          options:
+              connect_timeout: 10
+              keepalives: 1
+              keepalives_idle: 30
+              keepalives_interval: 5
+              keepalives_count: 5
+              tcp_user_timeout: 120000
           id_field: fid
           table: srup_ran
           geom_field: geom

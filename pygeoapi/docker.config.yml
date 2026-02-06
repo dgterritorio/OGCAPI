@@ -288,9 +288,10 @@ resources:
       - http://www.opengis.net/def/crs/EPSG/0/4258
       - http://www.opengis.net/def/crs/EPSG/0/3763
       data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
+        dbname: ${REMOTE_COS_DB}
+        host: ${REMOTE_COS_HOST}
+        port: ${REMOTE_COS_PORT}
+        user: ${REMOTE_COS_USER}
         search_path:
         - public
       geom_field: geometry
@@ -346,9 +347,10 @@ resources:
       - http://www.opengis.net/def/crs/EPSG/0/4258
       - http://www.opengis.net/def/crs/EPSG/0/3763
       data:
-        dbname: geodb
-        host: postgis
-        user: ${POSTGRES_USER}
+        dbname: ${REMOTE_COS_DB}
+        host: ${REMOTE_COS_HOST}
+        port: ${REMOTE_COS_PORT}
+        user: ${REMOTE_COS_USER}
         search_path:
         - public
       geom_field: geometry
@@ -2776,10 +2778,11 @@ resources:
         - type: feature
           name: PostgreSQL
           data:
-                host: postgis
-                dbname: geodb
-                user: ${POSTGRES_USER}
-                password: ${POSTGRES_PASSWORD}
+                dbname: ${REMOTE_COS_DB}
+                host: ${REMOTE_COS_HOST}
+                port: ${REMOTE_COS_PORT}
+                user: ${REMOTE_COS_USER}
+                password: ${REMOTE_COS_PASSWORD}
                 search_path: [public]
           id_field: objectid
           table: cos2018v3
@@ -2830,10 +2833,11 @@ resources:
         - type: feature
           name: PostgreSQL
           data:
-                host: postgis
-                dbname: geodb
-                user: ${POSTGRES_USER}
-                password: ${POSTGRES_PASSWORD}
+                dbname: ${REMOTE_COS_DB}
+                host: ${REMOTE_COS_HOST}
+                port: ${REMOTE_COS_PORT}
+                user: ${REMOTE_COS_USER}
+                password: ${REMOTE_COS_PASSWORD}
                 search_path: [public]
           id_field: objectid
           table: cos2023v1

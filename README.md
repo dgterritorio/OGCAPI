@@ -27,15 +27,14 @@ docker compose up -d
 
 This compositions read secrets from an environment file on this folder: ```.env```.
 
-Create this file with the following format, replacing "POSTGRES_PASSWORD=postgres" by a reasonable value.
+Create this file with the following format, replacing "REMOTE_COS_PASSWORD=postgres" by a reasonable value.
 
 ```
 HOST_URL=http://localhost
-POSTGRES_DB="geodb"
-POSTGRES_USER="postgres"
-POSTGRES_PASSWORD="postgres"
-POSTGRES_HOST_AUTH_METHOD=trust
-LOCAL_DATABASE_URL=postgresql://postgres:postgres@postgis:5432/geodb
+REMOTE_COS_DB="geodb"
+REMOTE_COS_USER="postgres"
+REMOTE_COS_PASSWORD="postgres"
+REMOTE_COS_URL=postgresql://postgres:postgres@postgis:5432/geodb
 REMOTE_CAOP_HOST="caop.host.db"
 REMOTE_CAOP_PORT="5433"
 REMOTE_CAOP_DB="dgt_local"

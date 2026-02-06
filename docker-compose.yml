@@ -96,7 +96,7 @@ services:
     image: ghcr.io/maplibre/martin
     restart: always
     environment:
-      - DATABASE_URL=${LOCAL_DATABASE_URL}
+      - DATABASE_URL=${REMOTE_COS_URL}
       - WATCH_MODE=true
     command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
     depends_on:
@@ -167,37 +167,6 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-
-  postgis:
-    build: ./postgis/
-    container_name: postgis
-    env_file:
-      - .env     # path to your .env file
-    volumes:
-       - ./postgis/data:/var/lib/postgresql/data
-       - ./postgis/scripts:/tmp/
-    networks:
-      - default
-      - bridge1
-    restart: always
-    command: ["postgres", "-c", "max_wal_size=2GB"]
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-
-  db_and_api_init:
-    build: ./utils/
-    container_name: db_and_api_init
-    env_file:
-      - .env     # path to your .env file
-    volumes:
-      - ./data:/data # where *.SHP to upload are
-    depends_on:
-      - postgis
-    networks:
-      - default
 
   mariadb:
     image: mariadb:10.11
@@ -302,4 +271,3 @@ volumes:
 
 networks:
   default:
-  bridge1:

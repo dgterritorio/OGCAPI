@@ -99,8 +99,6 @@ services:
       - DATABASE_URL=${REMOTE_COS_URL}
       - WATCH_MODE=true
     command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
-    depends_on:
-      - postgis
     networks:
       - default
     healthcheck:

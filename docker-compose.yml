@@ -82,10 +82,6 @@ services:
       - tiles-scalargis
     networks:
       - default
-    depends_on:
-      db_and_api_init:
-        condition: service_completed_successfully
-        restart: true
     logging:
       driver: "json-file"
       options:

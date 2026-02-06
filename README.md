@@ -31,6 +31,8 @@ Create this file with the following format, replacing "REMOTE_COS_PASSWORD=postg
 
 ```
 HOST_URL=http://localhost
+REMOTE_COS_HOST="localhost"
+REMOTE_COS_PORT="5432"
 REMOTE_COS_DB="geodb"
 REMOTE_COS_USER="postgres"
 REMOTE_COS_PASSWORD="postgres"

@@ -35,8 +35,8 @@ services:
     env_file:
       - .env     # path to your .env file
     volumes:
+       - ./postgis/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
        - ./postgis/data:/var/lib/postgresql/data
-       - ./postgis/scripts:/tmp/
     networks:
       - database
     ports:

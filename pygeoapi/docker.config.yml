@@ -2984,7 +2984,7 @@ resources:
               - http://www.opengis.net/def/crs/EPSG/0/3763
         - type: tile
           name: MVT-proxy
-          data: http://tiles-scalargis:3000/srup_ran/{z}/{x}/{y}?f=mvt
+          data: http://tiles-scalargis:3000/mv_srup_ran/{z}/{x}/{y}?f=mvt
           options:
             zoom:
                 min: 0

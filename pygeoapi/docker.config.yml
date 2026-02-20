@@ -494,7 +494,7 @@ resources:
     title: CAOP2024.1 Freguesias
     type: collection
   admin:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Áreas
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. Áreas
       administrativas
     extents:
       spatial:
@@ -532,7 +532,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: id
       name: PostgreSQL
@@ -551,7 +551,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 Áreas administrativas
+    title: CAOP2025 Áreas administrativas
     type: collection
   nuts1:
     description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSI

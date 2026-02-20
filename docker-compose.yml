@@ -111,7 +111,9 @@ services:
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 3763 --save-config /tmp/config.yml
+    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 3763 --config /config/config.yaml
+    volumes:
+      - ./martin/config-caop.yml:/config/config.yaml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

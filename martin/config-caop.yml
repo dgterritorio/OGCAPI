@@ -1,0 +1,4486 @@
+cache_size_mb: 2048
+keep_alive: 200
+web_ui: disable
+postgres:
+  connection_string: postgresql://ogc_api:qZlZZt@192.168.10.102:5432/caop
+  default_srid: 3763
+  auto_bounds: calc
+  pool_size: 20
+  auto_publish:
+    from_schemas:
+    - caop2025
+  tables:
+    arqacores_gcentral_troco_caop2022:
+      schema: temp
+      table: arqacores_gcentral_troco_caop2022
+      srid: 5015
+      geometry_column: geom
+      bounds:
+      - -28.829079960397713
+      - 38.37435601600501
+      - -27.0414416464223
+      - 39.1017519674861
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: float8
+        ent_direit: varchar
+        ent_esquer: varchar
+        fid: int4
+        icc: varchar
+        id_troco: varchar
+        identificador: uuid
+        mol: varchar
+    arqacores_gocidental_troco_caop2022:
+      schema: temp
+      table: arqacores_gocidental_troco_caop2022
+      srid: 5014
+      geometry_column: geom
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: float8
+        ent_direit: varchar
+        ent_esquer: varchar
+        fid: int4
+        icc: varchar
+        id_troco: varchar
+        identificador: uuid
+        mol: varchar
+    arqacores_goriental_troco_caop2022:
+      schema: temp
+      table: arqacores_goriental_troco_caop2022
+      srid: 5015
+      geometry_column: geom
+      bounds:
+      - -25.86875231712323
+      - 36.93878808614599
+      - -24.98765621261812
+      - 37.899743640128285
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: float8
+        ent_direit: varchar
+        ent_esquer: varchar
+        fid: int4
+        icc: varchar
+        id_troco: varchar
+        identificador: uuid
+        mol: varchar
+    arqmadeira_troco_caop2022:
+      schema: temp
+      table: arqmadeira_troco_caop2022
+      srid: 5016
+      geometry_column: geom
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: float8
+        ent_direit: varchar
+        ent_esquer: varchar
+        fid: int4
+        icc: varchar
+        id_troco: varchar
+        identificador: uuid
+        mol: varchar
+    caop2019_caop_troco:
+      schema: temp
+      table: caop2019_caop_troco
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        alteracao: varchar
+        alteracao_: varchar
+        bst: numeric
+        dicofre_di: varchar
+        dicofre_es: varchar
+        edicao: varchar
+        edicao_201: varchar
+        ent_dir: varchar
+        ent_esq: varchar
+        fonte_id: uuid
+        icc: varchar
+        id: int4
+        id_troco: varchar
+        id_troco_a: numeric
+        id_troco_n: numeric
+        identificador: uuid
+        mol: numeric
+        revisao: varchar
+        shape_leng: numeric
+    caop_2012_1_cont_centroides_entidades:
+      schema: temp
+      table: caop_2012_1_cont_centroides_entidades
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.466303996275942
+      - 36.996281104144394
+      - -6.199016935215149
+      - 42.11660940057602
+      geometry_type: POINT
+      properties:
+        codigo: varchar
+        entidade_administrativa: varchar
+        id: int4
+        identificador: uuid
+        municipio_cod: varchar
+        nome: varchar
+        tipo_area_administrativa_id: varchar
+    caop_2012_1_cont_trocos:
+      schema: temp
+      table: caop_2012_1_cont_trocos
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514976
+      - 36.95442849448416
+      - -6.172036613788425
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        bst: varchar
+        comp_m: numeric
+        ea_direita: varchar
+        ea_esquerda: varchar
+        ent_dir: varchar
+        ent_esq: varchar
+        estado_limite_admin: varchar
+        icc: varchar
+        id: int4
+        id_troco: varchar
+        identificador: uuid
+        mol: varchar
+        pais: varchar
+        significado_linha: varchar
+    caop_2012_1_raa_oci_centroides_entidades:
+      schema: temp
+      table: caop_2012_1_raa_oci_centroides_entidades
+      srid: 5014
+      geometry_column: geom
+      bounds:
+      - -31.257283127464543
+      - 39.387703354805474
+      - -31.105291161984205
+      - 39.697614334878075
+      geometry_type: MULTIPOINT
+      properties:
+        codigo: varchar
+        entidade_administrativa: varchar
+        id: int4
+        municipio_cod: varchar
+        nome_entidade: varchar
+        tipo_area_administrativa_id: varchar
+    caop_2012_1_raa_oci_trocos:
+      schema: temp
+      table: caop_2012_1_raa_oci_trocos
+      srid: 5014
+      geometry_column: geom
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: numeric
+        ent_direit: varchar
+        ent_esquer: varchar
+        estado_limite_admin: varchar
+        icc: varchar
+        id: int4
+        id_troco: varchar
+        mol: varchar
+        pais: varchar
+        significado_linha: varchar
+    caop_2012_1_raa_ori_cen_centroides_entidades:
+      schema: temp
+      table: caop_2012_1_raa_ori_cen_centroides_entidades
+      srid: 5015
+      geometry_column: geom
+      bounds:
+      - -28.75014669833502
+      - 36.95955079494056
+      - -24.99122210680001
+      - 39.06475581847612
+      geometry_type: MULTIPOINT
+      properties:
+        codigo: varchar
+        entidade_administrativa: varchar
+        id: int4
+        municipio_cod: varchar
+        nome_entidade: varchar
+        tipo_area_administrativa_id: varchar
+    caop_2012_1_raa_ori_cen_trocos:
+      schema: temp
+      table: caop_2012_1_raa_ori_cen_trocos
+      srid: 5015
+      geometry_column: geom
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: numeric
+        ent_direit: varchar
+        ent_esquer: varchar
+        estado_limite_admin: varchar
+        icc: varchar
+        id: int4
+        id_troco: varchar
+        mol: varchar
+        pais: varchar
+        significado_linha: varchar
+    caop_2012_1_ram_centroides_entidades:
+      schema: temp
+      table: caop_2012_1_ram_centroides_entidades
+      srid: 5016
+      geometry_column: geom
+      bounds:
+      - -17.18434143329152
+      - 30.0164510200617
+      - -15.883788836815572
+      - 33.1297249605898
+      geometry_type: MULTIPOINT
+      properties:
+        codigo: varchar
+        entidade_administrativa: varchar
+        id: int4
+        municipio_cod: varchar
+        nome_entidade: varchar
+        tipo_area_administrativa_id: varchar
+    caop_2012_1_ram_trocos:
+      schema: temp
+      table: caop_2012_1_ram_trocos
+      srid: 5016
+      geometry_column: geom
+      bounds:
+      - -17.199619347378558
+      - 30.016147001071882
+      - -15.883706558477087
+      - 33.13166110487599
+      geometry_type: MULTILINESTRING
+      properties:
+        bst: varchar
+        comp_m: numeric
+        ent_direit: varchar
+        ent_esquer: varchar
+        estado_limite_admin: varchar
+        icc: varchar
+        id: int4
+        id_troco: varchar
+        mol: varchar
+        pais: varchar
+        significado_linha: varchar
+    caop_centroide_2019:
+      schema: temp
+      table: caop_centroide_2019
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.467670888131256
+      - 36.988606690162406
+      - -6.20078854506437
+      - 42.11320596468439
+      geometry_type: POINT
+      properties:
+        id: int4
+        identificador: uuid
+        novo_codig: varchar
+        refname: varchar
+        text_: varchar
+        txtmemo: varchar
+    caop_centroide_taa_continente_2019:
+      schema: temp
+      table: caop_centroide_taa_continente_2019
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.467670888131256
+      - 36.988606690162406
+      - -6.20078854506437
+      - 42.11320596468439
+      geometry_type: POINT
+      properties:
+        id: int4
+        nova_desig: varchar
+        novo_codig: varchar
+        refname: varchar
+        taa: numeric
+    centroide_ea_backup_uniao:
+      schema: temp
+      table: centroide_ea_backup_uniao
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.467670888131256
+      - 36.988606690162406
+      - -6.20078854506437
+      - 42.11320596468439
+      geometry_type: POINT
+      properties:
+        entidade_administrativa: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    centroide_ea_bk:
+      schema: versioning
+      table: centroide_ea_bk
+      srid: 3763
+      geometry_column: geometria
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        entidade_administrativa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    centroides_unicos_problemas:
+      schema: temp
+      table: centroides_unicos_problemas
+      srid: 3763
+      geometry_column: st_pointonsurface
+      bounds:
+      - -9.466539927402902
+      - 37.009789286908656
+      - -6.224104489067786
+      - 42.11702966736433
+      geometry_type: GEOMETRY
+      properties:
+        entidade_administrativa: varchar
+        min: text
+    cont_aad_caop2022_publicada:
+      schema: temp
+      table: cont_aad_caop2022_publicada
+      srid: 3763
+      geometry_column: centroide
+      bounds:
+      - -9.466539927402902
+      - 37.009789286908656
+      - -6.224104489067786
+      - 42.11702966736433
+      geometry_type: POINT
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        des_simpli: varchar
+        dicofre: varchar
+        distrito: varchar
+        freguesia: varchar
+        id: int4
+        taa: varchar
+    cont_aad_caop2022_publicada.1:
+      schema: temp
+      table: cont_aad_caop2022_publicada
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        des_simpli: varchar
+        dicofre: varchar
+        distrito: varchar
+        freguesia: varchar
+        id: int4
+        taa: varchar
+    cont_areas_administrativas:
+      schema: CAOP2024.1
+      table: cont_areas_administrativas
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    cont_areas_administrativas.1:
+      schema: CAOP2025
+      table: cont_areas_administrativas
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    cont_areas_administrativas.2:
+      schema: caop2024
+      table: cont_areas_administrativas
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    cont_areas_administrativas.3:
+      schema: master
+      table: cont_areas_administrativas
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    cont_centroide_ea:
+      schema: base
+      table: cont_centroide_ea
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.466539927402902
+      - 37.009789286908656
+      - -6.224104489067786
+      - 42.11702966736433
+      geometry_type: POINT
+      properties:
+        entidade_administrativa: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    cont_centroide_ea_bk:
+      schema: versioning
+      table: cont_centroide_ea_bk
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -10.265744807330217
+      - 36.998313690892275
+      - -7.05647203093813
+      - 41.708336211122706
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        entidade_administrativa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    cont_distritos:
+      schema: CAOP2024.1
+      table: cont_distritos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    cont_distritos.1:
+      schema: CAOP2025
+      table: cont_distritos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    cont_distritos.2:
+      schema: caop2024
+      table: cont_distritos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    cont_distritos.3:
+      schema: master
+      table: cont_distritos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    cont_freguesias:
+      schema: CAOP2024.1
+      table: cont_freguesias
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_freguesias.1:
+      schema: CAOP2025
+      table: cont_freguesias
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    cont_freguesias.2:
+      schema: caop2024
+      table: cont_freguesias
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_freguesias.3:
+      schema: master
+      table: cont_freguesias
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    cont_municipios:
+      schema: CAOP2024.1
+      table: cont_municipios
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_municipios.1:
+      schema: CAOP2025
+      table: cont_municipios
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    cont_municipios.2:
+      schema: caop2024
+      table: cont_municipios
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_municipios.3:
+      schema: master
+      table: cont_municipios
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    cont_nuts1:
+      schema: CAOP2024.1
+      table: cont_nuts1
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    cont_nuts1.1:
+      schema: CAOP2025
+      table: cont_nuts1
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    cont_nuts1.2:
+      schema: caop2024
+      table: cont_nuts1
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    cont_nuts1.3:
+      schema: master
+      table: cont_nuts1
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    cont_nuts2:
+      schema: CAOP2024.1
+      table: cont_nuts2
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    cont_nuts2.1:
+      schema: CAOP2025
+      table: cont_nuts2
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    cont_nuts2.2:
+      schema: caop2024
+      table: cont_nuts2
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    cont_nuts2.3:
+      schema: master
+      table: cont_nuts2
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    cont_nuts3:
+      schema: CAOP2024.1
+      table: cont_nuts3
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_nuts3.1:
+      schema: CAOP2025
+      table: cont_nuts3
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_nuts3.2:
+      schema: caop2024
+      table: cont_nuts3
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_nuts3.3:
+      schema: master
+      table: cont_nuts3
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    cont_poligonos_temp:
+      schema: CAOP2024.1
+      table: cont_poligonos_temp
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    cont_poligonos_temp.1:
+      schema: CAOP2025
+      table: cont_poligonos_temp
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    cont_poligonos_temp.2:
+      schema: caop2024
+      table: cont_poligonos_temp
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    cont_poligonos_temp.3:
+      schema: master
+      table: cont_poligonos_temp
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    cont_troco:
+      schema: base
+      table: cont_troco
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    cont_troco_bk:
+      schema: versioning
+      table: cont_troco_bk
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -10.575783451090388
+      - 36.93684107326723
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        bk_id: int4
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    cont_troco_caop2022:
+      schema: temp
+      table: cont_troco_caop2022
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        bst: varchar
+        comp_m: float8
+        ent_direit: varchar
+        ent_esquer: varchar
+        icc: varchar
+        id: int4
+        identificador: uuid
+        mol: varchar
+        troco_id: int4
+    cont_trocos:
+      schema: CAOP2024.1
+      table: cont_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    cont_trocos.1:
+      schema: CAOP2025
+      table: cont_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    cont_trocos.2:
+      schema: caop2024
+      table: cont_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    cont_trocos.3:
+      schema: master
+      table: cont_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    ebm_a:
+      schema: master
+      table: ebm_a
+      srid: 4258
+      geometry_column: geometry
+      bounds:
+      - -31.534799000000163
+      - 29.82587599999985
+      - -6.189352000000184
+      - 42.15441899999985
+      geometry_type: MULTIPOLYGON
+      properties:
+        ICC: text
+        InspireId: text
+        SHN: text
+        TAA: varchar
+        beginLifeSpanVersion: timestamp
+    ebm_a_2024:
+      schema: euroboundaries
+      table: ebm_a_2024
+      srid: 4258
+      geometry_column: geom
+      bounds:
+      - -31.534799000000163
+      - 29.82587599999985
+      - -6.189352000000184
+      - 42.15441899999985
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginlifespanversion: timestamptz
+        icc: varchar
+        id: int4
+        inspireid: varchar
+        shape_area: float8
+        shape_length: float8
+        shn: varchar
+        taa: int2
+    ebm_boundaries_2024:
+      schema: euroboundaries
+      table: ebm_boundaries_2024
+      srid: 4258
+      geometry_column: geom
+      bounds:
+      - -31.534799000000163
+      - 29.82587599999985
+      - -6.189352000000184
+      - 42.15441899999985
+      geometry_type: LINESTRING
+      properties:
+        abid: varchar
+        beginlifespanversion: timestamptz
+        bst: int2
+        icc: varchar
+        id: int4
+        inspireid: varchar
+        mol: int2
+        shape_length: float8
+        use: int2
+    ebm_centroides:
+      schema: temp
+      table: ebm_centroides
+      srid: 4258
+      geometry_column: geometria
+      bounds:
+      - -31.255465814781218
+      - 30.028827478617956
+      - -6.240128501806024
+      - 42.13289420520113
+      geometry_type: POINT
+      properties:
+        entidade_administrativa: varchar
+        shn_prefix: text
+        tipo_area_administrativa_id: varchar
+    ebm_cont_trocos:
+      schema: temp
+      table: ebm_cont_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: GEOMETRY
+      properties:
+        identificador: uuid
+    ebm_poligonos:
+      schema: temp
+      table: ebm_poligonos
+      srid: 4258
+      geometry_column: geometria
+      bounds:
+      - -31.268815408039654
+      - 30.029492944223797
+      - -6.189159307482949
+      - 42.15431112740944
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    ebm_raa_cen_ori_trocos:
+      schema: temp
+      table: ebm_raa_cen_ori_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - 4.600255967820737
+      - 76.05333394703652
+      - 19.91961117314811
+      - 77.0487261200592
+      geometry_type: GEOMETRY
+      properties:
+        identificador: uuid
+    ebm_raa_oci_trocos:
+      schema: temp
+      table: ebm_raa_oci_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - 19.49665134686755
+      - 77.41140316783529
+      - 20.822395444447015
+      - 77.65988464041267
+      geometry_type: GEOMETRY
+      properties:
+        identificador: uuid
+    ebm_ram_trocos:
+      schema: temp
+      table: ebm_ram_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -0.8027249158593182
+      - 69.36268547710465
+      - 4.192411196080218
+      - 72.21339463468948
+      geometry_type: GEOMETRY
+      properties:
+        identificador: uuid
+    ebm_trocos:
+      schema: temp
+      table: ebm_trocos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -8.13347274903532
+      - 39.6685287942394
+      - -8.13318046369539
+      - 39.66863800518985
+      geometry_type: GEOMETRY
+      properties:
+        identificador: uuid
+    ebm_trocos_fixos:
+      schema: euroboundaries
+      table: ebm_trocos_fixos
+      srid: 4258
+      geometry_column: geom
+      bounds:
+      - -31.26881450000016
+      - 30.02949299999986
+      - -6.189352000000184
+      - 42.15441899999985
+      geometry_type: LINESTRING
+      properties:
+        abid: varchar
+        beginlifespanversion: timestamptz
+        bst: int2
+        icc: varchar
+        id: int4
+        inicio_objecto: timestamp
+        inspireid: varchar
+        mol: int2
+        motivo: varchar
+        shape_length: float8
+        use: int2
+        utilizador: varchar
+    inspire_admin_boundaries_cont:
+      schema: master
+      table: inspire_admin_boundaries_cont
+      srid: 3763
+      geometry_column: geometry
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        admUnit: text
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    inspire_admin_boundaries_raa_cen_ori:
+      schema: master
+      table: inspire_admin_boundaries_raa_cen_ori
+      srid: 5015
+      geometry_column: geometry
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        admUnit: text
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    inspire_admin_boundaries_raa_oci:
+      schema: master
+      table: inspire_admin_boundaries_raa_oci
+      srid: 5014
+      geometry_column: geometry
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        admUnit: text
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    inspire_admin_boundaries_ram:
+      schema: master
+      table: inspire_admin_boundaries_ram
+      srid: 5016
+      geometry_column: geometry
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        admUnit: text
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    inspire_admin_units_3rdorder_cont:
+      schema: master
+      table: inspire_admin_units_3rdorder_cont
+      srid: 3763
+      geometry_column: geometry
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_3rdorder_raa_cen_ori:
+      schema: master
+      table: inspire_admin_units_3rdorder_raa_cen_ori
+      srid: 5015
+      geometry_column: geometry
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_3rdorder_raa_oci:
+      schema: master
+      table: inspire_admin_units_3rdorder_raa_oci
+      srid: 5014
+      geometry_column: geometry
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_3rdorder_ram:
+      schema: master
+      table: inspire_admin_units_3rdorder_ram
+      srid: 5016
+      geometry_column: geometry
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_4thorder_cont:
+      schema: master
+      table: inspire_admin_units_4thorder_cont
+      srid: 3763
+      geometry_column: geometry
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_4thorder_raa_cen_ori:
+      schema: master
+      table: inspire_admin_units_4thorder_raa_cen_ori
+      srid: 5015
+      geometry_column: geometry
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_4thorder_raa_oci:
+      schema: master
+      table: inspire_admin_units_4thorder_raa_oci
+      srid: 5014
+      geometry_column: geometry
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_4thorder_ram:
+      schema: master
+      table: inspire_admin_units_4thorder_ram
+      srid: 5016
+      geometry_column: geometry
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_5thorder_cont:
+      schema: master
+      table: inspire_admin_units_5thorder_cont
+      srid: 3763
+      geometry_column: geometry
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_5thorder_raa_cen_ori:
+      schema: master
+      table: inspire_admin_units_5thorder_raa_cen_ori
+      srid: 5015
+      geometry_column: geometry
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_5thorder_raa_oci:
+      schema: master
+      table: inspire_admin_units_5thorder_raa_oci
+      srid: 5014
+      geometry_column: geometry
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_5thorder_ram:
+      schema: master
+      table: inspire_admin_units_5thorder_ram
+      srid: 5016
+      geometry_column: geometry
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        id: int8
+        inspireId: text
+        name: varchar
+        nationalCode: text
+        nationalLevel: text
+        nationalLevelName: text
+        residenceOfAutorithy: varchar
+        upperLevelUnit: text
+    inspire_admin_units_boundaries_raa_cen_ori:
+      schema: master
+      table: inspire_admin_units_boundaries_raa_cen_ori
+      srid: 5015
+      geometry_column: geometry
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        admUnit: varchar
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        inspireId: uuid
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    inspire_admin_units_boundaries_raa_oci:
+      schema: master
+      table: inspire_admin_units_boundaries_raa_oci
+      srid: 5014
+      geometry_column: geometry
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        admUnit: varchar
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        inspireId: uuid
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    inspire_admin_units_boundaries_ram:
+      schema: master
+      table: inspire_admin_units_boundaries_ram
+      srid: 5016
+      geometry_column: geometry
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        admUnit: varchar
+        beginLifespanVersion: timestamp
+        country: text
+        endLifespanVersion: timestamp
+        inspireId: uuid
+        legalStatus: text
+        nationalLevel: varchar
+        technicalStatus: text
+    poligonos:
+      schema: temp
+      table: poligonos
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_cen_aad_caop2022_publicada:
+      schema: temp
+      table: raa_cen_aad_caop2022_publicada
+      srid: 5015
+      geometry_column: centroide
+      bounds:
+      - -28.784575879236286
+      - 38.41003333755599
+      - -27.056916364094164
+      - 39.082046895805014
+      geometry_type: POINT
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    raa_cen_aad_caop2022_publicada.1:
+      schema: temp
+      table: raa_cen_aad_caop2022_publicada
+      srid: 5015
+      geometry_column: geom
+      bounds:
+      - -28.829079960397713
+      - 38.37435601600501
+      - -27.0414416464223
+      - 39.1017519674861
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    raa_cen_ori_areas_administrativas:
+      schema: CAOP2024.1
+      table: raa_cen_ori_areas_administrativas
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_cen_ori_areas_administrativas.1:
+      schema: CAOP2025
+      table: raa_cen_ori_areas_administrativas
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_cen_ori_areas_administrativas.2:
+      schema: caop2024
+      table: raa_cen_ori_areas_administrativas
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_cen_ori_areas_administrativas.3:
+      schema: master
+      table: raa_cen_ori_areas_administrativas
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_cen_ori_centroide_ea:
+      schema: base
+      table: raa_cen_ori_centroide_ea
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.75014669833502
+      - 36.95955079494056
+      - -24.99122210680001
+      - 39.06475581847612
+      geometry_type: POINT
+      properties:
+        entidade_administrativa: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    raa_cen_ori_centroide_ea_bk:
+      schema: versioning
+      table: raa_cen_ori_centroide_ea_bk
+      srid: 5015
+      geometry_column: geometria
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        entidade_administrativa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    raa_cen_ori_distritos:
+      schema: CAOP2024.1
+      table: raa_cen_ori_distritos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    raa_cen_ori_distritos.1:
+      schema: CAOP2025
+      table: raa_cen_ori_distritos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    raa_cen_ori_distritos.2:
+      schema: caop2024
+      table: raa_cen_ori_distritos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    raa_cen_ori_distritos.3:
+      schema: master
+      table: raa_cen_ori_distritos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    raa_cen_ori_freguesias:
+      schema: CAOP2024.1
+      table: raa_cen_ori_freguesias
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_freguesias.1:
+      schema: CAOP2025
+      table: raa_cen_ori_freguesias
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_cen_ori_freguesias.2:
+      schema: caop2024
+      table: raa_cen_ori_freguesias
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_freguesias.3:
+      schema: master
+      table: raa_cen_ori_freguesias
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_cen_ori_municipios:
+      schema: CAOP2024.1
+      table: raa_cen_ori_municipios
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_municipios.1:
+      schema: CAOP2025
+      table: raa_cen_ori_municipios
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_cen_ori_municipios.2:
+      schema: caop2024
+      table: raa_cen_ori_municipios
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_municipios.3:
+      schema: master
+      table: raa_cen_ori_municipios
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts1:
+      schema: CAOP2024.1
+      table: raa_cen_ori_nuts1
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts1.1:
+      schema: CAOP2025
+      table: raa_cen_ori_nuts1
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts1.2:
+      schema: caop2024
+      table: raa_cen_ori_nuts1
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts1.3:
+      schema: master
+      table: raa_cen_ori_nuts1
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts2:
+      schema: CAOP2024.1
+      table: raa_cen_ori_nuts2
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts2.1:
+      schema: CAOP2025
+      table: raa_cen_ori_nuts2
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts2.2:
+      schema: caop2024
+      table: raa_cen_ori_nuts2
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts2.3:
+      schema: master
+      table: raa_cen_ori_nuts2
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts3:
+      schema: CAOP2024.1
+      table: raa_cen_ori_nuts3
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts3.1:
+      schema: CAOP2025
+      table: raa_cen_ori_nuts3
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts3.2:
+      schema: caop2024
+      table: raa_cen_ori_nuts3
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_nuts3.3:
+      schema: master
+      table: raa_cen_ori_nuts3
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_cen_ori_poligonos_temp:
+      schema: CAOP2024.1
+      table: raa_cen_ori_poligonos_temp
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_cen_ori_poligonos_temp.1:
+      schema: CAOP2025
+      table: raa_cen_ori_poligonos_temp
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_cen_ori_poligonos_temp.2:
+      schema: master
+      table: raa_cen_ori_poligonos_temp
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_cen_ori_troco:
+      schema: base
+      table: raa_cen_ori_troco
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    raa_cen_ori_troco_bk:
+      schema: versioning
+      table: raa_cen_ori_troco_bk
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        bk_id: int4
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    raa_cen_ori_trocos:
+      schema: CAOP2024.1
+      table: raa_cen_ori_trocos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_cen_ori_trocos.1:
+      schema: CAOP2025
+      table: raa_cen_ori_trocos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_cen_ori_trocos.2:
+      schema: caop2024
+      table: raa_cen_ori_trocos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_cen_ori_trocos.3:
+      schema: master
+      table: raa_cen_ori_trocos
+      srid: 5015
+      geometry_column: geometria
+      bounds:
+      - -28.79399496030298
+      - 36.93062508484666
+      - -24.954435185563245
+      - 39.08381210610074
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_oci_aad_caop2022_publicada:
+      schema: temp
+      table: raa_oci_aad_caop2022_publicada
+      srid: 5014
+      geometry_column: centroide
+      bounds:
+      - -31.257283127464543
+      - 39.387703354805474
+      - -31.105291161984205
+      - 39.697614334878075
+      geometry_type: POINT
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    raa_oci_aad_caop2022_publicada.1:
+      schema: temp
+      table: raa_oci_aad_caop2022_publicada
+      srid: 5014
+      geometry_column: geom
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    raa_oci_areas_administrativas:
+      schema: CAOP2024.1
+      table: raa_oci_areas_administrativas
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_oci_areas_administrativas.1:
+      schema: CAOP2025
+      table: raa_oci_areas_administrativas
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_oci_areas_administrativas.2:
+      schema: caop2024
+      table: raa_oci_areas_administrativas
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_oci_areas_administrativas.3:
+      schema: master
+      table: raa_oci_areas_administrativas
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    raa_oci_centroide_ea:
+      schema: base
+      table: raa_oci_centroide_ea
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.257283127464543
+      - 39.387703354805474
+      - -31.105291161984205
+      - 39.697614334878075
+      geometry_type: POINT
+      properties:
+        entidade_administrativa: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    raa_oci_centroide_ea_bk:
+      schema: versioning
+      table: raa_oci_centroide_ea_bk
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.46311687945019
+      - 39.51045639691864
+      - -31.398066497369395
+      - 39.54320178828677
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        entidade_administrativa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    raa_oci_distritos:
+      schema: CAOP2024.1
+      table: raa_oci_distritos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    raa_oci_distritos.1:
+      schema: CAOP2025
+      table: raa_oci_distritos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    raa_oci_distritos.2:
+      schema: caop2024
+      table: raa_oci_distritos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    raa_oci_distritos.3:
+      schema: master
+      table: raa_oci_distritos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    raa_oci_freguesias:
+      schema: CAOP2024.1
+      table: raa_oci_freguesias
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_freguesias.1:
+      schema: CAOP2025
+      table: raa_oci_freguesias
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_oci_freguesias.2:
+      schema: caop2024
+      table: raa_oci_freguesias
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_freguesias.3:
+      schema: master
+      table: raa_oci_freguesias
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_oci_municipios:
+      schema: CAOP2024.1
+      table: raa_oci_municipios
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_municipios.1:
+      schema: CAOP2025
+      table: raa_oci_municipios
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_oci_municipios.2:
+      schema: caop2024
+      table: raa_oci_municipios
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_municipios.3:
+      schema: master
+      table: raa_oci_municipios
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    raa_oci_nuts1:
+      schema: CAOP2024.1
+      table: raa_oci_nuts1
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_oci_nuts1.1:
+      schema: CAOP2025
+      table: raa_oci_nuts1
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_oci_nuts1.2:
+      schema: caop2024
+      table: raa_oci_nuts1
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_oci_nuts1.3:
+      schema: master
+      table: raa_oci_nuts1
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    raa_oci_nuts2:
+      schema: CAOP2024.1
+      table: raa_oci_nuts2
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_oci_nuts2.1:
+      schema: CAOP2025
+      table: raa_oci_nuts2
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_oci_nuts2.2:
+      schema: caop2024
+      table: raa_oci_nuts2
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_oci_nuts2.3:
+      schema: master
+      table: raa_oci_nuts2
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    raa_oci_nuts3:
+      schema: CAOP2024.1
+      table: raa_oci_nuts3
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_nuts3.1:
+      schema: CAOP2025
+      table: raa_oci_nuts3
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_nuts3.2:
+      schema: caop2024
+      table: raa_oci_nuts3
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_nuts3.3:
+      schema: master
+      table: raa_oci_nuts3
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    raa_oci_poligonos_temp:
+      schema: CAOP2024.1
+      table: raa_oci_poligonos_temp
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_oci_poligonos_temp.1:
+      schema: CAOP2025
+      table: raa_oci_poligonos_temp
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_oci_poligonos_temp.2:
+      schema: master
+      table: raa_oci_poligonos_temp
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    raa_oci_troco:
+      schema: base
+      table: raa_oci_troco
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    raa_oci_troco_bk:
+      schema: versioning
+      table: raa_oci_troco_bk
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.51158182718803
+      - 39.3750122268642
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        bk_id: int4
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    raa_oci_trocos:
+      schema: CAOP2024.1
+      table: raa_oci_trocos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_oci_trocos.1:
+      schema: CAOP2025
+      table: raa_oci_trocos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_oci_trocos.2:
+      schema: caop2024
+      table: raa_oci_trocos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_oci_trocos.3:
+      schema: master
+      table: raa_oci_trocos
+      srid: 5014
+      geometry_column: geometria
+      bounds:
+      - -31.270792952111364
+      - 39.37168241745332
+      - -31.081590117941197
+      - 39.72575087235207
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    raa_ori_aad_caop2022_publicada:
+      schema: temp
+      table: raa_ori_aad_caop2022_publicada
+      srid: 5015
+      geometry_column: centroide
+      bounds:
+      - -25.8461649175876
+      - 36.966844163411814
+      - -25.023724678628668
+      - 37.88436728594699
+      geometry_type: POINT
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    raa_ori_aad_caop2022_publicada.1:
+      schema: temp
+      table: raa_ori_aad_caop2022_publicada
+      srid: 5015
+      geometry_column: geom
+      bounds:
+      - -25.86875231712323
+      - 36.93878808614599
+      - -24.98765621261812
+      - 37.899743640128285
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    ram_aad_caop2022_publicada:
+      schema: temp
+      table: ram_aad_caop2022_publicada
+      srid: 5016
+      geometry_column: centroide
+      bounds:
+      - -17.184307693844843
+      - 30.014896865137214
+      - -15.881535186428431
+      - 33.12973770664476
+      geometry_type: POINT
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    ram_aad_caop2022_publicada.1:
+      schema: temp
+      table: ram_aad_caop2022_publicada
+      srid: 5016
+      geometry_column: geom
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ea_ha: float8
+        area_t_ha: float8
+        concelho: varchar
+        dicofre: varchar
+        fid: int4
+        freguesia: varchar
+        ilha: varchar
+        taa: varchar
+    ram_areas_administrativas:
+      schema: CAOP2024.1
+      table: ram_areas_administrativas
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    ram_areas_administrativas.1:
+      schema: CAOP2025
+      table: ram_areas_administrativas
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    ram_areas_administrativas.2:
+      schema: caop2024
+      table: ram_areas_administrativas
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    ram_areas_administrativas.3:
+      schema: master
+      table: ram_areas_administrativas
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    ram_centroide_ea:
+      schema: base
+      table: ram_centroide_ea
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.184307693844843
+      - 30.014896865137214
+      - -15.881535186428431
+      - 33.12973770664476
+      geometry_type: POINT
+      properties:
+        entidade_administrativa: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    ram_centroide_ea_bk:
+      schema: versioning
+      table: ram_centroide_ea_bk
+      srid: 5016
+      geometry_column: geometria
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        entidade_administrativa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        tipo_area_administrativa_id: varchar
+        utilizador: varchar
+    ram_distritos:
+      schema: CAOP2024.1
+      table: ram_distritos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    ram_distritos.1:
+      schema: CAOP2025
+      table: ram_distritos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    ram_distritos.2:
+      schema: caop2024
+      table: ram_distritos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        perimetro_km: int4
+    ram_distritos.3:
+      schema: master
+      table: ram_distritos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito: varchar
+        dt: text
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: text
+        perimetro_km: int4
+    ram_freguesias:
+      schema: CAOP2024.1
+      table: ram_freguesias
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_freguesias.1:
+      schema: CAOP2025
+      table: ram_freguesias
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    ram_freguesias.2:
+      schema: caop2024
+      table: ram_freguesias
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_freguesias.3:
+      schema: master
+      table: ram_freguesias
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        designacao_simplificada: text
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    ram_municipios:
+      schema: CAOP2024.1
+      table: ram_municipios
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_municipios.1:
+      schema: CAOP2025
+      table: ram_municipios
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    ram_municipios.2:
+      schema: caop2024
+      table: ram_municipios
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_municipios.3:
+      schema: master
+      table: ram_municipios
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        distrito_ilha: varchar
+        dtmn: text
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        perimetro_km: int4
+    ram_nuts1:
+      schema: CAOP2024.1
+      table: ram_nuts1
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    ram_nuts1.1:
+      schema: CAOP2025
+      table: ram_nuts1
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    ram_nuts1.2:
+      schema: caop2024
+      table: ram_nuts1
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    ram_nuts1.3:
+      schema: master
+      table: ram_nuts1
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        perimetro_km: int4
+    ram_nuts2:
+      schema: CAOP2024.1
+      table: ram_nuts2
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    ram_nuts2.1:
+      schema: CAOP2025
+      table: ram_nuts2
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    ram_nuts2.2:
+      schema: caop2024
+      table: ram_nuts2
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    ram_nuts2.3:
+      schema: master
+      table: ram_nuts2
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: numeric
+        nuts1: varchar
+        nuts2: varchar
+        perimetro_km: int4
+    ram_nuts3:
+      schema: CAOP2024.1
+      table: ram_nuts3
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_nuts3.1:
+      schema: CAOP2025
+      table: ram_nuts3
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_nuts3.2:
+      schema: caop2024
+      table: ram_nuts3
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_nuts3.3:
+      schema: master
+      table: ram_nuts3
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: numeric
+        codigo: varchar
+        id: int8
+        n_freguesias: numeric
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        perimetro_km: int4
+    ram_poligonos_temp:
+      schema: CAOP2024.1
+      table: ram_poligonos_temp
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    ram_poligonos_temp.1:
+      schema: CAOP2025
+      table: ram_poligonos_temp
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    ram_poligonos_temp.2:
+      schema: master
+      table: ram_poligonos_temp
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: POLYGON
+      properties:
+        id: int4
+    ram_troco:
+      schema: base
+      table: ram_troco
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    ram_troco_bk:
+      schema: versioning
+      table: ram_troco_bk
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        bk_id: int4
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    ram_trocos:
+      schema: CAOP2024.1
+      table: ram_trocos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    ram_trocos.1:
+      schema: CAOP2025
+      table: ram_trocos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    ram_trocos.2:
+      schema: caop2024
+      table: ram_trocos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    ram_trocos.3:
+      schema: master
+      table: ram_trocos
+      srid: 5016
+      geometry_column: geometria
+      bounds:
+      - -17.199585192248893
+      - 30.014592926728625
+      - -15.881451094482424
+      - 33.131673883942696
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        nivel_limite_admin: varchar
+        paises: varchar
+        significado_linha: varchar
+    sede_administrativa:
+      schema: base
+      table: sede_administrativa
+      srid: 4258
+      geometry_column: geometria
+      bounds:
+      - -31.179554000000167
+      - 32.64568249999985
+      - -6.278292000000192
+      - 42.11304399999986
+      geometry_type: POINT
+      properties:
+        ebm_roa: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nome: varchar
+        tipo_sede_administrativa: varchar
+        utilizador: varchar
+    sede_administrativa_bk:
+      schema: versioning
+      table: sede_administrativa_bk
+      srid: 4258
+      geometry_column: geometria
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        ebm_roa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nome: varchar
+        tipo_sede_administrativa: varchar
+        utilizador: varchar
+    sede_autoridade_bk:
+      schema: versioning
+      table: sede_autoridade_bk
+      srid: 4258
+      geometry_column: geometria
+      geometry_type: POINT
+      properties:
+        bk_id: int4
+        ebm_roa: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nome: varchar
+        tipo_sede_autoridade: varchar
+        utilizador: varchar
+    troco:
+      schema: temp
+      table: troco
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.445111062829943
+      - 38.71332259340019
+      - -9.29208053354951
+      - 38.77243395567493
+      geometry_type: LINESTRING
+      properties:
+        ea_direita: varchar
+        ea_esquerda: varchar
+        identificador: uuid
+    troco_bk:
+      schema: versioning
+      table: troco_bk
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -9.705861576555986
+      - 36.951553386071026
+      - -7.341782198806217
+      - 41.86003638498028
+      geometry_type: LINESTRING
+      properties:
+        bk_id: int4
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        fim_objecto_operacao: varchar
+        fim_objecto_utilizador: varchar
+        fim_objeto: timestamp
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+    troco_topology:
+      schema: temp
+      table: troco_topology
+      srid: 3763
+      geometry_column: geometria
+      bounds:
+      - -11.492147963489463
+      - 36.91444308369402
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: uuid
+        inicio_objecto: timestamp
+        motivo: varchar
+        nivel_limite_admin: varchar
+        pais: varchar
+        significado_linha: varchar
+        troco_parente: uuid
+        utilizador: varchar
+  functions: {}

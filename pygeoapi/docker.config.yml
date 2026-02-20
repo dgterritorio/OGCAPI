@@ -376,7 +376,7 @@ resources:
     title: COS2023v1-S2
     type: collection
   municipios:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Municípios
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. Municípios
     extents:
       spatial:
         bbox:
@@ -413,7 +413,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: dtmn
       name: PostgreSQL
@@ -432,10 +432,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 Municípios
+    title: CAOP2025 Municípios
     type: collection
   freguesias:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Freguesias
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025 Freguesias
     extents:
       spatial:
         bbox:
@@ -472,7 +472,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: dtmnfr
       name: PostgreSQL
@@ -491,10 +491,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 Freguesias
+    title: CAOP2025 Freguesias
     type: collection
   admin:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Áreas
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. Áreas
       administrativas
     extents:
       spatial:
@@ -532,7 +532,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: id
       name: PostgreSQL
@@ -551,10 +551,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 Áreas administrativas
+    title: CAOP2025 Áreas administrativas
     type: collection
   nuts1:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSI
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. NUTSI
     extents:
       spatial:
         bbox:
@@ -591,7 +591,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
@@ -610,10 +610,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 NUTSI
+    title: CAOP2025 NUTSI
     type: collection
   nuts2:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSII
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. NUTSII
     extents:
       spatial:
         bbox:
@@ -650,7 +650,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
@@ -669,10 +669,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 NUTSII
+    title: CAOP2025 NUTSII
     type: collection
   nuts3:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. NUTSIII
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. NUTSIII
     extents:
       spatial:
         bbox:
@@ -709,7 +709,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
@@ -728,10 +728,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 NUTSIII
+    title: CAOP2025 NUTSIII
     type: collection
   trocos:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Troços
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. Troços
       administrativos
     extents:
       spatial:
@@ -769,7 +769,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: identificador
       name: PostgreSQL
@@ -788,10 +788,10 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 Troços
+    title: CAOP2025 Troços
     type: collection
   distritos:
-    description: Carta Administrativa Oficial de Portugal, Continente, 2024.1. Distritos
+    description: Carta Administrativa Oficial de Portugal, Continente, 2025. Distritos
     extents:
       spatial:
         bbox:
@@ -828,7 +828,7 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - "CAOP2024.1"
+          - "CAOP2025"
       geom_field: geometria
       id_field: dt
       name: PostgreSQL
@@ -847,7 +847,7 @@ resources:
           max: 15
           min: 0
       type: tile
-    title: CAOP2024.1 Distritos
+    title: CAOP2025 Distritos
     type: collection
   snig:
     description: OGC API que permite a descoberta e acesso a metadados registados no Sistema Nacional de Informação Geográfica - SNIG.

@@ -1223,20 +1223,6 @@ resources:
         layer: Ortos2018-RGB
         style: default
         version: 1.3.0
-    - type: tile
-      name: WMTSFacade
-      data: https://emotional.byteroad.net/geoserver/gwc/service/wmts
-      format:
-          name: png
-          mimetype: image/png
-      options:
-          wmts_layer: Ortos2018-RGB
-          wmts_tile_matrix_set: WPTTM_06
-          wmts_style: default
-          scheme: PTTM_06
-          zoom:
-              min: 0
-              max: 19
   ortos2018-irg:
     type: collection
     title: Ortofotos 25 cm - Portugal Continental - 2018 - (Falsa Cor)

@@ -1225,7 +1225,7 @@ resources:
         version: 1.3.0
     - type: tile
       name: WMTSFacade
-      data: https://cartografia.dgterritorio.gov.pt/ortos2018/service
+      data: https://cartografia.dgterritorio.gov.pt/ortos2018/service?service=wmts
       format:
           name: png
           mimetype: image/png

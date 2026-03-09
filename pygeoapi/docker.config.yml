@@ -776,7 +776,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_trocos
       type: feature
-    - data: http://tiles-caop:3000/trocos/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_trocos/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf
@@ -835,7 +835,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_distritos
       type: feature
-    - data: http://tiles-caop:3000/distritos/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_distritos/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf

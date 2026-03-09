@@ -30,6 +30,8 @@ This compositions read secrets from an environment file on this folder: ```.env`
 Create this file with the following format, replacing "REMOTE_COS_PASSWORD=postgres" by a reasonable value.
 
 ```
+PYGEOAPI_OPENAPI_GENERATE_FAIL_ON_INVALID_COLLECTION=false
+CONTAINER_PORT=80
 HOST_URL=http://localhost
 REMOTE_COS_HOST="localhost"
 REMOTE_COS_PORT="5432"

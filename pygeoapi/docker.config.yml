@@ -716,7 +716,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cont_nuts3
       type: feature
-    - data: http://tiles-caop:3000/nuts3/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-caop:3000/cont_nuts3/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf

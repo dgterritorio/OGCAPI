@@ -75,7 +75,9 @@ services:
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
       # - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
     restart: always
-    command: run –no-fail-on-invalid-collection
+    command: >
+      "pygeoapi openapi generate $$PYGEOAPI_CONFIG --no-fail-on-invalid-collection > $$PYGEOAPI_OPENAPI && 
+       gunicorn --bind 0.0.0.0:${CONTAINER_PORT} pygeoapi.flask_app:APP"
     links:
       - tiles
       - tiles-caop

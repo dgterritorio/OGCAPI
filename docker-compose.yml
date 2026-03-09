@@ -75,7 +75,7 @@ services:
       - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
       # - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
     restart: always
-    command: –no-fail-on-invalid-collection
+    command: run –no-fail-on-invalid-collection
     links:
       - tiles
       - tiles-caop

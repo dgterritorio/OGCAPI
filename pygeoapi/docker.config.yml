@@ -29,7 +29,7 @@ logging:
 metadata:
   identification:
     title:
-      pt: Serviço OGC API da DGT
+      pt: Serviço OGC API da DGT - Formacao DGT
       en: OGC API Service from DGT
     description:
       pt: Plataforma de publicação de dados abertos da DGT em OGC API

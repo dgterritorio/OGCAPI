@@ -72,7 +72,7 @@ services:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./data:/data
       - ./pygeoapi/templates:/templates # jinja templates
-      - ./pygeoapi/Logo_DGT.png:/pygeoapi/pygeoapi/static/img/Logo_DGT.png # logo
+      - ./pygeoapi/intergeopt-prr.png:/pygeoapi/pygeoapi/static/img/intergeopt-prr.png # logo
       # - ./pygeoapi/default.css:/pygeoapi/pygeoapi/static/css/default.css # ribbon
     restart: always
     links:

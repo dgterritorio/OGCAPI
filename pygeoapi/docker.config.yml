@@ -2836,7 +2836,7 @@ resources:
       on_exceed: throttle
     providers:
         - type: feature
-          name: PostgreSQL
+          name: pygeoapi_plugins.provider.postgresql.PseudoPostgreSQLProvider
           storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
           data:
                 dbname: ${REMOTE_SCALARGIS_DB}

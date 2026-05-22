@@ -4,7 +4,7 @@ import time
 import logging
 from copy import deepcopy
 
-from sqlalchemy import text
+from sqlalchemy import text, func
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 
@@ -40,17 +40,17 @@ class PseudoPostgreSQLProvider(PostgreSQLProvider):
         bbox_filter = self._get_bbox_filter(bbox)
         time_filter = self._get_datetime_filter(datetime_)
         order_by_clauses = self._get_order_by_clauses(sortby, self.table_model)
-        selected_properties = self._select_properties_clause_simplify_geometry(select_properties, skip_geometry)
+        selected_columns = self._get_selected_columns(select_properties, skip_geometry)
         LOGGER.info(f"[PERF] Filter construction took {time.perf_counter() - t_filter_start:.4f}s")
 
         with Session(self._engine) as session:
             results = (
                 session.query(self.table_model)
+                .with_entities(*selected_columns)
                 .filter(property_filters)
                 .filter(cql_filters)
                 .filter(bbox_filter)
                 .filter(time_filter)
-                .options(selected_properties)
             )
 
             response = {
@@ -145,13 +145,23 @@ class PseudoPostgreSQLProvider(PostgreSQLProvider):
         with Session(self._engine) as session:
             try:
                 t_primary_get = time.perf_counter()
-                item = session.get(self.table_model, identifier)
-                assert item is not None
+                selected_columns = self._get_selected_columns([], False)
+                id_col = getattr(self.table_model, self.id_field)
+                item = (session.query(self.table_model)
+                        .with_entities(*selected_columns)
+                        .filter(id_col == identifier)
+                        .first())
+
+                if item is None:
+                    raise ProviderItemNotFoundError(f'No such item: {self.id_field}={identifier}.')
+
                 feature_id = getattr(item, self.id_field)
                 assert str(feature_id) == identifier
-                LOGGER.info(f"[PERF] session.get() for primary item took {time.perf_counter() - t_primary_get:.4f}s")
-            except (AssertionError, SQLAlchemyError) as e:
+                LOGGER.info(f"[PERF] Query for primary item took {time.perf_counter() - t_primary_get:.4f}s")
+            except (AssertionError, SQLAlchemyError, ProviderItemNotFoundError) as e:
                 LOGGER.debug(e, exc_info=True)
+                if isinstance(e, ProviderItemNotFoundError):
+                    raise
                 raise ProviderItemNotFoundError(f'No such item: {self.id_field}={identifier}.')
                 
             crs_transform_out = get_transform_from_spec(crs_transform_spec)
@@ -187,31 +197,33 @@ class PseudoPostgreSQLProvider(PostgreSQLProvider):
         LOGGER.info(f"[PERF] ---> TOTAL get() execution time: {time.perf_counter() - t_start:.4f}s\n")
         return feature
 
-    def _select_properties_clause_simplify_geometry(self, select_properties, skip_geometry):
+    def _get_selected_columns(self, select_properties, skip_geometry):
         # List the column names that we want
         if select_properties:
-            column_names = sorted(set(select_properties),
-                                  key=select_properties.index)
+            column_names = list(dict.fromkeys(select_properties))
         else:
             # get_fields() doesn't include geometry column
-            column_names = self.fields.keys()
+            column_names = list(self.fields.keys())
 
         if self.properties:  # optional subset of properties defined in config
-            properties_from_config = self.properties
-            column_names = column_names and properties_from_config
-
-        if not skip_geometry:
-            column_names = list(column_names)
-            column_names.append('ST_SnapToGrid(' + self.geom + ', 0.0001) AS ' + self.geom)
+            column_names = [c for c in column_names if c in self.properties]
 
         # Convert names to SQL Alchemy clause
         selected_columns = []
+        
+        # Ensure ID field is included for feature construction
+        if self.id_field not in column_names:
+            selected_columns.append(getattr(self.table_model, self.id_field))
+
         for column_name in column_names:
             try:
                 column = getattr(self.table_model, column_name)
                 selected_columns.append(column)
             except AttributeError:
                 pass  # Ignore non-existent columns
-        selected_properties_clause = load_only(*selected_columns)
 
-        return selected_properties_clause
+        if not skip_geometry:
+            geom_col = getattr(self.table_model, self.geom)
+            selected_columns.append(func.ST_SnapToGrid(geom_col, 0.0001).label(self.geom))
+
+        return selected_columns

@@ -62,10 +62,10 @@ services:
         max-file: "3"
 
   pygeoapi:
-    # image: geopython/pygeoapi:0.23.2
-    build: 
-      context: ./pygeoapi
-      dockerfile: Dockerfile
+    image: geopython/pygeoapi:0.22.0
+    # build: 
+    #   context: ./pygeoapi
+    #   dockerfile: Dockerfile
     container_name: pygeoapi
     expose:
       - "80"

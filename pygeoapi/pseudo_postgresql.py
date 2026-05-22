@@ -40,7 +40,7 @@ class PseudoPostgreSQLProvider(PostgreSQLProvider):
         bbox_filter = self._get_bbox_filter(bbox)
         time_filter = self._get_datetime_filter(datetime_)
         order_by_clauses = self._get_order_by_clauses(sortby, self.table_model)
-        selected_properties = self._select_properties_clause(select_properties, skip_geometry)
+        selected_properties = self._select_properties_clause_simplify_geometry(select_properties, skip_geometry)
         LOGGER.info(f"[PERF] Filter construction took {time.perf_counter() - t_filter_start:.4f}s")
 
         with Session(self._engine) as session:
@@ -186,3 +186,32 @@ class PseudoPostgreSQLProvider(PostgreSQLProvider):
 
         LOGGER.info(f"[PERF] ---> TOTAL get() execution time: {time.perf_counter() - t_start:.4f}s\n")
         return feature
+
+    def _select_properties_clause_simplify_geometry(self, select_properties, skip_geometry):
+        # List the column names that we want
+        if select_properties:
+            column_names = sorted(set(select_properties),
+                                  key=select_properties.index)
+        else:
+            # get_fields() doesn't include geometry column
+            column_names = self.fields.keys()
+
+        if self.properties:  # optional subset of properties defined in config
+            properties_from_config = self.properties
+            column_names = column_names and properties_from_config
+
+        if not skip_geometry:
+            column_names = list(column_names)
+            column_names.append('ST_SnapToGrid(' + self.geom + ', 0.0001) AS ' + self.geom)
+
+        # Convert names to SQL Alchemy clause
+        selected_columns = []
+        for column_name in column_names:
+            try:
+                column = getattr(self.table_model, column_name)
+                selected_columns.append(column)
+            except AttributeError:
+                pass  # Ignore non-existent columns
+        selected_properties_clause = load_only(*selected_columns)
+
+        return selected_properties_clause

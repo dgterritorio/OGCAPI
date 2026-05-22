@@ -1,4 +1,4 @@
-FROM geopython/pygeoapi:0.22.0
+FROM geopython/pygeoapi:0.23.2
 
 # Setup Venv (PEP 668 compliance)
 RUN python3 -m venv --system-site-packages /opt/venv

@@ -62,7 +62,7 @@ services:
         max-file: "3"
 
   pygeoapi:
-    image: geopython/pygeoapi:0.23.2
+    image: geopython/pygeoapi:latest
     container_name: pygeoapi
     expose:
       - "80"

@@ -1555,7 +1555,7 @@ resources:
         name: png
         mimetype: image/png
       options:
-        layer: Ortos2010-IRG
+        layer: Ortos2010-FalsaCor
         style: default
         version: 1.3.0
   ortos2004-2006-rgb:

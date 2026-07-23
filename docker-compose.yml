@@ -247,9 +247,9 @@ services:
         max-file: "3"
 
   ghc_runner:
-    image: geopython/geohealthcheck:latest
+    image: geopython/geohealthcheck:0.9.0
     container_name: ghc_runner
-    restart: on-failure
+    restart: on-failurerunner
     entrypoint:
       - /run-runner.sh
     env_file:

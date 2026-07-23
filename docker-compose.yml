@@ -249,7 +249,7 @@ services:
   ghc_runner:
     image: geopython/geohealthcheck:0.9.0
     container_name: ghc_runner
-    restart: on-failurerunner
+    restart: on-failure
     entrypoint:
       - /run-runner.sh
     env_file:

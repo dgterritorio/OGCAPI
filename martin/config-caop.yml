@@ -420,7 +420,7 @@ postgres:
         id: int4
         taa: varchar
     cont_areas_administrativas:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_areas_administrativas
       srid: 3763
       geometry_column: geometria
@@ -554,7 +554,7 @@ postgres:
         tipo_area_administrativa_id: varchar
         utilizador: varchar
     cont_distritos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_distritos
       srid: 3763
       geometry_column: geometria
@@ -632,7 +632,7 @@ postgres:
         nuts1_cod: text
         perimetro_km: int4
     cont_freguesias:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_freguesias
       srid: 3763
       geometry_column: geometria
@@ -722,7 +722,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     cont_municipios:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_municipios
       srid: 3763
       geometry_column: geometria
@@ -808,7 +808,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     cont_nuts1:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_nuts1
       srid: 3763
       geometry_column: geometria
@@ -880,7 +880,7 @@ postgres:
         nuts1: varchar
         perimetro_km: int4
     cont_nuts2:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_nuts2
       srid: 3763
       geometry_column: geometria
@@ -956,7 +956,7 @@ postgres:
         nuts2: varchar
         perimetro_km: int4
     cont_nuts3:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_nuts3
       srid: 3763
       geometry_column: geometria
@@ -1039,7 +1039,7 @@ postgres:
         nuts3: varchar
         perimetro_km: int4
     cont_poligonos_temp:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_poligonos_temp
       srid: 3763
       geometry_column: geometria
@@ -1162,7 +1162,7 @@ postgres:
         mol: varchar
         troco_id: int4
     cont_trocos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: cont_trocos
       srid: 3763
       geometry_column: geometria
@@ -1890,7 +1890,7 @@ postgres:
         ilha: varchar
         taa: varchar
     raa_cen_ori_areas_administrativas:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_areas_administrativas
       srid: 5015
       geometry_column: geometria
@@ -2019,7 +2019,7 @@ postgres:
         tipo_area_administrativa_id: varchar
         utilizador: varchar
     raa_cen_ori_distritos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_distritos
       srid: 5015
       geometry_column: geometria
@@ -2097,7 +2097,7 @@ postgres:
         nuts1_cod: text
         perimetro_km: int4
     raa_cen_ori_freguesias:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_freguesias
       srid: 5015
       geometry_column: geometria
@@ -2187,7 +2187,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     raa_cen_ori_municipios:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_municipios
       srid: 5015
       geometry_column: geometria
@@ -2273,7 +2273,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     raa_cen_ori_nuts1:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_nuts1
       srid: 5015
       geometry_column: geometria
@@ -2345,7 +2345,7 @@ postgres:
         nuts1: varchar
         perimetro_km: int4
     raa_cen_ori_nuts2:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_nuts2
       srid: 5015
       geometry_column: geometria
@@ -2421,7 +2421,7 @@ postgres:
         nuts2: varchar
         perimetro_km: int4
     raa_cen_ori_nuts3:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_nuts3
       srid: 5015
       geometry_column: geometria
@@ -2504,7 +2504,7 @@ postgres:
         nuts3: varchar
         perimetro_km: int4
     raa_cen_ori_poligonos_temp:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_poligonos_temp
       srid: 5015
       geometry_column: geometria
@@ -2593,7 +2593,7 @@ postgres:
         troco_parente: uuid
         utilizador: varchar
     raa_cen_ori_trocos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_cen_ori_trocos
       srid: 5015
       geometry_column: geometria
@@ -2713,7 +2713,7 @@ postgres:
         ilha: varchar
         taa: varchar
     raa_oci_areas_administrativas:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_areas_administrativas
       srid: 5014
       geometry_column: geometria
@@ -2847,7 +2847,7 @@ postgres:
         tipo_area_administrativa_id: varchar
         utilizador: varchar
     raa_oci_distritos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_distritos
       srid: 5014
       geometry_column: geometria
@@ -2925,7 +2925,7 @@ postgres:
         nuts1_cod: text
         perimetro_km: int4
     raa_oci_freguesias:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_freguesias
       srid: 5014
       geometry_column: geometria
@@ -3015,7 +3015,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     raa_oci_municipios:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_municipios
       srid: 5014
       geometry_column: geometria
@@ -3101,7 +3101,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     raa_oci_nuts1:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_nuts1
       srid: 5014
       geometry_column: geometria
@@ -3173,7 +3173,7 @@ postgres:
         nuts1: varchar
         perimetro_km: int4
     raa_oci_nuts2:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_nuts2
       srid: 5014
       geometry_column: geometria
@@ -3249,7 +3249,7 @@ postgres:
         nuts2: varchar
         perimetro_km: int4
     raa_oci_nuts3:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_nuts3
       srid: 5014
       geometry_column: geometria
@@ -3332,7 +3332,7 @@ postgres:
         nuts3: varchar
         perimetro_km: int4
     raa_oci_poligonos_temp:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_poligonos_temp
       srid: 5014
       geometry_column: geometria
@@ -3421,7 +3421,7 @@ postgres:
         troco_parente: uuid
         utilizador: varchar
     raa_oci_trocos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: raa_oci_trocos
       srid: 5014
       geometry_column: geometria
@@ -3581,7 +3581,7 @@ postgres:
         ilha: varchar
         taa: varchar
     ram_areas_administrativas:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_areas_administrativas
       srid: 5016
       geometry_column: geometria
@@ -3710,7 +3710,7 @@ postgres:
         tipo_area_administrativa_id: varchar
         utilizador: varchar
     ram_distritos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_distritos
       srid: 5016
       geometry_column: geometria
@@ -3788,7 +3788,7 @@ postgres:
         nuts1_cod: text
         perimetro_km: int4
     ram_freguesias:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_freguesias
       srid: 5016
       geometry_column: geometria
@@ -3878,7 +3878,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     ram_municipios:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_municipios
       srid: 5016
       geometry_column: geometria
@@ -3964,7 +3964,7 @@ postgres:
         nuts3_cod: varchar
         perimetro_km: int4
     ram_nuts1:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_nuts1
       srid: 5016
       geometry_column: geometria
@@ -4036,7 +4036,7 @@ postgres:
         nuts1: varchar
         perimetro_km: int4
     ram_nuts2:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_nuts2
       srid: 5016
       geometry_column: geometria
@@ -4112,7 +4112,7 @@ postgres:
         nuts2: varchar
         perimetro_km: int4
     ram_nuts3:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_nuts3
       srid: 5016
       geometry_column: geometria
@@ -4195,7 +4195,7 @@ postgres:
         nuts3: varchar
         perimetro_km: int4
     ram_poligonos_temp:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_poligonos_temp
       srid: 5016
       geometry_column: geometria
@@ -4284,7 +4284,7 @@ postgres:
         troco_parente: uuid
         utilizador: varchar
     ram_trocos:
-      schema: CAOP2024.1
+      schema: CAOP2025
       table: ram_trocos
       srid: 5016
       geometry_column: geometria

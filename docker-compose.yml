@@ -128,24 +128,24 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  tiles-inspire:
-    image: ghcr.io/maplibre/martin:1.10.1
-    restart: always
-    environment:
-      - DATABASE_URL=${REMOTE_INSPIRE_URL}
-      - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 50 --webui disable --default-srid 4326 --save-config /tmp/config.yml
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    networks:
-      - default
-    healthcheck:
-      test: ["NONE"]
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+  # tiles-inspire:
+  #   image: ghcr.io/maplibre/martin:1.10.1
+  #   restart: always
+  #   environment:
+  #     - DATABASE_URL=${REMOTE_INSPIRE_URL}
+  #     - WATCH_MODE=true
+  #   command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 50 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   networks:
+  #     - default
+  #   healthcheck:
+  #     test: ["NONE"]
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"
 
   tiles-scalargis:
     image: ghcr.io/maplibre/martin:1.10.1

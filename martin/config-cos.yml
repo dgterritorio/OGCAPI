@@ -1,0 +1,80 @@
+cache:
+  size_mb: 2048
+keep_alive: 200
+web_ui: disable
+postgres:
+  connection_string: postgresql://admin:TllH0wFk8!hAt@192.168.2.40:5432/geodb
+  default_srid: 4326
+  auto_bounds: calc
+  pool_size: 20
+  auto_publish: true
+  tables:
+    cos2018v3:
+      buffer: 128
+      clip_geom: false
+      schema: public
+      table: cos2018v3
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.517029080454028
+      - 36.96171046617659
+      - -6.189159307482959
+      - 42.154311127409436
+      geometry_type: POLYGON
+      properties:
+        COS18_n4_C: text
+        COS18_n4_L: text
+        Municipio: text
+        NUTSII: text
+        NUTSIII: text
+        objectid: int8
+    cos2018v4:
+      buffer: 128
+      clip_geom: false
+      schema: public
+      table: cos2018v4
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: MULTIPOLYGON
+      properties:
+        Area_ha: float8
+        ID: int4
+        cos18v4_n1_c: text
+        cos18v4_n1_l: text
+        cos18v4_n2_c: text
+        cos18v4_n2_l: text
+        cos18v4_n3_c: text
+        cos18v4_n3_l: text
+        cos18v4_n4_c: text
+        cos18v4_n4_l: text
+        objectid: int8
+    cos2025v1:
+      schema: public
+      table: cos2025v1
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: MULTIPOLYGON
+      properties:
+        Area_ha: float8
+        ID: int4
+        cos25v1_n1_c: text
+        cos25v1_n1_l: text
+        cos25v1_n2_c: text
+        cos25v1_n2_l: text
+        cos25v1_n3_c: text
+        cos25v1_n3_l: text
+        cos25v1_n4_c: text
+        cos25v1_n4_l: text
+        objectid: int8
+  functions: {}

@@ -78,7 +78,7 @@ services:
     links:
       - tiles
       - tiles-caop
-      - tiles-inspire
+      # - tiles-inspire
       - tiles-scalargis
     networks:
       - default

@@ -1,5 +1,5 @@
 cache:
-  size_mb: 1048
+  size_mb: 512
   expiry: 23h
 keep_alive: 200
 web_ui: disable

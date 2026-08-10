@@ -89,7 +89,7 @@ services:
         max-file: "3"
 
   tiles:
-    image: ghcr.io/maplibre/martin:1.10.1
+    image: ghcr.io/maplibre/martin:1.13.0
     restart: always
     env_file:
       - .env     # path to your .env file

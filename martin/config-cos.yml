@@ -8,7 +8,6 @@ pool_size: 20
 reload_interval: 23h
 web_ui: disable
 postgres:
-#  connection_string: postgresql://$REMOTE_COS_USER:$REMOTE_COS_PASSWORD@192.168.2.40:5432/geodb
   default_srid: 4326
   auto_bounds: calc
   pool_size: 5

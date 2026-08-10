@@ -1,10 +1,9 @@
 cache:
-  size_mb: 2048
+  size_mb: 1048
   expiry: 23h
 keep_alive: 200
 web_ui: disable
 postgres:
-  max_feature_count: 500
   pool_size: 20
   reload_interval: 23h
   connection_string: postgresql://${REMOTE_COS_USER}:${REMOTE_COS_PASSWORD}@192.168.2.40:5432/geodb

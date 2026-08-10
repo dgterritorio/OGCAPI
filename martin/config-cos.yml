@@ -1,6 +1,11 @@
 cache:
   size_mb: 2048
+  expiry: 23h
+  size: 1024
 keep_alive: 200
+max_feature_count: 500
+pool_size: 20
+reload_interval: 23h
 web_ui: disable
 postgres:
   connection_string: postgresql://$REMOTE_COS_USER:$REMOTE_COS_PASSWORD@192.168.2.40:5432/geodb
@@ -9,6 +14,29 @@ postgres:
   pool_size: 5
   auto_publish: true
   tables:
+    cadastralparcel:
+      schema: public
+      table: cadastralparcel
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.499050804036969
+      - 36.99350227610016
+      - -6.419221510790907
+      - 41.46712859139252
+      geometry_type: MULTIPOLYGON
+      properties:
+        administrativeunit: text
+        areavalue: float8
+        beginlifespanversion: timestamptz
+        endlifespanversion: timestamp
+        id: int4
+        inspireid: text
+        label: text
+        nationalcadastralreference: text
+        objectid: int8
+        validfrom: timestamp
+        validto: timestamp
     cos2018v3:
       buffer: 128
       clip_geom: false

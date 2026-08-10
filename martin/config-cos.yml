@@ -104,6 +104,6 @@ postgres:
         cos25v1_n4_c: text
         cos25v1_n4_l: text
         objectid: int8
-  functions: {}
+  functions:
       from_schemas:
         - public

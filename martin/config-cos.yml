@@ -1,7 +1,6 @@
 cache:
   size_mb: 2048
   expiry: 23h
-  size_mb: 1024
 keep_alive: 200
 web_ui: disable
 postgres:

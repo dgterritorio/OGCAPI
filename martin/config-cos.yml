@@ -12,6 +12,9 @@ postgres:
   auto_publish:
     from_schemas:
       - public
+    functions:
+      from_schemas:
+        - public
   tables:
     cadastralparcel:
       schema: public
@@ -104,6 +107,4 @@ postgres:
         cos25v1_n4_c: text
         cos25v1_n4_l: text
         objectid: int8
-functions:
-  from_schemas:
-    - public
+  functions: {}

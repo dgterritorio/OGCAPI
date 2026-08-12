@@ -236,7 +236,7 @@ resources:
         search_path:
         - public
       geom_field: geometry
-      id_field: id
+      id_field: nationalcadastralreference
       name: PostgreSQL
       storage_crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
       table: cadastralparcel

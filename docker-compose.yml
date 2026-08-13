@@ -93,13 +93,13 @@ services:
     restart: always
     env_file:
       - .env     # path to your .env file
-    environment:
-      - DATABASE_URL=${REMOTE_COS_URL}
-      - WATCH_MODE=true
-    # command: --config /config/config.yaml
-    command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
-    # volumes:
-    #   - ./martin/config-cos.yml:/config/config.yaml
+    # environment:
+    #   - DATABASE_URL=${REMOTE_COS_URL}
+    #   - WATCH_MODE=true
+    command: --config /config/config.yaml
+    # command: --auto-bounds calc --cache-size 2048 --keep-alive 200 --pool-size 20 --webui disable --default-srid 4326 --save-config /tmp/config.yml
+    volumes:
+      - ./martin/config-cos.yml:/config/config.yaml
     networks:
       - default
     healthcheck:

@@ -36,7 +36,6 @@ postgres:
         inspireid: text
         label: text
         nationalcadastralreference: text
-        objectid: int8
         validfrom: timestamp
         validto: timestamp
     cos2018v4:

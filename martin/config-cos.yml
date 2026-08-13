@@ -39,26 +39,6 @@ postgres:
         objectid: int8
         validfrom: timestamp
         validto: timestamp
-    cos2018v3:
-      buffer: 128
-      clip_geom: false
-      schema: public
-      table: cos2018v3
-      srid: 4326
-      geometry_column: geometry
-      bounds:
-      - -9.517029080454028
-      - 36.96171046617659
-      - -6.189159307482959
-      - 42.154311127409436
-      geometry_type: POLYGON
-      properties:
-        COS18_n4_C: text
-        COS18_n4_L: text
-        Municipio: text
-        NUTSII: text
-        NUTSIII: text
-        objectid: int8
     cos2018v4:
       buffer: 128
       clip_geom: false

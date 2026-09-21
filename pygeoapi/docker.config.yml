@@ -46,7 +46,9 @@ metadata:
       - OGC API
       - api
     keywords_type: theme
-    terms_of_service: https://byteroad.github.io/tds/pt/
+    terms_of_service:
+      pt: https://byteroad.github.io/tds/pt/
+      en: https://byteroad.github.io/tds/en/
     url: https://ogcapi.dgterritorio.gov.pt/
   license:
     name: CC-BY 4.0 license

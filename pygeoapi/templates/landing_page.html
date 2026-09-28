@@ -119,31 +119,28 @@
           <span>{{ config['metadata']['contact']['country'] }}</span>
         </div>
         <div>
-          <!-- <b>{% trans %}Email{% endtrans %}</b><br/>
-          <span><a href="mailto:{{ config['metadata']['contact']['email'] }}">{{ config['metadata']['contact']['email'] }}</a></span><br/> -->
           {% if config['metadata']['contact']['phone'] %}
             <b>{% trans %}Telephone{% endtrans %}</b><br/>
             <span><a href="tel:{{ config['metadata']['contact']['phone'] }}">{{ config['metadata']['contact']['phone'] }}</a></span><br/>
           {% endif %}
-          <!-- {% if config['metadata']['contact']['fax'] %}
-            <b>{% trans %}Fax{% endtrans %}</b><br/>
-            <span><a href="tel:{{ config['metadata']['contact']['fax'] }}">{{ config['metadata']['contact']['fax'] }}</a></span><br/>
-          {% endif %} -->
           {% if config['metadata']['contact']['url'] %}
             <b>{% trans %}Contact URL{% endtrans %}</b><br/>
             <span><a href="{{ config['metadata']['contact']['url'] }}">{{ config['metadata']['contact']['url'] }}</a></span><br/>
           {% endif %}
-          <!-- {% if config['metadata']['contact']['hours'] %}
-            <b>{% trans %}Hours{% endtrans %}</b><br/>
-            <span>{{ config['metadata']['contact']['hours'] }}</span><br/>
-          {% endif %}
-          {% if config['metadata']['contact']['instructions'] %}
-            <b>{% trans %}Contact instructions{% endtrans %}</b><br/>
-            <span>{{ config['metadata']['contact']['instructions'] }}</span>
-          {% endif %} -->
         </div>
       </div>
     </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+       <b>{% trans %}Workshop{% endtrans %}</b>
+      </div>
+      <div class="card-body">
+        <a href="{{ config['server']['url']/ogcapi-workshop/pt/pt/ }}">{{ config['server']['url']/ogcapi-workshop/pt/pt/ }}</a><br/>
+      </div>
+    </div>
+
+
   </div>
 </div>
 

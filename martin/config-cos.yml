@@ -88,7 +88,7 @@ postgres:
         objectid: int8
     CurvasNivel2D:
       schema: public
-      table: "CurvasNivel2D"
+      table: CurvasNivel2D
       srid: 4326
       geometry_column: geometry
       bounds:
@@ -104,7 +104,7 @@ postgres:
         objectid: int8
     Pontos3D:
       schema: public
-      table: "Pontos3D"
+      table: Pontos3D
       srid: 4326
       geometry_column: geometry
       bounds:

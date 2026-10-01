@@ -923,6 +923,39 @@ resources:
       title_field: title
     title: PoInT
     type: collection
+  snig-hvd:
+    description: OGC API que permite a descoberta e acesso a metadados catalogados como HVD – Conjuntos de Dados de Elevado Valor
+    extents:
+      spatial:
+        bbox:
+        - -9.51
+        - 36.96
+        - -6.19
+        - 42.15
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: null
+        end: null
+    keywords:
+    - Metadados
+    - Catálogo
+    - SNIG
+    - HVD
+    links:
+    - href: https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/home
+      hreflang: en-US
+      rel: canonical
+      title: data
+      type: text/csv
+    providers:
+    - type: record
+      name: CSWFacade
+      data: https://snig.dgterritorio.gov.pt/rndg/srv/eng/csw-hvd?request=GetCapabilities&service=CSW
+      id_field: identifier
+      time_field: datetime
+      title_field: title
+    title: SNIG-HVD
+    type: collection
   cosc2018:
     type: collection
     title: Carta de Ocupação do Solo Conjuntural - 2018

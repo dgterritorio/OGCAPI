@@ -131,7 +131,7 @@ postgres:
       - 36.73084522642644
       - -6.189159307482949
       - 42.154311127409436
-      geometry_type: MULTIPOLYGON
+      geometry_type: MULTIPOINT
       properties:
         gml_id: text
         beginLifes: text
@@ -149,5 +149,4 @@ postgres:
         relatedS_1: text
         relatedS_2: float8
         objectid: int8
-
   functions: {}

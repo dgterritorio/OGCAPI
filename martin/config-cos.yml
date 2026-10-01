@@ -86,4 +86,68 @@ postgres:
         cos25v1_n4_c: text
         cos25v1_n4_l: text
         objectid: int8
+    CurvasNivel2D:
+      schema: public
+      table: "CurvasNivel2D"
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: MULTILINESTRING
+      properties:
+        id_curva: int4
+        Tipo_curva: text
+        H_ortometr: int4
+        objectid: int8
+    Pontos3D:
+      schema: public
+      table: "Pontos3D"
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: POINT
+      properties:
+        id_ponto: int4
+        Data: text
+        Designacao: text
+        ModoAquisi: text
+        H_ortometr: float8
+        id_GML: int4
+        objectid: int8
+    toponimia200k:
+      schema: public
+      table: toponimia200k
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: MULTIPOLYGON
+      properties:
+        gml_id: text
+        beginLifes: text
+        localId: text
+        namespace: text
+        versionId: int8
+        Integer: int8
+        mostDetail: int8
+        language: text
+        sourceOfName: text
+        pronunciations: text
+        text: text
+        script: text
+        relatedSpatial: text
+        relatedS_1: text
+        relatedS_2: float8
+        objectid: int8
+
   functions: {}

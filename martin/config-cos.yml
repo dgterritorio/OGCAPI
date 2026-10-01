@@ -141,11 +141,11 @@ postgres:
         Integer: int8
         mostDetail: int8
         language: text
-        sourceOfName: text
-        pronunciations: text
+        sourceOfNa: text
+        pronunciat: text
         text: text
         script: text
-        relatedSpatial: text
+        relatedSpa: text
         relatedS_1: text
         relatedS_2: float8
         objectid: int8

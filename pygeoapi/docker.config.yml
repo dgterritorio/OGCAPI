@@ -365,6 +365,7 @@ resources:
         password: ${K8_COS_PASSWORD}
         search_path:
         - cos
+        - public
       options:
         sslmode: require
       geom_field: geometry

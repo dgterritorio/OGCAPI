@@ -426,8 +426,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: dtmn
       name: PostgreSQL
@@ -486,8 +486,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: dtmnfr
       name: PostgreSQL
@@ -547,8 +547,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: id
       name: PostgreSQL
@@ -607,8 +607,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
@@ -667,8 +667,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
@@ -727,8 +727,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: codigo
       name: PostgreSQL
@@ -788,8 +788,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: identificador
       name: PostgreSQL
@@ -848,8 +848,8 @@ resources:
         user: ${REMOTE_CAOP_USER}
         password: ${REMOTE_CAOP_PASSWORD}
         search_path:
-          - public
           - "CAOP2025"
+          - public
       geom_field: geometria
       id_field: dt
       name: PostgreSQL
@@ -3145,8 +3145,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: crus
           geom_field: geom
@@ -3206,8 +3206,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_ren_areal
           geom_field: geom
@@ -3267,8 +3267,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_ren_linear
           geom_field: geom
@@ -3324,8 +3324,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           options:
               connect_timeout: 10
               keepalives: 1
@@ -3388,8 +3388,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           options:
               connect_timeout: 10
               keepalives: 1
@@ -3452,8 +3452,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           options:
               connect_timeout: 10
               keepalives: 1
@@ -3520,8 +3520,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           options:
               connect_timeout: 10
               keepalives: 1
@@ -3584,8 +3584,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_areas_protegidas
           geom_field: geom
@@ -3641,8 +3641,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_arvores_areal
           geom_field: geom
@@ -3698,8 +3698,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_arvores_point
           geom_field: geom
@@ -3755,8 +3755,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_marcos_geod
           geom_field: geom
@@ -3812,8 +3812,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_aeronautica
           geom_field: geom
@@ -3869,8 +3869,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_albufeiras
           geom_field: geom
@@ -3925,8 +3925,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_aquiferos
           geom_field: geom
@@ -3981,8 +3981,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_defesa_militar
           geom_field: geom
@@ -4037,8 +4037,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_defesa_militar_zonas
           geom_field: geom
@@ -4093,8 +4093,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_zpe
           geom_field: geom
@@ -4149,8 +4149,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_zec
           geom_field: geom
@@ -4207,8 +4207,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_perigosidade_inc_rural
           geom_field: geom
@@ -4260,8 +4260,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_rede_viaria
           geom_field: geom
@@ -4313,8 +4313,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_rede_ferroviaria
           geom_field: geom
@@ -4366,8 +4366,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_rede_ferroviaria_estacoes
           geom_field: geom
@@ -4419,8 +4419,8 @@ resources:
                 user: ${REMOTE_SCALARGIS_USER}
                 password: ${REMOTE_SCALARGIS_PASSWORD}
                 search_path:
-                  - public
                   - "mapaspt"
+                  - public
           id_field: fid
           table: srup_rede_electrica
           geom_field: geom

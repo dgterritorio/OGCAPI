@@ -4623,12 +4623,7 @@ resources:
   COSc2024:
     type: collection
     title: Carta de Ocupação do Solo Conjuntural - 2024
-    description: 'Este conjunto de dados integra os Conjuntos de Dados de Elevado Valor/HVD identificados de acordo com o Regulamento de Execução n. 2023/138 
-                  da Diretiva (UE) 2019/1024, relativa aos dados abertos e à reutilização de informações do setor público..
-                  A Carta de Ocupação de Solo Conjuntural (COSc) é um produto do Sistema de Monitorização da Ocupação do Solo (SMOS), uma iniciativa inovadora, 
-                  concebida e desenvolvida pela Direção-Geral do Território, com o objetivo de produzir de forma contínua informação cartográfica sobre o uso e 
-                  ocupação do solo. O SMOS utiliza os mais recentes desenvolvimentos das tecnologias do espaço e Inteligência Artificial para criar produtos com 
-                  mais detalhe, qualidade, rapidez e disponibilizados com política de dados abertos. Todos os produtos podem ser visualizados no viSMOS.'
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
     keywords:
     - Sentinel
     - DGT
@@ -4681,12 +4676,7 @@ resources:
   COSc2025:
     type: collection
     title: Carta de Ocupação do Solo Conjuntural - 2025
-    description: 'Este conjunto de dados integra os Conjuntos de Dados de Elevado Valor/HVD identificados de acordo com o Regulamento de Execução n. 2023/138 
-                  da Diretiva (UE) 2019/1024, relativa aos dados abertos e à reutilização de informações do setor público..
-                  A Carta de Ocupação de Solo Conjuntural (COSc) é um produto do Sistema de Monitorização da Ocupação do Solo (SMOS), uma iniciativa inovadora, 
-                  concebida e desenvolvida pela Direção-Geral do Território, com o objetivo de produzir de forma contínua informação cartográfica sobre o uso e 
-                  ocupação do solo. O SMOS utiliza os mais recentes desenvolvimentos das tecnologias do espaço e Inteligência Artificial para criar produtos com 
-                  mais detalhe, qualidade, rapidez e disponibilizados com política de dados abertos. Todos os produtos podem ser visualizados no viSMOS.'
+    description: 'A COSc foi criada com o objetivo de fornecer informação complementar à Carta de Uso e Ocupação do Solo (COS), e retrata a ocupação do solo num ano específico e não o uso do solo.'
     keywords:
     - Sentinel
     - DGT
@@ -4739,11 +4729,7 @@ resources:
   Hipsometria:
     type: collection
     title: Hipsometria de Portugal Continental
-    description: 'Este conjunto de dados integra os Conjuntos de Dados de Elevado Valor/HVD identificados de acordo com o Regulamento de Execução n.º 2023/138 
-                  da Diretiva (UE) 2019/1024, relativa aos dados abertos e à reutilização de informações do setor público.
-                  Hipsometria de Portugal Continental, obtida a partir do Modelo Digital do Terreno (MDT) com espaçamento de 50 m, construído a partir da 
-                  Altimetria em formato vetorial na escala 1:50 000. Os guias de apoio à utilização de serviços WMS e WFS/ATOM podem ser acedidos na área de 
-                  dados abertos do Portal da DGT.'
+    description: 'Hipsometria de Portugal Continental'
     keywords:
     - Altimetria
     - Modelo Digital do Terreno

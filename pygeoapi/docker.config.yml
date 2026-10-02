@@ -365,6 +365,8 @@ resources:
         password: ${K8_COS_PASSWORD}
         search_path:
         - cos
+      options:
+        sslmode: require
       geom_field: geometry
       id_field: id
       name: PostgreSQL

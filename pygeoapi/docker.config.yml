@@ -358,11 +358,11 @@ resources:
       - http://www.opengis.net/def/crs/EPSG/0/4258
       - http://www.opengis.net/def/crs/EPSG/0/3763
       data:
-        dbname: ${K8_COS_DB}
-        host: ${K8_COS_HOST}
-        port: ${K8_COS_PORT}
-        user: ${K8_COS_USER}
-        password: ${K8_COS_PASSWORD}
+        dbname: ${K8_DB}
+        host: ${K8_HOST}
+        port: ${K8_PORT}
+        user: ${K8_USER}
+        password: ${K8_PASSWORD}
         search_path:
         - cos
         - public

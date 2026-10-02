@@ -38,6 +38,31 @@ postgres:
         nationalcadastralreference: text
         validfrom: timestamp
         validto: timestamp
+    cos2018v3:
+      buffer: 128
+      clip_geom: false
+      schema: public
+      table: cos2018v3
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: MULTIPOLYGON
+      properties:
+        Area_ha: float8
+        ID: int4
+        cos18v3_n1_c: text
+        cos18v3_n1_l: text
+        cos18v3_n2_c: text
+        cos18v3_n2_l: text
+        cos18v3_n3_c: text
+        cos18v3_n3_l: text
+        cos18v3_n4_c: text
+        cos18v3_n4_l: text
+        objectid: int8
     cos2018v4:
       buffer: 128
       clip_geom: false
@@ -62,6 +87,29 @@ postgres:
         cos18v4_n3_l: text
         cos18v4_n4_c: text
         cos18v4_n4_l: text
+        objectid: int8
+    cos2023v1:
+      schema: public
+      table: cos2023v1
+      srid: 4326
+      geometry_column: geometry
+      bounds:
+      - -9.792798339770734
+      - 36.73084522642644
+      - -6.189159307482949
+      - 42.154311127409436
+      geometry_type: MULTIPOLYGON
+      properties:
+        Area_ha: float8
+        ID: int4
+        cos23v1_n1_c: text
+        cos23v1_n1_l: text
+        cos23v1_n2_c: text
+        cos23v1_n2_l: text
+        cos23v1_n3_c: text
+        cos23v1_n3_l: text
+        cos23v1_n4_c: text
+        cos23v1_n4_l: text
         objectid: int8
     cos2025v1:
       schema: public

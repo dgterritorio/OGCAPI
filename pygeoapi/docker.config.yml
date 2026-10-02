@@ -374,18 +374,18 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: cos2025v1
       type: feature
-    # - data: http://tiles:3000/cos2025v1/{z}/{x}/{y}?f=mvt
-    #   format:
-    #     mimetype: application/vnd.mapbox-vector-tile
-    #     name: pbf
-    #   name: MVT-proxy
-    #   options:
-    #     schemes:
-    #     - WebMercatorQuad
-    #     zoom:
-    #       max: 15
-    #       min: 0
-    #   type: tile
+    - data: http://tiles:3000/cos2025v1/{z}/{x}/{y}?f=mvt
+      format:
+        mimetype: application/vnd.mapbox-vector-tile
+        name: pbf
+      name: MVT-proxy
+      options:
+        schemes:
+        - WebMercatorQuad
+        zoom:
+          max: 15
+          min: 0
+      type: tile
     title: COS2025v1-S2
     type: collection
   municipios:

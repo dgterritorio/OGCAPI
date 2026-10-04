@@ -322,7 +322,7 @@ resources:
     title: COS2018v3-S2
     type: collection
   cos2018v4:
-    description: Carta de Uso e Ocupação do Solo (COS) 2018 - Série 2 (nova)
+    description: Carta de Uso e Ocupação do Solo (COS) - Série 2 - (2018v4 - 2025v1)
     extents:
       spatial:
         bbox:
@@ -450,7 +450,7 @@ resources:
     title: COS2023v1-S2
     type: collection
   cos2025v1:
-    description: Carta de Uso e Ocupação do Solo (COS) 2025 - Série 2 (nova)
+    description: Carta de Uso e Ocupação do Solo (COS) - Série 2 - (2018v4 - 2025v1)
     extents:
       spatial:
         bbox:

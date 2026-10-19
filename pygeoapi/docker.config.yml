@@ -4887,7 +4887,7 @@ resources:
         user: ${K8_USER}
         password: ${K8_PASSWORD}
         search_path:
-        - cadastro
+        - scn200k
         - public
       options:
         sslmode: require
@@ -4897,7 +4897,7 @@ resources:
       storage_crs: http://www.opengis.net/def/crs/EPSG/0/3763
       table: toponimia
       type: feature
-    - data: http://tiles:3000/toponimia/{z}/{x}/{y}?f=mvt
+    - data: http://tiles-k8:3000/toponimia/{z}/{x}/{y}?f=mvt
       format:
         mimetype: application/vnd.mapbox-vector-tile
         name: pbf

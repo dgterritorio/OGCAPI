@@ -302,6 +302,8 @@ resources:
         search_path:
         - cos
         - public
+      options:
+        sslmode: require
       geom_field: geom
       id_field: ogc_fid
       name: PostgreSQL
@@ -4445,7 +4447,7 @@ resources:
                 mimetype: application/vnd.mapbox-vector-tile
   altimetria_curvas_nivel:
     type: collection
-    title: Altimetria – Curva de nível
+    title: Altimetria - Curva de nível
     description: Altimetria de Portugal Continental 1:50000 - Curvas de Nível
     extents:
       spatial:
@@ -4497,6 +4499,8 @@ resources:
         search_path:
         - altimetria
         - public
+      options:
+        sslmode: require
       geom_field: geom
       id_field: ogc_fid
       name: PostgreSQL
@@ -4517,7 +4521,7 @@ resources:
       type: tile
   altimetria_pontos:
     type: collection
-    title: Altimetria – Cota altimétrica
+    title: Altimetria - Cota altimétrica
     description: Altimetria de Portugal Continental 1:50000 - Pontos
     extents:
       spatial:
@@ -4570,6 +4574,8 @@ resources:
         search_path:
         - altimetria
         - public
+      options:
+        sslmode: require
       geom_field: geom
       id_field: ogc_fid
       name: PostgreSQL

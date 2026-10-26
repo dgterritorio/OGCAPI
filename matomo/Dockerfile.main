@@ -1,4 +1,4 @@
-FROM docker.io/matomo:5.1.2
+FROM docker.io/matomo:5.14.2
 USER root
 
 RUN apt-get update \

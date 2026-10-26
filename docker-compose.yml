@@ -113,12 +113,14 @@ services:
   tiles-caop:
     image: ghcr.io/maplibre/martin:1.13.0
     restart: always
+    env_file:
+      - .env     # path to your .env file
     environment:
       - DATABASE_URL=${REMOTE_CAOP_URL}
       - WATCH_MODE=true
-    command: --auto-bounds calc --cache-size 8092 --on-invalid warn --keep-alive 200 --pool-size 20 --webui disable --default-srid 3763 --save-config /tmp/config.yml
-#    volumes:
-#      - ./martin/config-caop.yml:/config/config.yaml
+    command: --config /config/config.yaml
+    volumes:
+      - ./martin/config-caop.yml:/config/config.yaml
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:

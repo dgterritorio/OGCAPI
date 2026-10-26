@@ -204,7 +204,7 @@ services:
       - ./apache-httpd/logs:/apache
     networks:
       - default
-    restart: always
+    restart: unless-stopped
     logging:
       driver: "json-file"
       options:

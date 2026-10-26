@@ -1,0 +1,416 @@
+cache:
+  size_mb: 8092
+  expiry: 23h
+keep_alive: 600
+web_ui: disable
+postgres:
+  connection_string: postgresql://${K8_USER}:${K8_PASSWORD}@192.168.2.62:30433/dgt?sslmode=require
+  default_srid: 3763
+  auto_bounds: calc
+  pool_size: 50
+  reload_interval: 23h
+  auto_publish:
+    from_schemas:
+      - cos
+      - caop
+      - cadastro
+    functions:
+      from_schemas:
+      - cos
+      - caop
+      - cadastro
+  tables:
+    cont_areas_administrativas:
+      schema: caop
+      table: cont_areas_administrativas
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: POLYGON
+      properties:
+        area_ha: float8
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        id: int8
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+        tipo_area_administrativa: varchar
+    cont_distritos:
+      schema: caop
+      table: cont_distritos
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        distrito: varchar
+        dt: varchar
+        n_freguesias: float8
+        n_municipios: int8
+        nuts1: varchar
+        nuts1_cod: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+    cont_freguesias:
+      schema: caop
+      table: cont_freguesias
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        designacao_simplificada: varchar
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+    cont_municipios:
+      schema: caop
+      table: cont_municipios
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        distrito_ilha: varchar
+        dtmn: varchar
+        municipio: varchar
+        n_freguesias: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        nuts3_cod: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+    cont_nuts1:
+      schema: caop
+      table: cont_nuts1
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        codigo: varchar
+        n_freguesias: float8
+        n_municipios: float8
+        nuts1: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+    cont_nuts2:
+      schema: caop
+      table: cont_nuts2
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        codigo: varchar
+        n_freguesias: float8
+        n_municipios: float8
+        nuts1: varchar
+        nuts2: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+    cont_nuts3:
+      schema: caop
+      table: cont_nuts3
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        codigo: varchar
+        id: int8
+        n_freguesias: float8
+        n_municipios: int8
+        nuts1: varchar
+        nuts2: varchar
+        nuts3: varchar
+        ogc_fid: int4
+        perimetro_km: int4
+    cont_trocos:
+      schema: caop
+      table: cont_trocos
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329738514978
+      - 36.95442849448416
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: LINESTRING
+      properties:
+        comprimento_km: float8
+        ea_direita: varchar
+        ea_esquerda: varchar
+        estado_limite_admin: varchar
+        identificador: varchar
+        nivel_limite_admin: varchar
+        ogc_fid: int4
+        paises: varchar
+        significado_linha: varchar
+    cos2018v3:
+      schema: cos
+      table: cos2018v3
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.74722738372986
+      - 36.720160629946534
+      - -6.172036613788421
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        cos18_n4_c: varchar
+        cos18_n4_l: varchar
+        id: int8
+        ogc_fid: int4
+    cos2018v3_municipios:
+      schema: cos
+      table: cos2018v3_municipios
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329744127324
+      - 36.95442849442091
+      - -6.1720366137884355
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        cos18_n4_c: varchar
+        cos18_n4_l: varchar
+        municipio: varchar
+        nutsii: varchar
+        nutsiii: varchar
+        ogc_fid: int4
+    cos2018v4:
+      schema: cos
+      table: cos2018v4
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.747227383729873
+      - 36.72016062994654
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        cos18v4_n1_c: varchar
+        cos18v4_n1_l: varchar
+        cos18v4_n2_c: varchar
+        cos18v4_n2_l: varchar
+        cos18v4_n3_c: varchar
+        cos18v4_n3_l: varchar
+        cos18v4_n4_c: varchar
+        cos18v4_n4_l: varchar
+        id: int4
+        ogc_fid: int4
+    cos2023v1:
+      schema: cos
+      table: cos2023v1
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.747227383729873
+      - 36.72016062994654
+      - -6.172036613788421
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        cos23_n4_c: varchar
+        cos23_n4_l: varchar
+        id: int8
+        ogc_fid: int4
+    cos2023v1_municipios:
+      schema: cos
+      table: cos2023v1_municipios
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.471329744127324
+      - 36.95442849442091
+      - -6.1720366137884355
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        cos23_n4_c: varchar
+        cos23_n4_l: varchar
+        municipio: varchar
+        nutsii: varchar
+        nutsiii: varchar
+        ogc_fid: int4
+    cos2025v1:
+      schema: cos
+      table: cos2025v1
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.747227383729873
+      - 36.72016062994654
+      - -6.172036613788427
+      - 42.137567479664185
+      geometry_type: MULTIPOLYGON
+      properties:
+        area_ha: float8
+        cos25v1_n1_c: varchar
+        cos25v1_n1_l: varchar
+        cos25v1_n2_c: varchar
+        cos25v1_n2_l: varchar
+        cos25v1_n3_c: varchar
+        cos25v1_n3_l: varchar
+        cos25v1_n4_c: varchar
+        cos25v1_n4_l: varchar
+        id: int4
+        ogc_fid: int4
+    curvas_nivel:
+      schema: altimetria
+      table: curvas_nivel
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.498282793182899
+      - 36.953568096927604
+      - -6.172532911356112
+      - 42.13695284754789
+      geometry_type: MULTILINESTRING
+      properties:
+        h_ortometr: int4
+        id_curva: int4
+        ogc_fid: int4
+        tipo_curva: varchar
+    parcelas:
+      schema: cadastro
+      table: parcelas
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.466345667363948
+      - 36.9888173428223
+      - -6.1838846500367906
+      - 42.1191062215887
+      geometry_type: MULTIPOLYGON
+      properties:
+        administrativeunit: varchar
+        areavalue: float8
+        beginlifespanversion: timestamptz
+        endlifespanversion: timestamptz
+        id: int4
+        inspireid: varchar
+        label: varchar
+        nationalcadastralreference: varchar
+        validfrom: timestamptz
+        validto: timestamptz
+    pontos_cotados:
+      schema: altimetria
+      table: pontos_cotados
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.485525490139583
+      - 36.96719711200392
+      - -6.1907569441205865
+      - 42.1338289772494
+      geometry_type: MULTIPOINT
+      properties:
+        data: varchar
+        designacao: varchar
+        h_ortometr: float8
+        id_gml: int4
+        id_ponto: int4
+        modoaquisi: varchar
+        ogc_fid: int4
+    pontos_freguesia:
+      schema: caop
+      table: pontos_freguesia
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.427763483505752
+      - 37.010415893397564
+      - -6.224104489067786
+      - 42.11702966736433
+      geometry_type: POINT
+      properties:
+        distrito_ilha: varchar
+        dtmnfr: varchar
+        freguesia: varchar
+        municipio: varchar
+        ogc_fid: int8
+    toponimia:
+      schema: scn200k
+      table: toponimia
+      srid: 3763
+      geometry_column: geom
+      bounds:
+      - -9.497430686145398
+      - 36.95930620034412
+      - -6.2019197407813085
+      - 42.09685884493101
+      geometry_type: MULTIPOINT
+      properties:
+        beginlifes: varchar
+        gml_id: varchar
+        integer: int8
+        language: varchar
+        localid: varchar
+        mostdetail: int8
+        namespace: varchar
+        ogc_fid: int4
+        pronunciat: varchar
+        relateds_1: varchar
+        relateds_2: int8
+        relatedspa: varchar
+        script: varchar
+        sourceofna: varchar
+        text: varchar
+        versionid: int8
+  functions: {}

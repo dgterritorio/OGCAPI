@@ -224,7 +224,7 @@ services:
         - ./matomo/state:/state
     depends_on:
       - matomo
-    restart: always
+    restart: unless-stopped
     logging:
       driver: "json-file"
       options:

@@ -1,3 +1,4 @@
+on_invalid: warn
 cache:
   size_mb: 8092
   expiry: 23h

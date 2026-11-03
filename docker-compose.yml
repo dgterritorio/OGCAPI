@@ -239,7 +239,7 @@ services:
         max-file: "3"
 
   ghc_web:
-    image: geopython/geohealthcheck:0.9.0
+    image: geopython/geohealthcheck:0.10.1
     container_name: ghc_web
     restart: on-failure
     expose:
@@ -259,7 +259,7 @@ services:
         max-file: "3"
 
   ghc_runner:
-    image: geopython/geohealthcheck:0.9.0
+    image: geopython/geohealthcheck:0.10.1
     container_name: ghc_runner
     restart: on-failure
     entrypoint:

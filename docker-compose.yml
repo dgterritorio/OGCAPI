@@ -62,7 +62,7 @@ services:
         max-file: "3"
 
   pygeoapi:
-    image: geopython/pygeoapi:446981278f86
+    image: geopython/pygeoapi@sha256:446981278f86f4bb01e38fb7a99bb490a66705929e6d98f8cea69885d7028e21
     container_name: pygeoapi
     expose:
       - "80"
